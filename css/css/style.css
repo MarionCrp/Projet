@@ -1,0 +1,14 @@
+.container {
+	margin: 15px;
+}
+
+div  .users_list * {
+	text-align: center;
+}
+
+div .user_profil_box {
+	border : solid 1px black;
+	width : auto;
+	margin: 20px;
+	padding-bottom: 20px;
+}
