@@ -58,7 +58,8 @@ class MessageManager
 		$current_user_id = $current_user->id();
 		$messages = [];
 		$q = $this->_db->query(
-			'SELECT * FROM Message User where recipient_id = '.$current_user_id.' ORDER BY id');
+			'SELECT * FROM Message User where recipient_id = '.$current_user_id.' 
+			 ORDER BY datetime');
 
 		while ($datas = $q->fetch(PDO::FETCH_ASSOC))
 		{

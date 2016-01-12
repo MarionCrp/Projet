@@ -3,32 +3,34 @@ include ('send_message_controller.php');
 
 if (isset($_SESSION['user']))
 	{
-		if(!isset($_GET['author_id']))
+		if(!isset($_GET['user_id']))
 		{
 			$messages = $message_manager->getListOfMessages($current_user);
 			foreach ($messages as $message) 
 			{	
 			?> 
+				<div class="user_profil_box">
 				<form method="get" action="">
 					<input type="hidden" value="mymessages" name="page">
 					<?php
 					echo '<h3>'.$message_manager->getAuthor($message).'</h3>';
 					echo '<p>'.$message->content().
-					'<input type="hidden" value="'.$message->author_id().'" name="author_id">';
+					'<input type="hidden" value="'.$message->author_id().'" name="user_id">';
 					?>
 					<input type="submit" class="btn btn-default navbar-btn" value="Répondre" />
 					</p>
 				</form>
+				</div>
 			<?php
 			}
 		}
 
 		else
 		{
-			$author_id = htmlspecialchars($_GET['author_id']);
-			$author_id = (int) $author_id;
+			$user_id = htmlspecialchars($_GET['user_id']);
+			$user_id = (int) $user_id;
 			$current_user_id = $current_user->id();
-			$posts = $message_manager->getDiscussion($author_id, $current_user_id);
+			$posts = $message_manager->getDiscussion($user_id, $current_user_id);
 
 			foreach ($posts as $post)
 			{
@@ -40,7 +42,7 @@ if (isset($_SESSION['user']))
 			<form method="post" action="">
 			<textarea name="content" id="content" rows="10" cols="120" /></textarea><br/>
 			<input type="hidden" name="current_user_id" value=<?= $current_user_id ?> />
-			<input type="hidden" name="recipient_id" value=<?= $author_id ?> />
+			<input type="hidden" name="recipient_id" value=<?= $user_id ?> />
 			<input type="submit" class="btn btn-default navbar-btn" value="Envoyer" />
 
 			</form>

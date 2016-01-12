@@ -4,8 +4,8 @@ if(isset($_SESSION['user']))
 {
 
 ?>
-	<h1>Bienvenue</h1>
-		<div class="container">
+	<h1 style="margin: 20px;">Bienvenue</h1>
+		<div class="container user_profil_box" style="width: 300px;">
 			<h2> Mon profil </h2>
 			<p> Nom : <?= $current_user->name() ?> </p>
 			<p> Email : <?= $current_user->email() ?> </p>
@@ -20,7 +20,7 @@ if(isset($_SESSION['user']))
 
 
 		<form action="controller/deconnexion.php" method="post">
-			<input type="submit", value="Se déconnecter" name="deconnexion">
+			<input type="submit" value="Se déconnecter" name="deconnexion" style="margin: 20px;">
 		</form>
 
 
