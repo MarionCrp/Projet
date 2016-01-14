@@ -6,6 +6,9 @@ if (isset($_SESSION['user']))
 		if(!isset($_GET['user_id']))
 		{
 			$messages = $message_manager->getListOfMessages($current_user);
+
+			if (empty($messages)) echo '<p>Vous n\'avez ni reçu, ni envoyé de message </p>';
+
 			foreach ($messages as $message) 
 			{	
 			?> 
@@ -47,7 +50,7 @@ if (isset($_SESSION['user']))
 
 			</form>
 
-			<br/><a href="index.php?page=mymessages">
+			<br/><a href="index.php?page=home&section=mymessages">
 			<button type="button" class="btn btn-default navbar-btn">Retour à la liste des messages</button></a><br/> 
 			<?php
 		}

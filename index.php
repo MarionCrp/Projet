@@ -9,112 +9,90 @@ include_once('autoload.php');
 <html>
 
 	<HEAD> 
+
+
 		<meta charset="utf-8"/>
 		<meta http-equiv="Content-type" content="text/html; charset=iso-8859-1" />
+		<link rel="stylesheet" href="assets/css/css/bootstrap.css"/>
+		<link rel="stylesheet" href="assets/css/css/bootstrap.js"/>
+		<script src="//code.jquery.com/jquery-1.12.0.min.js"></script> <!-- Pour le menu déroulant notamment -->
+		<link rel="stylesheet" href="assets/css/css/style_2.css"/>
+		<Title> Alien - Accueil </title>
 
-<!-- 		<link rel="stylesheet" href="assets/css/css/bootstrap.css"/> -->
-		<link rel="stylesheet" href="assets/css/css/style.css"/>
+		<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 
-		<Title> Moov'in City - Accueil </title>
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+
+
+
 	</HEAD>
 
 	
 	<body>
-		<div id="wrapper">
-			<div id="bloc_page">
-				<div id="header">
-					<div class ="topbar">
-						<div class ="connexion-button">
-						<?php
-						if (!isset($_SESSION['user'])) 
-						{ ?>
-							<!-- <button type="button" class="btn btn-secondary">Sign Up</button>
-							<button type="button" class="btn btn-secondary">Sign In</button>  -->
-							<form action="index.php?page=signin" method="post"><input type="submit" value="Se connecter"></form>
-							<p><form action="index.php?page=signup" method="post"><input type="submit" value="Créer un compte"></form>
-							<p> Nombre d'utilisateurs inscrits : <?= $user_manager->count(); ?> </p>
-							<?php
+    <nav class="navbar navbar-fixed-top navbar-inverse">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="index.php">Alien</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav navbar-right">
+          <?php
+         	 if (!isset($_SESSION['user'])) 
+			{ ?>
+				<li <?php if (isset($_GET['page']) AND $_GET['page'] == "signin") echo 'class="active"'; ?> 
+				><a href="index.php?page=signin">Connexion</a></li>
 
-							}?>
-						</div>
-						
-						<div class ="Flag-button">
-							<a href =Moovincity-accueil.html> <img src="assets/images/english_flag.png" alt="english" /> </a>
-							<a href =Moovincity-accueil.html> <img src="assets/images/spanish_flag.png" alt="español" /> </a>
-						</div>	
-					</div>
-					
-					<div class="logo_nom">
-						<div id="logo">
-							<img src="assets/images/logo.png" alt="Logo Moov'in City" />
-						</div>
-						
-						<H1>Moov'in City</H1>
-					</div>
-				</div>
-					
-					
-					
-				<div id="content">
+				<li <?php if (isset($_GET['page']) AND $_GET['page'] == "signup") echo 'class="active"'; ?> ><a href="index.php?page=signup">Inscription</a></li> 
+			<?php
+			}
+			else
+			{
+				?>
+				<li><a href="index.php?page=deconnexion"> Deconnexion </a></li>
+				<?php
+			}
 
-					<div id ="zone_recherche">
-					
-					</div>
-					
-					<div id ="apres">
+				
+			?>
+		   </ul>
+        </div><!-- /.nav-collapse -->
+      </div><!-- /.container -->
+    </nav><!-- /.navbar -->
+
+    <div class="container" id="wallpaper">
+
+    <?php
 
 
-					<?php
+	if(isset($_GET['page'])) 
+	{
+		$page = $_GET['page'];
+	}
 
+	else 
+	{
+		$page = 'home';
+	}
 
-						if(isset($_GET['page'])) 
-						{
-							$page = $_GET['page'];
-						}
+	include ('view/'.$page.'.php');
 
-						else 
-						{
-							$page = 'home';
-						}
-
-						include ('view/'.$page.'.php');
-
-						?>
+	?>
 									
 
-					</div>
-					
-				</div>
-			</div>	
-			
-			<div id="footer">
-				
-				<div id ="help">
-					<h1> Need some help ?</h1>
-					<div class ="element_footer"> <a href =Moovincity-accueil.html> Contact us </a> </div>
-					<div class ="element_footer"><a href =Moovincity-accueil.html> FAQ </a> </div>
-					<div class ="element_footer"><a href =Moovincity-accueil.html> Terms and Conditions </a> </div>
-					<div class ="element_footer"><a href =Moovincity-accueil.html> Legal informations </a> </div>
-					<div class ="element_footer"><a href =Moovincity-accueil.html> Site map </a> </div>
-				</div>
-					
-				<div id ="mobile">
-					<h1> Mobile</h1>
-					<div class ="element_footer"><a href =Moovincity-accueil.html> App for Iphone later ... </a> </div>
-					<div class ="element_footer"><a href =Moovincity-accueil.html> App for Android later ... </a> </div>
-					<div class ="element_footer"><a href =Moovincity-accueil.html> Mobile Site later ... </a> </div>
-				</div>
-					
-				<div id ="partnerships">
-					<h1> Working with us</h1>
-					<div class ="element_footer"><a href =Moovincity-accueil.html> Guides </a> </div>
-					<div class ="element_footer"><a href =Moovincity-accueil.html> Business propositions </a> </div>
-					<div class ="element_footer"><a href =Moovincity-accueil.html> Partnerships </a> </div>
-					<div class ="element_footer"><a href =Moovincity-accueil.html> Employment opportunities </a> </div>
-				</div>
-				
-			</div>
-		</div>
-	</body>
-	
-</html>
+     
+      <hr>
+
+      <footer>
+        <p>&copy; 2015 Company, Inc.</p>
+      </footer>
+
+    </div><!--/.container-->
