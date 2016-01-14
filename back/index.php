@@ -1,20 +1,10 @@
-<?php 
-
-include_once('autoload.php');
-
-?>
-
-
 <!DOCTYPE html>
 <html>
 
 	<HEAD> 
-		<meta charset="utf-8"/>
-		<meta http-equiv="Content-type" content="text/html; charset=iso-8859-1" />
-
-<!-- 		<link rel="stylesheet" href="assets/css/css/bootstrap.css"/> -->
-		<link rel="stylesheet" href="assets/css/css/style.css"/>
-
+		<meta charset = "utf-8" />
+		<link rel="stylesheet" href="style.css" />
+		<link rel="stylesheet" href="bootstrap/css/bootsrap.min.css" />
 		<Title> Moov'in City - Accueil </title>
 	</HEAD>
 
@@ -25,28 +15,19 @@ include_once('autoload.php');
 				<div id="header">
 					<div class ="topbar">
 						<div class ="connexion-button">
-						<?php
-						if (!isset($_SESSION['user'])) 
-						{ ?>
-							<!-- <button type="button" class="btn btn-secondary">Sign Up</button>
-							<button type="button" class="btn btn-secondary">Sign In</button>  -->
-							<form action="index.php?page=signin" method="post"><input type="submit" value="Se connecter"></form>
-							<p><form action="index.php?page=signup" method="post"><input type="submit" value="Créer un compte"></form>
-							<p> Nombre d'utilisateurs inscrits : <?= $user_manager->count(); ?> </p>
-							<?php
-
-							}?>
+							<button type="button" class="btn btn-secondary">Sign Up</button>
+							<button type="button" class="btn btn-secondary">Sign In</button>
 						</div>
 						
 						<div class ="Flag-button">
-							<a href =Moovincity-accueil.html> <img src="assets/images/english_flag.png" alt="english" /> </a>
-							<a href =Moovincity-accueil.html> <img src="assets/images/spanish_flag.png" alt="español" /> </a>
+							<a href =Moovincity-accueil.html> <img src="images/english_flag.png" alt="english" /> </a>
+							<a href =Moovincity-accueil.html> <img src="images/spanish_flag.png" alt="español" /> </a>
 						</div>	
 					</div>
 					
 					<div class="logo_nom">
 						<div id="logo">
-							<img src="assets/images/logo.png" alt="Logo Moov'in City" />
+							<img src="images/m_logo.png" alt="Logo Moov'in City" />
 						</div>
 						
 						<H1>Moov'in City</H1>
@@ -62,25 +43,27 @@ include_once('autoload.php');
 					</div>
 					
 					<div id ="apres">
-
-
-					<?php
-
-
-						if(isset($_GET['page'])) 
-						{
-							$page = $_GET['page'];
-						}
-
-						else 
-						{
-							$page = 'home';
-						}
-
-						include ('view/'.$page.'.php');
-
-						?>
-									
+						<p>
+							<H2> Ce projet est un site de rencontres multiculturelles. Son objectif est de mettre en relation : </H2>
+							<br/>
+							<li>des personnes de nationalités différentes pour permettre des échanges culturels et linguistiques.</li>
+							<li>des personnes de nationalité commune pour les expatriés ayant le mal du pays! </li>
+							<br/>
+							Nous sommes trois étudiants en DUT informartique en Année Spéciale, et nous débutons dans la programmation Web.
+							<br/>
+							Ce projet sera l'occasion pour nous d'apprendre et de mettre en pratique directement les langages appris. 
+							<br/>
+							<H2>Technologies utilisées jusque là :</H2>
+							<br/>
+							<li>HTML5/CSS3</li>
+							<li>PHP (en programmation orienté objet)</li>
+							<li>MySQL</li>
+							Le but étant de faire évoluer le code en fonction des technologies apprises à l'IUT et en autoformation (modèle MVC, framework Symfony etc.)
+							<br/>
+							<br/>
+							Marion, Kévin et Loïc<br/>
+							
+						</p>
 
 					</div>
 					
