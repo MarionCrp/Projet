@@ -1,36 +1,37 @@
-<div class="row">
- 	<div class="col-xs-6">
-  		<?php
-  		include('myprofile.php'); ?>
-  	</div>
-  
-
-<!-- 	<div class="col-md-6 users_list"> -->
-	
 	<?php
 
 		if (isset($_SESSION['user'])) 
 		{
-			$users = $user_manager->getList();
-			foreach ($users as $user) 
-			{
-				if ($user == $current_user) continue;
-				
-				?>
-<!-- 
-				<form method="get" action="">
-				<div class="user_profil_box">
-					<input type="hidden" value="mymessages" name="page">
-					<h2> <?= $user->name(); ?> </h2>
-					<p> <?= $user->description(); ?> </p>
-					<input type="hidden" value=<?= $user->id() ?> name="user_id">
-					<input type="submit" class="btn btn-default navbar-btn" value="Envoyer un message" />
-				</div>
-				</form> -->
-				
+			?>
+			<!-- Large button group -->
+			<div class="btn-group">
+			  <button class="btn btn-default btn-lg dropdown-toggle" type="button" data-toggle="dropdown"><span class="glyphicon glyphicon-align-justify"></span>
+			    Menu 
+			  </button>
+			  <ul class="dropdown-menu" role="menu">
+			   <li role="presentation"><a role="menuitem" tabindex="-1" href="index.php?page=home&section=myprofile"><span class="glyphicon glyphicon-user"></span>Mon Profil</a></li>
+			    <li role="presentation"><a role="menuitem" tabindex="-1" href="index.php?page=home&section=mymessages"><span class="glyphicon glyphicon-envelope"></span>Mes Messages</a></li>
+			    <li role="presentation"><a role="menuitem" tabindex="-1" href="index.php?page=home&section=userslist"><span class="glyphicon glyphicon-search"></span></span>Mes amis</a></li>
+			  </ul>
+			</div>
 
-				<?php
+			
+
+
+			<?php if(isset($_GET['section'])) 
+			{
+				$section = $_GET['section'];
 			}
+
+			else 
+			{
+				$section = 'userslist.php';
+			}
+
+			include ($section.'.php');
+
+	?>
+		<?php
 		} 
 
 			else  {

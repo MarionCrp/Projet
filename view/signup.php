@@ -28,7 +28,7 @@
 					<option value="female"> Femme </option>
 				</select>
 
-			Date de Naissance : 
+			<!-- Date de Naissance : 
 				<select name="day" id="day">
 				<?php $form->day() ?>
 				</select>
@@ -50,7 +50,7 @@
 
 				<select name="year" id="year">
 				<?php $form->year() ?>
-				</select><br/>
+				</select><br/> -->
 
 			<p> Présentez-vous : <br/>
 				<textarea name="description" id="description" rows="10" cols="60" /></textarea></p>
