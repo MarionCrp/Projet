@@ -3,34 +3,48 @@
 		if (isset($_SESSION['user'])) 
 		{
 			?>
-			<!-- Large button group -->
-			<div class="btn-group">
-			  <button class="btn btn-default btn-lg dropdown-toggle" type="button" data-toggle="dropdown"><span class="glyphicon glyphicon-align-justify"></span>
-			    Menu 
-			  </button>
-			  <ul class="dropdown-menu" role="menu">
-			   <li role="presentation"><a role="menuitem" tabindex="-1" href="index.php?page=home&section=myprofile"><span class="glyphicon glyphicon-user"></span>Mon Profil</a></li>
-			    <li role="presentation"><a role="menuitem" tabindex="-1" href="index.php?page=home&section=mymessages"><span class="glyphicon glyphicon-envelope"></span>Mes Messages</a></li>
-			    <li role="presentation"><a role="menuitem" tabindex="-1" href="index.php?page=home&section=userslist"><span class="glyphicon glyphicon-search"></span></span>Mes amis</a></li>
-			  </ul>
-			</div>
 
-			
+			<div class="row">
+				<div class="col-md-3"><!-- Large button group -->
+					<div class="btn-group">
+					  <button class="btn btn-default btn-lg dropdown-toggle" type="button" data-toggle="dropdown"><span class="glyphicon glyphicon-align-justify"></span>
+					    Menu 
+					  </button>
+					  <ul class="dropdown-menu" role="menu">
+					   <li role="presentation"><a role="menuitem" tabindex="-1" href="index.php?page=home&section=myprofile"><span class="glyphicon glyphicon-user"></span>Mon Profil</a></li>
+					    <li role="presentation"><a role="menuitem" tabindex="-1" href="index.php?page=home&section=mymessages"><span class="glyphicon glyphicon-envelope"></span>Mes Messages</a></li>
+					    <li role="presentation"><a role="menuitem" tabindex="-1" href="index.php?page=home&section=userslist"><span class="glyphicon glyphicon-search"></span></span>Mes amis</a></li>
+					  </ul>
+					</div>
+				</div>
 
 
-			<?php if(isset($_GET['section'])) 
+
+
+
+				  <div class="col-md-9">
+
+				  	<?php if(isset($_GET['section'])) 
 			{
 				$section = $_GET['section'];
 			}
 
 			else 
 			{
-				$section = 'userslist.php';
+				$section = 'userslist';
 			}
 
 			include ($section.'.php');
 
 	?>
+				  </div>
+			</div>
+			
+
+			
+
+
+			
 		<?php
 		} 
 

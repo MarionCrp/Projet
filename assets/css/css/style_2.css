@@ -6,13 +6,7 @@ div  .users_list * {
 	text-align: center;
 }
 
-.user_profil_box {
-	border : solid 1px black;
-	width : auto;
-	margin: 20px;
-	padding: 20px;
-	padding-bottom: 20px;
-}
+
 
 
 
@@ -46,4 +40,21 @@ footer {
   background: url(http://hdwallpapers.cat/wallpaper/cgi_city_olympics_white_ny_abstract_3d_and_hd-wallpaper-1399011.jpg) no-repeat center fixed; 
   -webkit-background-size: cover;  pour anciens Chrome et Safari 
   background-size: cover;  version standardisée 
+}
+
+
+.dropdown-menu .glyphicon {
+  padding: 20px;
+}
+
+.user_profil_box {
+  border : solid 1px black;
+  width : auto;
+  margin: 20px;
+  padding: 20px;
+  padding-bottom: 20px;
+}
+
+.description {
+  width: auto;
 }
