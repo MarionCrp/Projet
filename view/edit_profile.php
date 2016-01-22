@@ -51,6 +51,5 @@
 		</form>
 		<form action="" method="post"><input type="submit" value="Supprimer mon compte" name="delete_account"></form>
 	</div>
-		<form action="index.php" method="post"><input type="submit" value="Retourner à l'accueil"></form>
 
 </div>
