@@ -89,6 +89,14 @@ if (isset($_POST['connexion']))
 					    
 				}
 
+				// On créé les cookies si la case "auto connect" à été cochée.
+				if (!empty($_POST['auto_connect']))
+				{
+					setcookie('email', $connexion_email);
+					setcookie('password', $connexion_password);
+
+				}
+
 				/**
 				* Retour à la page d'accueil
 				**/
@@ -131,7 +139,9 @@ if (isset($_POST['connexion']))
 		$current_user = $user_manager->getDatas($_COOKIE['email']);
 
 		
-		// Si le mot de passe entré par l'utilisateur et le mot de passe de $user sont identiques
+		 Si le mot de passe entré par l'utilisateur et le mot de passe de $user sont identiques on le connecte automatique, 
+		sinon on affiche un message d'erreur 
+
 		
 		if ($current_user->password() != $_COOKIE['password'])
 		{
@@ -141,7 +151,7 @@ if (isset($_POST['connexion']))
 	}
 	else
 	{
-		header ('Location: ../home.php');
+		header ('Location: index.php');
 	}
 
 }*/

@@ -49,7 +49,7 @@
 				<textarea name="description" id="description" rows="10" cols="60" /></textarea></p>
 				<input type="submit" value="Modifier ma description" name="edit_profile"/><br/>
 		</form>
-		<form action="" method="post"><input type="submit" value="Supprimer mon compte" name="delete_account"></form>
+		<!-- <form action="" method="post"><input type="submit" value="Supprimer mon compte" name="delete_account"></form> -->
 	</div>
 
 </div>

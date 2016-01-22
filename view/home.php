@@ -49,7 +49,6 @@
 		} 
 
 			else  {
-
 				?>
 
 				<div id ="apres">
