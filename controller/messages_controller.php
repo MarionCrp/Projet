@@ -79,9 +79,9 @@ if (isset($_SESSION['user']))
 
 			 	<form  action="" method="post" class="form-horizontal" role="form"><form method="post" action="">
 					<div class="form-group">
-				 	   <label for="description" class="col-sm-2 control-label"></label>
+				 	   <label for="message" class="col-sm-2 control-label"></label>
 					    <div class="col-sm-10">
-					      <textarea class="form-control" rows="3" placeholder="Parlez-nous de vous!" name="content"></textarea>
+					      <textarea class="form-control" rows="3" placeholder="Votre Message" name="content"></textarea>
 					    </div>
 					</div>
 				</form>
@@ -91,6 +91,9 @@ if (isset($_SESSION['user']))
 			<input type="submit" class="btn btn-default navbar-btn" value="Envoyer" />
 
 			</form>
+
+
+
 
 			<br/><a href="index.php?page=home&section=mymessages">
 			<button type="button" class="btn btn-default navbar-btn">Retour à la liste des messages</button></a><br/> 
