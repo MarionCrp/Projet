@@ -72,6 +72,41 @@ include_once('autoload.php');
     <div class ="center">
 	    <div class="container">
 
+	    	<div id ="zone_opacity"> 
+
+					<div class="row">
+						
+						
+
+							<div class="col-md-4"> 
+								 <div class="form-group">
+								    <label class="sr-only" for="exampleInputEmail2"></label>
+								    <input type="email" class="form-control" id="exampleInputEmail2" placeholder="			Please enter your city">
+								 </div>
+							</div>
+							<!-- <span class="glyphicon glyphicon-globe"></span> -->
+
+
+						<div class="col-md-4">
+							  <div class="form-group">
+							    <div class="input-group">
+							      	<div class="input-group-addon">I want to meet someone speaking</div>
+							    </div>
+							  </div>
+						</div>
+
+						<div class="col-md-4">
+							 <div class="form-group"> 
+								<select class="form-control">
+								  <option>English</option>
+								  <option>French</option>
+								  <option>Spanish</option>
+								</select>
+							 </div>
+							
+						</div>
+					</div>
+				</div> 
 	   		<?php
 
 
@@ -86,10 +121,7 @@ include_once('autoload.php');
 				}
 
 				include ('view/'.$page.'.php');
-
 			?>
-
-		 	<hr>
 		 	
 	    </div><!--/.container-->
 	</div> <!--/.center-->
@@ -102,7 +134,7 @@ include_once('autoload.php');
   
 
 
-		<div class="col-md-4"> <!-- <div id ="help"> -->
+		<div class="col-md-4">
 		<div class="footer-part text-center">
 			<h1> Need some help ?</h1>
 			<div class ="element_footer"><a href =Moovincity-accueil.html> Contact us </a> </div>
