@@ -57,9 +57,16 @@ class MessageManager
 	{
 		$current_user_id = $current_user->id();
 		$messages = [];
-		$q = $this->_db->query(
+		/*$q = $this->_db->query(
 			'SELECT * FROM Message User where recipient_id = '.$current_user_id.' 
-			 ORDER BY datetime');
+			 ORDER BY datetime');*/
+
+		$q = $this-> _db->query(
+			'SELECT id, author_id, recipient_id, DATE_FORMAT(max(datetime), \'Le %d/%m/%Y à %Hh%i\') as datetime, sent, content 
+			FROM message 
+			WHERE recipient_id = '.$current_user_id.' 
+			GROUP BY (author_id)
+			ORDER BY datetime');
 
 		while ($datas = $q->fetch(PDO::FETCH_ASSOC))
 		{
@@ -92,7 +99,7 @@ class MessageManager
 	{
 		$discussion = [];
 		$q = $this->_db->query(
-			'SELECT * FROM Message 
+			'SELECT id, author_id, recipient_id, DATE_FORMAT(datetime, \'Le %d/%m/%Y à %Hh%i\') as datetime, sent, content FROM Message 
 			where author_id in ('.$author_id.', '.$recipient_id.')
 			and recipient_id in ('.$author_id.', '.$recipient_id.') 
 			order by datetime asc');
@@ -153,6 +160,8 @@ class MessageManager
 			and message.id = '.$message_id) or die(print_r($q->errorInfo()));
 		return ($q->fetchColumn());
 	}
+
+
 
 
 	/**

@@ -11,7 +11,7 @@
 					    Menu 
 					  </button>
 					  <ul class="dropdown-menu" role="menu">
-					   <li role="presentation"><a role="menuitem" tabindex="-1" href="index.php?page=home&section=myprofile"><span class="glyphicon glyphicon-user"></span>Mon Profil</a></li>
+					    <li role="presentation"><a role="menuitem" tabindex="-1" href="index.php?page=home&section=myprofile"><span class="glyphicon glyphicon-user"></span>Mon Profil</a></li>
 					    <li role="presentation"><a role="menuitem" tabindex="-1" href="index.php?page=home&section=mymessages"><span class="glyphicon glyphicon-envelope"></span>Mes Messages</a></li>
 					    <li role="presentation"><a role="menuitem" tabindex="-1" href="index.php?page=home&section=userslist"><span class="glyphicon glyphicon-search"></span></span>Mes amis</a></li>
 					  </ul>
@@ -24,19 +24,19 @@
 
 				  <div class="col-md-9">
 
-				  	<?php if(isset($_GET['section'])) 
-			{
-				$section = $_GET['section'];
-			}
+				  <?php if(isset($_GET['section'])) 
+						{
+							$section = $_GET['section'];
+						}
 
-			else 
-			{
-				$section = 'userslist';
-			}
+						else 
+						{
+							$section = 'userslist';
+						}
 
-			include ($section.'.php');
+						include ($section.'.php');
 
-	?>
+			       ?>
 				  </div>
 			</div>
 			
@@ -49,10 +49,10 @@
 		} 
 
 			else  {
-
 				?>
 
-				<div id ="apres">
+				<!-- <div id ="apres"> -->
+				<div class="jumbotron">
 						<p>
 							<H2> Ce projet est un site de rencontres multiculturelles. Son objectif est de mettre en relation : </H2>
 							<br/>
@@ -75,14 +75,14 @@
 							
 						</p>
 
-					</div>
+				</div>
 
 					<?php
 	}
 
 	?>
-<!-- 	</div> -->
-</div>
+
+
 
 
 

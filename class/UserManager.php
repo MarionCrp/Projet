@@ -128,7 +128,6 @@ class UserManager
 		return $users;
 	}
 
-	
 
 	/**
 	* Supprime un utilisateur de la base de données
@@ -138,6 +137,7 @@ class UserManager
 	{
 		$this->_db->exec(
 			'DELETE FROM User WHERE id = '.$user->id());
+
 	}
 
 	/**

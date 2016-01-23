@@ -30,5 +30,13 @@ if(isset($_SESSION['user']))
 {	$id = $_SESSION['user']->id();
 	$current_user = $user_manager->getDatas($id);
 }
+/*
+if (!empty($_POST["auto_connect"]))
+{
+	setcookie('email', $connexion_email, time() + 120, null, null, false, true);
+    setcookie('password', $connexion_password, time() + 120, null, null, false, true);
+}*/
+
+
 
 ?>
