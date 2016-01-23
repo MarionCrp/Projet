@@ -1,9 +1,17 @@
-<?php include('controller/edit_profile_controller.php') ;
+
+
+
+	  	<div class="panel panel-default">
+		 	<div class="panel-heading">
+		   		 <h3 class="panel-title">Modifier votre compte</h3>
+		  	</div>
+		  
+		 	<div class="panel-body">
+
+
+	<?php include('controller/edit_profile_controller.php') ;
 
  ?>
-
-<div class="container">
-	<h1>Modifier mon profil </h1>
 	<div class="container">	
 		<form action="" method="post">
 			Nom : 
@@ -50,6 +58,8 @@
 				<input type="submit" value="Modifier ma description" name="edit_profile"/><br/>
 		</form>
 		<!-- <form action="" method="post"><input type="submit" value="Supprimer mon compte" name="delete_account"></form> -->
-	</div>
-
-</div>
+		 	</div><!-- Form-Panel-Body -->
+		</div><!-- panel panel-default -->
+	</div> <!-- col-md-6 -->
+	<div class="col-md-3"></div>
+</div> <!-- row -->

@@ -4,7 +4,6 @@
 * Controleur relatif à la requête de déconnexion
 ********************************************/
 
-session_start();
 
 $_SESSION = array();
 unset($current_user);

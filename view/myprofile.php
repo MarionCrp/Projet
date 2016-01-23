@@ -16,7 +16,8 @@ if(isset($_SESSION['user']))
 		  </div>
 		 </div>
 
- <form action="index.php?page=home&section=edit_profile" method="post"><input type="submit" value="Modifier mon profil"></form>
+
+ <form action="index.php?page=home&section=edit_profile" method="post"> <button type="submit" class="btn btn-default" name="connexion">Modifier mon Profil</button></form>
 
 		
 	<?php
