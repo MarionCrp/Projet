@@ -91,8 +91,8 @@ include_once('autoload.php');
      
       <hr>
       
-      <footer>
+     <!--  <footer>
         <p>&copy; 2015 Company, Inc.</p>
       </footer>
-
+ -->
     </div><!--/.container-->
