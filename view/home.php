@@ -51,7 +51,11 @@
 			else  {
 				?>
 
-				<!-- <div id ="apres"> -->
+
+				<div id ="zone_opacity"> 
+					test
+				</div>
+
 				<div class="jumbotron">
 						<p>
 							<H2> Ce projet est un site de rencontres multiculturelles. Son objectif est de mettre en relation : </H2>
@@ -72,6 +76,8 @@
 							<br/>
 							<br/>
 							Marion, Kévin et Loïc<br/>
+
+
 							
 						</p>
 

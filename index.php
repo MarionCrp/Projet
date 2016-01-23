@@ -43,7 +43,7 @@ include_once('autoload.php');
           </button>
           <a class="navbar-brand" href="index.php">Alien</a>
         </div>
-        <div id="navbar" class="collapse navbar-collapse">
+        <div id="navbar" class="collapse navbar-collapse"> 
           <ul class="nav navbar-nav navbar-right">
           <?php
          	 if (!isset($_SESSION['user'])) 
@@ -68,31 +68,70 @@ include_once('autoload.php');
       </div><!-- /.container -->
     </nav><!-- /.navbar -->
 
-    <div class="container" id="wallpaper">
+    <div class ="center">
+	    <div class="container">
 
-    <?php
+	   		<?php
 
 
-	if(isset($_GET['page'])) 
-	{
-		$page = $_GET['page'];
-	}
+				if(isset($_GET['page'])) 
+				{
+					$page = $_GET['page'];
+				}
 
-	else 
-	{
-		$page = 'home';
-	}
+				else 
+				{
+					$page = 'home';
+				}
 
-	include ('view/'.$page.'.php');
+				include ('view/'.$page.'.php');
 
-	?>
-									
+			?>
 
-     
-      <hr>
+		 	<hr>
+		 	
+	    </div><!--/.container-->
+	</div> <!--/.center-->
 
-      <footer>
-        <p>&copy; 2015 Company, Inc.</p>
-      </footer>
+</body>
+		 
+<footer class="footer">
 
-    </div><!--/.container-->
+	<div class="row">
+  
+
+
+		<div class="col-md-4"> <!-- <div id ="help"> -->
+		<div class="footer-part text-center">
+			<h1> Need some help ?</h1>
+			<div class ="element_footer"><a href =Moovincity-accueil.html> Contact us </a> </div>
+			<div class ="element_footer"><a href =Moovincity-accueil.html> FAQ </a> </div>
+			<div class ="element_footer"><a href =Moovincity-accueil.html> Terms and Conditions </a> </div>
+			<div class ="element_footer"><a href =Moovincity-accueil.html> Legal informations </a> </div>
+			<div class ="element_footer"><a href =Moovincity-accueil.html> Site map </a> </div>
+			</div>
+		</div>
+			
+		<div class="col-md-4">
+			<div class="footer-part text-center">
+				<h1> Mobile</h1>
+				<div class ="element_footer"><a href =Moovincity-accueil.html> App for Iphone later ... </a> </div>
+				<div class ="element_footer"><a href =Moovincity-accueil.html> App for Android later ... </a> </div>
+				<div class ="element_footer"><a href =Moovincity-accueil.html> Mobile Site later ... </a> </div>
+			</div>
+		</div>
+			
+		<div class="col-md-4">
+		<div class="footer-part text-center">
+			<h1> Working with us</h1>
+			<div class ="element_footer"><a href =Moovincity-accueil.html> Guides </a> </div>
+			<div class ="element_footer"><a href =Moovincity-accueil.html> Business propositions </a> </div>
+			<div class ="element_footer"><a href =Moovincity-accueil.html> Partnerships </a> </div>
+			<div class ="element_footer"><a href =Moovincity-accueil.html> Employment opportunities </a> </div>
+			</div>
+		</div>
+	</div>
+
+</footer> 
+
+</html>
