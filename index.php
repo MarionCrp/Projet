@@ -87,14 +87,6 @@ include_once('autoload.php');
 
 				include ('view/'.$page.'.php');
 
-
-	?>
-									
-
-     
-      <hr>
-
-    </div><!--/.container-->
 			?>
 
 		 	<hr>
@@ -144,3 +136,4 @@ include_once('autoload.php');
 </footer> 
 
 </html>
+
