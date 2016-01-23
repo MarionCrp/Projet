@@ -70,7 +70,21 @@ if (isset($_SESSION['user']))
 			} 
 			?>
 
-			<form method="post" action="">
+	  	<div class="panel panel-default">
+		 	<div class="panel-heading">
+		   		 <h3 class="panel-title">Envoyer un message</h3>
+		  	</div>
+		  
+		 	<div class="panel-body">
+
+			 	<form  action="" method="post" class="form-horizontal" role="form"><form method="post" action="">
+					<div class="form-group">
+				 	   <label for="description" class="col-sm-2 control-label"></label>
+					    <div class="col-sm-10">
+					      <textarea class="form-control" rows="3" placeholder="Parlez-nous de vous!" name="content"></textarea>
+					    </div>
+					</div>
+				</form>
 			<textarea name="content" id="content" rows="10" cols="120" /></textarea><br/>
 			<input type="hidden" name="current_user_id" value=<?= $current_user_id ?> />
 			<input type="hidden" name="recipient_id" value=<?= $user_id ?> />
