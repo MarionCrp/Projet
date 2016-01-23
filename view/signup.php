@@ -9,24 +9,85 @@
 
 <body>	
 
-	<h1> Créer un compte utilisateur </h1>
-	<form action="" method="post">
-		<p>
-			<p> * mention obligatoire </p>
+	<div class="row">
+	  <div class="col-md-3"></div>
+	  <div class="col-md-6">
 
-			Nom * : 
-				<input type ="text" name="name" maxlength="50"/><br/>
-			Email * : 
-				<input type="text" name="email" maxlength="50"/><br/>
-			Mot de passe * : 
-				<input type="password" name="password" maxlength="50"/><br/>
-			Confirmer le mot de passe * : 
-				<input type="password" name="confirmed_pw" maxlength="50"/><br/>
-			Sexe * : 
-				<select name="gender" id="gender">
-					<option value="male"> Homme </option>
-					<option value="female"> Femme </option>
-				</select>
+	  	<div class="panel panel-default">
+		 	<div class="panel-heading">
+		   		 <h3 class="panel-title">Créer un compte utilisateur</h3>
+		  	</div>
+		  
+		 	<div class="panel-body">
+		 		<p> * Mention Obligatoire </p>
+
+			 	<form  action="" method="post" class="form-horizontal" role="form">
+					  <div class="form-group">
+						<label for="name" class="col-sm-2 control-label">Pseudo *</label>
+						    <div class="col-sm-10">
+						      <input type="text" class="form-control" name="name" placeholder="Pseudo">
+						    </div>
+					  </div>
+
+					  <div class="form-group">
+						<label for="email" class="col-sm-2 control-label">Email *</label>
+						    <div class="col-sm-10">
+						      <input type="text" class="form-control" name="email" placeholder="Email">
+						    </div>
+					  </div>
+
+					  <div class="form-group">
+					    <label for="password" class="col-sm-2 control-label">Mot de Passe *</label>
+						    <div class="col-sm-10">
+						      <input type="password" class="form-control" name="password" placeholder="Password">
+						    </div>
+					  </div>
+
+					  <div class="form-group">
+					    <label for="confirmed_pw" class="col-sm-2 control-label"> * </label>
+						    <div class="col-sm-10">
+						      <input type="password" class="form-control" name="confirmed_pw" placeholder="Confirmer le Mot de Passe">
+						    </div>
+					  </div>
+
+					  <div class="form-group">
+					  	<label for="gender" class="col-sm-2 control-label"> Sexe *</label>
+					  		<div class="col-sm-10">
+							  <select class="form-control" name="gender" id="gender">
+								  <option value="male">Homme</option>
+								  <option value="female">Femme</option>
+							  </select>
+							</div>
+					</div>
+
+					 <div class="form-group">
+					 	   <label for="description" class="col-sm-2 control-label">Présentation</label>
+						    <div class="col-sm-10">
+						      <textarea class="form-control" rows="3" placeholder="Parlez-nous de vous!" name="description"></textarea>
+						    </div>
+					  </div>
+
+					  
+
+					   <div class="form-group">
+						    <div class="col-sm-offset-2 col-sm-10">
+						      <input class="btn btn-default" type="submit" value="Créer mon compte" name="create_account"/>
+						     	<!-- <button class="btn btn-default" name="create_account">S'inscrire</button> -->
+						     </div>
+		 			   </div>
+				</form>
+
+					<hr/>
+
+					<form action="index.php" method="post">
+					<button type="submit" class="btn btn-default">Retour à l'accueil</button>
+					</form>
+		 	</div><!-- Form-Panel-Body -->
+		</div><!-- panel panel-default -->
+	</div> <!-- col-md-6 -->
+	<div class="col-md-3"></div>
+</div> <!-- row -->
+
 
 			<!-- Date de Naissance : 
 				<select name="day" id="day">
@@ -51,12 +112,3 @@
 				<select name="year" id="year">
 				<?php $form->year() ?>
 				</select><br/> -->
-
-			<p> Présentez-vous : <br/>
-				<textarea name="description" id="description" rows="10" cols="60" /></textarea></p>
-
-			<input type="submit" value="Créer un compte" name="create_account"/>
-		</p>
-	</form>
-
-	<form action="index.php" method="post"><input type="submit" value="Retour à l'accueil"></form>

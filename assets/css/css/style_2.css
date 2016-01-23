@@ -22,7 +22,6 @@ body {
 	  padding:0;
     padding-top: 65px; 
     margin:0;
-/*
   background: url(fond_accueil.jpg) no-repeat center fixed; 
   -webkit-background-size: cover;  pour anciens Chrome et Safari 
   background-size: cover;  version standardisée */
@@ -33,14 +32,6 @@ footer {
 	background-color: 222222;
 }
 
-
-.jumbotron { 
-  margin:0;
-  padding:0;
-  background: url(http://hdwallpapers.cat/wallpaper/cgi_city_olympics_white_ny_abstract_3d_and_hd-wallpaper-1399011.jpg) no-repeat center fixed; 
-  -webkit-background-size: cover;  pour anciens Chrome et Safari 
-  background-size: cover;  version standardisée 
-}
 
 
 .dropdown-menu .glyphicon {

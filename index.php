@@ -68,7 +68,7 @@ include_once('autoload.php');
       </div><!-- /.container -->
     </nav><!-- /.navbar -->
 
-    <div class="container" id="wallpaper">
+    <div class="container">
 
     <?php
 
@@ -90,7 +90,7 @@ include_once('autoload.php');
 
      
       <hr>
-
+      
       <footer>
         <p>&copy; 2015 Company, Inc.</p>
       </footer>
