@@ -17,10 +17,12 @@ if(isset($_SESSION['user']))
 		 </div>
 
 
- <form action="index.php?page=home&section=edit_profile" method="post"> <button type="submit" class="btn btn-default" name="connexion">Modifier mon Profil</button></form>
+ <form action="index.php?page=home&section=edit_profile" method="post"> 
+ 	<button type="submit" class="btn btn-default" name="connexion">Modifier mon Profil</button>
+ </form>
 
 		
 	<?php
-	}
+}
 ?>
 
