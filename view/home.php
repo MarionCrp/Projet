@@ -52,9 +52,7 @@
 				?>
 
 
-				<div id ="zone_opacity"> 
-					test
-				</div>
+
 
 				<div class="jumbotron">
 						<p>
@@ -77,8 +75,6 @@
 							<br/>
 							Marion, Kévin et Loïc<br/>
 
-
-							
 						</p>
 
 				</div>
