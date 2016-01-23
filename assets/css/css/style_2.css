@@ -32,7 +32,7 @@ body {
   width : 100%;
   margin:0;
   padding:0;
-  background: url("fond_accueil.jpg") no-repeat center; 
+  background: url("fond_accueil.png") no-repeat center; 
   background-attachment: fixed;
   -webkit-background-size: cover; 
   background-size: 100% 100%; 
@@ -42,13 +42,24 @@ body {
 #zone_opacity{
   width: 100%;
   min-height: 100px;
-  background-color:grey;
+  background-color:gray;
   color:white;
   opacity:0.8;
   margin-bottom: 30px;
   margin-top: 30px;
+  padding-top: 30px;
+  padding-left: 30px;
+  padding-right: 30px;
 }
 
+#zone_opacity .input-group-addon{
+  background-color: orange;
+  color: white;
+}
+
+#zone_opacity p{
+  border : 3px white solid;
+}
 
 .dropdown-menu .glyphicon {
   padding: 20px;
@@ -69,7 +80,7 @@ body {
 
 .footer
 {
-  height: 200px;
+  height: 14%;
   width : 100%;
   background-color : #292929;
   color : white;
@@ -92,3 +103,4 @@ body {
   color:orange;
   text-decoration: underline;
 }
+
