@@ -32,7 +32,7 @@ body {
   width : 100%;
   margin:0;
   padding:0;
-  background: url("fond_accueil.png") no-repeat center; 
+  background: url("../../images/party2.jpg") no-repeat center; 
   background-attachment: fixed;
   -webkit-background-size: cover; 
   background-size: 100% 100%; 
