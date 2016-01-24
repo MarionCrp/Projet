@@ -13,7 +13,7 @@
 					  <ul class="dropdown-menu" role="menu">
 					    <li role="presentation"><a role="menuitem" tabindex="-1" href="index.php?page=home&section=myprofile"><span class="glyphicon glyphicon-user"></span>Mon Profil</a></li>
 					    <li role="presentation"><a role="menuitem" tabindex="-1" href="index.php?page=home&section=mymessages"><span class="glyphicon glyphicon-envelope"></span>Mes Messages</a></li>
-					    <li role="presentation"><a role="menuitem" tabindex="-1" href="index.php?page=home&section=userslist"><span class="glyphicon glyphicon-search"></span></span>Mes amis</a></li>
+					    <li role="presentation"><a role="menuitem" tabindex="-1" href="index.php?page=home&section=userslist"><span class="glyphicon glyphicon-globe"></span></span>Mes amis</a></li>
 					 	<li role="presentation"><a role="menuitem" tabindex="-1" href="#"><span class="glyphicon glyphicon-comment"></span></span>Chat</a></li>					  
 					  </ul>
 					</div>
