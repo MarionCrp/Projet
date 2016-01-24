@@ -17,7 +17,7 @@ include_once('autoload.php');
 		<link rel="stylesheet" href="assets/css/css/bootstrap.js"/>
 		<script src="//code.jquery.com/jquery-1.12.0.min.js"></script> <!-- Pour le menu déroulant notamment -->
 		<link rel="stylesheet" href="assets/css/css/style_2.css"/>
-		<Title> Alien - Accueil </title>
+		<Title> Meet An Alien- Accueil </title>
 
 		<!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
@@ -41,7 +41,7 @@ include_once('autoload.php');
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="index.php">Alien</a>
+          <a class="navbar-brand" href="index.php">Meet An Alien</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse"> 
           <ul class="nav navbar-nav navbar-right">
