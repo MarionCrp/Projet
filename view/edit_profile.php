@@ -1,5 +1,4 @@
-
-
+<!-- FORMULAIRE DE MODIFICATION DE COMPTE -->
 
 	  	<div class="panel panel-default">
 		 	<div class="panel-heading">
@@ -8,10 +7,9 @@
 		  
 		 	<div class="panel-body">
 
+	<!-- inclusion du controlleur contenant les fonctions relatives à l'édition du profil)  -->
+	<?php include('controller/edit_profile_controller.php') ; ?>
 
-	<?php include('controller/edit_profile_controller.php') ;
-
- ?>
 	<div class="container">	
 		<form action="" method="post">
 			Nom : 
@@ -36,6 +34,7 @@
 				<input type="submit" value="Modifier" name="edit_profile"/><br/>
 		</form>
 	</div>
+
 	<div class="container">	
 		<form action="" method="post">
 
@@ -51,7 +50,8 @@
 
 		</form>
 	</div>
-	<div class="container">	
+
+
 		<form action="" method="post">
 			<p> Présentez-vous : <br/>
 				<textarea name="description" id="description" rows="10" cols="60" /></textarea></p>
@@ -62,4 +62,4 @@
 		</div><!-- panel panel-default -->
 	</div> <!-- col-md-6 -->
 	<div class="col-md-3"></div>
-</div> <!-- row -->
+</div> <!-- row

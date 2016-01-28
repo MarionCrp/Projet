@@ -1,5 +1,7 @@
 <?php
 
+/* TRAITEMENT DU MESSAGE A ENVOYE (si il possède bien un contenu) */
+
 if (isset($_POST['content']))
 {
 	$content = htmlspecialchars($_POST['content']);

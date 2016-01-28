@@ -1,5 +1,10 @@
 	<?php
 
+	/* L'UTILISATEUR EST CONNECTE :
+	 on affiche les fonctionnalités utilisateurs (menu déroulant
+	 											 + section (sous-page) appellée (section par défaut = la liste des utilisateurs inscrits) */
+												  
+
 		if (isset($_SESSION['user'])) 
 		{
 			?>
@@ -13,17 +18,19 @@
 					  <ul class="dropdown-menu" role="menu">
 					    <li role="presentation"><a role="menuitem" tabindex="-1" href="index.php?page=home&section=myprofile"><span class="glyphicon glyphicon-user"></span>Mon Profil</a></li>
 					    <li role="presentation"><a role="menuitem" tabindex="-1" href="index.php?page=home&section=mymessages"><span class="glyphicon glyphicon-envelope"></span>Mes Messages</a></li>
-					    <li role="presentation"><a role="menuitem" tabindex="-1" href="index.php?page=home&section=userslist"><span class="glyphicon glyphicon-globe"></span></span>Mes amis</a></li>
-					 	<li role="presentation"><a role="menuitem" tabindex="-1" href="#"><span class="glyphicon glyphicon-comment"></span></span>Chat</a></li>					  
+					    <li role="presentation"><a role="menuitem" tabindex="-1" href="index.php?page=home&section=userslist"><span class="glyphicon glyphicon-globe"></span>Mes amis</a></li>
+					 	<li role="presentation"><a role="menuitem" tabindex="-1" href="#"><span class="glyphicon glyphicon-comment"></span>Chat</a></li>					  
 					  </ul>
 					</div>
 				</div>
 
 
 
-
+				  <!-- INCLUSION DES SECTIONS (SOUS-PAGES) -->
 
 				  <div class="col-md-9">
+
+
 
 				  <?php if(isset($_GET['section'])) 
 						{
@@ -42,17 +49,13 @@
 			</div>
 			
 
-			
+			<!-- FIN inclusion de section en mode CONNECTE -->
 
 
 			
-		<?php
-		} 
+			<?php } else { ?>
 
-			else  {
-				?>
-
-
+			<!-- AFFICHAGE DE LA PRESENTTION DU SITE LORSQU'UN VISITEUR N'EST PAS CONNECTE -->
 
 
 				<div class="jumbotron">
@@ -79,14 +82,7 @@
 						</p>
 
 				</div>
+			
+			<?php } ?>
 
-					<?php
-	}
-
-	?>
-
-
-
-
-
-
+			<!-- FIN inclusion préentation du site en mode DECCONECTE -->

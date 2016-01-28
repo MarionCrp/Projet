@@ -32,6 +32,8 @@ include_once('autoload.php');
 
 	
 	<body>
+
+	 <!-- ***** BARRE DE NAVIGATION ***** -->
     <nav class="navbar navbar-fixed-top navbar-inverse">
       <div class="container">
         <div class="navbar-header">
@@ -43,10 +45,16 @@ include_once('autoload.php');
           </button>
           <a class="navbar-brand" href="index.php">Meet An Alien</a>
         </div>
+
+       
         <div id="navbar" class="collapse navbar-collapse"> 
           <ul class="nav navbar-nav navbar-right">
+
           <?php
-         	 if (!isset($_SESSION['user'])) 
+          /* La barre de navigation réagit différemment selon si une session est ouverte ou non */
+
+          /* Si l'utilisateur n'est pas connecté, elle affiche les boutons "Connexion" et "Inscription" */
+         	 if (!isset($_SESSION['user']))
 			{ ?>
 				<li <?php if (isset($_GET['page']) AND $_GET['page'] == "signin") echo 'class="active"'; ?> 
 				><a href="index.php?page=signin">Connexion</a></li>
@@ -54,6 +62,8 @@ include_once('autoload.php');
 				<li <?php if (isset($_GET['page']) AND $_GET['page'] == "signup") echo 'class="active"'; ?> ><a href="index.php?page=signup">Inscription</a></li> 
 			<?php
 			}
+
+			/* Sinon elle affiche le bouton de deconnexion */
 			else
 			{
 				?>
@@ -67,10 +77,14 @@ include_once('autoload.php');
         </div><!-- /.nav-collapse -->
       </div><!-- /.container -->
     </nav><!-- /.navbar -->
+    <!-- FiN DE BARRE DE NAVIGATION -->
 
+    <!-- ***** CONTENU DU SITE ***** -->
 
     <div class ="center">
 	    <div class="container">
+
+	   		<!-- ***** BANDEAU DE RECHERCHE D'UTILISATEURS ***** -->
 
 	    	<div id ="zone_opacity"> 
 
@@ -84,7 +98,7 @@ include_once('autoload.php');
 								    <input type="email" class="form-control" id="exampleInputEmail2" placeholder="			Please enter your city">
 								 </div>
 							</div>
-							<!-- <span class="glyphicon glyphicon-globe"></span> -->
+							
 
 
 						<div class="col-md-4">
@@ -107,8 +121,17 @@ include_once('autoload.php');
 						</div>
 					</div>
 				</div> 
-	   		<?php
 
+		<!-- / FIN bandeau de recherche utilisateur -->
+
+
+
+			<!-- ***** INCLUSION DE PAGE ***** -->
+			<!-- les différentes pages appelées par l'utilisateur sont intégrée ici -->
+			<!-- page par défaut : "home" (si l'utilisateur est connecé : menu + liste d'utilisateurs inscrits
+										   sinon, la présentation du site) -->
+
+	   		<?php
 
 				if(isset($_GET['page'])) 
 				{
@@ -122,12 +145,19 @@ include_once('autoload.php');
 
 				include ('view/'.$page.'.php');
 			?>
+
+			<!-- FIN inclusion de page  -->
+
 		 	
 	    </div><!--/.container-->
 	</div> <!--/.center-->
 
+
 </body>
 		 
+
+<!-- BAS DE PAGE  -->
+
 <footer class="footer">
 
 	<div class="row">
@@ -166,6 +196,6 @@ include_once('autoload.php');
 	</div>
 
 </footer> 
-
+<!-- / FIN BAS DE PAGE  -->
 </html>
 

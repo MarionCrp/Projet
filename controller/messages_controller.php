@@ -77,26 +77,27 @@ if (isset($_SESSION['user']))
 		  
 		 	<div class="panel-body">
 
-			 	<form  action="" method="post" class="form-horizontal" role="form"><form method="post" action="">
+			 	<form  action="" method="post" class="form-horizontal" role="form">
 					<div class="form-group">
-				 	   <label for="message" class="col-sm-2 control-label"></label>
+				 	   <label for="message" class="col-sm-1 control-label"></label>
 					    <div class="col-sm-10">
+					      <input type="hidden" name="current_user_id" value=<?= $current_user_id ?> />
+						  <input type="hidden" name="recipient_id" value=<?= $user_id ?> />
 					      <textarea class="form-control" rows="3" placeholder="Votre Message" name="content"></textarea>
+					    <input type="submit" class="btn btn-default navbar-btn" value="Envoyer" />
 					    </div>
 					</div>
 				</form>
-			<textarea name="content" id="content" rows="10" cols="120" /></textarea><br/>
-			<input type="hidden" name="current_user_id" value=<?= $current_user_id ?> />
-			<input type="hidden" name="recipient_id" value=<?= $user_id ?> />
-			<input type="submit" class="btn btn-default navbar-btn" value="Envoyer" />
 
-			</form>
+			</div>
+		</div>
+
+		<br/><a href="index.php?page=home&section=mymessages">
+				<button type="button" class="btn btn-default navbar-btn">Retour à la liste des messages
+				</button>
+			</a><br/> 
 
 
-
-
-			<br/><a href="index.php?page=home&section=mymessages">
-			<button type="button" class="btn btn-default navbar-btn">Retour à la liste des messages</button></a><br/> 
 			<?php
 		}
 	}
