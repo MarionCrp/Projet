@@ -1,3 +1,4 @@
+<!-- Inclusion du controleur relatif à l'inscription' -->
 <?php include('controller/signup_controller.php') ?>
 
 <!DOCTYPE html>
@@ -8,6 +9,8 @@
 </head>
 
 <body>	
+
+	<!-- FORMULAIRE D'INSCRIPTION -->
 
 	<div class="row">
 	  <div class="col-md-3"></div>
@@ -84,12 +87,14 @@
 					</form>
 		 	</div><!-- Form-Panel-Body -->
 		</div><!-- panel panel-default -->
-	</div> <!-- col-md-6 -->
-	<div class="col-md-3"></div>
-</div> <!-- row -->
+	  </div> <!-- col-md-6 -->
+	  <div class="col-md-3"></div>
+	</div> <!-- row -->
 
 
-			<!-- Date de Naissance : 
+
+
+			<!-- Date de Naissance :   A FAIRE !
 				<select name="day" id="day">
 				<?php $form->day() ?>
 				</select>
@@ -112,3 +117,7 @@
 				<select name="year" id="year">
 				<?php $form->year() ?>
 				</select><br/> -->
+
+
+
+<!-- FIN formulaire d'inscription -->

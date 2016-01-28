@@ -149,7 +149,10 @@ class MessageManager
 		return $unread_messages;
 	}
 
-
+	/**
+	* Récupère le nom de l'auteur d'un message suivant son id utilisateur
+	* @param $message Message - Message dont on récupère l'auteur (attribut "author_id")
+	**/
 
 	public function getAuthor(Message $message) 
 	{

@@ -1,4 +1,7 @@
+<!-- Inclusion du controleur relatif à la connexion -->
 <?php include('controller/signin_controller.php') ?>
+
+<!-- PAGE DE CONNEXION -->
 
 <!DOCTYPE html>
 <html>
@@ -8,6 +11,8 @@
 </head>
 
 <body>	
+
+	<!-- FORMULAIRE DE CONNEXION -->
 
 	<div class="row">
 	  <div class="col-md-3"></div>
@@ -20,36 +25,42 @@
 		  
 		 	<div class="panel-body">
 
-		 	<form  action="" method="post" class="form-horizontal" role="form">
-			  <div class="form-group">
-				<label for="email" class="col-sm-2 control-label">Email</label>
-				    <div class="col-sm-10">
-				      <input type="email" class="form-control" name="email" placeholder="Email">
-				    </div>
-			  </div>
-			  <div class="form-group">
-			    <label for="password" class="col-sm-2 control-label">Mot de Passe</label>
-				    <div class="col-sm-10">
-				      <input type="password" class="form-control" name="password" placeholder="Password">
-				    </div>
-			  </div>
-			   <div class="form-group">
-				    <div class="col-sm-offset-2 col-sm-10">
-				      <button type="submit" class="btn btn-default" name="connexion">Se Connecter</button>
-				    </div>
- 			   </div>
+			 	<form  action="" method="post" class="form-horizontal" role="form">
+					  <div class="form-group">
+						<label for="email" class="col-sm-2 control-label">Email</label>
+						    <div class="col-sm-10">
+						      <input type="email" class="form-control" name="email" placeholder="Email">
+						    </div>
+					  </div>
 
-					</form>
+					  <div class="form-group">
+					    <label for="password" class="col-sm-2 control-label">Mot de Passe</label>
+						    <div class="col-sm-10">
+						      <input type="password" class="form-control" name="password" placeholder="Password">
+						    </div>
+					  </div>
+					  
+					  <div class="form-group">
+						    <div class="col-sm-offset-2 col-sm-10">
+						      <button type="submit" class="btn btn-default" name="connexion">Se Connecter</button>
+						    </div>
+		 			  </div>
 
-					<hr/>
+				</form>
 
-					<form action="index.php" method="post">
-					<button type="submit" class="btn btn-default">Retour à l'accueil</button>
-					</form>
-		 	</div>
-		</div>
+				<hr/>
 
-	  </div>
+				<form action="index.php" method="post">
+				<button type="submit" class="btn btn-default">Retour à l'accueil</button>
+				</form>
+
+					
+		 	</div><!--/panel-body -->
+		</div><!--/panel -->
+
+	  </div><!--/col-md-6 -->
 
 		  <div class="col-md-3"></div>
-	</div>
+	</div><!--/row -->
+
+	<!-- FIN formulaire de connexion -->

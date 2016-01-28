@@ -40,12 +40,16 @@ if (isset($_SESSION['user']))
 		else
 		{
 
+			/* On réupère les données relatives au profil visité, stoquée dans user_id*/
 			
 			$user_id = htmlspecialchars($_GET['user_id']);
 			$user_id = (int) $user_id;
+
+			/* On récupère les messages échangés entre l'utilisateur connecté et l'utilisateur dont il visite le profil*/
 			$current_user_id = $current_user->id();
 			$posts = $message_manager->getDiscussion($user_id, $current_user_id);
 
+			/* AFFICHAGE DES MESSAGES */
 			foreach ($posts as $post)
 			{
 				?>
@@ -70,6 +74,10 @@ if (isset($_SESSION['user']))
 			} 
 			?>
 
+			<!-- FIN affichage des messages -->
+
+		<!-- FORMULAIRE D'ENVOIE DE MESSAGES -->
+
 	  	<div class="panel panel-default">
 		 	<div class="panel-heading">
 		   		 <h3 class="panel-title">Envoyer un message</h3>
@@ -77,26 +85,34 @@ if (isset($_SESSION['user']))
 		  
 		 	<div class="panel-body">
 
-			 	<form  action="" method="post" class="form-horizontal" role="form"><form method="post" action="">
+			 	<form  action="" method="post" class="form-horizontal" role="form">
 					<div class="form-group">
-				 	   <label for="message" class="col-sm-2 control-label"></label>
+				 	   <label for="message" class="col-sm-1 control-label"></label>
+
 					    <div class="col-sm-10">
+					      <input type="hidden" name="current_user_id" value=<?= $current_user_id ?> />
+						  <input type="hidden" name="recipient_id" value=<?= $user_id ?> />
+
+						  <!-- Si l'utilisateur envoie un message vide, on affiche une erreur sans envoyer ce message -->
+						  <?php if(isset($_POST["envoie"]) and empty($_POST["content"])) echo "Votre message est vide. Veuillez entrer un message"; ?>
+
 					      <textarea class="form-control" rows="3" placeholder="Votre Message" name="content"></textarea>
+					    <input type="submit" class="btn btn-default navbar-btn" value="Envoyer" name="envoie" />
 					    </div>
 					</div>
 				</form>
-			<textarea name="content" id="content" rows="10" cols="120" /></textarea><br/>
-			<input type="hidden" name="current_user_id" value=<?= $current_user_id ?> />
-			<input type="hidden" name="recipient_id" value=<?= $user_id ?> />
-			<input type="submit" class="btn btn-default navbar-btn" value="Envoyer" />
 
-			</form>
+			</div>
+		</div>
+
+		<!-- fin Formulaire d'envoie de messages  -->
+
+		<br/><a href="index.php?page=home&section=mymessages">
+				<button type="button" class="btn btn-default navbar-btn">Retour à la liste des messages
+				</button>
+			</a><br/> 
 
 
-
-
-			<br/><a href="index.php?page=home&section=mymessages">
-			<button type="button" class="btn btn-default navbar-btn">Retour à la liste des messages</button></a><br/> 
 			<?php
 		}
 	}

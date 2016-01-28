@@ -1,3 +1,10 @@
+
+
+/*******************************************
+* LE CODE SQL DE NOS TABLES EN BASE DE DONNEES MySQL
+********************************************/
+
+
 -- phpMyAdmin SQL Dump
 -- version 4.1.14
 -- http://www.phpmyadmin.net
