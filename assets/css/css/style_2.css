@@ -39,6 +39,8 @@ body {
   min-height: calc(100vh - 40px);
 }
 
+
+/*Zone de recherche utilisateurs*/
 #zone_opacity{
   width: 100%;
   min-height: 100px;
@@ -51,26 +53,18 @@ body {
   padding-left: 30px;
   padding-right: 30px;
 }
-
 #zone_opacity .input-group-addon{
   background-color: orange;
   color: white;
 }
-
 #zone_opacity p{
   border : 3px white solid;
 }
 
+
+
 .dropdown-menu .glyphicon {
   padding: 20px;
-}
-
-.user_profil_box {
-  border : solid 1px black;
-  width : auto;
-  margin: 20px;
-  padding: 20px;
-  padding-bottom: 20px;
 }
 
 .description {

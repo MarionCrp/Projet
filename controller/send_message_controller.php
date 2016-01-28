@@ -2,7 +2,7 @@
 
 /* TRAITEMENT DU MESSAGE A ENVOYE (si il possède bien un contenu) */
 
-if (isset($_POST['content']))
+if (!empty($_POST['content']))
 {
 	$content = htmlspecialchars($_POST['content']);
 	$current_user_id = (int) htmlspecialchars($_POST['current_user_id']);

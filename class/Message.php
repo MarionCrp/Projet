@@ -42,7 +42,6 @@ class Message
 
 	public function id()
 	{
-
 		return $this->_id;
 	}
 
