@@ -20,6 +20,11 @@ require 'controller/db_connexion.php';
 **/
 require 'controller/object_manager.php';
 
+/**
+* Chargement du multilingue
+**/
+require 'localization.php';
+
 
 /**
 * Ouverture de session si l'utilisateur est connecté
