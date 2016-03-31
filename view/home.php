@@ -1,5 +1,124 @@
-	<?php
 
+	<style>
+		#affichage_derniers_inscrits {
+			border-style: solid;
+			padding: 0.5em 0.5em 0.5em;
+			border-color: grey;
+			border-width: medium;
+			background-color: #bbbbbb;
+			width: 80%;
+			margin: auto;
+			opacity: 0.85;
+			filter: alpha(opacity=10);
+			margin-bottom: 2em;
+			clear: both;
+			overflow: hidden; /*pour les images*/
+		}	
+		
+		#recherche_utilisateur, #affiche_recherche_utilisateur {
+			border-style: solid;
+			padding: 0.5em 0.5em 0.5em;
+			border-color: grey;
+			border-width: medium;
+			background-color: #bbbbbb;
+			width: 80%;
+			margin: auto;
+			opacity: 0.85;
+			filter: alpha(opacity=10);
+			margin-bottom: 2em;
+			clear: both;
+			overflow: hidden; /*pour les images*/
+		}
+	</style>
+	
+	
+	<!------------- fin affichage des derniers inscrits (5)------->
+	<div id="affichage_derniers_inscrits">	
+		<?php
+			try{
+				$pdo_options[PDO::ATTR_ERRMODE] = PDO::ERRMODE_EXCEPTION;
+				// INFORMATIONS DE CONNEXION
+				$host = 	'localhost';
+				$dbname = 	'projet';
+				$user = 	'root';
+				$password = '';
+				// FIN DES DONNEES
+				
+				$db = new PDO('mysql:host='.$host.';dbname='.$dbname.'', $user, $password, $pdo_options);
+				//return $db;	
+			}catch (Exception $e) {
+				die('Erreur de connexion : ' . $e->getMessage());
+			}
+			
+			echo 'Dernieres personnes inscrites : <br/>';
+			$reponse = $db->query("SELECT name, description FROM user ORDER BY id DESC LIMIT 5;");
+			while($donnees = $reponse->fetch())
+			{
+				echo $donnees['name'].' : '.$donnees['description'].'<br>';				
+			}
+			$reponse->closeCursor();
+		?>
+	</div>	
+	<!------------- fin affichage des derniers inscrits (5)------->
+	
+	<div id="recherche_utilisateur"> 
+		<form action="index.php" method="post">
+			<label><input type="text" name="nom_recherche" id="nom_recherche" placeholder="un Alien"" /></label> <!-- la recherche ignore la casse-->
+			<input type="submit" value="Rechercher un Alien" />
+		</form>
+	</div>
+
+	
+	<?php
+	
+	/******fonction de recherche de l'utilisateur**********/
+		if (isset($_POST['nom_recherche']))
+		{	
+			try{
+				$pdo_options[PDO::ATTR_ERRMODE] = PDO::ERRMODE_EXCEPTION;
+				// INFORMATIONS DE CONNEXION
+				$host = 	'localhost';
+				$dbname = 	'projet';
+				$user = 	'root';
+				$password = '';
+				// FIN DES DONNEES
+				
+				$db = new PDO('mysql:host='.$host.';dbname='.$dbname.'', $user, $password, $pdo_options);
+				//return $db;	
+			}catch (Exception $e) {
+				die('Erreur de connexion : ' . $e->getMessage());
+			}
+			
+			
+			
+			$sql = $db->prepare('
+				SELECT * FROM user WHERE name = :name;
+			');
+			$sql->execute(array(
+				'name' => $_POST['nom_recherche']
+			));
+			
+			$countUser = $sql->rowCount();
+
+			if($countUser != 0)
+			{					
+				while($donnees = $sql->fetch())
+				{
+					echo '<div id="affiche_recherche_utilisateur">'.$donnees['name'].' : <br/> @mail : '.$donnees['email'].' <br/> '.$donnees['gender'].' <br/>  '.$donnees['description'].'<br></div>';				
+				}
+				$sql->closeCursor();
+			}
+			else if($_POST['nom_recherche']==""){}
+			else
+			{
+				echo '<div id="affiche_recherche_utilisateur">'."Aucun Alien n'a ce nom :'(".'</div>';				
+			}			
+		}
+	/***********fin de la zonne de recherche***********/	
+	
+	
+	
+		
 	/* L'UTILISATEUR EST CONNECTE :
 	 on affiche les fonctionnalités utilisateurs (menu déroulant
 	 											 + section (sous-page) appellée (section par défaut = la liste des utilisateurs inscrits) */
