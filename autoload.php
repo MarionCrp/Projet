@@ -35,12 +35,22 @@ if(isset($_SESSION['user']))
 {	$id = $_SESSION['user']->id();
 	$current_user = $user_manager->getDatas($id);
 }
-/*
-if (!empty($_POST["auto_connect"]))
+
+if(isset($_GET['lang']))
+{
+	$lang = htmlspecialchars($_GET['lang']);
+	setcookie('lang', $lang, time() + 365*24*3600, null, null, false, true);
+	header:('Location: index.php');
+
+}
+
+/*if (!empty($_POST["auto_connect"]))
 {
 	setcookie('email', $connexion_email, time() + 120, null, null, false, true);
     setcookie('password', $connexion_password, time() + 120, null, null, false, true);
 }*/
+
+
 
 
 

@@ -1,7 +1,8 @@
+#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2016-04-02 11:47+0200\n"
+"POT-Creation-Date: 2016-04-02 13:54+0200\n"
 "PO-Revision-Date: 2016-04-02 11:52+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -10,96 +11,92 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 1.8.7\n"
-"X-Poedit-Basepath: ../../..\n"
+"X-Poedit-Basepath: ..\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-KeywordsList: _\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: index.php:5
-msgid "HELLO_WORLD"
-msgstr ""
-
-#: index.php:21
+#: index.php:19
 msgid "  Meet An Alien - Index "
 msgstr ""
 
-#: index.php:61
+#: index.php:59
 msgid " Sign In "
 msgstr ""
 
-#: index.php:63
+#: index.php:61
 msgid " Sign up "
 msgstr ""
 
-#: index.php:71
+#: index.php:69
 msgid " Sign Out "
 msgstr ""
 
-#: index.php:97
+#: index.php:102
 msgid "Please enter your city"
 msgstr ""
 
-#: index.php:106
+#: index.php:111
 msgid " I want to meet someone speaking "
 msgstr ""
 
-#: index.php:168
+#: index.php:173
 msgid " Need some help ? "
 msgstr ""
 
-#: index.php:169
+#: index.php:174
 msgid " Contact us "
 msgstr ""
 
-#: index.php:170
+#: index.php:175
 msgid " FAQ "
 msgstr ""
 
-#: index.php:171
+#: index.php:176
 msgid " Terms and Conditions "
 msgstr ""
 
-#: index.php:172
+#: index.php:177
 msgid "  Legal informations "
 msgstr ""
 
-#: index.php:173
+#: index.php:178
 msgid " Site map "
 msgstr ""
 
-#: index.php:179
+#: index.php:184
 msgid " Mobile Version "
 msgstr ""
 
-#: index.php:180
+#: index.php:185
 msgid " App for Iphone "
 msgstr ""
 
-#: index.php:181
+#: index.php:186
 msgid " App for Android "
 msgstr ""
 
-#: index.php:182
+#: index.php:187
 msgid " Mobile Site later "
 msgstr ""
 
-#: index.php:188
+#: index.php:193
 msgid " Working with us "
 msgstr ""
 
-#: index.php:189
+#: index.php:194
 msgid " Guides "
 msgstr ""
 
-#: index.php:190
+#: index.php:195
 msgid " Business propositions "
 msgstr ""
 
-#: index.php:191
+#: index.php:196
 msgid " Partnerships "
 msgstr ""
 
-#: index.php:192
+#: index.php:197
 msgid " Employment opportunities "
 msgstr ""
 
@@ -149,4 +146,24 @@ msgstr ""
 
 #: view/edit_profile.php:58
 msgid " Edit your description "
+msgstr ""
+
+#: view/signin.php:23
+msgid "Sign In"
+msgstr ""
+
+#: view/signin.php:30
+msgid "Email Adress"
+msgstr ""
+
+#: view/signin.php:37
+msgid "Password"
+msgstr ""
+
+#: view/signin.php:45
+msgid "Sign in"
+msgstr ""
+
+#: view/signin.php:54
+msgid "Go back on the Main Page"
 msgstr ""

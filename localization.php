@@ -6,10 +6,11 @@ define('DEFAULT_LOCALE', 'en_US');
 
 require_once('lib/gettext/gettext.inc');
 
-$supported_locales = array('en_US');
+$supported_locales = array('en_US', 'fr_FR');
 $encoding = 'UTF-8';
 
 $locale = (isset($_GET['lang']))? $_GET['lang'] : DEFAULT_LOCALE;
+$locale = (isset($_COOKIE['lang']))? $_COOKIE['lang'] : DEFAULT_LOCALE;
 
 // gettext setup
 T_setlocale(LC_MESSAGES, $locale);
