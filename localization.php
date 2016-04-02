@@ -1,14 +1,12 @@
 <?php
-
 // define constants
 define('PROJECT_DIR', realpath('./'));
 define('LOCALE_DIR', PROJECT_DIR .'/locale');
 define('DEFAULT_LOCALE', 'en_US');
 
-//inclusion de la librairie gettext
 require_once('lib/gettext/gettext.inc');
 
-$supported_locales = array('en_US', 'sr_CS', 'de_CH');
+$supported_locales = array('en_US');
 $encoding = 'UTF-8';
 
 $locale = (isset($_GET['lang']))? $_GET['lang'] : DEFAULT_LOCALE;

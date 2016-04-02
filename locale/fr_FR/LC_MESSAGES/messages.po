@@ -1,0 +1,152 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: 2016-04-02 11:53+0200\n"
+"PO-Revision-Date: 2016-04-02 11:54+0200\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.7\n"
+"X-Poedit-Basepath: ../../..\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Poedit-KeywordsList: _\n"
+"Last-Translator: \n"
+"Language: fr_FR\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: index.php:5
+msgid "HELLO_WORLD"
+msgstr "Salut tout le monde! "
+
+#: index.php:21
+msgid "  Meet An Alien - Index "
+msgstr ""
+
+#: index.php:61
+msgid " Sign In "
+msgstr "S'inscrire"
+
+#: index.php:63
+msgid " Sign up "
+msgstr "Se Connecter"
+
+#: index.php:71
+msgid " Sign Out "
+msgstr ""
+
+#: index.php:97
+msgid "Please enter your city"
+msgstr ""
+
+#: index.php:106
+msgid " I want to meet someone speaking "
+msgstr ""
+
+#: index.php:168
+msgid " Need some help ? "
+msgstr ""
+
+#: index.php:169
+msgid " Contact us "
+msgstr ""
+
+#: index.php:170
+msgid " FAQ "
+msgstr ""
+
+#: index.php:171
+msgid " Terms and Conditions "
+msgstr ""
+
+#: index.php:172
+msgid "  Legal informations "
+msgstr ""
+
+#: index.php:173
+msgid " Site map "
+msgstr ""
+
+#: index.php:179
+msgid " Mobile Version "
+msgstr ""
+
+#: index.php:180
+msgid " App for Iphone "
+msgstr ""
+
+#: index.php:181
+msgid " App for Android "
+msgstr ""
+
+#: index.php:182
+msgid " Mobile Site later "
+msgstr ""
+
+#: index.php:188
+msgid " Working with us "
+msgstr ""
+
+#: index.php:189
+msgid " Guides "
+msgstr ""
+
+#: index.php:190
+msgid " Business propositions "
+msgstr ""
+
+#: index.php:191
+msgid " Partnerships "
+msgstr ""
+
+#: index.php:192
+msgid " Employment opportunities "
+msgstr ""
+
+#: view/edit_profile.php:5
+msgid " Edit you account "
+msgstr ""
+
+#: view/edit_profile.php:15
+msgid " Name "
+msgstr ""
+
+#: view/edit_profile.php:17 view/edit_profile.php:23 view/edit_profile.php:34
+msgid " Edit "
+msgstr ""
+
+#: view/edit_profile.php:27
+msgid " Gender "
+msgstr ""
+
+#: view/edit_profile.php:30
+msgid " Male "
+msgstr ""
+
+#: view/edit_profile.php:32
+msgid " Female "
+msgstr ""
+
+#: view/edit_profile.php:41
+msgid " Current Password "
+msgstr ""
+
+#: view/edit_profile.php:44
+msgid " New Password "
+msgstr ""
+
+#: view/edit_profile.php:47
+msgid " Confirm Password "
+msgstr ""
+
+#: view/edit_profile.php:49
+msgid " Edit password "
+msgstr ""
+
+#: view/edit_profile.php:56
+msgid " Tell more about yourself "
+msgstr ""
+
+#: view/edit_profile.php:58
+msgid " Edit your description "
+msgstr ""

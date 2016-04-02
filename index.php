@@ -2,6 +2,7 @@
 
 include_once('autoload.php');
 
+echo _("HELLO_WORLD");
 ?>
 
 
@@ -102,7 +103,7 @@ include_once('autoload.php');
 						<div class="col-md-4">
 							  <div class="form-group">
 							    <div class="input-group">
-							      	<div class="input-group-addon"><?php echo _(" I want to meet someone speaking "); ?></div>
+							      	<div class="input-group-addon"><?php echo gettext(" I want to meet someone speaking "); ?></div>
 							    </div>
 							  </div>
 						</div>
