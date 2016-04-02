@@ -8,7 +8,7 @@ if (isset($_SESSION['user']))
 		{
 			$messages = $message_manager->getListOfMessages($current_user);
 
-			if (empty($messages)) echo '<p>Vous n\'avez pas reçu de message </p>';
+			if (empty($messages)) echo _('<p> You have not yet received message</p>');
 
 			foreach ($messages as $message) 
 			{	
@@ -27,7 +27,7 @@ if (isset($_SESSION['user']))
 								<input type="hidden" value="home" name="page">
 								<input type="hidden" value="mymessages" name="section">
 								<input type="hidden" value=<?= $message->author_id() ?> name="user_id">
-								<input type="submit" class="btn btn-default navbar-btn" value="Répondre" />
+								<input type="submit" class="btn btn-default navbar-btn" value="<?php echo _("Reply"); ?>" />
 							</form>		   	
 					  	</div>
 					</div>
