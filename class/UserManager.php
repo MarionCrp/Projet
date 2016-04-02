@@ -46,7 +46,7 @@ class UserManager
 			'id' => $this->_db->lastInsertId(),
 			]);
 
-		echo "Création du profil, avec succès";
+		echo _('Your account has been created');
 	}
 
 	/**

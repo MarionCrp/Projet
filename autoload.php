@@ -36,14 +36,6 @@ if(isset($_SESSION['user']))
 	$current_user = $user_manager->getDatas($id);
 }
 
-if(isset($_GET['lang']))
-{
-	$lang = htmlspecialchars($_GET['lang']);
-	setcookie('lang', $lang, time() + 365*24*3600, null, null, false, true);
-	header:('Location: index.php');
-
-}
-
 /*if (!empty($_POST["auto_connect"]))
 {
 	setcookie('email', $connexion_email, time() + 120, null, null, false, true);

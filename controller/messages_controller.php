@@ -8,7 +8,7 @@ if (isset($_SESSION['user']))
 		{
 			$messages = $message_manager->getListOfMessages($current_user);
 
-			if (empty($messages)) echo '<p>Vous n\'avez pas reçu de message </p>';
+			if (empty($messages)) echo _('<p> You have not yet received message </p>');
 
 			foreach ($messages as $message) 
 			{	
@@ -27,7 +27,7 @@ if (isset($_SESSION['user']))
 								<input type="hidden" value="home" name="page">
 								<input type="hidden" value="mymessages" name="section">
 								<input type="hidden" value=<?= $message->author_id() ?> name="user_id">
-								<input type="submit" class="btn btn-default navbar-btn" value="Répondre" />
+								<input type="submit" class="btn btn-default navbar-btn" value= "<?php echo _('Reply'); ?>" />
 							</form>		   	
 					  	</div>
 					</div>
@@ -57,7 +57,7 @@ if (isset($_SESSION['user']))
 					<div class="panel-heading">
 						<h3 class="panel-title">
 							 <h3><?php 
-						if ($post->author_id() == $current_user->id()) echo 'Vous';
+						if ($post->author_id() == $current_user->id()) echo _('You');
 						else echo $message_manager->getAuthor($post) ?>
 							</h3> 
 							<p> <?= $post->datetime(); ?>
@@ -80,7 +80,7 @@ if (isset($_SESSION['user']))
 
 	  	<div class="panel panel-default">
 		 	<div class="panel-heading">
-		   		 <h3 class="panel-title">Envoyer un message</h3>
+		   		 <h3 class="panel-title"> <?php echo _('Send a message'); ?></h3>
 		  	</div>
 		  
 		 	<div class="panel-body">
@@ -94,9 +94,9 @@ if (isset($_SESSION['user']))
 						  <input type="hidden" name="recipient_id" value=<?= $user_id ?> />
 
 						  <!-- Si l'utilisateur envoie un message vide, on affiche une erreur sans envoyer ce message -->
-						  <?php if(isset($_POST["envoie"]) and empty($_POST["content"])) echo "Votre message est vide. Veuillez entrer un message"; ?>
+						  <?php if(isset($_POST["envoie"]) and empty($_POST["content"])) echo _("Please, write a message"); ?>
 
-					      <textarea class="form-control" rows="3" placeholder="Votre Message" name="content"></textarea>
+					      <textarea class="form-control" rows="3" placeholder= "<?php echo _('Your Message'); ?>" name="content"></textarea>
 					    <input type="submit" class="btn btn-default navbar-btn" value="Envoyer" name="envoie" />
 					    </div>
 					</div>
@@ -108,7 +108,7 @@ if (isset($_SESSION['user']))
 		<!-- fin Formulaire d'envoie de messages  -->
 
 		<br/><a href="index.php?page=home&section=mymessages">
-				<button type="button" class="btn btn-default navbar-btn">Retour à la liste des messages
+				<button type="button" class="btn btn-default navbar-btn"> <?php echo _('Go back to the Mail Box'); ?>
 				</button>
 			</a><br/> 
 

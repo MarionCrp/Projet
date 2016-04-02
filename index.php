@@ -184,14 +184,12 @@ include_once('autoload.php');
 				<h1><?php echo _(" Mobile Version "); ?></h1>
 				<div class ="element_footer"><a href =Moovincity-accueil.html><?php echo _(" App for Iphone "); ?>   </a> </div>
 				<div class ="element_footer"><a href =Moovincity-accueil.html><?php echo _(" App for Android "); ?>   </a> </div>
-				<div class ="element_footer"><a href =Moovincity-accueil.html><?php echo _(" Mobile Site later "); ?>  </a> </div>
 			</div>
 		</div>
 			
 		<div class="col-md-4">
 		<div class="footer-part text-center">
 			<h1> <?php echo _(" Working with us "); ?></h1>
-			<div class ="element_footer"><a href =Moovincity-accueil.html><?php echo _(" Guides "); ?>  </a> </div>
 			<div class ="element_footer"><a href =Moovincity-accueil.html><?php echo _(" Business propositions "); ?>  </a> </div>
 			<div class ="element_footer"><a href =Moovincity-accueil.html><?php echo _(" Partnerships "); ?>  </a> </div>
 			<div class ="element_footer"><a href =Moovincity-accueil.html><?php echo _(" Employment opportunities "); ?> </a> </div>

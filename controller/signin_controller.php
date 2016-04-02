@@ -16,7 +16,7 @@ if (isset($_POST['connexion']))
 	if (empty($_POST['email'])
 	 OR empty($_POST['password'])) 
 	{ 
-		echo '<p style="color:red;">Veuillez entrer tous les champs</p>';
+		echo _('<p style="color:red;"> Please fill in all fields </p>');
 	}
 
 	/**
@@ -109,7 +109,7 @@ if (isset($_POST['connexion']))
 			**/
 			else
 			{
-				echo '<p style="color: red;"> Mauvais mot de passe</p>';
+				echo _('<p style="color: red;"> Wrong Password </p>');
 				unset($current_user);
 			}
 		}
@@ -119,7 +119,7 @@ if (isset($_POST['connexion']))
 		**/		
 		else
 		{
-			echo '<p style="color: red;">Aucun compte ne correspond à cet adresse e-mail</p>';
+			echo _('<p style="color: red;"> The email address you\'ve provided does not match an existing member account. </p>');
 			unset($current_user);
 		}
 

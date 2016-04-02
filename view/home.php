@@ -85,7 +85,7 @@
 				
 				$db = new PDO('mysql:host='.$host.';dbname='.$dbname.'', $user, $password, $pdo_options);
 				//return $db;	
-			}catch (Exception $e) {
+			} catch (Exception $e) {
 				die('Erreur de connexion : ' . $e->getMessage());
 			}
 			
