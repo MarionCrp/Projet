@@ -97,4 +97,8 @@ body {
   color:orange;
   text-decoration: underline;
 }
-
+.flags{
+  width: 30px;
+  height: auto;
+  margin: -5px;
+}

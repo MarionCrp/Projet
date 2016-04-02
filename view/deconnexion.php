@@ -4,7 +4,6 @@
 * Controleur relatif à la requête de déconnexion
 ********************************************/
 
-
 $_SESSION = array();
 
 // On supprime l'instance utilisateur connecté et on supprime la session
