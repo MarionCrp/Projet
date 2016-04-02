@@ -25,7 +25,7 @@ class Form
 	public function validPassword($password, $confirmed_pw) {
 		if($password != $confirmed_pw)
 		{
-			echo '<p style="color:red;"> Les mots de passe ne sont pas identiques</p>';
+			echo '<p style="color:red;">' ._(' Passwords are different '). '</p>';
 			return 0;
 		}
 		else {

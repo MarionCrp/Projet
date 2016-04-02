@@ -98,7 +98,6 @@ body {
   text-decoration: underline;
 }
 .flags{
-  width: 30px;
+  width: 25px;
   height: auto;
-  margin: -5px;
 }
