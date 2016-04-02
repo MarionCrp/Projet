@@ -7,7 +7,7 @@
 <html>
 <head>
 	<meta charset="utf-8"/>
-	<title>World & I - Sign In </title>
+	<title> Meet an Alien - <?php echo _('Sign In'); ?> </title>
 </head>
 
 <body>	
@@ -51,7 +51,7 @@
 				<hr/>
 
 				<form action="index.php" method="post">
-				<button type="submit" class="btn btn-default"><?php echo _('Go back on the Main Page') ;?></button>
+				<button type="submit" class="btn btn-default"><?php echo _('Go back to the Main Page') ;?></button>
 				</form>
 
 					

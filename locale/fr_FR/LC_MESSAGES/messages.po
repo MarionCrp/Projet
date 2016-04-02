@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2016-04-02 13:59+0200\n"
-"PO-Revision-Date: 2016-04-02 14:03+0200\n"
+"POT-Creation-Date: 2016-04-02 14:43+0200\n"
+"PO-Revision-Date: 2016-04-02 14:43+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fr_FR\n"
@@ -15,19 +15,23 @@ msgstr ""
 "X-Poedit-KeywordsList: _\n"
 "X-Poedit-SearchPath-0: .\n"
 
+#: class/Form.php:28
+msgid " Passwords are different "
+msgstr "Les mots de passe ne sont pas identiques"
+
 #: index.php:19
 msgid "  Meet An Alien - Index "
 msgstr "Meet An Alien - Accueil"
 
-#: index.php:59
+#: index.php:61
 msgid " Sign In "
 msgstr "Se Connecter"
 
-#: index.php:61
+#: index.php:63
 msgid " Sign up "
 msgstr "S'inscrire"
 
-#: index.php:69
+#: index.php:71
 msgid " Sign Out "
 msgstr "Se Déconnecter"
 
