@@ -2,7 +2,7 @@
 
 <div class="panel panel-default">
   <div class="panel-heading">
-    <h3 class="panel-title"><?php echo_('My Profile'); ?></h3>
+    <h3 class="panel-title"><?php echo _('My Profile'); ?></h3>
   </div>
   <div class="panel-body">
     <p> <?php echo _('Name'); ?> : <?= $current_user->name() ?> </p>

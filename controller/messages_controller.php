@@ -99,7 +99,7 @@ if (isset($_SESSION['user']))
 						  <?php if(isset($_POST["envoie"]) and empty($_POST["content"])) echo _("Please, write a message"); ?>
 
 					      <textarea class="form-control" rows="3" placeholder= "<?php echo _('Your Message'); ?>" name="content"></textarea>
-					    <input type="submit" class="btn btn-default navbar-btn" value="Envoyer" name="envoie" />
+					    <input type="submit" class="btn btn-default navbar-btn" value=<?php echo _("Send"); ?> name="envoie" />
 					    </div>
 					</div>
 				</form>

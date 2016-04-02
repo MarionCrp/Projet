@@ -22,7 +22,7 @@
 		  	</div>
 		  
 		 	<div class="panel-body">
-		 		<p> *<?php echo _('Required fields'); ?> </p>
+		 		<p style="color:red;"> * <?php echo _('Required fields'); ?> </p>
 
 			 	<form  action="" method="post" class="form-horizontal" role="form">
 					  <div class="form-group">
@@ -49,7 +49,7 @@
 					  <div class="form-group">
 					    <label for="confirmed_pw" class="col-sm-2 control-label"> * </label>
 						    <div class="col-sm-10">
-						      <input type="password" class="form-control" name="confirmed_pw" placeholder="Confirmer le Mot de Passe">
+						      <input type="password" class="form-control" name="confirmed_pw" placeholder= "<?php echo _('Password Confirmation'); ?>" >
 						    </div>
 					  </div>
 
@@ -64,7 +64,7 @@
 					</div>
 
 					 <div class="form-group">
-					 	   <label for="description" class="col-sm-2 control-label"><?php echo _('description'); ?></label>
+					 	   <label for="description" class="col-sm-2 control-label"><?php echo _('Description'); ?></label>
 						    <div class="col-sm-10">
 						      <textarea class="form-control" rows="3" placeholder="<?php echo _('Talk about yourself'); ?>" name="description"></textarea>
 						    </div>
@@ -83,7 +83,7 @@
 					<hr/>
 
 					<form action="index.php" method="post">
-					<button type="submit" class="btn btn-default"><?php echo _('Go back to the Main page '); ?>Retour à l'accueil</button>
+					<button type="submit" class="btn btn-default"><?php echo _('Go back to the Main page '); ?></button>
 					</form>
 		 	</div><!-- Form-Panel-Body -->
 		</div><!-- panel panel-default -->
