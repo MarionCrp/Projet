@@ -1,3 +1,4 @@
+
 <!-- Inclusion du controleur relatif à l'inscription' -->
 <?php include('controller/signup_controller.php') ?>
 

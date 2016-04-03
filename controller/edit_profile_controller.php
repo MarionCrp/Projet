@@ -16,10 +16,10 @@ foreach($posts as $field) {
 		// On sécurise les données envoyées par l'utilisateur
 		$value = htmlspecialchars($_POST[$field]);
 		// On gère les différentes erreurs
-		if($field == "name" AND $user_manager->exists($value, $field))	echo _('<p style="color:red;">This name is already used </p><br/>');
-		elseif($field == "email" AND $user_manager->exists($value, $field))	echo _('<p style="color:red;">This email is already used </p><br/>');
-		elseif($field == "email" AND !$form->validEmail($value))	echo _('<p style="color:red;">the format of the e-mail is not valid </p><br/>');
-		elseif(empty($value)) echo _('<p style="color:green;">this field can\'t be empty</p><br/>');
+		if($field == "name" AND $user_manager->exists($value, $field))	echo ('<p style="color:red;">' ._('This name is already used'). '</p><br/>');
+		elseif($field == "email" AND $user_manager->exists($value, $field))	echo ('<p style="color:red;">' ._('This email is already used'). '</p><br/>');
+		elseif($field == "email" AND !$form->validEmail($value))	echo ('<p style="color:red;">' ._('the format of the e-mail is not valid'). '</p><br/>');
+		elseif(empty($value)) echo ('<p style="color:red;">' ._('this field can\'t be empty'). '</p><br/>');
 		
 		// Sinon on modifie les attributs utilisateurs
 		else {
@@ -29,7 +29,7 @@ foreach($posts as $field) {
 			session_start();
 			$current_user = $user_manager->getDatas($user_id);
 			$_SESSION['user'] = $current_user;
-			echo _('<p style="color:green;"> The profil has been modified </p>');
+			echo ('<p style="color:green;">' ._('The profil has been modified').  '</p>');
 		}
 	}
 }
@@ -44,7 +44,7 @@ if (isset($_POST['edit_password']))
 	OR empty($_POST['new_password'])
 	OR empty($_POST['confirmed_pw']))
 	{
-		echo _('<p style="color:green;"> Please fill out the 3 fields to modify your password <p><br/>');
+		echo ('<p style="color:red;">' ._('Please fill out the 3 fields to modify your password'). '<p><br/>');
 	}
 	else
 	{
@@ -68,14 +68,14 @@ if (isset($_POST['edit_password']))
 		//Gestion des différentes erreurs
 		if ($_POST['current_password'] != $current_user->password())
 		{
-			echo _('The current password is wrong');
+			echo '<p style="color:red;">' ._('The current password is wrong'). '</p>';
 			$_POST['current_password'];
 			$current_user->password();
 		}
 		
 		elseif ($_POST['new_password'] != $_POST['confirmed_pw']) 
 		{
-			echo _('The two new passwords are different');
+			echo  '<p style="color:red;">' ._('The two new passwords are different'). '</p>';
 		}
 		
 		// Mise à jour du mot de passe si aucune erreur n'est relevées.
@@ -87,7 +87,7 @@ if (isset($_POST['edit_password']))
 			session_start();
 			$current_user = $user_manager->getDatas($user_id);
 			$_SESSION['user'] = $current_user;
-			echo _('<p style="color:green;"> The password has been modified </p>');
+			echo ('<p style="color:green;">' ._('The password has been modified'). '</p>');
 		}
 	}
 }

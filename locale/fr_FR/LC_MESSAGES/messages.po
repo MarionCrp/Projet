@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2016-04-02 14:43+0200\n"
-"PO-Revision-Date: 2016-04-02 14:43+0200\n"
+"POT-Creation-Date: 2016-04-03 18:21+0200\n"
+"PO-Revision-Date: 2016-04-03 18:26+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fr_FR\n"
@@ -13,11 +13,104 @@ msgstr ""
 "X-Poedit-Basepath: ../../..\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Poedit-KeywordsList: _\n"
+"X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-SearchPath-0: .\n"
 
 #: class/Form.php:28
 msgid " Passwords are different "
 msgstr "Les mots de passe ne sont pas identiques"
+
+#: class/UserManager.php:49
+msgid "Your account has been created"
+msgstr "Votre compte a été crée"
+
+#: controller/edit_profile_controller.php:19
+msgid "This name is already used"
+msgstr "Ce nom est déjà utilisé"
+
+#: controller/edit_profile_controller.php:20
+msgid "This email is already used"
+msgstr "Cet email est déjà utilisé pour un autre compte"
+
+#: controller/edit_profile_controller.php:21
+msgid "the format of the e-mail is not valid"
+msgstr "L'email n'est pas valide"
+
+#: controller/edit_profile_controller.php:22
+msgid "this field can't be empty"
+msgstr "Ce champ ne peut être vide"
+
+#: controller/edit_profile_controller.php:32
+msgid "The profil has been modified"
+msgstr "Le profil a été modifié"
+
+#: controller/edit_profile_controller.php:47
+msgid "Please fill out the 3 fields to modify your password"
+msgstr "Veuillez remplir les trois champs relatif au mot de passe pour le modifier"
+
+#: controller/edit_profile_controller.php:71
+msgid "The current password is wrong"
+msgstr "Le mot de passe actuel n'est pas correct"
+
+#: controller/edit_profile_controller.php:78
+msgid "The two new passwords are different"
+msgstr "Les deux mots de passe sont différents"
+
+#: controller/edit_profile_controller.php:90
+msgid "The password has been modified"
+msgstr "Le mot de passe a bien été modifié"
+
+#: controller/messages_controller.php:11
+msgid "You have not yet received message"
+msgstr "Vous n'avez pas encore reçu de message"
+
+#: controller/messages_controller.php:31
+msgid "Reply"
+msgstr "Répondre"
+
+#: controller/messages_controller.php:62
+msgid "You"
+msgstr "Vous"
+
+#: controller/messages_controller.php:85 view/userslist.php:28
+msgid "Send a message"
+msgstr "Envoyer le message"
+
+#: controller/messages_controller.php:99
+msgid "Please, write a message"
+msgstr "Ecrivez un message"
+
+#: controller/messages_controller.php:101
+msgid "Your Message"
+msgstr "Votre Message"
+
+#: controller/messages_controller.php:102
+msgid "Send"
+msgstr "Envoyer"
+
+#: controller/messages_controller.php:113
+msgid "Go back to the Mail Box"
+msgstr "Retournez à la page des messages"
+
+#: controller/signin_controller.php:19 controller/signup_controller.php:22
+msgid "Please fill in all fields"
+msgstr "Veuillez remplir tous les champs"
+
+#: controller/signin_controller.php:112
+msgid "Wrong Password"
+msgstr "Le mot de passe n'est pas correct"
+
+#: controller/signin_controller.php:122
+msgid "The email address you've provided does not match an existing member account."
+msgstr "Cet email n'existe pas dans la base de donnée"
+
+#: controller/signup_controller.php:73
+msgid "Please enter a valid e-mail adress"
+msgstr "Veuillez entrer une adresse email valide"
+
+#: controller/signup_controller.php:82 controller/signup_controller.php:88
+msgid "is already taken"
+msgstr "est déjà pris"
 
 #: index.php:19
 msgid "  Meet An Alien - Index "
@@ -79,27 +172,19 @@ msgstr "Application Iphone"
 msgid " App for Android "
 msgstr "Application Androïd"
 
-#: index.php:187
-msgid " Mobile Site later "
-msgstr ""
-
-#: index.php:193
+#: index.php:192
 msgid " Working with us "
 msgstr "Rejoindre l'équipe"
 
-#: index.php:194
-msgid " Guides "
-msgstr "Guide"
-
-#: index.php:195
+#: index.php:193
 msgid " Business propositions "
 msgstr "Entreprises"
 
-#: index.php:196
+#: index.php:194
 msgid " Partnerships "
 msgstr "Partenariat"
 
-#: index.php:197
+#: index.php:195
 msgid " Employment opportunities "
 msgstr "Jobs"
 
@@ -151,7 +236,43 @@ msgstr "A propos de vous"
 msgid " Edit your description "
 msgstr "Modifier votre profil"
 
-#: view/signin.php:23
+#: view/home.php:138
+msgid " My Profile "
+msgstr "Mon profile"
+
+#: view/home.php:139
+msgid " My Messages "
+msgstr "Mes messages"
+
+#: view/home.php:140
+msgid " My friends "
+msgstr "Mes amis"
+
+#: view/home.php:141
+msgid " Chatting Room "
+msgstr "Tchat"
+
+#: view/myprofile.php:5
+msgid "My Profile"
+msgstr "Mon Profile"
+
+#: view/myprofile.php:8 view/signup.php:30
+msgid "Name"
+msgstr "Nom"
+
+#: view/myprofile.php:9
+msgid "Email Address"
+msgstr "Adresse Email"
+
+#: view/myprofile.php:10 view/signup.php:58
+msgid "Gender"
+msgstr "Sexe"
+
+#: view/myprofile.php:16
+msgid "Edit my Profile"
+msgstr "Modifier mon Profil"
+
+#: view/signin.php:10 view/signin.php:23
 msgid "Sign In"
 msgstr "Connexion"
 
@@ -159,7 +280,7 @@ msgstr "Connexion"
 msgid "Email Adress"
 msgstr "Adresse Email"
 
-#: view/signin.php:37
+#: view/signin.php:37 view/signup.php:44
 msgid "Password"
 msgstr "Mot de Passe"
 
@@ -168,8 +289,54 @@ msgid "Sign in"
 msgstr "Se Connecter"
 
 #: view/signin.php:54
-msgid "Go back on the Main Page"
+msgid "Go back to the Main Page"
 msgstr "Retourner à la page d'accueil"
+
+#: view/signup.php:9 view/signup.php:78
+msgid "Sign Up"
+msgstr "S'inscrire"
+
+#: view/signup.php:22
+msgid "Sign up"
+msgstr "S'inscrire"
+
+#: view/signup.php:26
+msgid "Required fields"
+msgstr "Champs obligatoire"
+
+#: view/signup.php:37
+msgid "Email"
+msgstr "Email"
+
+#: view/signup.php:53
+msgid "Password Confirmation"
+msgstr "Confirmez le Mot de Passe"
+
+#: view/signup.php:61
+msgid "Male"
+msgstr "Homme"
+
+#: view/signup.php:62
+msgid "Female"
+msgstr "Femme"
+
+#: view/signup.php:68
+msgid "Description"
+msgstr "Description"
+
+#: view/signup.php:70
+msgid "Talk about yourself"
+msgstr "Parlez de vous"
+
+#: view/signup.php:87
+msgid "Go back to the Main page "
+msgstr "Retourner à la page d'accueil"
+
+#~ msgid " Guides "
+#~ msgstr "Guide"
+
+#~ msgid "Go back on the Main Page"
+#~ msgstr "Retourner à la page d'accueil"
 
 #~ msgid "HELLO_WORLD"
 #~ msgstr "Salut tout le monde! "
