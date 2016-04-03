@@ -8,7 +8,7 @@ if (isset($_SESSION['user']))
 		{
 			$messages = $message_manager->getListOfMessages($current_user);
 
-			if (empty($messages)) echo _('<p> You have not yet received message </p>');
+			if (empty($messages)) echo ('<p>' ._('You have not yet received message'). '</p>');
 
 			foreach ($messages as $message) 
 			{	

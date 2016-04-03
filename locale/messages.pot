@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2016-04-02 14:43+0200\n"
+"POT-Creation-Date: 2016-04-03 18:21+0200\n"
 "PO-Revision-Date: 2016-04-02 11:52+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -14,10 +14,103 @@ msgstr ""
 "X-Poedit-Basepath: ..\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-KeywordsList: _\n"
+"X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-SearchPath-0: .\n"
 
 #: class/Form.php:28
 msgid " Passwords are different "
+msgstr ""
+
+#: class/UserManager.php:49
+msgid "Your account has been created"
+msgstr ""
+
+#: controller/edit_profile_controller.php:19
+msgid "This name is already used"
+msgstr ""
+
+#: controller/edit_profile_controller.php:20
+msgid "This email is already used"
+msgstr ""
+
+#: controller/edit_profile_controller.php:21
+msgid "the format of the e-mail is not valid"
+msgstr ""
+
+#: controller/edit_profile_controller.php:22
+msgid "this field can't be empty"
+msgstr ""
+
+#: controller/edit_profile_controller.php:32
+msgid "The profil has been modified"
+msgstr ""
+
+#: controller/edit_profile_controller.php:47
+msgid "Please fill out the 3 fields to modify your password"
+msgstr ""
+
+#: controller/edit_profile_controller.php:71
+msgid "The current password is wrong"
+msgstr ""
+
+#: controller/edit_profile_controller.php:78
+msgid "The two new passwords are different"
+msgstr ""
+
+#: controller/edit_profile_controller.php:90
+msgid "The password has been modified"
+msgstr ""
+
+#: controller/messages_controller.php:11
+msgid "You have not yet received message"
+msgstr ""
+
+#: controller/messages_controller.php:31
+msgid "Reply"
+msgstr ""
+
+#: controller/messages_controller.php:62
+msgid "You"
+msgstr ""
+
+#: controller/messages_controller.php:85 view/userslist.php:28
+msgid "Send a message"
+msgstr ""
+
+#: controller/messages_controller.php:99
+msgid "Please, write a message"
+msgstr ""
+
+#: controller/messages_controller.php:101
+msgid "Your Message"
+msgstr ""
+
+#: controller/messages_controller.php:102
+msgid "Send"
+msgstr ""
+
+#: controller/messages_controller.php:113
+msgid "Go back to the Mail Box"
+msgstr ""
+
+#: controller/signin_controller.php:19 controller/signup_controller.php:22
+msgid "Please fill in all fields"
+msgstr ""
+
+#: controller/signin_controller.php:112
+msgid "Wrong Password"
+msgstr ""
+
+#: controller/signin_controller.php:122
+msgid "The email address you've provided does not match an existing member account."
+msgstr ""
+
+#: controller/signup_controller.php:73
+msgid "Please enter a valid e-mail adress"
+msgstr ""
+
+#: controller/signup_controller.php:82 controller/signup_controller.php:88
+msgid "is already taken"
 msgstr ""
 
 #: index.php:19
@@ -80,27 +173,19 @@ msgstr ""
 msgid " App for Android "
 msgstr ""
 
-#: index.php:187
-msgid " Mobile Site later "
-msgstr ""
-
-#: index.php:193
+#: index.php:192
 msgid " Working with us "
 msgstr ""
 
-#: index.php:194
-msgid " Guides "
-msgstr ""
-
-#: index.php:195
+#: index.php:193
 msgid " Business propositions "
 msgstr ""
 
-#: index.php:196
+#: index.php:194
 msgid " Partnerships "
 msgstr ""
 
-#: index.php:197
+#: index.php:195
 msgid " Employment opportunities "
 msgstr ""
 
@@ -152,7 +237,43 @@ msgstr ""
 msgid " Edit your description "
 msgstr ""
 
-#: view/signin.php:23
+#: view/home.php:138
+msgid " My Profile "
+msgstr ""
+
+#: view/home.php:139
+msgid " My Messages "
+msgstr ""
+
+#: view/home.php:140
+msgid " My friends "
+msgstr ""
+
+#: view/home.php:141
+msgid " Chatting Room "
+msgstr ""
+
+#: view/myprofile.php:5
+msgid "My Profile"
+msgstr ""
+
+#: view/myprofile.php:8 view/signup.php:30
+msgid "Name"
+msgstr ""
+
+#: view/myprofile.php:9
+msgid "Email Address"
+msgstr ""
+
+#: view/myprofile.php:10 view/signup.php:58
+msgid "Gender"
+msgstr ""
+
+#: view/myprofile.php:16
+msgid "Edit my Profile"
+msgstr ""
+
+#: view/signin.php:10 view/signin.php:23
 msgid "Sign In"
 msgstr ""
 
@@ -160,7 +281,7 @@ msgstr ""
 msgid "Email Adress"
 msgstr ""
 
-#: view/signin.php:37
+#: view/signin.php:37 view/signup.php:44
 msgid "Password"
 msgstr ""
 
@@ -169,5 +290,45 @@ msgid "Sign in"
 msgstr ""
 
 #: view/signin.php:54
-msgid "Go back on the Main Page"
+msgid "Go back to the Main Page"
+msgstr ""
+
+#: view/signup.php:9 view/signup.php:78
+msgid "Sign Up"
+msgstr ""
+
+#: view/signup.php:22
+msgid "Sign up"
+msgstr ""
+
+#: view/signup.php:26
+msgid "Required fields"
+msgstr ""
+
+#: view/signup.php:37
+msgid "Email"
+msgstr ""
+
+#: view/signup.php:53
+msgid "Password Confirmation"
+msgstr ""
+
+#: view/signup.php:61
+msgid "Male"
+msgstr ""
+
+#: view/signup.php:62
+msgid "Female"
+msgstr ""
+
+#: view/signup.php:68
+msgid "Description"
+msgstr ""
+
+#: view/signup.php:70
+msgid "Talk about yourself"
+msgstr ""
+
+#: view/signup.php:87
+msgid "Go back to the Main page "
 msgstr ""
