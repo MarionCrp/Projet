@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2016-04-04 13:26+0200\n"
-"PO-Revision-Date: 2016-04-04 13:29+0200\n"
+"POT-Creation-Date: 2016-04-04 13:24+0200\n"
+"PO-Revision-Date: 2016-04-04 13:26+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fr_FR\n"
@@ -46,8 +46,7 @@ msgstr "Le profil a été modifié"
 
 #: controller/edit_profile_controller.php:47
 msgid "Please fill out the 3 fields to modify your password"
-msgstr ""
-"Veuillez remplir les trois champs relatif au mot de passe pour le modifier"
+msgstr "Veuillez remplir les trois champs relatif au mot de passe pour le modifier"
 
 #: controller/edit_profile_controller.php:71
 msgid "The current password is wrong"
@@ -102,8 +101,7 @@ msgid "Wrong Password"
 msgstr "Le mot de passe n'est pas correct"
 
 #: controller/signin_controller.php:122
-msgid ""
-"The email address you've provided does not match an existing member account."
+msgid "The email address you've provided does not match an existing member account."
 msgstr "Cet email n'existe pas dans la base de donnée"
 
 #: controller/signup_controller.php:73
@@ -255,43 +253,24 @@ msgid " Chatting Room "
 msgstr "Tchat"
 
 #: view/home.php:183
-msgid ""
-" Welcome to our supervised project. This project is a multicultural meeting "
-"Website. Its purpose is to link together :"
-msgstr ""
-"Bienvenue sur notre projet tuteuré. Ce projet est un site de rencontres "
-"multiculturelles. Son objectif est de mettre en relation :"
+msgid " Welcome to our supervised project. This project is a multicultural meeting Website. Its purpose is to link together :"
+msgstr "Bienvenue sur notre projet tuteuré. Ce projet est un site de rencontres multiculturelles. Son objectif est de mettre en relation :"
 
 #: view/home.php:185
-msgid ""
-"People with different nationalities to allow cultural and linguistic "
-"exchanges."
-msgstr ""
-"des personnes de nationalités différentes pour permettre des échanges "
-"culturels et linguistiques."
+msgid "People with different nationalities to allow cultural and linguistic exchanges."
+msgstr "des personnes de nationalités différentes pour permettre des échanges culturels et linguistiques."
 
 #: view/home.php:186
-msgid ""
-"People with a common nationality for expatriates who miss their countries ! "
-msgstr ""
-"des personnes de nationalité commune pour les expatriés ayant le mal du "
-"pays !"
+msgid "People with a common nationality for expatriates who miss their countries ! "
+msgstr "des personnes de nationalité commune pour les expatriés ayant le mal du pays !"
 
 #: view/home.php:188
-msgid ""
-"We are three students in informatics (Bachelor), and we are beginners in Web "
-"programming."
-msgstr ""
-"Nous sommes trois étudiants en DUT informartique en Année Spéciale, et nous "
-"débutons dans la programmation Web."
+msgid "We are three students in informatics (Bachelor), and we are beginners in Web programming."
+msgstr "Nous sommes trois étudiants en DUT informartique en Année Spéciale, et nous débutons dans la programmation Web."
 
 #: view/home.php:190
-msgid ""
-"This project is an opportunity for us to **learn**  and  **apply** directly "
-"languages we are working on during courses. "
-msgstr ""
-"Ce projet sera l'occasion pour nous d'**apprendre** et de **mettre en "
-"pratique** directement les langages appris. "
+msgid "This project is an opportunity for us to **learn**  and  **apply** directly languages we are working on during courses. "
+msgstr "Ce projet sera l'occasion pour nous d'**apprendre** et de **mettre en pratique** directement les langages appris. "
 
 #: view/home.php:192
 msgid "Technologies used previously :"
@@ -314,16 +293,12 @@ msgid "Javascript (jQuery/Ajax)"
 msgstr "Javascript (jQuery/Ajax)"
 
 #: view/home.php:198
-msgid ""
-"The purpose being to get the code evolving regarding the technologies learnt "
-"at our university and self-study ( including MVC model ... )"
+msgid "The purpose being to get the code evolving regarding the technologies learnt at our university and self-study ( including MVC model ... )"
 msgstr ""
-"Le but étant de faire évoluer le code en fonction des technologies apprises "
-"à l'IUT et en autoformation (notamment modèle MVCetc.)"
 
 #: view/home.php:201
 msgid "Marion, Kévin and Loïc"
-msgstr "Marion, Kévin et Loïc"
+msgstr ""
 
 #: view/myprofile.php:5
 msgid "My Profile"

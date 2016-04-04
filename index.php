@@ -117,8 +117,7 @@ include_once('autoload.php');
 							 <div class="form-group"> 
 								<select class="form-control">
 								  <option>English</option>
-								  <option>French</option>
-								  <option>Spanish</option>
+								  <option>Français</option>
 								</select>
 							 </div>
 							

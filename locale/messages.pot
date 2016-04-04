@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2016-04-03 18:21+0200\n"
+"POT-Creation-Date: 2016-04-04 12:56+0200\n"
 "PO-Revision-Date: 2016-04-02 11:52+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -137,55 +137,55 @@ msgstr ""
 msgid " I want to meet someone speaking "
 msgstr ""
 
-#: index.php:173
+#: index.php:172
 msgid " Need some help ? "
 msgstr ""
 
-#: index.php:174
+#: index.php:173
 msgid " Contact us "
 msgstr ""
 
-#: index.php:175
+#: index.php:174
 msgid " FAQ "
 msgstr ""
 
-#: index.php:176
+#: index.php:175
 msgid " Terms and Conditions "
 msgstr ""
 
-#: index.php:177
+#: index.php:176
 msgid "  Legal informations "
 msgstr ""
 
-#: index.php:178
+#: index.php:177
 msgid " Site map "
 msgstr ""
 
-#: index.php:184
+#: index.php:183
 msgid " Mobile Version "
 msgstr ""
 
-#: index.php:185
+#: index.php:184
 msgid " App for Iphone "
 msgstr ""
 
-#: index.php:186
+#: index.php:185
 msgid " App for Android "
 msgstr ""
 
-#: index.php:192
+#: index.php:191
 msgid " Working with us "
 msgstr ""
 
-#: index.php:193
+#: index.php:192
 msgid " Business propositions "
 msgstr ""
 
-#: index.php:194
+#: index.php:193
 msgid " Partnerships "
 msgstr ""
 
-#: index.php:195
+#: index.php:194
 msgid " Employment opportunities "
 msgstr ""
 
@@ -251,6 +251,30 @@ msgstr ""
 
 #: view/home.php:141
 msgid " Chatting Room "
+msgstr ""
+
+#: view/home.php:181
+msgid ""
+"<p> #Welcome to our supervised project.#\n"
+"\n"
+"                            This project is a multicultural meeting Website. Its purpose is to link together :\n"
+"                            - People with different nationalities to allow cultural and linguistic exchanges.\n"
+"                            - People with a common nationality for expatriates who miss their countries !\n"
+"\n"
+"                            We are three students in informatics (Bachelor), and we are beginners in Web programming. This project is an opportunity for us to **learn**  and  **apply** directly languages we are working on during courses.\n"
+"\n"
+"                            ##Technologies used previously :##\n"
+"                            - HTML5 / CSS3 / Bootstrap\n"
+"                            - PHP ( object oriented programming )\n"
+"                            - MySQL\n"
+"                            - Javascript ( jQuery / Ajax)\n"
+"\n"
+"                            The purpose being to get the code evolving regarding the technologies learnt at our university and self-study ( including MVC model ... )\n"
+"\n"
+"                            Marion, Kevin and Loïc\n"
+"            \n"
+"                                \n"
+"\t\t\t\t\t\t</p>"
 msgstr ""
 
 #: view/myprofile.php:5
