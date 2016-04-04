@@ -178,26 +178,29 @@
 
 
 				<div class="jumbotron">
-						<p>
-							<H2> Ce projet est un site de rencontres multiculturelles. Son objectif est de mettre en relation : </H2>
+						<p> 
+                        
+                        <H2> <?php echo _(' Welcome to our supervised project. This project is a multicultural meeting Website. Its purpose is to link together :'); ?> </H2>
 							<br/>
-							<li>des personnes de nationalités différentes pour permettre des échanges culturels et linguistiques.</li>
-							<li>des personnes de nationalité commune pour les expatriés ayant le mal du pays! </li>
+							<li><?php echo _('People with different nationalities to allow cultural and linguistic exchanges.'); ?></li>
+							<li><?php echo _('People with a common nationality for expatriates who miss their countries ! '); ?></li>
 							<br/>
-							Nous sommes trois étudiants en DUT informartique en Année Spéciale, et nous débutons dans la programmation Web.
+							<?php echo _('We are three students in informatics (Bachelor), and we are beginners in Web programming.'); ?>
 							<br/>
-							Ce projet sera l'occasion pour nous d'apprendre et de mettre en pratique directement les langages appris. 
+							<?php echo _('This project is an opportunity for us to **learn**  and  **apply** directly languages we are working on during courses. '); ?>
 							<br/>
-							<H2>Technologies utilisées jusque là :</H2>
+							<H2><?php echo _('Technologies used previously :'); ?></H2>
 							<br/>
-							<li>HTML5/CSS3</li>
-							<li>PHP (en programmation orienté objet)</li>
-							<li>MySQL</li>
-							Le but étant de faire évoluer le code en fonction des technologies apprises à l'IUT et en autoformation (modèle MVC, framework Symfony etc.)
+							<li><?php echo _('HTML5 / CSS3 / Bootstrap'); ?></li>
+							<li><?php echo _('PHP ( object oriented programming )'); ?></li>
+							<li><?php echo _('MySQL'); ?></li>
+							<li><?php echo _('Javascript (jQuery/Ajax)'); ?></li>
+							<?php echo _('The purpose being to get the code evolving regarding the technologies learnt at our university and self-study ( including MVC model ... )'); ?>
 							<br/>
 							<br/>
-							Marion, Kévin et Loïc<br/>
-
+							<?php echo _('Marion, Kévin and Loïc'); ?><br/>
+            
+                                
 						</p>
 
 				</div>
