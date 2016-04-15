@@ -8,6 +8,8 @@ class User
 	private $_password;
 	private $_gender;
 	private $_description;
+	private $_nationality;
+	private $_city;
 
 	/* Les attributs suivants ne sont pas encore intégrés */
 	/* 
@@ -82,6 +84,15 @@ class User
 		return $this->_description;
 	}
 
+	public function nationality()
+	{
+		return $this->_nationality;
+	}
+
+	public function city()
+	{
+		return $this->_city;
+	}
 
 	//**************** SETTERS ****************// 
 
@@ -124,6 +135,18 @@ class User
 	{
 		$this->_description = $description;
 	}
+
+	public function setNationality($nationlity)
+	{
+		$this->_nationality = $nationality;
+	}
+
+
+	public function setCity(City $city)
+	{
+		$this->_city = $city->getId();
+	}
+
 
 
 }

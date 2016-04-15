@@ -25,7 +25,7 @@
 		 	<div class="panel-body">
 		 		<p style="color:red;"> * <?php echo _('Required fields'); ?> </p>
 
-			 	<form  action="" method="post" class="form-horizontal" role="form">
+			 	<form  action="view/test.php" method="post" class="form-horizontal" role="form">
 					  <div class="form-group">
 						<label for="name" class="col-sm-2 control-label"><?php echo _('Name'); ?> *</label>
 						    <div class="col-sm-10">
@@ -55,6 +55,41 @@
 					  </div>
 
 					  <div class="form-group">
+						  <label for="confirmed_pw" class="col-sm-2 control-label"> <?php echo _('Country'); ?> </label>
+							  <div class="col-sm-10">
+								  <select name="country" class="countries form-control" >
+										<option value="">Select Country</option>
+								  </select>
+								  <script> var stateId = $("option:selected", this).attr('stateid');
+								  var toto = "toto" 
+								  alert(stateId) ; </script>
+								  <input type="hidden" name="countryId" id="countryId" value= ""/>
+							  </div>
+
+					  </div>
+					  <div class="form-group">
+						  <label for="confirmed_pw" class="col-sm-2 control-label"> <?php echo _('State'); ?> </label>
+						  	<div class="col-sm-10">
+									<select name="state" class="states form-control" id="stateId">
+										<option value="">Select State</option>
+									</select>
+								</div>
+						</div>
+						<div class="form-group">
+							<label for="confirmed_pw" class="col-sm-2 control-label"> <?php echo _('City'); ?> </label>
+								<div class="col-sm-10">
+									<select name="city" class="cities form-control">
+										<option value="">Select City</option>
+									</select>
+								</div>
+						</div>
+						
+						<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+						<script src="http://lab.iamrohit.in/js/location.js">
+
+						</script>
+
+					  <div class="form-group">
 					  	<label for="gender" class="col-sm-2 control-label"> <?php echo _('Gender'); ?> *</label>
 					  		<div class="col-sm-10">
 							  <select class="form-control" name="gender" id="gender">
@@ -76,7 +111,6 @@
 					   <div class="form-group">
 						    <div class="col-sm-offset-2 col-sm-10">
 						      <input class="btn btn-default" type="submit" value="<?php echo _('Sign Up'); ?>" name="create_account"/>
-						     	<!-- <button class="btn btn-default" name="create_account">S'inscrire</button> -->
 						     </div>
 		 			   </div>
 				</form>

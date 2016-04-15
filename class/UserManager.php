@@ -32,13 +32,19 @@ class UserManager
 				email = :email, 
 				password = :password,
 				gender = :gender,
-				description = :description');
+				description = :description,
+				country = :country,
+				state = :state,
+				city = :city');
 
 		$q->bindValue(':name', $user->name());
 		$q->bindValue(':email', $user->email());
 		$q->bindValue(':password', $user->password());
 		$q->bindValue(':gender', $user->gender());
 		$q->bindValue(':description', $user->description());
+		$q->bindValue(':country', $user->country());
+		$q->bindValue(':state', $user->state());
+		$q->bindValue(':city', $user->city());
 
 		$q->execute();
 
