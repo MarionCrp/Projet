@@ -72,7 +72,7 @@
 					  </div>
 
 					  <fieldset>
-   					 <legend>Where are you living ?</legend>
+   					 <legend>Where do you live ?</legend>
 						  <div class="form-group">
 							  <label for="country" class="col-sm-2 control-label"> <?php echo _('Country'); ?> </label>
 								  <div class="col-sm-10">

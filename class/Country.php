@@ -52,7 +52,7 @@ class Country {
 
 	public function setName($name)
 	{
-		if(is_string($name) && strlen($name) <= 25)
+		if(is_string($name) && strlen($name) <= 255)
 		{
 			$this->_name = $name;
 		}
