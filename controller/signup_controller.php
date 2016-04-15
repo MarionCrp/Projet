@@ -4,6 +4,16 @@
 * Controleur relatif à la page d'inscription
 ********************************************/
 
+
+
+function nationality_form(PDO $db){
+	$country_manager = new CountryManager($db);
+	$countries= $country_manager->getCountries();
+	foreach ($countries as $country) {
+		echo '<option value="'.$country->id().'">'.$country->name().'</option>';
+	}
+}
+
 /**
 * Si l'utilisateur a cliqué sur "connexion"
 **/
@@ -18,8 +28,8 @@ if (isset($_POST['create_account']))
 	 OR empty($_POST['password']) 
 	 OR empty($_POST['confirmed_pw'])
 	 OR empty($_POST['gender'])
-	 OR empty($_POST['countryId'])
-	 OR empty($_POST['cityId'])) 
+	 OR empty($_POST['nationality'])
+	 OR empty($_POST['city'])) 
 	{
 	echo ('<p style="color:red;">' ._('Please fill in all fields'). '</p>');
 	}
@@ -36,8 +46,8 @@ if (isset($_POST['create_account']))
 		$_POST['confirmed_pw'],
 		$_POST['gender'],
 		$_POST['description'],
-		$_POST['countryId'],
-		$_POST['cityId']
+		$_POST['nationality'],
+		$_POST['city']
 		);
 
 		/**
@@ -66,8 +76,8 @@ if (isset($_POST['create_account']))
 				'password' => $password,
 				'gender' => $_POST['gender'],
 				'description' => $_POST['description'],
-				'nationality' => $_POST['countryId'],
-				'city' => $_POST['cityId']
+				'nationalityId' => $_POST['country'],
+				'cityId' => $_POST['city']
 			));	
 
 			/**

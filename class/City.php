@@ -65,9 +65,11 @@ class City {
 		else echo 'error';
 	}
 
-	public function setStateId($id)
+	public function setStateId($stateId)
 	{
 		$stateId = (int) $stateId;
 		$this->_stateId = $stateId;
 	}
+
+	
 }

@@ -1,7 +1,6 @@
 <?php
-class UserManager 
+class UserManager extends Manager
 {
-	private $_db;
 
 	/**
 	* Constructeur
@@ -9,16 +8,7 @@ class UserManager
 	**/
 	public function __construct($db)
 	{
-		$this->setDb($db);
-	}
-
-	/**
-	* 
-	* @param $db objet PDO
-	**/
-	public function setDb(PDO $db)
-	{
-		$this->_db = $db;
+		parent::__construct($db);
 	}
 
 	/**
@@ -33,24 +23,20 @@ class UserManager
 				password = :password,
 				gender = :gender,
 				description = :description,
-				country = :country,
-				state = :state,
-				city = :city');
+				nationalityId = :country,
+				cityId = :city');
 
 		$q->bindValue(':name', $user->name());
 		$q->bindValue(':email', $user->email());
 		$q->bindValue(':password', $user->password());
 		$q->bindValue(':gender', $user->gender());
 		$q->bindValue(':description', $user->description());
-		$q->bindValue(':country', $user->country());
-		$q->bindValue(':state', $user->state());
-		$q->bindValue(':city', $user->city());
+		$q->bindValue(':country', $user->nationalityId());
+		$q->bindValue(':city', $user->cityId());
 
 		$q->execute();
 
-		$user->hydrate([
-			'id' => $this->_db->lastInsertId(),
-			]);
+		$user->setId($this->_db->lastInsertId());
 
 		echo _('Your account has been created');
 	}

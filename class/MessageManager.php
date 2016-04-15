@@ -1,24 +1,13 @@
 <?php
-class MessageManager 
+class MessageManager extends Manager
 {
-	private $_db;
-
 	/**
 	* Constructeur
 	* @param $db objet PDO
 	**/
 	public function __construct($db)
 	{
-		$this->setDb($db);
-	}
-
-	/**
-	* 
-	* @param $db objet PDO
-	**/
-	public function setDb(PDO $db)
-	{
-		$this->_db = $db;
+		parent::__construct($db);
 	}
 
 	/**
@@ -61,7 +50,7 @@ class MessageManager
 			'SELECT * FROM Message User where recipient_id = '.$current_user_id.' 
 			 ORDER BY datetime');*/
 
-		$q = $this-> _db->query(
+		$q = $this->_db->query(
 			'SELECT id, author_id, recipient_id, DATE_FORMAT(max(datetime), \'Le %d/%m/%Y à %Hh%i\') as datetime, sent, content 
 			FROM message 
 			WHERE recipient_id = '.$current_user_id.' 
