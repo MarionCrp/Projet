@@ -65,7 +65,7 @@ class State {
 		else echo 'error';
 	}
 
-	public function setCountryId($id)
+	public function setCountryId($countryId)
 	{
 		$countryId = (int) $countryId;
 		$this->_countryId = $countryId;

@@ -24,7 +24,7 @@
 		  
 		 	<div class="panel-body">
 		 		<p style="color:red;"> * <?php echo _('Required fields'); ?> </p>
-
+		 		<?php if(isset($error)) echo $error; ?>
 			 	<form  action="#" method="post" class="form-horizontal" role="form">
 					  <div class="form-group">
 						<label for="name" class="col-sm-2 control-label"><?php echo _('Name'); ?> *</label>
@@ -80,7 +80,6 @@
 											<option value="">Select Country</option>
 									  </select>
 								  </div>
-
 						  </div>
 						  <div class="form-group">
 							  <label for="state" class="col-sm-2 control-label"> <?php echo _('State'); ?> </label>
@@ -107,18 +106,18 @@
 					<fieldset>
    					 <legend>Where are you from ?</legend>
 	   					 <div class="form-group">
-								  <label for="nationality" class="col-sm-2"> <?php echo _('Nationality'); ?> </label>
+								  <label for="nationality" class="col-sm-2 control-label"> <?php echo _('Nationality'); ?> </label>
 									  <div class="col-sm-10">
 										  <select name="nationality" class="form-control" id="nationality">
 												<option value="">Select Country</option>
-												<?php nationality_form($db) ?>
+												<?php Form::nationality_form($db) ?>
 										  </select>
 									  </div>
 							  </div>
    					</fieldset>
 
 					   <div class="form-group">
-						    <div class="col-sm-offset-2 col-sm-10">
+						    <div class="col-sm-offset-2 col-sm-4">
 						      <input class="btn btn-default" type="submit" value="<?php echo _('Sign Up'); ?>" name="create_account"/>
 						     </div>
 		 			   </div>
@@ -127,7 +126,7 @@
 					<hr/>
 
 					<form action="index.php" method="post">
-					<button type="submit" class="btn btn-default"><?php echo _('Go back to the Main page '); ?></button>
+						<button type="submit" class="btn btn-default"><?php echo _('Go back to the Main page '); ?></button>
 					</form>
 		 	</div><!-- Form-Panel-Body -->
 		</div><!-- panel panel-default -->
