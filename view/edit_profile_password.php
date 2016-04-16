@@ -1,0 +1,26 @@
+	<!-- inclusion du controlleur contenant les fonctions relatives à l'édition du mot de passe)  -->
+	<?php include('/controller/edit_profile_password_controller.php') ; ?>
+
+		<form action="#" method="post" class="form-horizontal">
+			<div class="form-group">
+			<label for="current_password" class="col-sm-2 control-label"><?php echo _(" Current Password "); ?></label>
+				<div class="col-sm-10">
+					<input type="password" class="form-control" name="current_password" maxlength="50" value="#"/><br/>
+				</div>
+
+			<label for="new_password" class="col-sm-2 control-label"><?php echo _(" New Password "); ?></label>
+				<div class="col-sm-10">
+					<input type="password" class="form-control" name="new_password" maxlength="50"/><br/>
+				</div>
+
+			<label for="confirmed_pw" class="col-sm-2 control-label"><?php echo _(" Confirm Password "); ?> </label>
+				<div class="col-sm-10">
+					<input type="password" class="form-control" name="confirmed_pw" maxlength="50"/><br/> 
+				</div>
+
+			<div class="form-group">
+				<div class="col-sm-offset-2 col-sm-4">
+					<input class="btn btn-default" type= "submit" value=<?php echo _(" Edit Password "); ?> name="edit_password"/><br/>
+				</div>
+			</div>
+		</form>
