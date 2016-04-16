@@ -19,6 +19,8 @@ $users = $user_manager->getList();
 		<div class="panel panel-default">
 		    <div class="panel-heading">
 		    	<h3 class="panel-title"> <h3><?= $user->name(); ?> ( <?= $user->gender(); ?> )</h3> </h3>
+		    	<p> Nationality : <?= $country_manager->getCountryName($user->nationalityId()); ?> </p>
+		    	<p> Living in <?= $city_manager->getCityName($user->cityId()); ?> 
 			</div>
 		  	<div class="panel-body">
 		  		<p> <?= $user->description(); ?> </p>	

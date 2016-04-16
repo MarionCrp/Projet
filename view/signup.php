@@ -25,7 +25,7 @@
 		 	<div class="panel-body">
 		 		<p style="color:red;"> * <?php echo _('Required fields'); ?> </p>
 
-			 	<form  action="" method="post" class="form-horizontal" role="form">
+			 	<form  action="#" method="post" class="form-horizontal" role="form">
 					  <div class="form-group">
 						<label for="name" class="col-sm-2 control-label"><?php echo _('Name'); ?> *</label>
 						    <div class="col-sm-10">
@@ -57,26 +57,69 @@
 					  <div class="form-group">
 					  	<label for="gender" class="col-sm-2 control-label"> <?php echo _('Gender'); ?> *</label>
 					  		<div class="col-sm-10">
-							  <select class="form-control" name="gender" id="gender">
-								  <option value="male"><?php echo _('Male'); ?></option>
-								  <option value="female"><?php echo _('Female'); ?></option>
-							  </select>
-							</div>
-					</div>
+								  <select class="form-control" name="gender" id="gender">
+									  <option value="male"><?php echo _('Male'); ?></option>
+									  <option value="female"><?php echo _('Female'); ?></option>
+								  </select>
+								</div>
+						</div>
 
-					 <div class="form-group">
+						<div class="form-group">
 					 	   <label for="description" class="col-sm-2 control-label"><?php echo _('Description'); ?></label>
 						    <div class="col-sm-10">
 						      <textarea class="form-control" rows="3" placeholder="<?php echo _('Talk about yourself'); ?>" name="description"></textarea>
 						    </div>
 					  </div>
 
-					  
+					  <fieldset>
+   					 <legend>Where do you live ?</legend>
+						  <div class="form-group">
+							  <label for="country" class="col-sm-2 control-label"> <?php echo _('Country'); ?> </label>
+								  <div class="col-sm-10">
+									  <select name="country" class="countries form-control" id="countryId">
+											<option value="">Select Country</option>
+									  </select>
+								  </div>
+
+						  </div>
+						  <div class="form-group">
+							  <label for="state" class="col-sm-2 control-label"> <?php echo _('State'); ?> </label>
+							  	<div class="col-sm-10">
+										<select name="state" class="states form-control" id="stateId">
+											<option value="">Select State</option>
+										</select>
+									</div>
+							</div>
+
+							<div class="form-group">
+								<label for="city" class="col-sm-2 control-label"> <?php echo _('City'); ?> </label>
+									<div class="col-sm-10">
+										<select name="city" class="cities form-control" id="cityId">
+											<option value="">Select City</option>
+										</select>
+									</div>
+							</div>
+						</fieldset>
+						
+						<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+						<script src="view/location.js"></script>
+
+					<fieldset>
+   					 <legend>Where are you from ?</legend>
+	   					 <div class="form-group">
+								  <label for="nationality" class="col-sm-2"> <?php echo _('Nationality'); ?> </label>
+									  <div class="col-sm-10">
+										  <select name="nationality" class="form-control" id="nationality">
+												<option value="">Select Country</option>
+												<?php nationality_form($db) ?>
+										  </select>
+									  </div>
+							  </div>
+   					</fieldset>
 
 					   <div class="form-group">
 						    <div class="col-sm-offset-2 col-sm-10">
 						      <input class="btn btn-default" type="submit" value="<?php echo _('Sign Up'); ?>" name="create_account"/>
-						     	<!-- <button class="btn btn-default" name="create_account">S'inscrire</button> -->
 						     </div>
 		 			   </div>
 				</form>

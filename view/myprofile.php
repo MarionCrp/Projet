@@ -8,6 +8,8 @@
     <p> <?php echo _('Name'); ?> : <?= $current_user->name() ?> </p>
 	<p> <?php echo _('Email Address'); ?> : <?= $current_user->email() ?></p>
 	<p>  <?php echo _('Gender'); ?> : <?= $current_user-> gender() ?></p>
+	<p> <?php echo _('Current City'); ?> : <?= $city_manager->getCityName($current_user->cityId()); ?> </p>
+	<p> <?php echo _('Nationality'); ?> : <?= $country_manager->getCountryName($current_user->nationalityId()); ?> </p>
 	<p><p><?= $current_user-> description() ?></p></p>
   </div>
  </div>

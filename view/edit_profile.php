@@ -11,51 +11,54 @@
 	<?php include('controller/edit_profile_controller.php') ; ?>
 
 	<div class="container">	
-		<form action="" method="post">
-			<?php echo _(" Name "); ?> : 
-				<input type ="text" name="name" maxlength="50" <?php echo 'value="'. $current_user->name() .'" ' ; ?>/>
-				<input type="submit" value=<?php echo _(" Edit "); ?> name="edit_profile"/><br/>
+		<form action="" method="post" class="form-inline">
+		<div class="form-group">
+			<label for="name"><?php echo _('Name'); ?></label>
+			    <input type="text" class="form-control" name="name"<?php echo 'value="'. $current_user->name() .'" ' ; ?>/>
+				<input class="btn btn-default" type="submit" value=<?php echo _(" Edit "); ?> name="edit_profile"/><br/>
+		</div>
 		</form>
 
-		<form action="" method="post">
-			Email Adress : 
-				<input type="text" name="email" maxlength="50" <?php echo 'value="' .$current_user->email().'"' ;?>/> 
-				<input type="submit" value=<?php echo _(" Edit "); ?> name="edit_profile"/><br/>
+		<form action="" method="post" class="form-inline">
+		<div class="form-group">
+			<label for="name"><?php echo _('Email Adress'); ?></label>
+			   <input type="text" class="form-control" name="email" maxlength="50" <?php echo 'value="' .$current_user->email().'"' ;?>/> 
+			   <input class="btn btn-default" type= "submit" value=<?php echo _(" Edit "); ?> name="edit_profile"/><br/>
+		</div>
 		</form>
 
-		<form action="" method="post">
-			<?php echo _(" Gender "); ?> : 
-				<select name="gender" id="gender">
-					<option value="male" 
+		<form action="" method="post" class="form-inline">
+		<div class="form-group">
+			<label for="name"><?php echo _(" Gender "); ?></label>
+				<select name="gender" id="gender" class="form-control">
+					<option value="male"
 					<?php if ($current_user->gender() == 'male') echo 'selected'; ?> > <?php echo _(" Male "); ?></option>
 					<option value="female" 
 					<?php if ($current_user->gender() == 'female') echo 'selected'; ?> > <?php echo _(" Female "); ?></option>
 				</select>
-				<input type="submit" value=<?php echo _(" Edit "); ?> name="edit_profile"/><br/>
+				<input class="btn btn-default" type= "submit" value=<?php echo _(" Edit "); ?> name="edit_profile"/><br/>
+		</form>
+
+
+	
+		<form action="" method="post" class="form-inline">
+			<div class="form-group">
+			<label for="name"><?php echo _(" Current Password "); ?></label>
+				<input type="password" class="form-control" name="current_password" maxlength="50"/><br/>
+
+			<label for="name"><?php echo _(" New Password "); ?></label>
+				<input type="password" class="form-control" name="new_password" maxlength="50"/><br/>
+
+			<label for="name"><?php echo _(" Confirm Password "); ?> </label>
+				<input type="password" class="form-control" name="confirmed_pw" maxlength="50"/><br/> 
+			<input type="submit" class="btn btn-default" value=<?php echo _(" Edit password "); ?> name="edit_password"/><br/>
+
 		</form>
 	</div>
-
-	<div class="container">	
-		<form action="" method="post">
-
-			<?php echo _(" Current Password "); ?> : 
-				<input type="password" name="current_password" maxlength="50"/><br/>
-
-			<?php echo _(" New Password "); ?>
-				<input type="password" name="new_password" maxlength="50"/><br/>
-
-			<?php echo _(" Confirm Password "); ?> 
-				<input type="password" name="confirmed_pw" maxlength="50"/><br/> 
-			<input type="submit" value=<?php echo _(" Edit password "); ?> name="edit_password"/><br/>
-
-		</form>
-	</div>
-
-
-		<form action="" method="post">
-			<p><?php echo _(" Tell more about yourself "); ?><br/>
-				<textarea name="description" id="description" rows="10" cols="60" /></textarea></p>
-				<input type="submit" value=<?php echo _(" Edit your description "); ?> name="edit_profile"/><br/>
+		<form action="" method="post" class="form-group">
+			<label for="name"><?php echo _(" Tell more about yourself "); ?> </label><br>
+				<textarea name="description" class="form-control" id="description" rows="10" cols="60"><?php echo $current_user->description(); ?></textarea></p>
+				<input type="submit" class="btn btn-default" value=<?php echo _(" Edit your description "); ?> name="edit_profile"/><br/>
 		</form>
 		<!-- <form action="" method="post"><input type="submit" value="Supprimer mon compte" name="delete_account"></form> -->
 		 	</div><!-- Form-Panel-Body -->

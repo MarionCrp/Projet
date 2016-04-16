@@ -8,6 +8,8 @@ class User
 	private $_password;
 	private $_gender;
 	private $_description;
+	private $_nationalityId;
+	private $_cityId;
 
 	/* Les attributs suivants ne sont pas encore intégrés */
 	/* 
@@ -82,6 +84,15 @@ class User
 		return $this->_description;
 	}
 
+	public function nationalityId()
+	{
+		return $this->_nationalityId;
+	}
+
+	public function cityId()
+	{
+		return $this->_cityId;
+	}
 
 	//**************** SETTERS ****************// 
 
@@ -97,7 +108,7 @@ class User
 		{
 			$this->_name = $name;
 		}
-		else echo 'error';
+		else throw new Exception('the name is too long');
 	}
 
 	public function setEmail($email)
@@ -125,5 +136,15 @@ class User
 		$this->_description = $description;
 	}
 
+	public function setNationalityId($nationalityId)
+	{
+		$this->_nationalityId = $nationalityId;
+	}
+
+
+	public function setCityId($cityId)
+	{
+		$this->_cityId = $cityId;
+	}
 
 }

@@ -73,6 +73,9 @@ CREATE TABLE IF NOT EXISTS `user` (
   `password` varchar(45) COLLATE utf8_unicode_ci NOT NULL,
   `gender` varchar(6) COLLATE utf8_unicode_ci NOT NULL,
   `description` text COLLATE utf8_unicode_ci NOT NULL,
+  `country` int(11),
+  `state` int(11),
+  `city` int(11),
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=31 ;
 
