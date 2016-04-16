@@ -39,7 +39,7 @@ function locationInfo() {
             if(data.tp == 1){
                 $.each(data['result'], function(key, val) {
                     var option = $('<option />');
-                    option.attr('value', val).text(val);
+                    option.attr('value', key).text(val);
                      option.attr('cityid', key);
                     $('.cities').append(option);
                 });
@@ -63,7 +63,7 @@ function locationInfo() {
             if(data.tp == 1){
                 $.each(data['result'], function(key, val) {
                     var option = $('<option />');
-                        option.attr('value', val).text(val);
+                        option.attr('value', key).text(val);
                         option.attr('stateid', key);
                     $('.states').append(option);
                 });
@@ -86,7 +86,7 @@ function locationInfo() {
             if(data.tp == 1){
                 $.each(data['result'], function(key, val) {
                     var option = $('<option />');
-                    option.attr('value', val).text(val);
+                    option.attr('value', key).text(val);
                      option.attr('countryid', key);
                     $('.countries').append(option);
                 });

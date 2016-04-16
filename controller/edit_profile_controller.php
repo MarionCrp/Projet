@@ -25,8 +25,6 @@ foreach($posts as $field) {
 		else {
 			$user_id = $current_user->id();
 			$user_manager->edit($user_id, $field, $value);
-			session_destroy();
-			session_start();
 			$current_user = $user_manager->getDatas($user_id);
 			$_SESSION['user'] = $current_user;
 			echo ('<p style="color:green;">' ._('The profil has been modified').  '</p>');
@@ -83,8 +81,6 @@ if (isset($_POST['edit_password']))
 		{
 			$user_id = $current_user->id();
 			$user_manager->edit($user_id, "password", $_POST['new_password']);
-			session_destroy();
-			session_start();
 			$current_user = $user_manager->getDatas($user_id);
 			$_SESSION['user'] = $current_user;
 			echo ('<p style="color:green;">' ._('The password has been modified'). '</p>');

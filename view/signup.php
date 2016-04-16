@@ -102,7 +102,7 @@
 						</fieldset>
 						
 						<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-						<script src="view/location.js"></script>
+						<script src="./assets/js/location.js"></script>
 
 					<fieldset>
    					 <legend>Where are you from ?</legend>
