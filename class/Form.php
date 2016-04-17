@@ -63,4 +63,17 @@ class Form
 		}
 	}
 
+
+	public static function nationality_form(PDO $db, $nationalityId = -1){
+		$country_manager = new CountryManager($db);
+		$countries= $country_manager->getCountries();
+		foreach ($countries as $country) {
+			if ($country->id() == $nationalityId) {
+				echo '<option countryid='.$country->id().'" value="'.$country->id().'" selected="'.$nationalityId.'">'.$country->name().'</option>';
+			}
+			echo '<option countryid='.$country->id().'" value="'.$country->id().'">'.$country->name().'</option>';
+	}
+}
+
+
 }

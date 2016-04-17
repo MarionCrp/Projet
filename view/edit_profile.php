@@ -7,59 +7,24 @@
 		  
 		 	<div class="panel-body">
 
-	<!-- inclusion du controlleur contenant les fonctions relatives à l'édition du profil)  -->
-	<?php include('controller/edit_profile_controller.php') ; ?>
+	<nav>
+		<ul class="nav nav-tabs nav-justified">
+  		<li <?php if (!isset($_GET['edit']) OR $_GET['edit'] == "general") echo 'class="active"'; ?>><a href="index.php?page=home&section=edit_profile&edit=general"> <?php echo _('General '); ?></a></li>
+  		<li <?php if (isset($_GET['edit']) AND $_GET['edit'] == "password") echo 'class="active"'; ?>><a href="index.php?page=home&section=edit_profile&edit=password"> <?php echo _('Password') ; ?></a></li>
+  		<li <?php if (isset($_GET['edit']) AND $_GET['edit'] == "localization") echo 'class="active"'; ?>><a href="index.php?page=home&section=edit_profile&edit=localization"> <?php echo _('Localization'); ?></a></li>
+		  <li <?php if (isset($_GET['edit']) AND $_GET['edit'] == "language") echo 'class="active"'; ?>><a href="index.php?page=home&section=edit_profile&edit=language"> <?php echo _('Language'); ?></a></li>
+		</ul>
+	</nav>
 
-	<div class="container">	
-		<form action="" method="post" class="form-inline">
-		<div class="form-group">
-			<label for="name"><?php echo _('Name'); ?></label>
-			    <input type="text" class="form-control" name="name"<?php echo 'value="'. $current_user->name() .'" ' ; ?>/>
-				<input class="btn btn-default" type="submit" value=<?php echo _(" Edit "); ?> name="edit_profile"/><br/>
-		</div>
-		</form>
+	<?php
 
-		<form action="" method="post" class="form-inline">
-		<div class="form-group">
-			<label for="name"><?php echo _('Email Adress'); ?></label>
-			   <input type="text" class="form-control" name="email" maxlength="50" <?php echo 'value="' .$current_user->email().'"' ;?>/> 
-			   <input class="btn btn-default" type= "submit" value=<?php echo _(" Edit "); ?> name="edit_profile"/><br/>
-		</div>
-		</form>
+		if(isset($_GET['edit'])) {
+			$edit = 'edit_profile_'.$_GET['edit'].'.php';
+		}
+		else $edit = 'edit_profile_general.php';
+		include('view/'.$edit);
+	?>
 
-		<form action="" method="post" class="form-inline">
-		<div class="form-group">
-			<label for="name"><?php echo _(" Gender "); ?></label>
-				<select name="gender" id="gender" class="form-control">
-					<option value="male"
-					<?php if ($current_user->gender() == 'male') echo 'selected'; ?> > <?php echo _(" Male "); ?></option>
-					<option value="female" 
-					<?php if ($current_user->gender() == 'female') echo 'selected'; ?> > <?php echo _(" Female "); ?></option>
-				</select>
-				<input class="btn btn-default" type= "submit" value=<?php echo _(" Edit "); ?> name="edit_profile"/><br/>
-		</form>
-
-
-	
-		<form action="" method="post" class="form-inline">
-			<div class="form-group">
-			<label for="name"><?php echo _(" Current Password "); ?></label>
-				<input type="password" class="form-control" name="current_password" maxlength="50"/><br/>
-
-			<label for="name"><?php echo _(" New Password "); ?></label>
-				<input type="password" class="form-control" name="new_password" maxlength="50"/><br/>
-
-			<label for="name"><?php echo _(" Confirm Password "); ?> </label>
-				<input type="password" class="form-control" name="confirmed_pw" maxlength="50"/><br/> 
-			<input type="submit" class="btn btn-default" value=<?php echo _(" Edit password "); ?> name="edit_password"/><br/>
-
-		</form>
-	</div>
-		<form action="" method="post" class="form-group">
-			<label for="name"><?php echo _(" Tell more about yourself "); ?> </label><br>
-				<textarea name="description" class="form-control" id="description" rows="10" cols="60"><?php echo $current_user->description(); ?></textarea></p>
-				<input type="submit" class="btn btn-default" value=<?php echo _(" Edit your description "); ?> name="edit_profile"/><br/>
-		</form>
 		<!-- <form action="" method="post"><input type="submit" value="Supprimer mon compte" name="delete_account"></form> -->
 		 	</div><!-- Form-Panel-Body -->
 		</div><!-- panel panel-default -->

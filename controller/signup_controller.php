@@ -4,16 +4,6 @@
 * Controleur relatif à la page d'inscription
 ********************************************/
 
-
-
-function nationality_form(PDO $db){
-	$country_manager = new CountryManager($db);
-	$countries= $country_manager->getCountries();
-	foreach ($countries as $country) {
-		echo '<option value="'.$country->id().'">'.$country->name().'</option>';
-	}
-}
-
 /**
 * Si l'utilisateur a cliqué sur "connexion"
 **/
@@ -31,7 +21,7 @@ if (isset($_POST['create_account']))
 	 OR empty($_POST['nationality'])
 	 OR empty($_POST['city'])) 
 	{
-	echo ('<p style="color:red;">' ._('Please fill in all fields'). '</p>');
+	$error = ('<p style="color:red;">' ._('Please fill in all fields'). '</p>');
 	}
 
 	/**

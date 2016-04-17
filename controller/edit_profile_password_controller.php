@@ -1,37 +1,5 @@
 <?php
 
-/*******************************************
-* Controleur relatif à la page de modification de profil
-********************************************/
-
-
-/**
-* Gestion de l'édition des attributs : name, email, gender et description
-**/
-$posts = array('name', 'email', 'gender', 'description');
-
-foreach($posts as $field) {
-	if (isset($_POST[$field]))
-	{	
-		// On sécurise les données envoyées par l'utilisateur
-		$value = htmlspecialchars($_POST[$field]);
-		// On gère les différentes erreurs
-		if($field == "name" AND $user_manager->exists($value, $field))	echo ('<p style="color:red;">' ._('This name is already used'). '</p><br/>');
-		elseif($field == "email" AND $user_manager->exists($value, $field))	echo ('<p style="color:red;">' ._('This email is already used'). '</p><br/>');
-		elseif($field == "email" AND !$form->validEmail($value))	echo ('<p style="color:red;">' ._('the format of the e-mail is not valid'). '</p><br/>');
-		elseif(empty($value)) echo ('<p style="color:red;">' ._('this field can\'t be empty'). '</p><br/>');
-		
-		// Sinon on modifie les attributs utilisateurs
-		else {
-			$user_id = $current_user->id();
-			$user_manager->edit($user_id, $field, $value);
-			$current_user = $user_manager->getDatas($user_id);
-			$_SESSION['user'] = $current_user;
-			echo ('<p style="color:green;">' ._('The profil has been modified').  '</p>');
-		}
-	}
-}
-
 /**
 * Gestion de l'édition de mot de passe
 **/
@@ -70,7 +38,6 @@ if (isset($_POST['edit_password']))
 			$_POST['current_password'];
 			$current_user->password();
 		}
-		
 		elseif ($_POST['new_password'] != $_POST['confirmed_pw']) 
 		{
 			echo  '<p style="color:red;">' ._('The two new passwords are different'). '</p>';
@@ -87,16 +54,3 @@ if (isset($_POST['edit_password']))
 		}
 	}
 }
-
-
-/**
-* Gestion de la suppression de compte
-**/
-
-if (isset($_POST['delete_account']))
-{
-	$user_manager->delete($current_user);
-	session_destroy();
-	header ('Location: ./index.php');
-}
-

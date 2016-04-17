@@ -160,7 +160,6 @@ class UserManager extends Manager
 	{ 
 		$q = $this->_db->prepare('UPDATE User 
 			SET '.$field.' = "'. $value .'" where id = '.$id);
-
 		$q->execute();
 	}
 

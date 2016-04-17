@@ -11,7 +11,10 @@ Nous sommes trois étudiants en DUT informartique en Année Spéciale, et nous d
 - PHP (en programmation orienté objet)
 - MySQL
 - Javascript (jQuery/Ajax)
+- Gettext
 
-Le but étant de faire évoluer le code en fonction des technologies apprises à l'IUT et en autoformation (notamment modèle MVCetc.)
+/!\  Attention, Gettext a été implémenté à la main. Il est donc nécessaire de désactiver l'extension php de gettext sous Wamp. 
+
+Le but étant de faire évoluer le code en fonction des technologies apprises à l'IUT et en autoformation (notamment modèle MVC etc.)
 
 Marion, Kévin et Loïc
