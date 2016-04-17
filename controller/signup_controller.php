@@ -108,14 +108,20 @@ if (isset($_POST['create_account']))
 			/**
 			* Si le format de l'email est valide et que les nom et email ne sont pas déjà utilisés par un autre utilisateur
 			* on ajoute ce nouvel utilisateur à la base de donnée
+			* on enregistre les langues éventuelles qu'il aurait renseigné.
 			* on ouvre une session et on envoie l'utilisateur sur la page d'accueil
 			**/
 			else 
 			{
+				
 				$user_manager->add($current_user);
+
+				foreach (array_combine($_POST['languages_id'], $_POST['levels_id']) as $languageid => $levelid) {
+			    	$spoken_language_manager->addLanguage($current_user->id(), $languageid, $levelid);
+				}
+				
 				$_SESSION['user'] = $current_user;
 				header ('Location: index.php');
-
 			}
 		}
 	}

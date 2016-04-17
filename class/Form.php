@@ -6,7 +6,7 @@ class Form
 	* @param string $email entré par l'utilisateur
 	* @return bool (1 - Email Valide) / ( 0 - Email Non Valide) 
 	**/
-	public function validEmail($email)
+	public static function validEmail($email)
 	{
 		if(!preg_match('#^[a-z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$#', $email))
 		{
@@ -22,7 +22,7 @@ class Form
 	* @param string $confirmed_pw confirmation du mot de passe
 	* @return bool (1 - mdp identiques) / ( 0 - mdp différent) 
 	**/
-	public function validPassword($password, $confirmed_pw) {
+	public static function validPassword($password, $confirmed_pw) {
 		if($password != $confirmed_pw)
 		{
 			echo '<p style="color:red;">' ._(' Passwords are different '). '</p>';
@@ -36,7 +36,7 @@ class Form
 	/**
 	* Création du formulaire jour
 	**/
-	public function day()
+	public static function day()
 	{
 		for ($i = 1; $i <= 31; $i++)
 		{
@@ -47,7 +47,7 @@ class Form
 	/**
 	* Création du formulaire année
 	**/
-	public function year()
+	public static function year()
 	{
 		for ($i = 1950; $i < date("Y"); $i++)
 		{
@@ -55,5 +55,12 @@ class Form
 		}
 	}
 
+	public static function languages(LanguageManager $lang_manager){
+		$languages = $lang_manager->getLanguages();
+		echo '<option value=""> Choose a Language </option>';
+		foreach ($languages as $language){
+			echo '<option value="'.$language->id().'">'.$language->name().'</option>';
+		}
+	}
 
 }
