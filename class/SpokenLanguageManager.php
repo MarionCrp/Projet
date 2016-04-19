@@ -11,13 +11,47 @@ class SpokenLanguageManager extends Manager
 	}
 
 	public function addLanguage($user_id, $language_id, $level_id){
+		$q = $this->_db->prepare('SELECT COUNT(*) FROM spoken_languages
+												  WHERE userId = :userid,
+												  AND languageId = :languageid;');
+		$q->execute(array(
+			'userid' => $user_id,
+			'languageid' => $language_id
+			));
+
+		if (!$q) throw new Exception('Cette langue a déjà été ajoutée dans vos contacts');
+
 		$q = $this->_db->prepare('INSERT INTO spoken_languages VALUES (:userid, :languageid, :levelid);');
 		$q->execute(array(
 			'userid' => $user_id,
 			'languageid' => $language_id,
-			'levelid' => $level_id));
+			'levelid' => $level_id
+			));
+		
 		if (!$q) echo _('error adding languages to the db');
 	}
+
+	// public function modifyLanguage($user_id, $language_id, $level_id){
+	// 	$q = $this->_db->prepare('SELECT COUNT(*) FROM spoken_languages
+	// 											  WHERE userId = :userid,
+	// 											  AND languageId = :languageid,
+	// 											  AND ;');
+	// 	$q->execute(array(
+	// 		'userid' => $user_id,
+	// 		'languageid' => $language_id
+	// 		));
+
+	// 	if (!$q) throw new Exception('Cette langue a déjà été ajoutée dans vos contacts');
+
+	// 	$q = $this->_db->prepare('INSERT INTO spoken_languages VALUES (:userid, :languageid, :levelid);');
+	// 	$q->execute(array(
+	// 		'userid' => $user_id,
+	// 		'languageid' => $language_id,
+	// 		'levelid' => $level_id
+	// 		));
+		
+	// 	if (!$q) echo _('error adding languages to the db');
+	// }
 
 	/**
 	* Récupère la liste des utilisateurs parlant une langue
@@ -42,23 +76,43 @@ class SpokenLanguageManager extends Manager
 	* Récupère les langues parlées par un utilisateur donné
 	* @param User $user
 	*
-	* @return array $languages
+	* @return array of SpokenLanguages $languages
 	**/
 	public function getUsersLanguages(User $user){
+		$level_manager = new LevelManager($this->_db);
+		$language_manager = new LanguageManager($this->_db);
 		$languages = [];
 		$req = $this->_db->prepare('SELECT * FROM spoken_languages WHERE userId = :user_id');
 		$req->execute(array(
 			'user_id' => $user->id())
 		);
 		while ($data = $req->fetch()) {
-			$languages[] = new SpokenLanguage($donnees);
+			$language = $language_manager->getLanguage($data['languageId']);
+			$level = $level_manager->getLevel($data['levelId']);
+			$languages[] = new SpokenLanguage(array(
+				'user' => $user,
+				'language' => $language,
+				'level' => $level));
 		}
 
 		return $languages;
 	}
 
-	public function displayLevel($user_id){
-		
+
+	/**
+	* Affiche les langues parlées par un utilisateur et son niveau.
+	* @param User $user
+	*
+	**/
+	public function displayLanguages(User $user){
+		// On récupère les langues parlées par un utilisateur dans un array.
+		$languages = self::getUsersLanguages($user);
+		foreach($languages as $language) {
+			var_dump($language);
+			$level = $language->level();
+			 echo '<h1>'.$language->name().'<h1>';
+			 Form::level_form($level);
+		}
 	}
 
 }

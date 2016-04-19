@@ -55,11 +55,20 @@ class Form
 		}
 	}
 
-	public static function languages(LanguageManager $lang_manager){
+	/**
+	* Affiche une liste de tous les languages de la base de donnée.
+	* Selectionne par défaut une langue utilisée si elle est passée en paramètre
+	* @param LanguageManager $lang_manager
+	* @param int $spoken_language_id
+	*
+	*/
+	public static function languages(LanguageManager $lang_manager, $spoken_language_id = null){
 		$languages = $lang_manager->getLanguages();
 		echo '<option value=""> Choose a Language </option>';
 		foreach ($languages as $language){
-			echo '<option value="'.$language->id().'">'.$language->name().'</option>';
+			if ($language->id() == $spoken_language_id) $selected = 'selected';
+			else $selected = '';
+			echo '<option value="'.$language->id().'" '.$selected.'>'.$language->name().'</option>';
 		}
 	}
 
@@ -72,8 +81,32 @@ class Form
 				echo '<option countryid='.$country->id().'" value="'.$country->id().'" selected="'.$nationalityId.'">'.$country->name().'</option>';
 			}
 			echo '<option countryid='.$country->id().'" value="'.$country->id().'">'.$country->name().'</option>';
+		}
+	}
+
+	public static function level_form(Level $level){
+		switch($level->id()){
+			case 1:
+				$level_field = 'info' ;
+				break;
+			case 2:
+				$level_field = 'success';
+				break;
+			case 3:
+				$level_field = 'warning';
+				break;
+			case 4:
+				$level_field = 'danger';
+				break;
+			case 5:
+				$level_field = 'primary';
+				break;
+		}
+
+		echo '<div class="progress">
+			   <div class="progress-bar progress-bar-'.$level_field.'" role="progressbar" aria-valuenow="'.$level->id().'" aria-valuemin="0" aria-valuemax="5" style="width: '.($level->id()*20).'%;">
+              '.$level->name().'</div>
+          </div>';
 	}
 }
 
-
-}

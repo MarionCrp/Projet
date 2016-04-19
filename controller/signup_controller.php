@@ -21,7 +21,7 @@ if (isset($_POST['create_account']))
 	 OR empty($_POST['nationality'])
 	 OR empty($_POST['city'])) 
 	{
-	$error = ('<p style="color:red;">' ._('Please fill in all fields'). '</p>');
+	$error = ('<p class="fail">' ._('Please fill in all fields'). '</p>');
 	}
 
 	/**
@@ -76,7 +76,7 @@ if (isset($_POST['create_account']))
 			**/
 			if(!$form->validEmail($current_user->email()))
 			{
-				echo ('<p style="color:red;">' ._('Please enter a valid e-mail adress'). '</p>');
+				echo ('<p class="fail">' ._('Please enter a valid e-mail adress'). '</p>');
 				unset($current_user);
 			}
 
@@ -85,13 +85,13 @@ if (isset($_POST['create_account']))
 			**/
 			else if ($user_manager->exists($current_user->name(), 'name') != 0)
 			{
-				echo ('<p style="color:red;"> "'.$current_user->name(). ' ' ._('is already taken'). '</p>');
+				echo ('<p class="fail"> "'.$current_user->name(). ' ' ._('is already taken'). '</p>');
 				unset($current_user);
 			}
 
 			else if ($user_manager->exists($current_user->email(), 'email') != 0)
 			{
-				echo ('<p style="color:red;"> "'.$current_user->email(). ' ' ._('is already taken'). '.</p>');
+				echo ('<p class="fail"> "'.$current_user->email(). ' ' ._('is already taken'). '.</p>');
 				unset($current_user);
 			}
 

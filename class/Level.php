@@ -1,7 +1,7 @@
 <?php
 class Level {
-	private id;
-	private name;
+	private $_id;
+	private $_name;
 
 
 	/**

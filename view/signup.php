@@ -72,7 +72,7 @@
 					  </div>
 
 					  <fieldset>
-   					 <legend>Where do you live ?</legend>
+   					 <legend><?php echo _('Where do you live ?'); ?></legend>
 						  <div class="form-group">
 							  <label for="country" class="col-sm-2 control-label"> <?php echo _('Country'); ?> </label>
 								  <div class="col-sm-10">
@@ -101,7 +101,7 @@
 						</fieldset>
 
 					<fieldset>
-   					 <legend>Where are you from ?</legend>
+   					 <legend><?php echo _('Where are you from ?'); ?></legend>
 	   					 <div class="form-group">
 								  <label for="nationality" class="col-sm-2 control-label"> <?php echo _('Nationality'); ?> </label>
 									  <div class="col-sm-10">
@@ -114,7 +114,7 @@
    					</fieldset>
 
 					<fieldset>
-	   					 <legend> Spoken Language </legend>
+	   					 <legend> <?php echo _('Spoken Language'); ?> </legend>
 	   					 <div class="form-inline">
 							 <div id="tab" class="form-group">
 							  <label for="languages_id[]" class="col-sm-2"> <?php echo _('Languages'); ?> </label>
