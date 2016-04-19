@@ -1,6 +1,3 @@
 <?php
-try {
-var_dump($city_manager->getCountry(17801));
-} catch (Exception $e){
-	echo $e->getMessage();
-}
+
+var_dump(Form::languages($language_manager, 5));

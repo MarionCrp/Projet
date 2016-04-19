@@ -120,6 +120,23 @@ class UserManager extends Manager
 		return $users;
 	}
 
+	// public function getLanguages($user_id){
+	// 	$languages = [];
+	// 	$q = $this->_db->query(
+	// 		'SELECT languageId FROM spoken_languages 
+	// 			WHERE userId = :user_id order by languageId');
+	// 	$q->execute(array(
+	// 		'user_id' => $user_id)
+	// 	);
+
+	// 	while ($donnees = $q->fetch(PDO::FETCH_ASSOC))
+	// 	{
+	// 		$languages[] = $donnees;
+	// 	}
+
+	// 	return $languages;
+	// }
+
 
 	/**
 	* Supprime un utilisateur de la base de données
@@ -145,4 +162,7 @@ class UserManager extends Manager
 			SET '.$field.' = "'. $value .'" where id = '.$id);
 		$q->execute();
 	}
+
+	
+
 }
