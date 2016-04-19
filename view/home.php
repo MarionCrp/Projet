@@ -1,4 +1,56 @@
+	<?php
+	
+	
+		
+	/* L'UTILISATEUR EST CONNECTE :
+	 on affiche les fonctionnalités utilisateurs (menu déroulant
+	 											 + section (sous-page) appellée (section par défaut = la liste des utilisateurs inscrits) */
+												  
 
+		if (isset($_SESSION['user'])) 
+		{
+			?>
+
+			<div class="row">
+				<div class="col-md-3"><!-- Large button group -->
+					<div class="btn-group">
+					  <button class="btn btn-default btn-lg dropdown-toggle" type="button" data-toggle="dropdown"><span class="glyphicon glyphicon-align-justify"></span>
+					    Menu 
+					  </button>
+					  <ul class="dropdown-menu" role="menu">
+					    <li role="presentation"><a role="menuitem" tabindex="-1" href="index.php?page=home&section=myprofile"><span class="glyphicon glyphicon-user"></span><?php echo _(' My Profile '); ?></a></li>
+					    <li role="presentation"><a role="menuitem" tabindex="-1" href="index.php?page=home&section=mymessages"><span class="glyphicon glyphicon-envelope"></span><?php echo _(' My Messages '); ?></a></li>
+					    <li role="presentation"><a role="menuitem" tabindex="-1" href="index.php?page=home&section=userslist"><span class="glyphicon glyphicon-globe"></span><?php echo _(' My friends '); ?></a></li>
+					 	<li role="presentation"><a role="menuitem" tabindex="-1" href="view/chat.php"><span class="glyphicon glyphicon-comment"></span><?php echo _(' Chatting Room '); ?></a></li>					  
+					  </ul>
+					</div>
+				</div>
+
+
+
+				  <!-- INCLUSION DES SECTIONS (SOUS-PAGES) -->
+
+				  <div class="col-md-9">
+
+
+
+				  <?php if(isset($_GET['section'])) 
+						{
+							$section = $_GET['section'];
+						}
+
+						else 
+						{
+							$section = 'userslist';
+						}
+
+						include ($section.'.php');
+
+			       ?>
+				  </div>
+			</div>
+			
+			<!--- style pour l'affichage des inscrits--->
 	<style>
 		#affichage_derniers_inscrits {
 			border-style: solid;
@@ -116,58 +168,8 @@
 		}
 	/***********fin de la zonne de recherche***********/	
 	
-	
-	
-		
-	/* L'UTILISATEUR EST CONNECTE :
-	 on affiche les fonctionnalités utilisateurs (menu déroulant
-	 											 + section (sous-page) appellée (section par défaut = la liste des utilisateurs inscrits) */
-												  
-
-		if (isset($_SESSION['user'])) 
-		{
-			?>
-
-			<div class="row">
-				<div class="col-md-3"><!-- Large button group -->
-					<div class="btn-group">
-					  <button class="btn btn-default btn-lg dropdown-toggle" type="button" data-toggle="dropdown"><span class="glyphicon glyphicon-align-justify"></span>
-					    Menu 
-					  </button>
-					  <ul class="dropdown-menu" role="menu">
-					    <li role="presentation"><a role="menuitem" tabindex="-1" href="index.php?page=home&section=myprofile"><span class="glyphicon glyphicon-user"></span><?php echo _(' My Profile '); ?></a></li>
-					    <li role="presentation"><a role="menuitem" tabindex="-1" href="index.php?page=home&section=mymessages"><span class="glyphicon glyphicon-envelope"></span><?php echo _(' My Messages '); ?></a></li>
-					    <li role="presentation"><a role="menuitem" tabindex="-1" href="index.php?page=home&section=userslist"><span class="glyphicon glyphicon-globe"></span><?php echo _(' My friends '); ?></a></li>
-					 	<li role="presentation"><a role="menuitem" tabindex="-1" href="#"><span class="glyphicon glyphicon-comment"></span><?php echo _(' Chatting Room '); ?></a></li>					  
-					  </ul>
-					</div>
-				</div>
-
-
-
-				  <!-- INCLUSION DES SECTIONS (SOUS-PAGES) -->
-
-				  <div class="col-md-9">
-
-
-
-				  <?php if(isset($_GET['section'])) 
-						{
-							$section = $_GET['section'];
-						}
-
-						else 
-						{
-							$section = 'userslist';
-						}
-
-						include ($section.'.php');
-
-			       ?>
-				  </div>
-			</div>
 			
-
+?>
 			<!-- FIN inclusion de section en mode CONNECTE -->
 
 
