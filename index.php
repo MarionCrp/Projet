@@ -48,7 +48,7 @@ include_once('autoload.php');
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="index.php">TOTO</a>
+          <a class="navbar-brand" href="index.php">Meet an Alien </a>
         </div>
 
        
