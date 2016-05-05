@@ -26,4 +26,21 @@ class LevelManager extends Manager
 		$datas = $q->fetch();
 		return new Level($datas);
 	}
+
+		/**
+	* Récupère le nom attribué à l'id d'un level.
+	* @param int $level_id
+	*
+	* @return string $level_name
+	**/
+	public function getLevelName($level_id){
+		$req = $this->_db->prepare('SELECT name FROM language_level
+									 WHERE id = :id');
+		$req->execute(array(
+			'id' => $level_id));
+
+		$data = $req->fetch();
+
+		return $data['name'];
+	}
 }

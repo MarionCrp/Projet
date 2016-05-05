@@ -1,7 +1,7 @@
 <?php
 
 /**
-* Gestion de l'édition des attributs : name, email, gender et description
+* Gestion de l'édition des attributs de Localisation (ville actuelle et nationalité)
 **/
 if (isset($_POST['edit_localization'])) {
 	if(!empty($_POST['country'])){

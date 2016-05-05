@@ -19,7 +19,11 @@
 
         <div class="col-md-5">
         <legend><?php echo _('My Languages'); ?> </legend>
-          <?php display_language_level($current_user, $spoken_language_manager); ?> 
+          <?php foreach($spokenLanguages as $spokenLanguage){
+            echo '<p>'.$spokenLanguage['language'].'</p>';
+            Form::level_form($spokenLanguage['level']);
+          }
+          ?>
         </div>
       </div>
     </row>
