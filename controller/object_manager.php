@@ -31,6 +31,11 @@ $city_manager = new CityManager($db);
 $language_manager = new LanguageManager($db);
 
 /**
+* Création de l'instance $level_manager pour gérer les données du formulaire
+**/
+$level_manager = new LevelManager($db);
+
+/**
 * Création de l'instance $spoken_language_manager pour gérer les données du formulaire
 **/
 $spoken_language_manager = new SpokenLanguageManager($db);

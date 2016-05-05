@@ -117,26 +117,25 @@
 	   					 <legend> <?php echo _('Spoken Language'); ?> </legend>
 	   					 <div class="form-inline">
 							 <div id="tab" class="form-group">
-							  <label for="languages_id[]" class="col-sm-2"> <?php echo _('Languages'); ?> </label>
-								  <div id="a_cloner" class="col-sm-10">
-									  <select class="col-sm-10 form-control" name="languages_id[]" id="languages_id">
+								  <div id="to_clone" >
+									  <select class="languages_nb form-control" name="languages_id[]" id="languages_id">
 											<?php Form::languages($language_manager) ?>
 									  </select>
-									  <select class="col-sm-10 form-control" name="levels_id[]" id="levels_id">
+									  <select class="form-control" name="levels_id[]" id="levels_id">
 									  	<option value="1"><?php echo _('Beginner'); ?></option>
 									  	<option value="2"><?php echo _('Intermediate'); ?></option>
 									  	<option value="3"><?php echo _('Advanced'); ?></option>
 									  	<option value="4"><?php echo _('Fluent'); ?></option>
 									  	<option value="5"><?php echo _('Mother Tong'); ?></option>
 									  </select>
-									  <input class="btn btn-link" value="<?php echo _('Delete the Language'); ?>" onclick="suppression()"/>
+									  <span class="delete_button btn btn-link"><?php echo _('Delete the Language'); ?></span>
 								  </div>
 							  </div>
 						   </div>
 
 					   <div class="form-group">
-						    <div class="col-sm-offset-1 col-sm-10">
-						      <input class="btn btn-link" value="<?php echo _('Add a Language'); ?>" onclick="ajouteLigne();"/>
+						    <div class="">
+						     <div  class="btn btn-default" id="add_button"> <?php echo _('Add a Language'); ?> </div>
 						    </div>
 	 			  	   </div>
 						
@@ -145,8 +144,7 @@
 					   <div class="form-group">
 						    <!-- <div class="col-sm-offset-1 col-sm-10"> -->
 
-						    <div class="col-sm-offset-2 col-sm-4">
-
+						    <div class="">
 						      <input class="btn btn-default" type="submit" value="<?php echo _('Sign Up'); ?>" name="create_account"/>
 						     </div>
 		 			   </div>

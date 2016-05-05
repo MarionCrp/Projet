@@ -2,27 +2,40 @@
 include('./controller/edit_profile_language_controller.php');
 ?>
 
-<fieldset>
-	<legend> <?php echo _('Spoken Language'); ?> </legend>
-		<div class="form-inline">
-		 <div id="tab" class="form-group">
-		  <label for="languages_id[]" class="col-sm-2"> <?php echo _('Languages'); ?> </label>
-			  <div class="col-sm-10">
-			  	<?php language_form($current_user, $db); ?>				  
-			  </div>
-		 </div>
-	   </div>
+<form action="#" method="post" class="form-horizontal">
+	<fieldset>
+		<legend> <?php echo _('Spoken Language'); ?> </legend>
+			<div class="form-inline">
+			 <div id="tab" class="form-group">
 
-   <div class="form-group">
-	    <div class="col-sm-offset-1 col-sm-10">
-	      <input class="btn btn-link" value="<?php echo _('Add a Language'); ?>" onclick="ajouteLigne();"/>
-	    </div>
-   </div>	
+				  	<?php language_form($current_user, $db); ?>				  
 
-   <div class="form-group">
-	<div class="col-sm-offset-1 col-sm-10">
-		<input class="btn btn-default" type= "submit" value=<?php echo _(" Edit "); ?> name="edit_general"/><br/>
+				  <div id="to_clone" style="display:none;">
+					  <select class="form-control" name="languages_id[]" id="languages_id">
+							<?php Form::languages($language_manager) ?>
+					  </select>
+					  <select class="form-control" name="levels_id[]" id="levels_id">
+					  	<option value="1"><?php echo _('Beginner'); ?></option>
+					  	<option value="2"><?php echo _('Intermediate'); ?></option>
+					  	<option value="3"><?php echo _('Advanced'); ?></option>
+					  	<option value="4"><?php echo _('Fluent'); ?></option>
+					  	<option value="5"><?php echo _('Mother Tong'); ?></option>
+					  </select>
+					   <span class="delete_button btn btn-link"><?php echo _('Delete the Language'); ?></span>
+				  </div>
+			 </div>
+		   </div>
+
+	   <div class="form-group">
+		    <div class="">
+		     <div  class="btn btn-default" id="add_button"> <?php echo _('Add a Language'); ?> </div>
+		    </div>
+		</div>
+
+	   <div class="form-group">
+		<div class="">
+			<input class="btn btn-default" type= "submit" value=<?php echo _(" Edit "); ?> name="edit_language"/><br/>
+		</div>
 	</div>
-</div>
-</fieldset>
-
+	</fieldset>
+</form>

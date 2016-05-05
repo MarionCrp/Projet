@@ -10,6 +10,7 @@ class SpokenLanguageManager extends Manager
 		parent::__construct($db);
 	}
 
+
 	public function addLanguage($user_id, $language_id, $level_id){
 		$q = $this->_db->prepare('SELECT COUNT(*) FROM spoken_languages
 												  WHERE userId = :userid,
@@ -31,68 +32,128 @@ class SpokenLanguageManager extends Manager
 		if (!$q) echo _('error adding languages to the db');
 	}
 
-	// public function modifyLanguage($user_id, $language_id, $level_id){
-	// 	$q = $this->_db->prepare('SELECT COUNT(*) FROM spoken_languages
-	// 											  WHERE userId = :userid,
-	// 											  AND languageId = :languageid,
-	// 											  AND ;');
-	// 	$q->execute(array(
-	// 		'userid' => $user_id,
-	// 		'languageid' => $language_id
-	// 		));
+	public function modifyLanguage($user_id, $language_id, $level_id){
+		// On vérifie si l'entrée complète est déjà en base de données ou non
+		$q = $this->_db->prepare('SELECT COUNT(*) as nb FROM spoken_languages
+												  WHERE userId = :userid
+												  AND languageId = :languageid
+												  AND levelId = :levelid;');
+		$q->execute(array(
+			'userid' => $user_id,
+			'languageid' => $language_id,
+			'levelid' => $level_id
+			));
 
-	// 	if (!$q) throw new Exception('Cette langue a déjà été ajoutée dans vos contacts');
+		$data = $q->fetchColumn();
 
-	// 	$q = $this->_db->prepare('INSERT INTO spoken_languages VALUES (:userid, :languageid, :levelid);');
-	// 	$q->execute(array(
-	// 		'userid' => $user_id,
-	// 		'languageid' => $language_id,
-	// 		'levelid' => $level_id
-	// 		));
-		
-	// 	if (!$q) echo _('error adding languages to the db');
-	// }
+		// Si elle n'est pas en base de donnée :
+		if (!$data) {
+
+			//on vérifie si il existe tout de même une entrée avec
+			// une langue donnée pour un utilisateur donné (c'est le niveau qui demanderait donc à être modifié)
+			$q = $this->_db->prepare('SELECT COUNT(*) as nb FROM spoken_languages
+												  WHERE userId = :userid
+												  AND languageId = :languageid;');
+			$q->execute(array(
+				'userid' => $user_id,
+				'languageid' => $language_id
+				));
+
+			$data = $q->fetchColumn();
+
+			// Si on récupère une entrée, on modifie donc le "niveau" de langue de l'utilisateur pour cette entrée
+			if($data) {
+				$q = $this->_db->prepare('UPDATE spoken_languages
+										  	SET levelId = :levelid
+										  		WHERE userId = :userid
+										  		AND languageId = :languageid;');
+				$q->execute(array(
+					'userid' => $user_id,
+					'languageid' => $language_id,
+					'levelid' => $level_id
+					));
+
+				if ($q) echo ('<p style="color:green;">' ._('The language level has been modified').  '</p>');
+				else throw new Exception('Error editing the language level');
+			} else {
+			// 	Sinon, on ajoute une nouvelle entrée à la base
+				$this->addLanguage($user_id, $language_id, $level_id);
+			}
+		}
+	}
 
 	/**
-	* Récupère la liste des utilisateurs parlant une langue
-	* @param int $language_id
+	* Compare les éléments modifié aux éléments présents dans la base de donnée et supprime les données
+	* qui ne sont plus présentes dans les éléments mis à jour.
+	* @param Array of Languages $newlanguages
 	*
-	* @return array of Users $array_of_users
 	**/
-	public function getUsers($language_id){
-		$users = [];
-		
-		//* A finir * // 
-
-		while ($datas = $q->fetch(PDO::FETCH_ASSOC))
-		{
-			$discussion[] = new Message($datas);
+	public function compareAndDeleteEditedLanguages($newLanguages){
+		$oldLanguages = self::getUsersLanguages($newLanguages[0]->userId());
+		$languagesToDelete = array();
+		foreach ($oldLanguages as $oldLanguage){
+			$isNotDeleted = false;
+			foreach ($newLanguages as $newLanguage){
+				if ($oldLanguage == $newLanguage){
+					$isNotDeleted = true;
+				}
+			}
+			if ($isNotDeleted == false) {
+				$languagesToDelete[] = $oldLanguage;
+			}
 		}
+		foreach ($languagesToDelete as $languageToDelete) {
+			$this->deleteSpokenLanguage($languageToDelete);
+		}
+	}
 
-		return $discussion;
+	/**
+	* Supprime un langage parlé par un utilisateur de la base de donnée 
+	*
+	* @param SpokenLanguage $languageToDelete
+	*
+	**/
+	public function DeleteSpokenLanguage($languageToDelete){
+
+		$q = $this->_db->prepare('DELETE FROM spoken_languages
+												  WHERE userId = :userid
+												  AND languageId = :languageid
+												  AND levelId = :levelid;');
+		$q->execute(array(
+			'userid' => $languageToDelete->userId(),
+			'languageid' => $languageToDelete->languageId(),
+			'levelid' => $languageToDelete->levelId(),
+			));
+
+		if ($q) echo ('<p style="color:green;">' ._('A language has been deleted').  '</p>');
+				else throw new Exception('Error deleting a language');
+
 	}
 
 	/**
 	* Récupère les langues parlées par un utilisateur donné
-	* @param User $user
+	* @param $userId
 	*
 	* @return array of SpokenLanguages $languages
 	**/
-	public function getUsersLanguages(User $user){
-		$level_manager = new LevelManager($this->_db);
-		$language_manager = new LanguageManager($this->_db);
+	public function getUsersLanguages($userId){
+		/*$level_manager = new LevelManager($this->_db);
+		$language_manager = new LanguageManager($this->_db);*/
 		$languages = [];
-		$req = $this->_db->prepare('SELECT * FROM spoken_languages WHERE userId = :user_id');
+		$req = $this->_db->prepare('SELECT * FROM spoken_languages 
+										WHERE userId = :user_id
+											ORDER BY levelId desc' );
 		$req->execute(array(
-			'user_id' => $user->id())
-		);
+			'user_id' => $userId
+			));
+
 		while ($data = $req->fetch()) {
-			$language = $language_manager->getLanguage($data['languageId']);
-			$level = $level_manager->getLevel($data['levelId']);
+			// $language = $language_manager->getLanguage($data['languageId']);
+			// $level = $level_manager->getLevel($data['levelId']);
 			$languages[] = new SpokenLanguage(array(
-				'user' => $user,
-				'language' => $language,
-				'level' => $level));
+				'userId' => $data['userId'],
+				'languageId' => $data['languageId'],
+				'levelId' => $data['levelId']));
 		}
 
 		return $languages;
@@ -104,13 +165,14 @@ class SpokenLanguageManager extends Manager
 	* @param User $user
 	*
 	**/
-	public function displayLanguages(User $user){
+	public function displayLanguages($userId){
 		// On récupère les langues parlées par un utilisateur dans un array.
-		$languages = self::getUsersLanguages($user);
+		$language_manager = new LanguageManager($db);
+		$languages = self::getUsersLanguages($userId);
 		foreach($languages as $language) {
 			var_dump($language);
-			$level = $language->level();
-			 echo '<h1>'.$language->name().'<h1>';
+			$level = $language->levelId();
+			 echo '<h1>'.$language_manager->getLanguage($language->languageId()).'<h1>';
 			 Form::level_form($level);
 		}
 	}

@@ -1,8 +1,8 @@
 <?php
 class SpokenLanguage {
-	private $_user;
-	private $_language;
-	private $_level;
+	private $_userId;
+	private $_languageId;
+	private $_levelId;
 
 	/**
 	* Constructeur
@@ -32,35 +32,38 @@ class SpokenLanguage {
 
 	//**************** GETTERS ***************//
 
-	public function user()
+	public function userId()
 	{
-		return $this->_user;
+		return $this->_userId;
 	}
 
-	public function language()
+	public function languageId()
 	{
-		return $this->_language;
+		return $this->_languageId;
 	}
 
-	public function level(){
-		return $this->_level;
+	public function levelId(){
+		return $this->_levelId;
 	}
 
 	//**************** SETTERS ****************// 
 
-	public function setUser(User $user)
+	public function setUserId($userId)
 	{
-		$this->_user = $user;
+		$userId = (int) $userId;
+		$this->_userId = $userId;
 	}
 
-	public function setLanguage($language)
+	public function setLanguageId($languageId)
 	{
-		$this->_language = $language;
+		$languageId = (int) $languageId;
+		$this->_languageId = $languageId;
 	}
 
-	public function setLevel($level)
+	public function setLevelId($levelId)
 	{
-		$this->_level = $level;
+		$levelId = (int) $levelId;
+		$this->_levelId = $levelId;
 	}
 
 }
