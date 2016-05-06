@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2016-04-04 13:26+0200\n"
-"PO-Revision-Date: 2016-04-04 13:29+0200\n"
+"POT-Creation-Date: 2016-05-06 00:48+0200\n"
+"PO-Revision-Date: 2016-05-06 01:00+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fr_FR\n"
@@ -20,44 +20,112 @@ msgstr ""
 msgid " Passwords are different "
 msgstr "Les mots de passe ne sont pas identiques"
 
-#: class/UserManager.php:49
+#: class/SpokenLanguageManager.php:32
+msgid "error adding languages to the db"
+msgstr "Une erreur est survenu lors de l'ajout d'un langage à votre profil"
+
+#: class/SpokenLanguageManager.php:33
+msgid "A language has been added"
+msgstr "Un langage a été ajouté"
+
+#: class/SpokenLanguageManager.php:77
+msgid "The language level has been modified"
+msgstr "Le niveau de langage a été modifié"
+
+#: class/SpokenLanguageManager.php:129
+msgid "A language has been deleted"
+msgstr "Un langage a été supprimé"
+
+#: class/UserManager.php:41
 msgid "Your account has been created"
 msgstr "Votre compte a été crée"
 
-#: controller/edit_profile_controller.php:19
+#: controller/edit_profile_general_controller.php:19
 msgid "This name is already used"
 msgstr "Ce nom est déjà utilisé"
 
-#: controller/edit_profile_controller.php:20
+#: controller/edit_profile_general_controller.php:20
 msgid "This email is already used"
 msgstr "Cet email est déjà utilisé pour un autre compte"
 
-#: controller/edit_profile_controller.php:21
+#: controller/edit_profile_general_controller.php:21
 msgid "the format of the e-mail is not valid"
 msgstr "L'email n'est pas valide"
 
-#: controller/edit_profile_controller.php:22
+#: controller/edit_profile_general_controller.php:22
 msgid "this field can't be empty"
 msgstr "Ce champ ne peut être vide"
 
-#: controller/edit_profile_controller.php:32
-msgid "The profil has been modified"
-msgstr "Le profil a été modifié"
+#: controller/edit_profile_general_controller.php:31
+msgid "The "
+msgstr ""
 
-#: controller/edit_profile_controller.php:47
+#: controller/edit_profile_language_controller.php:6
+msgid "You have not yet added language"
+msgstr "Vous n'avez pas encore indiqué de langage"
+
+#: controller/edit_profile_language_controller.php:17
+#: view/edit_profile_language.php:18 view/signup.php:125
+msgid "Beginner"
+msgstr "Débutant"
+
+#: controller/edit_profile_language_controller.php:18
+#: view/edit_profile_language.php:19 view/signup.php:126
+msgid "Intermediate"
+msgstr "Intermédiaire"
+
+#: controller/edit_profile_language_controller.php:19
+#: view/edit_profile_language.php:20 view/signup.php:127
+msgid "Advanced"
+msgstr "Avancé"
+
+#: controller/edit_profile_language_controller.php:20
+#: view/edit_profile_language.php:21 view/signup.php:128
+msgid "Fluent"
+msgstr "Courant"
+
+#: controller/edit_profile_language_controller.php:21
+#: view/edit_profile_language.php:22 view/signup.php:129
+msgid "Mother Tong"
+msgstr "Langue Maternelle"
+
+#: controller/edit_profile_language_controller.php:23
+#: view/edit_profile_language.php:24 view/signup.php:131
+msgid "Delete the Language"
+msgstr "Supprimer"
+
+#: controller/edit_profile_language_controller.php:56
+msgid "Please specify at least one language."
+msgstr "Veuillez spécifier au moins une langue"
+
+#: controller/edit_profile_localization_controller.php:8
+msgid "Please fill all the form bellow to edit you're current city."
+msgstr ""
+"Veuillez remplir tous les champs de localisation pour indiquer votre ville "
+"actuelle"
+
+#: controller/edit_profile_localization_controller.php:11
+msgid "The city where you're living has been modified"
+msgstr "La ville où vous vivez a été modifiée"
+
+#: controller/edit_profile_localization_controller.php:19
+msgid "Your nationality has been modified"
+msgstr "Votre nationalité a été modifiée"
+
+#: controller/edit_profile_password_controller.php:13
 msgid "Please fill out the 3 fields to modify your password"
 msgstr ""
 "Veuillez remplir les trois champs relatif au mot de passe pour le modifier"
 
-#: controller/edit_profile_controller.php:71
+#: controller/edit_profile_password_controller.php:37
 msgid "The current password is wrong"
 msgstr "Le mot de passe actuel n'est pas correct"
 
-#: controller/edit_profile_controller.php:78
+#: controller/edit_profile_password_controller.php:43
 msgid "The two new passwords are different"
 msgstr "Les deux mots de passe sont différents"
 
-#: controller/edit_profile_controller.php:90
+#: controller/edit_profile_password_controller.php:53
 msgid "The password has been modified"
 msgstr "Le mot de passe a bien été modifié"
 
@@ -73,9 +141,9 @@ msgstr "Répondre"
 msgid "You"
 msgstr "Vous"
 
-#: controller/messages_controller.php:85 view/userslist.php:28
+#: controller/messages_controller.php:85 view/userslist.php:30
 msgid "Send a message"
-msgstr "Envoyer le message"
+msgstr "Envoyer un message"
 
 #: controller/messages_controller.php:99
 msgid "Please, write a message"
@@ -93,7 +161,7 @@ msgstr "Envoyer"
 msgid "Go back to the Mail Box"
 msgstr "Retournez à la page des messages"
 
-#: controller/signin_controller.php:19 controller/signup_controller.php:22
+#: controller/signin_controller.php:19 controller/signup_controller.php:24
 msgid "Please fill in all fields"
 msgstr "Veuillez remplir tous les champs"
 
@@ -106,155 +174,232 @@ msgid ""
 "The email address you've provided does not match an existing member account."
 msgstr "Cet email n'existe pas dans la base de donnée"
 
-#: controller/signup_controller.php:73
+#: controller/signup_controller.php:79
 msgid "Please enter a valid e-mail adress"
 msgstr "Veuillez entrer une adresse email valide"
 
-#: controller/signup_controller.php:82 controller/signup_controller.php:88
+#: controller/signup_controller.php:88 controller/signup_controller.php:94
 msgid "is already taken"
 msgstr "est déjà pris"
 
-#: index.php:19
+#: index.php:23
 msgid "  Meet An Alien - Index "
 msgstr "Meet An Alien - Accueil"
 
-#: index.php:61
+#: index.php:65
 msgid " Sign In "
 msgstr "Se Connecter"
 
-#: index.php:63
+#: index.php:67
 msgid " Sign up "
 msgstr "S'inscrire"
 
-#: index.php:71
+#: index.php:75
 msgid " Sign Out "
 msgstr "Se Déconnecter"
 
-#: index.php:102
+#: index.php:106
 msgid "Please enter your city"
 msgstr "Veuillez indiquer votre ville"
 
-#: index.php:111
+#: index.php:115
 msgid " I want to meet someone speaking "
 msgstr "Je souhaite rencontrer quelqu'un qui parle"
 
-#: index.php:172
+#: index.php:176
 msgid " Need some help ? "
 msgstr "Besoin d'Aide?"
 
-#: index.php:173
+#: index.php:177
 msgid " Contact us "
 msgstr "Nous contacter"
 
-#: index.php:174
+#: index.php:178
 msgid " FAQ "
 msgstr "FAQ"
 
-#: index.php:175
+#: index.php:179
 msgid " Terms and Conditions "
 msgstr "Conditions Générales"
 
-#: index.php:176
+#: index.php:180
 msgid "  Legal informations "
 msgstr "Informations Légales"
 
-#: index.php:177
+#: index.php:181
 msgid " Site map "
 msgstr "Plan du Site"
 
-#: index.php:183
+#: index.php:187
 msgid " Mobile Version "
 msgstr "Version Mobile"
 
-#: index.php:184
+#: index.php:188
 msgid " App for Iphone "
 msgstr "Application Iphone"
 
-#: index.php:185
+#: index.php:189
 msgid " App for Android "
 msgstr "Application Androïd"
 
-#: index.php:191
+#: index.php:195
 msgid " Working with us "
 msgstr "Rejoindre l'équipe"
 
-#: index.php:192
+#: index.php:196
 msgid " Business propositions "
 msgstr "Entreprises"
 
-#: index.php:193
+#: index.php:197
 msgid " Partnerships "
 msgstr "Partenariat"
 
-#: index.php:194
+#: index.php:198
 msgid " Employment opportunities "
 msgstr "Jobs"
+
+#: view/chat.php:217
+msgid " Home  "
+msgstr "Page d'accueil"
 
 #: view/edit_profile.php:5
 msgid " Edit you account "
 msgstr "Modifier votre profil"
 
-#: view/edit_profile.php:15
-msgid " Name "
-msgstr "Nom"
+#: view/edit_profile.php:12
+msgid "General "
+msgstr "Général"
 
-#: view/edit_profile.php:17 view/edit_profile.php:23 view/edit_profile.php:34
-msgid " Edit "
-msgstr "Modifier"
+#: view/edit_profile.php:13 view/signin.php:37 view/signup.php:44
+msgid "Password"
+msgstr "Mot de Passe"
+
+#: view/edit_profile.php:14
+msgid "Localization"
+msgstr "Localisation"
+
+#: view/edit_profile.php:15
+msgid "Language"
+msgstr "Langues"
 
 #: view/edit_profile.php:27
+msgid "Back to my Profile"
+msgstr "Mon Profil"
+
+#: view/edit_profile_general.php:7 view/myprofile.php:12 view/signup.php:30
+msgid "Name"
+msgstr "Nom"
+
+#: view/edit_profile_general.php:14 view/signin.php:30
+msgid "Email Adress"
+msgstr "Adresse Email"
+
+#: view/edit_profile_general.php:21
 msgid " Gender "
 msgstr "Sexe"
 
-#: view/edit_profile.php:30
+#: view/edit_profile_general.php:25
 msgid " Male "
 msgstr "Homme"
 
-#: view/edit_profile.php:32
+#: view/edit_profile_general.php:27
 msgid " Female "
 msgstr "Femme"
 
-#: view/edit_profile.php:41
-msgid " Current Password "
-msgstr "Mot de Passe Actuel"
-
-#: view/edit_profile.php:44
-msgid " New Password "
-msgstr "Nouveau Mot de Passe"
-
-#: view/edit_profile.php:47
-msgid " Confirm Password "
-msgstr "Confirmer le Mot de Passe"
-
-#: view/edit_profile.php:49
-msgid " Edit password "
-msgstr "Modifier le Mot de Passe"
-
-#: view/edit_profile.php:56
+#: view/edit_profile_general.php:33
 msgid " Tell more about yourself "
 msgstr "A propos de vous"
 
-#: view/edit_profile.php:58
-msgid " Edit your description "
-msgstr "Modifier votre profil"
+#: view/edit_profile_general.php:41
+msgid " Edit "
+msgstr "Modifier"
 
-#: view/home.php:138
+#: view/edit_profile_language.php:7 view/signup.php:117
+msgid "Spoken Language"
+msgstr "Langues parlées"
+
+#: view/edit_profile_language.php:31 view/signup.php:138
+msgid "Add a Language"
+msgstr "Ajouter une Langue"
+
+#: view/edit_profile_language.php:37
+msgid " Edit Languages "
+msgstr "Modifier une Langue"
+
+#: view/edit_profile_localization.php:8 view/signup.php:75
+msgid "Where do you live ?"
+msgstr "Où vivez vous ? "
+
+#: view/edit_profile_localization.php:10
+msgid "Are you still living in <b>"
+msgstr "Vivez vous toujours à <b>"
+
+#: view/edit_profile_localization.php:12 view/signup.php:77
+msgid "Country"
+msgstr "Pays"
+
+#: view/edit_profile_localization.php:15
+msgid "Select Country"
+msgstr "Choisissez un Pays"
+
+#: view/edit_profile_localization.php:21 view/signup.php:85
+msgid "State"
+msgstr "Région"
+
+#: view/edit_profile_localization.php:24
+msgid "Select State"
+msgstr "Choisissez une région"
+
+#: view/edit_profile_localization.php:30 view/signup.php:94
+msgid "City"
+msgstr "Ville"
+
+#: view/edit_profile_localization.php:33
+msgid "Select City"
+msgstr "Choisissez une ville"
+
+#: view/edit_profile_localization.php:45 view/myprofile.php:16
+#: view/signup.php:106
+msgid "Nationality"
+msgstr "Nationalité"
+
+#: view/edit_profile_localization.php:57
+msgid " Edit Localizations "
+msgstr "Modifier votre localisation"
+
+#: view/edit_profile_password.php:6
+msgid " Current Password "
+msgstr "Mot de Passe Actuel"
+
+#: view/edit_profile_password.php:11
+msgid " New Password "
+msgstr "Nouveau Mot de Passe"
+
+#: view/edit_profile_password.php:16
+msgid " Confirm Password "
+msgstr "Confirmer le Mot de Passe"
+
+#: view/edit_profile_password.php:23
+msgid " Edit Password "
+msgstr "Modifier votre Mot de Passe"
+
+#: view/home.php:21
 msgid " My Profile "
 msgstr "Mon profile"
 
-#: view/home.php:139
+#: view/home.php:22
 msgid " My Messages "
 msgstr "Mes messages"
 
-#: view/home.php:140
+#: view/home.php:23
 msgid " My friends "
 msgstr "Mes amis"
 
-#: view/home.php:141
+#: view/home.php:24
 msgid " Chatting Room "
 msgstr "Tchat"
 
-#: view/home.php:183
+#: view/home.php:185
 msgid ""
 " Welcome to our supervised project. This project is a multicultural meeting "
 "Website. Its purpose is to link together :"
@@ -262,7 +407,7 @@ msgstr ""
 "Bienvenue sur notre projet tuteuré. Ce projet est un site de rencontres "
 "multiculturelles. Son objectif est de mettre en relation :"
 
-#: view/home.php:185
+#: view/home.php:187
 msgid ""
 "People with different nationalities to allow cultural and linguistic "
 "exchanges."
@@ -270,14 +415,14 @@ msgstr ""
 "des personnes de nationalités différentes pour permettre des échanges "
 "culturels et linguistiques."
 
-#: view/home.php:186
+#: view/home.php:188
 msgid ""
 "People with a common nationality for expatriates who miss their countries ! "
 msgstr ""
 "des personnes de nationalité commune pour les expatriés ayant le mal du "
 "pays !"
 
-#: view/home.php:188
+#: view/home.php:190
 msgid ""
 "We are three students in informatics (Bachelor), and we are beginners in Web "
 "programming."
@@ -285,7 +430,7 @@ msgstr ""
 "Nous sommes trois étudiants en DUT informartique en Année Spéciale, et nous "
 "débutons dans la programmation Web."
 
-#: view/home.php:190
+#: view/home.php:192
 msgid ""
 "This project is an opportunity for us to **learn**  and  **apply** directly "
 "languages we are working on during courses. "
@@ -293,27 +438,27 @@ msgstr ""
 "Ce projet sera l'occasion pour nous d'**apprendre** et de **mettre en "
 "pratique** directement les langages appris. "
 
-#: view/home.php:192
+#: view/home.php:194
 msgid "Technologies used previously :"
 msgstr "Technologies utilisées jusque là :"
 
-#: view/home.php:194
+#: view/home.php:196
 msgid "HTML5 / CSS3 / Bootstrap"
 msgstr "HTML5/CSS3/Bootstrap"
 
-#: view/home.php:195
+#: view/home.php:197
 msgid "PHP ( object oriented programming )"
 msgstr "PHP (en programmation orienté objet)"
 
-#: view/home.php:196
+#: view/home.php:198
 msgid "MySQL"
 msgstr "MySQL"
 
-#: view/home.php:197
+#: view/home.php:199
 msgid "Javascript (jQuery/Ajax)"
 msgstr "Javascript (jQuery/Ajax)"
 
-#: view/home.php:198
+#: view/home.php:200
 msgid ""
 "The purpose being to get the code evolving regarding the technologies learnt "
 "at our university and self-study ( including MVC model ... )"
@@ -321,41 +466,45 @@ msgstr ""
 "Le but étant de faire évoluer le code en fonction des technologies apprises "
 "à l'IUT et en autoformation (notamment modèle MVCetc.)"
 
-#: view/home.php:201
+#: view/home.php:203
 msgid "Marion, Kévin and Loïc"
 msgstr "Marion, Kévin et Loïc"
 
-#: view/myprofile.php:5
+#: view/myprofile.php:6
 msgid "My Profile"
 msgstr "Mon Profile"
 
-#: view/myprofile.php:8 view/signup.php:30
-msgid "Name"
-msgstr "Nom"
+#: view/myprofile.php:11
+msgid "My Information"
+msgstr "Mes informations"
 
-#: view/myprofile.php:9
+#: view/myprofile.php:13
 msgid "Email Address"
 msgstr "Adresse Email"
 
-#: view/myprofile.php:10 view/signup.php:58
+#: view/myprofile.php:14 view/signup.php:58
 msgid "Gender"
 msgstr "Sexe"
 
-#: view/myprofile.php:16
+#: view/myprofile.php:15
+msgid "Current City"
+msgstr "Ville actuelle"
+
+#: view/myprofile.php:17
+msgid "How do you describe yourself"
+msgstr "Décrivez-vous"
+
+#: view/myprofile.php:21
+msgid "My Languages"
+msgstr "Mes Langues"
+
+#: view/myprofile.php:32
 msgid "Edit my Profile"
 msgstr "Modifier mon Profil"
 
 #: view/signin.php:10 view/signin.php:23
 msgid "Sign In"
 msgstr "Connexion"
-
-#: view/signin.php:30
-msgid "Email Adress"
-msgstr "Adresse Email"
-
-#: view/signin.php:37 view/signup.php:44
-msgid "Password"
-msgstr "Mot de Passe"
 
 #: view/signin.php:45
 msgid "Sign in"
@@ -365,7 +514,7 @@ msgstr "Se Connecter"
 msgid "Go back to the Main Page"
 msgstr "Retourner à la page d'accueil"
 
-#: view/signup.php:9 view/signup.php:78
+#: view/signup.php:9 view/signup.php:148
 msgid "Sign Up"
 msgstr "S'inscrire"
 
@@ -401,9 +550,25 @@ msgstr "Description"
 msgid "Talk about yourself"
 msgstr "Parlez de vous"
 
-#: view/signup.php:87
+#: view/signup.php:104
+msgid "Where are you from ?"
+msgstr "D'où venez-vous ?"
+
+#: view/signup.php:156
 msgid "Go back to the Main page "
 msgstr "Retourner à la page d'accueil"
+
+#~ msgid "The profil has been modified"
+#~ msgstr "Le profil a été modifié"
+
+#~ msgid " Name "
+#~ msgstr "Nom"
+
+#~ msgid " Edit password "
+#~ msgstr "Modifier le Mot de Passe"
+
+#~ msgid " Edit your description "
+#~ msgstr "Modifier votre profil"
 
 #~ msgid ""
 #~ "<p> \n"

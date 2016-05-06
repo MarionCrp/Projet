@@ -54,7 +54,7 @@
 
 		<div class="form-group">
 			<div class="col-sm-offset-2 col-sm-4">
-				<input class="btn btn-default" type= "submit" value=<?php echo _(" Edit "); ?> name="edit_localization"/><br/>
+				<input class="btn btn-primary" type= "submit" value="<?php echo _(" Edit Localizations "); ?>" name="edit_localization"/><br/>
 			</div>
 		</div>
 	</form>

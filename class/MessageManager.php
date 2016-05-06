@@ -16,23 +16,28 @@ class MessageManager extends Manager
 	**/
 	public function Add(Message $message)
 	{ 
-		$q = $this->_db->prepare('INSERT INTO Message 
-			SET author_id = :author, 
-				recipient_id = :recipient,
-				content = :content, 
-				sent = :sent'
-				);
+		$q = $this->_db->prepare('INSERT INTO message 
+			(author_id, recipient_id, content, is_sent, is_read) VALUES( :author, :recipient, :content, :sent, :read)');
 
-		$q->bindValue(':author', $message->author_id());
-		$q->bindValue(':recipient', $message->recipient_id());
-		$q->bindValue(':content', $message->content());
-		$q->bindValue(':sent', $message->sent());
+		$q->execute(array(
+			'author' => $message->author_id(),
+			'recipient' => $message->recipient_id(),
+			'content' => $message->content(),
+			'sent' => $message->sent(),
+			'read' => $message->read()
+			));
 
-		$q->execute();
+		if(!$q) {
+			throw new Exception('Cannot send the message');
+			
+		} else {
+			echo ('<p style="color:green;">' ._('Message Sent').  '</p>');
+		}
+		// $message->hydrate([
+		// 	'id' => $this->_db->lastInsertId(),
+		// 	]);
 
-		$message->hydrate([
-			'id' => $this->_db->lastInsertId(),
-			]);
+
 	}
 
 
@@ -44,18 +49,19 @@ class MessageManager extends Manager
 	**/
 	public function getListOfMessages($current_user)
 	{
-		$current_user_id = $current_user->id();
 		$messages = [];
-		/*$q = $this->_db->query(
-			'SELECT * FROM Message User where recipient_id = '.$current_user_id.' 
-			 ORDER BY datetime');*/
 
-		$q = $this->_db->query(
-			'SELECT id, author_id, recipient_id, DATE_FORMAT(max(datetime), \'Le %d/%m/%Y à %Hh%i\') as datetime, sent, content 
+		$q = $this->_db->prepare(
+			'SELECT id, author_id, recipient_id, DATE_FORMAT(datetime, \'Le %d/%m/%Y à %Hh%i\') as datetime, content 
 			FROM message 
-			WHERE recipient_id = '.$current_user_id.' 
-			GROUP BY (author_id)
-			ORDER BY datetime');
+			WHERE recipient_id = :recipient_id
+				GROUP BY (author_id)
+				ORDER BY datetime');
+
+		$q->execute(array(
+			'recipient_id' => $current_user->id()
+			));	
+
 
 		while ($datas = $q->fetch(PDO::FETCH_ASSOC))
 		{
@@ -87,11 +93,16 @@ class MessageManager extends Manager
 	public function getDiscussion($author_id, $recipient_id)
 	{
 		$discussion = [];
-		$q = $this->_db->query(
-			'SELECT id, author_id, recipient_id, DATE_FORMAT(datetime, \'Le %d/%m/%Y à %Hh%i\') as datetime, sent, content FROM Message 
-			where author_id in ('.$author_id.', '.$recipient_id.')
-			and recipient_id in ('.$author_id.', '.$recipient_id.') 
-			order by datetime asc');
+		$q = $this->_db->prepare(
+			'SELECT id, author_id, recipient_id, DATE_FORMAT(datetime, \'Le %d/%m/%Y à %Hh%i\') as datetime, content FROM Message 
+			WHERE (author_id = :author_id OR author_id = :recipient_id)
+			AND (recipient_id = :author_id OR recipient_id = :recipient_id)
+				ORDER BY datetime');
+
+		$q->execute(array(
+			'author_id' => $author_id,
+			'recipient_id' => $recipient_id
+			));
 
 		while ($datas = $q->fetch(PDO::FETCH_ASSOC))
 		{
@@ -119,24 +130,24 @@ class MessageManager extends Manager
 	* @param $current_user Notre utilisateur
 	* @return array les messages non lus par l'utilisateur
 	**/
-	public function getUnreadMessages($current_user) 
-	{
-		$unread_messages = [];
-		$current_user_id = $current_user->id();
-		$q = $this->_db->query(
-			'SELECT * 
-			from Message, User
-			where read = false
-			and message.recipient_id = user.id
-			and recipient_id ='.$current_user_id);
+	// public function getUnreadMessages($current_user) 
+	// {
+	// 	$unread_messages = [];
+	// 	$current_user_id = $current_user->id();
+	// 	$q = $this->_db->query(
+	// 		'SELECT * 
+	// 		from Message, User
+	// 		where is_read = false
+	// 		and message.recipient_id = user.id
+	// 		and recipient_id ='.$current_user_id);
 
-		while ($datas = $q->fetch(PDO::FETCH_ASSOC))
-		{
-			$unread_messages[] = new Message($datas);
-		}
+	// 	while ($datas = $q->fetch(PDO::FETCH_ASSOC))
+	// 	{
+	// 		$unread_messages[] = new Message($datas);
+	// 	}
 
-		return $unread_messages;
-	}
+	// 	return $unread_messages;
+	// }
 
 	/**
 	* Récupère le nom de l'auteur d'un message suivant son id utilisateur
@@ -153,31 +164,19 @@ class MessageManager extends Manager
 		return ($q->fetchColumn());
 	}
 
-
-
-
 	/**
-	* Supprime un utilisateur de la base de données
-	* @param $user User utilisateur à supprimer
+	* Met un message non lu, a lu.
+	* @param $message Message - Message dont on va changé la valeur de read de 0 à 1)
 	**/
-	public function delete(User $user)
+	public function SetRead(Message $message) 
 	{
-		$this->_db->exec(
-			'DELETE FROM User WHERE id = '.$user->id());
+		//A FAIRE
+		// $message_id = $message->id();
+		// $q = $this->_db->query(
+		// 	'SELECT name FROM User, Message
+		// 	WHERE user.id = message.author_id 
+		// 	and message.id = '.$message_id) or die(print_r($q->errorInfo()));
+		// return ($q->fetchColumn());
 	}
 
-	/**
-	* Sinon on vérifie la validité des données rentrées par l'utilisateur
-	* @param $id int L'identifiant de l'utilisateur qui doit être modifié
-	* @param $field string le champ à modifier
-	* @param $value string | int la nouvelle valeur
-	* 
-	**/
-	public function edit($id, $field, $value)
-	{ 
-		$q = $this->_db->prepare('UPDATE User 
-			SET '.$field.' = "'. $value .'" where id = '.$id);
-
-		$q->execute();
-	}
 }

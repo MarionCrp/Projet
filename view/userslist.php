@@ -25,7 +25,7 @@ $users = $user_manager->getList();
 		  	<div class="panel-body">
 		  		<p> <?= $user->description(); ?> </p>	
 			  	<form method="get" action="">
-			   		<input type="hidden" value="mymessages" name="page">
+			   		<input type="hidden" value="mymessages" name="section">
 			  		<input type="hidden" value=<?= $user->id() ?> name="user_id">
 					<input type="submit" class="btn btn-default navbar-btn" value="<?php echo _('Send a message'); ?>" />
 				</form>		   	

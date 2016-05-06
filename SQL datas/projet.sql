@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Mar 19 Avril 2016 à 04:13
+-- Généré le :  Ven 06 Mai 2016 à 09:06
 -- Version du serveur :  5.7.9
 -- Version de PHP :  5.6.16
 
@@ -48096,27 +48096,22 @@ CREATE TABLE IF NOT EXISTS `message` (
   `author_id` int(11) NOT NULL,
   `recipient_id` int(11) NOT NULL,
   `datetime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `sent` tinyint(1) NOT NULL,
-  `read` tinyint(1) NOT NULL,
   `content` text COLLATE utf8_unicode_ci NOT NULL,
+  `is_sent` tinyint(1) NOT NULL,
+  `is_read` tinyint(1) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `author` (`author_id`),
   KEY `recipient` (`recipient_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Contenu de la table `message`
 --
 
-INSERT INTO `message` (`id`, `author_id`, `recipient_id`, `datetime`, `sent`, `read`, `content`) VALUES
-(1, 24, 26, '2016-01-11 17:25:47', 0, 0, 'Salut! Je t''écris parce que tu es cool :D !'),
-(2, 24, 20, '2016-01-11 17:26:00', 0, 0, 'Toi aussi tu as l''air cool donc je t''écris aussi ;)! '),
-(3, 21, 26, '2016-01-11 17:27:53', 0, 0, 'Tu as recu un second message :D !'),
-(4, 29, 20, '2016-01-12 09:46:41', 0, 0, 'Tiens, un deuxième message !'),
-(5, 20, 24, '2016-01-12 10:27:55', 0, 0, 'Merci pour ton message !'),
-(6, 24, 20, '2016-01-12 10:28:13', 0, 0, 'De rien  ;) !'),
-(10, 20, 29, '2016-01-12 11:30:18', 1, 0, 'Merci Laura !'),
-(11, 20, 24, '2016-01-12 11:32:08', 1, 0, 'Heyhey !');
+INSERT INTO `message` (`id`, `author_id`, `recipient_id`, `datetime`, `content`, `is_sent`, `is_read`) VALUES
+(19, 45, 42, '2016-05-06 08:53:21', 'マリオンさん、初めまして、一馬と申します。', 1, 0),
+(21, 45, 42, '2016-05-06 08:57:06', 'J''apprends le français. Est-ce qu''on peut parler en français? ', 1, 0),
+(23, 42, 45, '2016-05-06 09:03:06', 'Salut Kazuma! Oui pas de problème! ', 1, 0);
 
 -- --------------------------------------------------------
 
@@ -48139,9 +48134,19 @@ CREATE TABLE IF NOT EXISTS `spoken_languages` (
 --
 
 INSERT INTO `spoken_languages` (`userId`, `languageId`, `levelId`) VALUES
-(38, 1, 4),
-(39, 29, 4),
-(38, 53, 5);
+(44, 34, 2),
+(45, 34, 2),
+(42, 53, 3),
+(43, 89, 3),
+(44, 1, 3),
+(45, 23, 3),
+(42, 1, 4),
+(43, 1, 4),
+(43, 27, 4),
+(42, 34, 5),
+(43, 34, 5),
+(44, 53, 5),
+(45, 53, 5);
 
 -- --------------------------------------------------------
 
@@ -52300,29 +52305,17 @@ CREATE TABLE IF NOT EXISTS `user` (
   `nationalityId` int(11) DEFAULT NULL,
   `cityId` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=46 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Contenu de la table `user`
 --
 
 INSERT INTO `user` (`id`, `name`, `email`, `password`, `gender`, `description`, `nationalityId`, `cityId`) VALUES
-(20, 'MarionLaBelle', 'marion@gmail.com', 'a94a8fe5ccb19ba61c4c0873d391e987982fbbd3', 'female', 'Yeah! Je m''en sors avec ce fichu formulaire! ', 52, 6563),
-(21, 'KevinPlus', 'kevin@gmail.com', 'a94a8fe5ccb19ba61c4c0873d391e987982fbbd3', 'male', '', 120, 201),
-(22, 'Loic', 'loic@gmail.com', 'a94a8fe5ccb19ba61c4c0873d391e987982fbbd3', 'male', '', 76, 301),
-(24, 'Louise', 'louise@gmail.com', 'a94a8fe5ccb19ba61c4c0873d391e987982fbbd3', 'female', '', 26, 54),
-(25, 'Kate', 'kate@gmail.com', 'a94a8fe5ccb19ba61c4c0873d391e987982fbbd3', 'female', '', 13, 12),
-(26, 'Julien', 'julien@gmail.com', 'a94a8fe5ccb19ba61c4c0873d391e987982fbbd3', 'male', '', 76, 66),
-(29, 'Laura', 'laura@gmail.com', 'a94a8fe5ccb19ba61c4c0873d391e987982fbbd3', 'female', 'J''aime les Licornes! \\o/', 9, 99),
-(30, 'Karim', 'karim@gmail.com', 'a94a8fe5ccb19ba61c4c0873d391e987982fbbd3', 'male', 'Je m''appelle Karim ! ', 65, 78),
-(31, 'caroline', 'carolinelas@gmail.com', 'a94a8fe5ccb19ba61c4c0873d391e987982fbbd3', 'male', 'Heyhey !', 67, 6023),
-(32, 'line', 'line@gmail.com', 'a94a8fe5ccb19ba61c4c0873d391e987982fbbd3', 'female', 'gre', 2, 6493),
-(33, 'Hubert', 'hubert@gmail.com', 'a94a8fe5ccb19ba61c4c0873d391e987982fbbd3', 'male', 'gzr', 10, 6502),
-(34, 'JeannotLapin', 'jeannot@gmail.com', 'a94a8fe5ccb19ba61c4c0873d391e987982fbbd3', 'male', 'rgeLilalou', 4, 6436),
-(35, 'John', 'john@gmail.com', 'a94a8fe5ccb19ba61c4c0873d391e987982fbbd3', 'male', 'Hey hey', 10, 6486),
-(36, 'Kazuma', 'kazuma@gmail.com', 'a94a8fe5ccb19ba61c4c0873d391e987982fbbd3', 'male', '日本人です。日本語とドイツ語が話せます。\r\nよろしくお願いします！', 109, 24868),
-(38, 'Sayaka', 'sayaka@gmail.com', 'a94a8fe5ccb19ba61c4c0873d391e987982fbbd3', 'female', '', 109, 24656),
-(39, 'Natacha', 'natacha@gmail.com', 'a94a8fe5ccb19ba61c4c0873d391e987982fbbd3', 'female', 'greg', 14, 6840);
+(42, 'Marion', 'marion@gmail.com', 'a94a8fe5ccb19ba61c4c0873d391e987982fbbd3', 'female', 'Je cherche à rencontrer la communauté japonaise sur Lyon. N''hésitez pas à m''envoyer un petit message !\r\n日本語でもオッケ～！ ', 75, 17801),
+(43, 'Kévin', 'kevin@gmail.com', 'a94a8fe5ccb19ba61c4c0873d391e987982fbbd3', 'male', 'Je veux rencontrer des Portugais ! ', 75, 17801),
+(44, 'Sayaka', 'sayaka@gmail.com', 'a94a8fe5ccb19ba61c4c0873d391e987982fbbd3', 'female', 'I''m a Japanese girl living in Lyon. \r\nAidez-moi à apprendre le français! Merci (^-^)* ~ \r\n日本語を教えてあげます！Je peux vous aider pour apprendre le Japonais aussi ! \r\n\r\nよろしくお願いします！', 75, 17801),
+(45, 'Kazuma', 'kazuma@gmail.com', 'a94a8fe5ccb19ba61c4c0873d391e987982fbbd3', 'male', 'I''m a Japanese guy living in Nantes', 75, 17534);
 
 --
 -- Contraintes pour les tables exportées
@@ -52332,8 +52325,8 @@ INSERT INTO `user` (`id`, `name`, `email`, `password`, `gender`, `description`, 
 -- Contraintes pour la table `message`
 --
 ALTER TABLE `message`
-  ADD CONSTRAINT `fk_message_author` FOREIGN KEY (`author_id`) REFERENCES `user` (`id`),
-  ADD CONSTRAINT `fk_message_recipient` FOREIGN KEY (`recipient_id`) REFERENCES `user` (`id`);
+  ADD CONSTRAINT `fk_message_author` FOREIGN KEY (`author_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk_message_recipient` FOREIGN KEY (`recipient_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Contraintes pour la table `spoken_languages`

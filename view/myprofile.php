@@ -14,7 +14,7 @@
       	<b> <?php echo _('Gender'); ?></b> : <?= $current_user-> gender() ?></p>
       	<b> <?php echo _('Current City'); ?></b> : <?= $city_manager->getCityName($current_user->cityId()); ?> </p>
       	<b> <?php echo _('Nationality'); ?></b> : <?= $country_manager->getCountryName($current_user->nationalityId()); ?> </p>
-      	<b> <?php echo _('How you describe yourself'); ?> </b> : <p><?= $current_user-> description() ?></p>
+      	<b> <?php echo _('How do you describe yourself'); ?> </b> : <p><?= $current_user-> description() ?></p>
       </div>
 
         <div class="col-md-5">
@@ -29,5 +29,5 @@
     </row>
  </div>
 
- 	<a href="index.php?page=home&section=edit_profile" type="submit" class="btn btn-default" name="connexion"> <?php echo _('Edit my Profile'); ?></a>
+ 	<a href="index.php?page=home&section=edit_profile" type="submit" class="btn btn-primary" name="connexion"> <?php echo _('Edit my Profile'); ?></a>
 

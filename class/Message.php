@@ -112,13 +112,13 @@ class Message
 
 	public function setSent($sent)
 	{
-		$sent = (bool) $sent;
+		$sent = (int) $sent;
 		$this->_sent = $sent;
 	}
 
 	public function setRead($read)
 	{
-		$read = (bool) $read;
+		$read = (int) $read;
 		$this->_read = $read;
 	}
 
