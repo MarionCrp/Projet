@@ -30,6 +30,7 @@ class SpokenLanguageManager extends Manager
 			));
 		
 		if (!$q) echo _('error adding languages to the db');
+		else echo ('<p style="color:green;">' ._('A language has been added').  '</p>');
 	}
 
 	public function modifyLanguage($user_id, $language_id, $level_id){

@@ -34,7 +34,7 @@ include('./controller/edit_profile_language_controller.php');
 
 	   <div class="form-group">
 		<div class="">
-			<input class="btn btn-default" type= "submit" value=<?php echo _(" Edit "); ?> name="edit_language"/><br/>
+			<input class="btn btn-primary" type= "submit" value="<?php echo _(" Edit Languages "); ?>"I4 name="edit_language"/><br/>
 		</div>
 	</div>
 	</fieldset>
