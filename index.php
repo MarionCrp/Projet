@@ -103,7 +103,7 @@ include_once('autoload.php');
 							<div class="col-md-4"> 
 								 <div class="form-group">
 								    <label class="sr-only" for="exampleInputEmail2"></label>
-								    <input type="email" class="form-control" id="exampleInputEmail2" placeholder="			<?php echo _("Please enter your city") ;?> ">
+								    <input type="email" class="form-control" id="exampleInputEmail2" placeholder="<?php echo _("Please enter your city") ;?> ">
 								 </div>
 							</div>
 							
@@ -167,39 +167,38 @@ include_once('autoload.php');
 
 <footer class="footer">
 
-	<div class="row">
-  
-
-
-		<div class="col-md-4">
-		<div class="footer-part text-center">
-			<h1><?php echo _(" Need some help ? "); ?></h1>
-			<div class ="element_footer"><a href =Moovincity-accueil.html><?php echo _(" Contact us "); ?></a> </div>
-			<div class ="element_footer"><a href =Moovincity-accueil.html><?php echo _(" FAQ "); ?>  </a> </div>
-			<div class ="element_footer"><a href =Moovincity-accueil.html><?php echo _(" Terms and Conditions "); ?>  </a> </div>
-			<div class ="element_footer"><a href =Moovincity-accueil.html><?php echo _("  Legal informations "); ?> </a> </div>
-			<div class ="element_footer"><a href =Moovincity-accueil.html><?php echo _(" Site map "); ?>  </a> </div>
-			</div>
-		</div>
-			
-		<div class="col-md-4">
+	<div class="container">
+		<div class="row">
+	  
+			<div class="col-md-4">
 			<div class="footer-part text-center">
-				<h1><?php echo _(" Mobile Version "); ?></h1>
-				<div class ="element_footer"><a href =Moovincity-accueil.html><?php echo _(" App for Iphone "); ?>   </a> </div>
-				<div class ="element_footer"><a href =Moovincity-accueil.html><?php echo _(" App for Android "); ?>   </a> </div>
+				<h1><?php echo _(" Need some help ? "); ?></h1>
+				<div class ="element_footer"><a href =Moovincity-accueil.html><?php echo _(" Contact us "); ?></a> </div>
+				<div class ="element_footer"><a href =Moovincity-accueil.html><?php echo _(" FAQ "); ?>  </a> </div>
+				<div class ="element_footer"><a href =Moovincity-accueil.html><?php echo _(" Terms and Conditions "); ?>  </a> </div>
+				<div class ="element_footer"><a href =Moovincity-accueil.html><?php echo _("  Legal informations "); ?> </a> </div>
+				<div class ="element_footer"><a href =Moovincity-accueil.html><?php echo _(" Site map "); ?>  </a> </div>
+				</div>
 			</div>
-		</div>
-			
-		<div class="col-md-4">
-		<div class="footer-part text-center">
-			<h1> <?php echo _(" Working with us "); ?></h1>
-			<div class ="element_footer"><a href =Moovincity-accueil.html><?php echo _(" Business propositions "); ?>  </a> </div>
-			<div class ="element_footer"><a href =Moovincity-accueil.html><?php echo _(" Partnerships "); ?>  </a> </div>
-			<div class ="element_footer"><a href =Moovincity-accueil.html><?php echo _(" Employment opportunities "); ?> </a> </div>
+				
+			<div class="col-md-4">
+				<div class="footer-part text-center">
+					<h1><?php echo _(" Mobile Version "); ?></h1>
+					<div class ="element_footer"><a href =Moovincity-accueil.html><?php echo _(" App for Iphone "); ?>   </a> </div>
+					<div class ="element_footer"><a href =Moovincity-accueil.html><?php echo _(" App for Android "); ?>   </a> </div>
+				</div>
+			</div>
+				
+			<div class="col-md-4">
+			<div class="footer-part text-center">
+				<h1> <?php echo _(" Working with us "); ?></h1>
+				<div class ="element_footer"><a href =Moovincity-accueil.html><?php echo _(" Business propositions "); ?>  </a> </div>
+				<div class ="element_footer"><a href =Moovincity-accueil.html><?php echo _(" Partnerships "); ?>  </a> </div>
+				<div class ="element_footer"><a href =Moovincity-accueil.html><?php echo _(" Employment opportunities "); ?> </a> </div>
+				</div>
 			</div>
 		</div>
 	</div>
-
 </footer> 
 <!-- / FIN BAS DE PAGE  -->
 </html>
