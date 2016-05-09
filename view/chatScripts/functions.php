@@ -1,4 +1,8 @@
 <?php
+
+/*
+	gerer l'appel a la bdd sans cette fonction + inserrer les classes pour pouvoir recuperer les attributs dans les sessions !!!
+*/
 function db_connect()
 {
 
@@ -6,7 +10,7 @@ function db_connect()
 		$pdo_options[PDO::ATTR_ERRMODE] = PDO::ERRMODE_EXCEPTION;
 		// INFORMATIONS DE CONNEXION
 		$host = 	'localhost';
-		$dbname = 	'bdtestprojettut';
+		$dbname = 	'projet';
 		$user = 	'root';
 		$password = '';
 		// FIN DES DONNEES
@@ -20,6 +24,6 @@ function db_connect()
 
 function user_verified()
 {
-	return isset($_SESSION['id']);
+	return isset($_SESSION['user']);
 }
 ?>

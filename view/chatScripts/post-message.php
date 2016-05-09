@@ -1,4 +1,7 @@
 <?php
+
+require '../../class/user.php';
+
 session_start();
 include('functions.php');
 $db = db_connect();
@@ -13,10 +16,9 @@ if(user_verified()) {
 			[-. ] -> espace, rien ou point 
 			+ -> une ou plusieurs fois
 		Si c'est le cas, alors on envoie pas le message */
-		if(!preg_match("#^[-. ]+$#", $_POST['message'])) {	
 			$query = $db->prepare("SELECT * FROM chat_messages WHERE message_user = :user ORDER BY message_time DESC LIMIT 0,1");
 			$query->execute(array(
-				'user' => $_SESSION['id']
+				'user' => $_SESSION['user']->id()
 			));
 			$count = $query->rowCount();
 			$data = $query->fetch();
@@ -32,14 +34,12 @@ if(user_verified()) {
 					');
 					$insert->execute(array(
 						'id' => '',
-						'user' => $_SESSION['id'],
+						'user' => $_SESSION['user']->id(),
 						'time' => time(),
 						'text' => $_POST['message']
 					));
 					echo true;
 					
-		} else
-			echo 'Votre message est vide.';	
 	} else
 		echo 'Votre message est vide.';	
 } else

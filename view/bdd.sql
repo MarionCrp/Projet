@@ -20,7 +20,7 @@ SET time_zone = "+00:00";
 -- Base de données :  `projet`
 --
 
-
+-- --------------------------------------------------------
 
 --
 -- Structure de la table `cities`
@@ -52350,6 +52350,13 @@ ALTER TABLE `user`
 
 
 
+
+
+----------------------------------------------------------------------------------
+----------------------------------------------------------------------------------
+----------------------------------------------------------------------------------
+
+
 -- Structure de la table `chat_messages`
 -- - message_id > L'ID du message
 -- - message_user > L'ID de l'utilisateur
@@ -52360,7 +52367,7 @@ CREATE TABLE IF NOT EXISTS `chat_messages` (
   `message_id` int(11) NOT NULL auto_increment,
   `message_user` int(11) NOT NULL,
   `message_time` bigint(20) NOT NULL,
-  `message_text` varchar(255) collate utf8_bin NOT NULL,
+  `message_text` varchar(255) collate latin1_german1_ci NOT NULL,
   PRIMARY KEY  (`message_id`)
 ) ENGINE=MyISAM ;
 
@@ -52375,12 +52382,23 @@ CREATE TABLE IF NOT EXISTS `chat_messages` (
 --
 CREATE TABLE IF NOT EXISTS `chat_online` (
   `online_id` int(11) NOT NULL auto_increment,
-  `online_ip` varchar(100) collate utf8_bin NOT NULL,
+  `online_ip` varchar(100) collate latin1_german1_ci NOT NULL,
   `online_user` int(11) NOT NULL,
-  `online_status` enum('0','1','2') collate utf8_bin NOT NULL,
+  `online_status` enum('0','1','2') collate latin1_german1_ci NOT NULL,
   `online_time` bigint(21) NOT NULL,
   PRIMARY KEY  (`online_id`)
 ) ENGINE=MyISAM ;
 
 
-
+--
+-- Structure de la table `chat_accounts`
+-- - account_id > L'ID du membre
+-- - account_login > Le pseudo du membre entre 2 et 30 caractères
+-- - account_pass > Le mot de passe
+--
+CREATE TABLE IF NOT EXISTS `chat_accounts` (
+  `account_id` int(11) NOT NULL auto_increment,
+  `account_login` varchar(30) collate latin1_german1_ci NOT NULL,
+  `account_pass` varchar(255) collate latin1_german1_ci NOT NULL,
+  PRIMARY KEY  (`account_id`)
+) ENGINE=MyISAM ;
