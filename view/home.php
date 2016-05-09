@@ -22,6 +22,8 @@
 					    <li role="presentation"><a role="menuitem" tabindex="-1" href="index.php?page=home&section=mymessages"><span class="glyphicon glyphicon-envelope"></span><?php echo _(' My Messages '); ?></a></li>
 					    <li role="presentation"><a role="menuitem" tabindex="-1" href="index.php?page=home&section=userslist"><span class="glyphicon glyphicon-globe"></span><?php echo _(' My friends '); ?></a></li>
 					 	<li role="presentation"><a role="menuitem" tabindex="-1" href="view/chat.php"><span class="glyphicon glyphicon-comment"></span><?php echo _(' Chatting Room '); ?></a></li>					  
+					 	<!--<li role="presentation"><a role="menuitem" tabindex="-1" href="index.php?page=home&section=chat"><span class="glyphicon glyphicon-comment"></span><?php echo _(' Chatting Room '); ?></a></li>					  
+						-->
 					  </ul>
 					</div>
 				</div>
