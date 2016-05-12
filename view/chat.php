@@ -1,10 +1,6 @@
 <!doctype html>
 <html>
-<?php
-session_start();
-include('chatScripts/functions.php');
-$db = db_connect();
-?>
+<?php session_start(); ?> 
 
 		<head>
 		

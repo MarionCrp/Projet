@@ -1,10 +1,10 @@
 <?php
 
 require '../../class/user.php';
+require '../../controller/db_connexion.php';
 
 session_start();
 include('functions.php');
-$db = db_connect();
 
 
 

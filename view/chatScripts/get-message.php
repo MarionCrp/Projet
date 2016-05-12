@@ -1,7 +1,7 @@
 <?php
+require '../../controller/db_connexion.php';
 session_start();
 include('functions.php');
-$db = db_connect();
 
 $query = $db->prepare("
 	SELECT message_text, message_time, name
