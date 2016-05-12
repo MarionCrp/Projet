@@ -1,4 +1,5 @@
 
+
 -- Structure de la table `chat_messages`
 -- - message_id > L'ID du message
 -- - message_user > L'ID de l'utilisateur
@@ -9,10 +10,9 @@ CREATE TABLE IF NOT EXISTS `chat_messages` (
   `message_id` int(11) NOT NULL auto_increment,
   `message_user` int(11) NOT NULL,
   `message_time` bigint(20) NOT NULL,
-  `message_text` varchar(255) collate latin1_german1_ci NOT NULL,
+  `message_text` varchar(255) collate utf8_bin NOT NULL,
   PRIMARY KEY  (`message_id`)
-) ENGINE=MyISAM ;
-
+) ENGINE=InnoDb ;
 
 --
 -- Structure de la table `chat_online`
@@ -24,12 +24,13 @@ CREATE TABLE IF NOT EXISTS `chat_messages` (
 --
 CREATE TABLE IF NOT EXISTS `chat_online` (
   `online_id` int(11) NOT NULL auto_increment,
-  `online_ip` varchar(100) collate latin1_german1_ci NOT NULL,
+  `online_ip` varchar(100) collate utf8_bin NOT NULL,
   `online_user` int(11) NOT NULL,
-  `online_status` enum('0','1','2') collate latin1_german1_ci NOT NULL,
+  `online_status` enum('0','1','2') collate utf8_bin NOT NULL,
   `online_time` bigint(21) NOT NULL,
   PRIMARY KEY  (`online_id`)
-) ENGINE=MyISAM ;
+) ENGINE=InnoDb ;
+
 
 
 
