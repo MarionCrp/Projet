@@ -1,4 +1,7 @@
 <?php
+
+require '../../class/user.php';
+
 session_start();
 include('functions.php');
 $db = db_connect();
@@ -10,7 +13,7 @@ if(user_verified()) {
 	');
 	$insert->execute(array(
 		'status' => $_POST['status'],
-		'user' => $_SESSION['id']		
+		'user' => $_SESSION['user']->id()		
 	));
 }
 

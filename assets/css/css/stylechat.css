@@ -69,7 +69,7 @@ et utilisateurs connectés */
 	background: #ddd;
 }
 .chat #text, .chat #users, .chat #users-chat {
-	height:500px; 
+	height:400px; 
 	overflow-y: auto;
 }
 
