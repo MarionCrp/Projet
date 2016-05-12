@@ -2,10 +2,10 @@
 //include_once('autoload.php');
 
 require '../../class/user.php';
+require '../../controller/db_connexion.php';
 
 session_start();
 include('functions.php');
-$db = db_connect();
 
 
 // On vérifie que l'utilisateur est inscrit dans la base de données
