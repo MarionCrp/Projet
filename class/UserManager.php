@@ -55,13 +55,18 @@ class UserManager extends Manager
 	* Méthode qui vérifie si $info est présente dans la table User .
 	* Retourne 0 si $info n'est pas dans la table
 	* Sinon le nombre de lignes retournées par la requête
-	* @param $info string | int valeur à recherche dans la colonne
+	* @param $info int/String valeur à recherche dans la colonne
 	* @param $champ string nom de la colonne
 	* @return int
 	**/
 	public function exists($info, $field)
-	{
-		$q = $this->_db->query('SELECT count(*) from user where '.$field.' = "'.$info.'"');
+	{		
+		$q = $this->_db->prepare('SELECT count(*) from user where :field = :info');
+		$q->execute(array(
+			'field' => $field,
+			'info' => $info
+			));	
+
 		$count = $q->fetchColumn();
 		return($count);
 	}
