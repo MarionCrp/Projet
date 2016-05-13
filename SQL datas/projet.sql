@@ -52362,8 +52362,7 @@ CREATE TABLE IF NOT EXISTS `chat_messages` (
   `message_time` bigint(20) NOT NULL,
   `message_text` varchar(255) collate utf8_bin NOT NULL,
   PRIMARY KEY  (`message_id`)
-) ENGINE=MyISAM ;
-
+) ENGINE=InnoDb ;
 
 --
 -- Structure de la table `chat_online`
@@ -52380,7 +52379,7 @@ CREATE TABLE IF NOT EXISTS `chat_online` (
   `online_status` enum('0','1','2') collate utf8_bin NOT NULL,
   `online_time` bigint(21) NOT NULL,
   PRIMARY KEY  (`online_id`)
-) ENGINE=MyISAM ;
+) ENGINE=InnoDb ;
 
 
 
