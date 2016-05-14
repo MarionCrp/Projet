@@ -11,9 +11,10 @@
        <legend><?php echo _('My Information'); ?> </legend>
         <b> <?php echo _('Name'); ?> </b>: <?= $current_user->name() ?> <img src="../assets/images/<?= Form::getGenderIcon($current_user); ?>.png" width=30 /> </p>
       	<b> <?php echo _('Email Address'); ?></b>: <?= $current_user->email() ?></p>
-      	<b> <?php echo _('Current City'); ?></b> : <?= $city_manager->getCityName($current_user->cityId()); ?> </p>
+      	<legend><?php echo _('Localization'); ?> </legend>
+        <b> <?php echo _('Current City'); ?></b> : <?= $city_manager->getCityName($current_user->cityId()); ?> </p>
       	<b> <?php echo _('Nationality'); ?></b> : <?= $country_manager->getCountryName($current_user->nationalityId()); ?> </p>
-      	<b> <?php echo _('How do you describe yourself'); ?> </b> : <p><?= $current_user-> description() ?></p>
+      	<legend> <?php echo _('Description'); ?> : </legend></b> <p><?= $current_user-> description() ?></p>
       </div>
 
         <div class="col-md-5">

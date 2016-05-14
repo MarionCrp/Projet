@@ -13,29 +13,37 @@
 
 				   		<!-- ***** BANDEAU DE RECHERCHE D'UTILISATEURS ***** -->
 
-	    	<div id ="zone_opacity"> 							
-						<form class="form-inline" method="POST" action="#">
-						  <div class="form-group">
-						    <label class="sr-only" for="cityName"></label>
-						    <input type="text" class="form-control" name="cityName" id="cityName" placeholder="<?php echo _("Please enter your city") ;?> ">
-							</div>
+	    	<!-- <div id="zone_opacity"> 	 -->
 
-						  <div class="form-group">
-						    <div class="input-group">
-						      <div class="input-group-addon"><?php echo gettext(" I want to meet someone speaking "); ?></div>
-						    </div>
-						  </div>
+	    	<div class="panel panel-default research">
+			  <div class="panel-heading">
+			   <div class="text-center"> <?php echo _("Meet someone "); ?> </div>	
+			  </div>
+	   		  <div class="panel-body">						
+				<form class="form-inline text-center" method="POST" action="#">
+				  <div class="form-group">
+				    <label class="sr-only" for="cityName"></label>
+				   Living in <input type="text" class="form-control" name="cityName" id="cityName" placeholder="<?php echo _("Enter your City") ;?> ">
+				  </div>
 
-						  <div class="form-group"> 
-								<select class="form-control" name="languageId">
-								  <?php Form::languages($language_manager); ?>
-								</select>
-							</div>
+				  <!-- <div class="form-group">
+				    <div class="input-group">
+				      <div class="input-group-addon"><?php echo _("I want to meet someone speaking "); ?></div>
+				    </div>
+				  </div> -->
 
-						  <button type="submit" class="btn btn-default" name="search_user"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> <?php echo _('Search'); ?> </button>
+				  <div class="form-group"> 
+				  Speaking
+						<select class="form-control" name="languageId">
+						  <?php Form::languages($language_manager); ?>
+						</select>
+				  </div>
 
-						</form>
-				</div> 
+				  <button type="submit" class="btn btn-default" name="search_user"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> <?php echo _('Search'); ?> </button>
+
+				</form>
+			  </div> 
+			</div>
 
 
 		<!-- / FIN bandeau de recherche utilisateur -->
@@ -82,9 +90,6 @@
 			       ?>
 				  </div>
 			</div>
-	
-			
-?>
 			<!-- FIN inclusion de section en mode CONNECTE -->
 
 

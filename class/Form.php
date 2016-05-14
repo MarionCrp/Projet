@@ -110,11 +110,42 @@ class Form
 	}
 
 	public static function getGenderIcon(User $user){
-	if($user->gender() == 'male'){
-		return 'male';
-	} else {
-		return 'female';
+		if($user->gender() == 'male'){
+			return 'male';
+		} else {
+			return 'female';
+		}
 	}
-}
+
+	public static function getPagination($totalItems, $perPage, $url, $page = 1){
+		$nb_of_pages = $totalItems / $perPage;
+		if($page > 1){
+			?>
+			<li>
+	      		<a href="#" aria-label="Previous">
+	       		 <span aria-hidden="true">&laquo;</span>
+	    	    </a>
+	    	</li>
+	<?php
+	}
+		if($nb_of_pages <= 5) {
+				while ($page <= $nb_of_pages){
+					//echo '<li><a href="'.$url.''.$page.'">'.$page.'</a></li>';
+					echo '<li><a href="'.$url.''.$page.'">'.$page.'</a></li>';
+					$page++;
+				}
+		}
+		if ($page < $nb_of_pages){
+		?>
+		  <a href="#" aria-label="Next">
+	        <span aria-hidden="true">&raquo;</span>
+	      </a>
+		<?php
+			
+		}
+		
+
+		
+	}
 }
 

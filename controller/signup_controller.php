@@ -4,7 +4,7 @@
 * Controleur relatif à la page d'inscription
 ********************************************/
 
-if ($_SESSION['user']){
+if (isset($current_user)){
 	header('Location: index.php');
 }
 
@@ -70,7 +70,7 @@ if (isset($_POST['create_account']))
 				'password' => $password,
 				'gender' => $_POST['gender'],
 				'description' => $_POST['description'],
-				'nationalityId' => $_POST['country'],
+				'nationalityId' => $_POST['nationality'],
 				'cityId' => $_POST['city']
 			));	
 

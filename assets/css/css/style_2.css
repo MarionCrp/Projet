@@ -20,6 +20,19 @@ body {
   min-height: calc(100vh - 40px);
 }
 
+.research{
+  margin-top: 5%;
+}
+
+.research .panel-heading .text-center {
+   font-size: 1.7em;
+}
+
+.research .panel-body {
+  color: #292929;
+  font-weight: bold;
+}
+
 .deconnected {
   margin-top: 7%;
 }
@@ -39,16 +52,15 @@ body {
   padding-right: 30px;
 }
 #zone_opacity .input-group-addon{
+  margin: auto;
   background-color: orange;
   color: white;
 }
+
 #zone_opacity p{
   border : 3px white solid;
 }
 
-#zone_opacity .form-group {
-  margin: 0 5%;
-}
 
 
 /* MENU BAR */
@@ -94,6 +106,13 @@ body {
   margin: 2%;
 }
 
+.sign_up {
+  display: block;
+  width: 100px;
+  margin: auto;
+  margin-bottom: 2px;
+}
+
 .fail {
   color : red;
 }
@@ -101,10 +120,10 @@ body {
 .success {
   color: green;
 }
-
+/*
 #zone_opacity .row .col-md-4 .form-group .form-control{
     text-align: center;
-}
+}*/
 
 /* Profil */
 
@@ -122,3 +141,13 @@ legend {
   height: 5em;
   margin-bottom: 5%;
 }
+
+.users {
+  display: inline-block;
+}
+
+.bloc-page {
+  display: block;
+  text-align: center;
+}
+

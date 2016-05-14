@@ -111,23 +111,45 @@ class UserManager extends Manager
 	* Sinon la fonction recherche les utilisateurs parlant une langue donnée vivant dans une ville donnée
 	* @return array Liste des utilisateurs
 	**/
-	public function getList($languageId = null, $cityId = null){
+	public function getList($page = 1, $languageId = null, $cityId = null){
+		$PER_PAGE = 6;
 		$users = [];
+		$last_element = $page * $PER_PAGE;
+		$first_profile = $last_element - ($PER_PAGE - 1);
+		
 		if($cityId == null && $languageId == null){
-			$q = $this->_db->query(
-			'SELECT * FROM User ORDER BY id');
+			$total_users = self::count();
+			$q = $this->_db->prepare('SELECT * FROM User ORDER BY id LIMIT :first, :last');
+			$q->bindParam(':first', $first_profile, PDO::PARAM_INT);
+			$q->bindParam(':last', $last_element, PDO::PARAM_INT);
+			$q->execute();
 		}
 		else {
 			$q = $this->_db->prepare(
 			'SELECT * from 
 				(SELECT * FROM USER where id in 
-					(SELECT userId FROM `spoken_languages` WHERE languageId = :languageId)
+					(SELECT userId FROM `spoken_languages` WHERE languageId = :languageId LIMIT :first, :last )
 				) speakers 
 			WHERE cityId = :cityId');
 
 			$q->execute(array(
 					'languageId' => $languageId,
-					'cityId' => $cityId
+					'cityId' => $cityId,
+					'first' => $first_profile,
+					'last' => $last_element
+			));
+
+			$total_users = $this->_db->prepare('SELECT COUNT(*) from 
+				(SELECT * FROM USER where id in 
+					(SELECT userId FROM `spoken_languages` WHERE languageId = :languageId LIMIT :first, :last )
+				) speakers 
+			WHERE cityId = :cityId')->fetchColumn();
+
+			$total_users->execute(array(
+					'languageId' => $languageId,
+					'cityId' => $cityId,
+					'first' => $first_profile,
+					'last' => $last_element
 			));
 
 		}
@@ -136,7 +158,10 @@ class UserManager extends Manager
 			$users[] = new User($donnees);
 		}
 
-		return $users;
+		return array(
+			'list_per_page' => $users,
+			'total_found' => $total_users
+			);
 	}
 
 	/**

@@ -2,7 +2,9 @@
 <?php
 	
 	include('/controller/userlist_controller.php') ;
-
+?>
+	<div class="users">
+	<?php
 		foreach ($users as $user) // On fait une boucle dans notre array, et on prend un par un chaque utilisateur
 		{
 			// Si l'utilisateur est l'utilisateur de la session, on passe au prochain utilisateur (on ne l'affiche pas)
@@ -49,4 +51,16 @@
 		<?php
 		}
 
- /* FIN affichage de la liste des utilisateurs*/
+		?>
+	</div>
+
+	<nav class="bloc-page">
+	  <ul class="pagination pagination-lg">
+	    <?php Form::getPagination($nb_users, 6, 'index.php?page=home&section=userslist&pagenb='); ?>
+	    </li>
+	  </ul>
+	</nav>
+	</div>
+
+
+ <!-- FIN affichage de la liste des utilisateurs -->
