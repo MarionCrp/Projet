@@ -3,7 +3,7 @@
 /*******************************************
 * Controleur relatif à la page de connexion
 ********************************************/
-if ($_SESSION['user']){
+if (isset($current_user)){
 	header('Location: index.php');
 }
 

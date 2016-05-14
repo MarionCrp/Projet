@@ -121,11 +121,6 @@ class User
 		$this->_gender = $gender;
 	}
 
-	public function setBirthdate($birthdate)
-	{
-		$this->_birthdate = $birthdate;
-	}
-
 	public function setDescription($description)
 	{	
 		if ($description == ""){
@@ -137,13 +132,13 @@ class User
 
 	public function setNationalityId($nationalityId)
 	{
-		$this->_nationalityId = $nationalityId;
+		$this->_nationalityId = (int) $nationalityId;
 	}
 
 
 	public function setCityId($cityId)
 	{
-		$this->_cityId = $cityId;
+		$this->_cityId = (int) $cityId;
 	}
 
 }

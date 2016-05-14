@@ -105,16 +105,32 @@ class UserManager extends Manager
 		return new User($donnees);
 	}
 
+	
 	/**
-	* Retourne tous les utilisateur de la table User
+	* Retourne tous les utilisateur de la table User si pas de paramètre envoyé à la fonction
+	* Sinon la fonction recherche les utilisateurs parlant une langue donnée vivant dans une ville donnée
 	* @return array Liste des utilisateurs
 	**/
-	public function getList()
-	{
+	public function getList($languageId = null, $cityId = null){
 		$users = [];
-		$q = $this->_db->query(
+		if($cityId == null && $languageId == null){
+			$q = $this->_db->query(
 			'SELECT * FROM User ORDER BY id');
+		}
+		else {
+			$q = $this->_db->prepare(
+			'SELECT * from 
+				(SELECT * FROM USER where id in 
+					(SELECT userId FROM `spoken_languages` WHERE languageId = :languageId)
+				) speakers 
+			WHERE cityId = :cityId');
 
+			$q->execute(array(
+					'languageId' => $languageId,
+					'cityId' => $cityId
+			));
+
+		}
 		while ($donnees = $q->fetch(PDO::FETCH_ASSOC))
 		{
 			$users[] = new User($donnees);
@@ -122,26 +138,6 @@ class UserManager extends Manager
 
 		return $users;
 	}
-
-
-
-	// public function getLanguages($user_id){
-	// 	$languages = [];
-	// 	$q = $this->_db->query(
-	// 		'SELECT languageId FROM spoken_languages 
-	// 			WHERE userId = :user_id order by languageId');
-	// 	$q->execute(array(
-	// 		'user_id' => $user_id)
-	// 	);
-
-	// 	while ($donnees = $q->fetch(PDO::FETCH_ASSOC))
-	// 	{
-	// 		$languages[] = $donnees;
-	// 	}
-
-	// 	return $languages;
-	// }
-
 
 	/**
 	* Supprime un utilisateur de la base de données

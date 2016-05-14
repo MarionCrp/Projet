@@ -1,19 +1,15 @@
 <!-- AFFICHE DE LA LISTE D'UTILISATEURS INCRITS SUR LE SITE -->
-
 <?php
 	
 	include('/controller/userlist_controller.php') ;
-
-	if(isset($_POST['search_user'])){
-
-	} else {
 
 		foreach ($users as $user) // On fait une boucle dans notre array, et on prend un par un chaque utilisateur
 		{
 			// Si l'utilisateur est l'utilisateur de la session, on passe au prochain utilisateur (on ne l'affiche pas)
 
 			if ($user == $current_user) continue;
-			
+			$user_city_name = $city_manager->getCityName($user->cityId());
+			$user_living_country_name = $city_manager->getCountry($user->cityId())->name();
 			?>
 
 			<!-- AFFICHAGE D'UN UTILISATEUR DE L'ARRAY EN BOUCLE -->
@@ -23,7 +19,7 @@
 			    <div class="panel-heading">
 			    	<div class="panel-title"> 
 			    		<h3><?= $user->name(); ?> <img src="<?= '../assets/images/'.Form::getGenderIcon($user).'.png'; ?>" alt="gender_male" width=30 class="text-right" /> </h3> 
-			    		<b><?= $city_manager->getCityName($user->cityId()); ?></b>
+			    		<b><?php echo $user_city_name. '</b> (' .$user_living_country_name.')'; ?>
 			    	</div>
 			    	<hr>
 			    	<p> Nationality : <?= $country_manager->getCountryName($user->nationalityId()); ?> </p>
@@ -52,6 +48,5 @@
 
 		<?php
 		}
-	}
 
  /* FIN affichage de la liste des utilisateurs*/

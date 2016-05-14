@@ -52,7 +52,7 @@ class State {
 
 	public function setId($id)
 	{
-		$id = (int) $id;
+		$id = (int)$id;
 		$this->_id = $id;
 	}
 
@@ -67,7 +67,7 @@ class State {
 
 	public function setCountryId($countryId)
 	{
-		$countryId = (int) $countryId;
+		$countryId = (int)$countryId;
 		$this->_countryId = $countryId;
 	}
 }
