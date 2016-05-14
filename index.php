@@ -94,45 +94,6 @@ include_once('autoload.php');
     <div class ="center">
 	    <div class="container">
 
-	   		<!-- ***** BANDEAU DE RECHERCHE D'UTILISATEURS ***** -->
-
-	    	<div id ="zone_opacity"> 
-
-					<div class="row">
-
-							<div class="col-md-4"> 
-								 <div class="form-group">
-								    <label class="sr-only" for="exampleInputEmail2"></label>
-								    <input type="email" class="form-control" id="exampleInputEmail2" placeholder="<?php echo _("Please enter your city") ;?> ">
-								 </div>
-							</div>
-							
-
-
-						<div class="col-md-4">
-							  <div class="form-group">
-							    <div class="input-group">
-							      	<div class="input-group-addon"><?php echo gettext(" I want to meet someone speaking "); ?></div>
-							    </div>
-							  </div>
-						</div>
-
-						<div class="col-md-4">
-							 <div class="form-group"> 
-								<select class="form-control">
-								  <option>English</option>
-								  <option>Français</option>
-								</select>
-							 </div>
-							
-						</div>
-					</div>
-				</div> 
-
-		<!-- / FIN bandeau de recherche utilisateur -->
-
-
-
 			<!-- ***** INCLUSION DE PAGE ***** -->
 			<!-- les différentes pages appelées par l'utilisateur sont intégrée ici -->
 			<!-- page par défaut : "home" (si l'utilisateur est connecé : menu + liste d'utilisateurs inscrits

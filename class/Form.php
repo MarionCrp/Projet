@@ -108,5 +108,13 @@ class Form
               '.$level->name().'</div>
           </div>';
 	}
+
+	public static function getGenderIcon(User $user){
+	if($user->gender() == 'male'){
+		return 'male';
+	} else {
+		return 'female';
+	}
+}
 }
 

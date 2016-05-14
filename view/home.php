@@ -11,6 +11,35 @@
 		{
 			?>
 
+				   		<!-- ***** BANDEAU DE RECHERCHE D'UTILISATEURS ***** -->
+
+	    	<div id ="zone_opacity"> 							
+						<form class="form-inline">
+						  <div class="form-group">
+						    <label class="sr-only" for="cityName"></label>
+						    <input type="text" class="form-control" id="cityName" placeholder="<?php echo _("Please enter your city") ;?> ">
+							</div>
+
+						  <div class="form-group">
+						    <div class="input-group">
+						      <div class="input-group-addon"><?php echo gettext(" I want to meet someone speaking "); ?></div>
+						    </div>
+						  </div>
+
+						  <div class="form-group"> 
+								<select class="form-control">
+								  <?php Form::languages($language_manager); ?>
+								</select>
+							</div>
+
+						  <button type="submit" class="btn btn-default" name="search_user"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> <?php echo _('Search'); ?> </button>
+
+						</form>
+				</div> 
+
+
+		<!-- / FIN bandeau de recherche utilisateur -->
+
 			<div class="row">
 				<div class="col-md-3"><!-- Large button group -->
 					<div class="btn-group">
@@ -27,6 +56,8 @@
 					  </ul>
 					</div>
 				</div>
+
+
 
 
 
@@ -181,7 +212,7 @@
 			<!-- AFFICHAGE DE LA PRESENTTION DU SITE LORSQU'UN VISITEUR N'EST PAS CONNECTE -->
 
 
-				<div class="jumbotron">
+				<div class="jumbotron deconnected">
 						<p> 
                         
                         <H2> <?php echo _(' Welcome to our supervised project. This project is a multicultural meeting Website. Its purpose is to link together :'); ?> </H2>

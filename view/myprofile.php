@@ -9,9 +9,8 @@
     <row>
        <div class="col-md-7">
        <legend><?php echo _('My Information'); ?> </legend>
-        <b> <?php echo _('Name'); ?> </b>: <?= $current_user->name() ?> </p>
+        <b> <?php echo _('Name'); ?> </b>: <?= $current_user->name() ?> <img src="../assets/images/<?= Form::getGenderIcon($current_user); ?>.png" width=30 /> </p>
       	<b> <?php echo _('Email Address'); ?></b>: <?= $current_user->email() ?></p>
-      	<b> <?php echo _('Gender'); ?></b> : <?= $current_user-> gender() ?></p>
       	<b> <?php echo _('Current City'); ?></b> : <?= $city_manager->getCityName($current_user->cityId()); ?> </p>
       	<b> <?php echo _('Nationality'); ?></b> : <?= $country_manager->getCountryName($current_user->nationalityId()); ?> </p>
       	<b> <?php echo _('How do you describe yourself'); ?> </b> : <p><?= $current_user-> description() ?></p>
@@ -29,5 +28,5 @@
     </row>
  </div>
 
- 	<a href="index.php?page=home&section=edit_profile" type="submit" class="btn btn-primary" name="connexion"> <?php echo _('Edit my Profile'); ?></a>
+ 	<a href="index.php?page=home&section=edit_profile" type="submit" class="btn btn-default" name="connexion"> <?php echo _('Edit my Profile'); ?></a>
 
