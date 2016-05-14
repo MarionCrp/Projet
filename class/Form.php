@@ -117,7 +117,7 @@ class Form
 		}
 	}
 
-	public static function getPagination($totalItems, $perPage, $url, $page = 1){
+	public static function getPagination($totalItems, $perPage, $url, $page){
 		$nb_of_pages = $totalItems / $perPage;
 		if($page > 1){
 			?>
@@ -129,23 +129,27 @@ class Form
 	<?php
 	}
 		if($nb_of_pages <= 5) {
-				while ($page <= $nb_of_pages){
-					//echo '<li><a href="'.$url.''.$page.'">'.$page.'</a></li>';
+				for ($page = 1; $page <= $nb_of_pages; $page++){
 					echo '<li><a href="'.$url.''.$page.'">'.$page.'</a></li>';
-					$page++;
 				}
+		} else {
+			$cpt = $page;
+			while ($cpt <= $page + 2){
+					echo '<li><a href="'.$url.''.$cpt.'">'.$cpt.'</a></li>';
+					$cpt++;
+				} 
+				echo '<li><a href="'.$url.''.$page.'">...</a></li>';
+				echo '<li><a href="'.$url.''.$nb_of_pages.'" aria-label="Next">
+				        <span aria-hidden="true">&raquo;</span>
+				      </a></li>';
 		}
-		if ($page < $nb_of_pages){
+		/*elseif ($page < $nb_of_pages){*/
 		?>
-		  <a href="#" aria-label="Next">
+		  <!-- <a href="#" aria-label="Next">
 	        <span aria-hidden="true">&raquo;</span>
-	      </a>
+	      </a> -->
 		<?php
-			
-		}
-		
-
-		
+	
 	}
 }
 

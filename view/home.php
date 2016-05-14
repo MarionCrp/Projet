@@ -20,7 +20,7 @@
 			   <div class="text-center"> <?php echo _("Meet someone "); ?> </div>	
 			  </div>
 	   		  <div class="panel-body">						
-				<form class="form-inline text-center" method="POST" action="#">
+				<form class="form-inline text-center" method="POST" action="../controllers/">
 				  <div class="form-group">
 				    <label class="sr-only" for="cityName"></label>
 				   Living in <input type="text" class="form-control" name="cityName" id="cityName" placeholder="<?php echo _("Enter your City") ;?> ">

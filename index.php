@@ -1,6 +1,7 @@
 <?php 
 include_once('autoload.php');
 
+try {
 
 ?>
 
@@ -163,4 +164,11 @@ include_once('autoload.php');
 </footer> 
 <!-- / FIN BAS DE PAGE  -->
 </html>
+
+
+<?php 
+
+} catch (Exception $e){
+	echo '<div class="alert alert-danger" role="alert"> <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> '.$e->getMessage().'</div>';
+}
 

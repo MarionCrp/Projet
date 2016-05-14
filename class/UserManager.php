@@ -112,51 +112,54 @@ class UserManager extends Manager
 	* @return array Liste des utilisateurs
 	**/
 	public function getList($page = 1, $languageId = null, $cityId = null){
-		$PER_PAGE = 6;
+		$languageId = (int) $languageId;
+		$cityId = (int) $cityId;
+
 		$users = [];
-		$last_element = $page * $PER_PAGE;
-		$first_profile = $last_element - ($PER_PAGE - 1);
+		$per_page = 1;
+		$first_profile = ($page-1) * $per_page ;
 		
 		if($cityId == null && $languageId == null){
 			$total_users = self::count();
-			$q = $this->_db->prepare('SELECT * FROM User ORDER BY id LIMIT :first, :last');
-			$q->bindParam(':first', $first_profile, PDO::PARAM_INT);
-			$q->bindParam(':last', $last_element, PDO::PARAM_INT);
+			$q = $this->_db->prepare('SELECT * FROM User ORDER BY id LIMIT :first, :per_page');
+			$q->bindParam('first', $first_profile, PDO::PARAM_INT);
+			$q->bindParam('per_page', $per_page, PDO::PARAM_INT);
 			$q->execute();
 		}
 		else {
-			$q = $this->_db->prepare(
-			'SELECT * from 
-				(SELECT * FROM USER where id in 
-					(SELECT userId FROM `spoken_languages` WHERE languageId = :languageId LIMIT :first, :last )
-				) speakers 
-			WHERE cityId = :cityId');
 
-			$q->execute(array(
+			$count = $this->_db->prepare('SELECT count(*) FROM (SELECT * FROM USER 
+					WHERE id IN 
+						(SELECT userId FROM `spoken_languages` WHERE languageId = :languageId)
+					AND cityId = :cityId) speaker');
+
+			$count->execute(array(
 					'languageId' => $languageId,
-					'cityId' => $cityId,
-					'first' => $first_profile,
-					'last' => $last_element
+					'cityId' => $cityId
 			));
 
-			$total_users = $this->_db->prepare('SELECT COUNT(*) from 
-				(SELECT * FROM USER where id in 
-					(SELECT userId FROM `spoken_languages` WHERE languageId = :languageId LIMIT :first, :last )
-				) speakers 
-			WHERE cityId = :cityId')->fetchColumn();
+			$total_users = $count->fetchColumn();
 
-			$total_users->execute(array(
-					'languageId' => $languageId,
-					'cityId' => $cityId,
-					'first' => $first_profile,
-					'last' => $last_element
-			));
+			$q = $this->_db->prepare('SELECT * FROM USER 
+					WHERE id IN 
+						(SELECT userId FROM `spoken_languages` WHERE languageId = :languageId)
+					AND cityId = :cityId LIMIT :first, :per_page');
+
+			$q->bindParam('languageId', $languageId, PDO::PARAM_INT);
+			$q->bindParam('cityId', $cityId, PDO::PARAM_INT);
+			$q->bindParam('first', $first_profile, PDO::PARAM_INT);
+			$q->bindParam('per_page', $per_page, PDO::PARAM_INT);
+			$q->execute();
 
 		}
+
 		while ($donnees = $q->fetch(PDO::FETCH_ASSOC))
 		{
 			$users[] = new User($donnees);
 		}
+
+		$users;
+		$total_users;
 
 		return array(
 			'list_per_page' => $users,

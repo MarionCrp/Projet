@@ -2,6 +2,7 @@
 <?php
 	
 	include('/controller/userlist_controller.php') ;
+
 ?>
 	<div class="users">
 	<?php
@@ -56,7 +57,11 @@
 
 	<nav class="bloc-page">
 	  <ul class="pagination pagination-lg">
-	    <?php Form::getPagination($nb_users, 6, 'index.php?page=home&section=userslist&pagenb='); ?>
+	  
+	    <?php
+	    var_dump($nb_users);
+	     var_dump($page);
+	    Form::getPagination($nb_users, 1, 'index.php?page=home&section=userslist&pagenb=', $page); ?>
 	    </li>
 	  </ul>
 	</nav>
