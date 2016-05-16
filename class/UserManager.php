@@ -61,11 +61,14 @@ class UserManager extends Manager
 	**/
 	public function exists($info, $field)
 	{
-		$q = $this->_db->query('SELECT count(*) from user where '.$field.' = "'.$info.'"');
+		$q = $this->_db->prepare('SELECT count(*) from user where '.$field.' = :info');
+		$q->execute(array(
+				'info' => $info
+				));	
+
 		$count = $q->fetchColumn();
 		return($count);
 	}
-
 
 	/**
 	* Créer une instance User à partir de données présente dans la table User
@@ -102,43 +105,66 @@ class UserManager extends Manager
 		return new User($donnees);
 	}
 
+	
 	/**
-	* Retourne tous les utilisateur de la table User
+	* Retourne tous les utilisateur de la table User si pas de paramètre envoyé à la fonction
+	* Sinon la fonction recherche les utilisateurs parlant une langue donnée vivant dans une ville donnée
 	* @return array Liste des utilisateurs
 	**/
-	public function getList()
-	{
+	public function getList($per_page, $page = 1, $languageId = null, $cityId = null){
+		$languageId = (int) $languageId;
+		$cityId = (int) $cityId;
+
 		$users = [];
-		$q = $this->_db->query(
-			'SELECT * FROM User ORDER BY id');
+		$first_profile = ($page-1) * $per_page ;
+		
+		if($cityId == null && $languageId == null){
+			$total_users = self::count();
+			$q = $this->_db->prepare('SELECT * FROM User ORDER BY id LIMIT :first, :per_page');
+			$q->bindParam('first', $first_profile, PDO::PARAM_INT);
+			$q->bindParam('per_page', $per_page, PDO::PARAM_INT);
+			$q->execute();
+		}
+		else {
+
+			$count = $this->_db->prepare('SELECT count(*) FROM (SELECT * FROM USER 
+					WHERE id IN 
+						(SELECT userId FROM `spoken_languages` WHERE languageId = :languageId)
+					AND cityId = :cityId) speaker');
+
+			$count->execute(array(
+					'languageId' => $languageId,
+					'cityId' => $cityId
+			));
+
+			$total_users = $count->fetchColumn();
+
+			$q = $this->_db->prepare('SELECT * FROM USER 
+					WHERE id IN 
+						(SELECT userId FROM `spoken_languages` WHERE languageId = :languageId)
+					AND cityId = :cityId LIMIT :first, :per_page');
+
+			$q->bindParam('languageId', $languageId, PDO::PARAM_INT);
+			$q->bindParam('cityId', $cityId, PDO::PARAM_INT);
+			$q->bindParam('first', $first_profile, PDO::PARAM_INT);
+			$q->bindParam('per_page', $per_page, PDO::PARAM_INT);
+			$q->execute();
+
+		}
 
 		while ($donnees = $q->fetch(PDO::FETCH_ASSOC))
 		{
 			$users[] = new User($donnees);
 		}
 
-		return $users;
+		$users;
+		$total_users;
+
+		return array(
+			'list_per_page' => $users,
+			'total_found' => $total_users
+			);
 	}
-
-
-
-	// public function getLanguages($user_id){
-	// 	$languages = [];
-	// 	$q = $this->_db->query(
-	// 		'SELECT languageId FROM spoken_languages 
-	// 			WHERE userId = :user_id order by languageId');
-	// 	$q->execute(array(
-	// 		'user_id' => $user_id)
-	// 	);
-
-	// 	while ($donnees = $q->fetch(PDO::FETCH_ASSOC))
-	// 	{
-	// 		$languages[] = $donnees;
-	// 	}
-
-	// 	return $languages;
-	// }
-
 
 	/**
 	* Supprime un utilisateur de la base de données

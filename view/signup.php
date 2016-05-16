@@ -15,7 +15,7 @@
 
 	<div class="row">
 	  <div class="col-md-2"></div>
-	  <div class="col-md-8">
+	  <div class="col-md-8 deconnected">
 
 	  	<div class="panel panel-default">
 		 	<div class="panel-heading">
@@ -115,27 +115,31 @@
 
 					<fieldset>
 	   					 <legend> <?php echo _('Spoken Language'); ?> </legend>
-	   					 <div class="form-inline">
-							 <div id="tab" class="form-group">
-								  <div id="to_clone" >
-									  <select class="languages_nb form-control" name="languages_id[]" id="languages_id">
-											<?php Form::languages($language_manager) ?>
-									  </select>
-									  <select class="form-control" name="levels_id[]" id="levels_id">
-									  	<option value="1"><?php echo _('Beginner'); ?></option>
-									  	<option value="2"><?php echo _('Intermediate'); ?></option>
-									  	<option value="3"><?php echo _('Advanced'); ?></option>
-									  	<option value="4"><?php echo _('Fluent'); ?></option>
-									  	<option value="5"><?php echo _('Mother Tong'); ?></option>
-									  </select>
-									  <span class="delete_button btn btn-link"><?php echo _('Delete the Language'); ?></span>
-								  </div>
-							  </div>
-						   </div>
+	   					 <div class="form-group">
+	   					 	<label class="col-sm-2 control-label">  </label>
+		   					 <div class="form-inline col-sm-10">
+								 <div id="tab" >
+									  <div id="to_clone" >
+										  <select class="languages_nb form-control" name="languages_id[]" id="languages_id">
+												<?php Form::languages($language_manager) ?>
+										  </select>
+										  <select class="form-control" name="levels_id[]" id="levels_id">
+										  	<option value="1"><?php echo _('Beginner'); ?></option>
+										  	<option value="2"><?php echo _('Intermediate'); ?></option>
+										  	<option value="3"><?php echo _('Advanced'); ?></option>
+										  	<option value="4"><?php echo _('Fluent'); ?></option>
+										  	<option value="5"><?php echo _('Mother Tong'); ?></option>
+										  </select>
+										  <span class="delete_button btn btn-link"><?php echo _('Delete the Language'); ?></span>
+									  </div>
+								 </div>
+							 </div>
+					      </div>
 
 					   <div class="form-group">
-						    <div class="">
-						     <div  class="btn btn-default" id="add_button"> <?php echo _('Add a Language'); ?> </div>
+					   	<label class="col-sm-2 control-label"> </label>
+						    <div class=" col-sm-10">
+						     	<div  class="btn btn-default" id="add_button"> <?php echo _('Add a Language'); ?> </div>
 						    </div>
 	 			  	   </div>
 						
@@ -145,7 +149,7 @@
 						    <!-- <div class="col-sm-offset-1 col-sm-10"> -->
 
 						    <div class="">
-						      <input class="btn btn-default" type="submit" value="<?php echo _('Sign Up'); ?>" name="create_account"/>
+						      <input class="btn btn-primary sign_up" type="submit" value="<?php echo _('Sign Up'); ?>" name="create_account"/>
 						     </div>
 		 			   </div>
 				 

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Ven 06 Mai 2016 à 09:06
+-- Généré le :  Lun 16 Mai 2016 à 09:08
 -- Version du serveur :  5.7.9
 -- Version de PHP :  5.6.16
 
@@ -20,7 +20,38 @@ SET time_zone = "+00:00";
 -- Base de données :  `projet`
 --
 
+-- --------------------------------------------------------
 
+--
+-- Structure de la table `chat_messages`
+--
+
+DROP TABLE IF EXISTS `chat_messages`;
+CREATE TABLE IF NOT EXISTS `chat_messages` (
+  `message_id` int(11) NOT NULL AUTO_INCREMENT,
+  `message_user` int(11) NOT NULL,
+  `message_time` bigint(20) NOT NULL,
+  `message_text` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  PRIMARY KEY (`message_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `chat_online`
+--
+
+DROP TABLE IF EXISTS `chat_online`;
+CREATE TABLE IF NOT EXISTS `chat_online` (
+  `online_id` int(11) NOT NULL AUTO_INCREMENT,
+  `online_ip` varchar(100) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  `online_user` int(11) NOT NULL,
+  `online_status` enum('0','1','2') CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  `online_time` bigint(21) NOT NULL,
+  PRIMARY KEY (`online_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
 
 --
 -- Structure de la table `cities`
@@ -31,7 +62,8 @@ CREATE TABLE IF NOT EXISTS `cities` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(30) NOT NULL,
   `stateId` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  KEY `stateId` (`stateId`)
 ) ENGINE=InnoDB AUTO_INCREMENT=47577 DEFAULT CHARSET=latin1;
 
 --
@@ -48101,17 +48133,10 @@ CREATE TABLE IF NOT EXISTS `message` (
   `is_read` tinyint(1) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `author` (`author_id`),
-  KEY `recipient` (`recipient_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Contenu de la table `message`
---
-
-INSERT INTO `message` (`id`, `author_id`, `recipient_id`, `datetime`, `content`, `is_sent`, `is_read`) VALUES
-(19, 45, 42, '2016-05-06 08:53:21', 'マリオンさん、初めまして、一馬と申します。', 1, 0),
-(21, 45, 42, '2016-05-06 08:57:06', 'J''apprends le français. Est-ce qu''on peut parler en français? ', 1, 0),
-(23, 42, 45, '2016-05-06 09:03:06', 'Salut Kazuma! Oui pas de problème! ', 1, 0);
+  KEY `recipient` (`recipient_id`),
+  KEY `author_id` (`author_id`),
+  KEY `recipient_id` (`recipient_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -48134,19 +48159,7 @@ CREATE TABLE IF NOT EXISTS `spoken_languages` (
 --
 
 INSERT INTO `spoken_languages` (`userId`, `languageId`, `levelId`) VALUES
-(44, 34, 2),
-(45, 34, 2),
-(42, 53, 3),
-(43, 89, 3),
-(44, 1, 3),
-(45, 23, 3),
-(42, 1, 4),
-(43, 1, 4),
-(43, 27, 4),
-(42, 34, 5),
-(43, 34, 5),
-(44, 53, 5),
-(45, 53, 5);
+(1, 34, 5);
 
 -- --------------------------------------------------------
 
@@ -48159,7 +48172,8 @@ CREATE TABLE IF NOT EXISTS `states` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(30) NOT NULL,
   `countryId` int(11) NOT NULL DEFAULT '1',
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  KEY `countryId` (`countryId`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4121 DEFAULT CHARSET=latin1;
 
 --
@@ -52304,22 +52318,27 @@ CREATE TABLE IF NOT EXISTS `user` (
   `description` text COLLATE utf8_unicode_ci NOT NULL,
   `nationalityId` int(11) DEFAULT NULL,
   `cityId` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=46 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+  PRIMARY KEY (`id`),
+  KEY `cityId` (`cityId`),
+  KEY `nationalityId` (`nationalityId`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Contenu de la table `user`
 --
 
 INSERT INTO `user` (`id`, `name`, `email`, `password`, `gender`, `description`, `nationalityId`, `cityId`) VALUES
-(42, 'Marion', 'marion@gmail.com', 'a94a8fe5ccb19ba61c4c0873d391e987982fbbd3', 'female', 'Je cherche à rencontrer la communauté japonaise sur Lyon. N''hésitez pas à m''envoyer un petit message !\r\n日本語でもオッケ～！ ', 75, 17801),
-(43, 'Kévin', 'kevin@gmail.com', 'a94a8fe5ccb19ba61c4c0873d391e987982fbbd3', 'male', 'Je veux rencontrer des Portugais ! ', 75, 17801),
-(44, 'Sayaka', 'sayaka@gmail.com', 'a94a8fe5ccb19ba61c4c0873d391e987982fbbd3', 'female', 'I''m a Japanese girl living in Lyon. \r\nAidez-moi à apprendre le français! Merci (^-^)* ~ \r\n日本語を教えてあげます！Je peux vous aider pour apprendre le Japonais aussi ! \r\n\r\nよろしくお願いします！', 75, 17801),
-(45, 'Kazuma', 'kazuma@gmail.com', 'a94a8fe5ccb19ba61c4c0873d391e987982fbbd3', 'male', 'I''m a Japanese guy living in Nantes', 75, 17534);
+(1, 'Marion', 'marion@gmail.com', 'a94a8fe5ccb19ba61c4c0873d391e987982fbbd3', 'female', 'No description', 75, 17801);
 
 --
 -- Contraintes pour les tables exportées
 --
+
+--
+-- Contraintes pour la table `cities`
+--
+ALTER TABLE `cities`
+  ADD CONSTRAINT `fk_cities_stateId` FOREIGN KEY (`stateId`) REFERENCES `states` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Contraintes pour la table `message`
@@ -52332,54 +52351,17 @@ ALTER TABLE `message`
 -- Contraintes pour la table `spoken_languages`
 --
 ALTER TABLE `spoken_languages`
-  ADD CONSTRAINT `fk_language` FOREIGN KEY (`languageId`) REFERENCES `languages` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `fk_level` FOREIGN KEY (`levelId`) REFERENCES `language_level` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `fk_user_spk_l` FOREIGN KEY (`userId`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `fk_spk_l_languageId` FOREIGN KEY (`languageId`) REFERENCES `languages` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk_spk_l_levelId` FOREIGN KEY (`levelId`) REFERENCES `language_level` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk_spk_l_userId` FOREIGN KEY (`userId`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Contraintes pour la table `user`
 --
 ALTER TABLE `user`
-  ADD CONSTRAINT `fk_city` FOREIGN KEY (`id`) REFERENCES `cities` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `fk_country` FOREIGN KEY (`id`) REFERENCES `countries` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `fk_state` FOREIGN KEY (`id`) REFERENCES `states` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `fk_user_cityId` FOREIGN KEY (`cityId`) REFERENCES `cities` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk_user_nationalityId` FOREIGN KEY (`nationalityId`) REFERENCES `countries` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-
-
-
--- Structure de la table `chat_messages`
--- - message_id > L'ID du message
--- - message_user > L'ID de l'utilisateur
--- - message_time > La date d'envoi
--- - message_text > Le contenu du message
---
-CREATE TABLE IF NOT EXISTS `chat_messages` (
-  `message_id` int(11) NOT NULL auto_increment,
-  `message_user` int(11) NOT NULL,
-  `message_time` bigint(20) NOT NULL,
-  `message_text` varchar(255) collate utf8_bin NOT NULL,
-  PRIMARY KEY  (`message_id`)
-) ENGINE=InnoDb ;
-
---
--- Structure de la table `chat_online`
--- - online_id > L'ID du membre connecte
--- - online_ip > Son adresse IP
--- - online_user > L'ID de l'utilisateur
--- - online_status > Pour informer les membres (ex : en ligne, absent, occupe)
--- - online_time > Pour indiquer la date de derniere actualisation
---
-CREATE TABLE IF NOT EXISTS `chat_online` (
-  `online_id` int(11) NOT NULL auto_increment,
-  `online_ip` varchar(100) collate utf8_bin NOT NULL,
-  `online_user` int(11) NOT NULL,
-  `online_status` enum('0','1','2') collate utf8_bin NOT NULL,
-  `online_time` bigint(21) NOT NULL,
-  PRIMARY KEY  (`online_id`)
-) ENGINE=InnoDb ;
-
-
-

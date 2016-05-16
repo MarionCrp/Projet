@@ -43,6 +43,5 @@ window.addEventListener("load", function() {
 	verif();
 	add_language();
 	delete_language();
-	
 });
 
