@@ -13,7 +13,7 @@ try {
 
 
 		<meta charset="utf-8"/>
-		<meta http-equiv="Content-type" content="text/html; charset=iso-8859-1" />
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
 		<link rel="stylesheet" href="assets/css/css/bootstrap.css"/>
 		<link rel="stylesheet" href="assets/css/css/bootstrap.js"/>
 		<script src="//code.jquery.com/jquery-1.12.0.min.js"></script> <!-- Pour le menu déroulant notamment -->
@@ -115,14 +115,7 @@ try {
 		 	
 	    </div><!--/.container-->
 	</div> <!--/.center-->
-
-
-</body>
-		 
-
-<!-- BAS DE PAGE  -->
-
-<footer class="footer">
+<footer>
 
 	<div class="container">
 		<div class="row">
@@ -158,6 +151,13 @@ try {
 	</div>
 </footer> 
 <!-- / FIN BAS DE PAGE  -->
+
+</body>
+		 
+
+<!-- BAS DE PAGE  -->
+
+
 </html>
 
 

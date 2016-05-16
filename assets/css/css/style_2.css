@@ -71,7 +71,7 @@ body {
 
 /* FOOTER */
 
-.footer
+footer
 {
   height: 14%;
   width : 100%;
@@ -82,7 +82,7 @@ body {
   margin : 0;
 }
 
-.footer a{
+footer a{
   color: white;
 }
 
@@ -91,7 +91,7 @@ body {
   color:white;
 }
 
-.footer a:hover
+footer a:hover
 {
   color:orange;
   text-decoration: underline;
@@ -137,7 +137,11 @@ legend {
 }
 
 /* USER LIST */
-.userlist_description {
+.userlist .panel {
+  text-align: center;
+}
+
+.userlist .desc {
   height: 5em;
   margin-bottom: 5%;
 }

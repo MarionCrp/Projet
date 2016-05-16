@@ -1,6 +1,6 @@
 <!-- AFFICHE DE LA LISTE D'UTILISATEURS INCRITS SUR LE SITE -->
 <?php
-	include ('/controller/post_to_get.php');
+	//include ('/controller/post_to_get.php');
 	include('/controller/userlist_controller.php') ;
 
 ?>
@@ -17,7 +17,7 @@
 
 			<!-- AFFICHAGE D'UN UTILISATEUR DE L'ARRAY EN BOUCLE -->
 	 	<div class="col-lg-6 col-sm-6">
-	      <div class="thumbnail">
+	      <div class="thumbnail userlist">
 			<div class="panel panel-default">
 			    <div class="panel-heading">
 			    	<div class="panel-title"> 
@@ -28,7 +28,7 @@
 			    	<p> Nationality : <?= $country_manager->getCountryName($user->nationalityId()); ?> </p>
 				</div>
 			  	<div class="panel-body">
-			  		<div class="userlist_description">
+			  		<div class="desc">
 				  		<p> <?php 
 				  			if (strlen($user->description()) > 150) {
 				  			echo substr($user->description(), 0, 150).'... <a href="index.php?page=home&section=profile&id='.$user->id().'">'. _('read more'). '</a>';;
@@ -37,7 +37,7 @@
 				  			}  ?>
 				  		</p>	
 				  	</div>
-				  	<form method="get" action="">
+				  	<form method="get" action="#">
 				   		<input type="hidden" value="mymessages" name="section">
 				  		<input type="hidden" value=<?= $user->id() ?> name="user_id">
 						<input type="submit" class="btn btn-default navbar-btn" value="<?php echo _('Send a message'); ?>" /><br/>
@@ -51,16 +51,16 @@
 
 		<?php
 		}
+		// Fin affichage de tous les utilisateurs
 
 		?>
 	</div>
 
 	<nav class="bloc-page">
 	  <ul class="pagination pagination-lg">
-	  
-	    <?php
-	    Form::getPagination($nb_users, $user_per_page, 'index.php?page=home&section=userslist&pagenb=', $page); ?>
-	    </li>
+	  <?php
+	    Form::getPagination($nb_users, $user_per_page, $url, $page); 
+	   ?>
 	  </ul>
 	</nav>
 	</div>

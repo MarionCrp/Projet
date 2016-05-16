@@ -6,9 +6,8 @@ if(isset($_POST['search_user'])){
 	else {
 		$cityName = htmlspecialchars($_POST['cityName']);
 		$languageId = htmlspecialchars($_POST['languageId']);
-
 		$cityId = $city_manager->getCity($cityName)->id();
 	}
 }
 
-header('Location: index.php?cityId='.$cityId.'&languageId='.$languageId);
+header('Location: index.php?page=home&section=userslist&cityId='.$cityId.'&languageId='.$languageId.'');
