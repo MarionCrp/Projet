@@ -1,20 +1,4 @@
-/*.container {
-	margin: 15px;
-}
-
-div  .users_list * {
-	text-align: center;
-}
-
-#wallpaper {
-  margin:0;
-  padding:0;
-  background: url(http://hdwallpapers.cat/wallpaper/cgi_city_olympics_white_ny_abstract_3d_and_hd-wallpaper-1399011.jpg) no-repeat center fixed; 
-  -webkit-background-size: cover;  pour anciens Chrome et Safari 
-  background-size: cover;  version standardisée 
-}
-*/
-
+/* INDEX */
 
 body { 
     background-color:white; 
@@ -26,17 +10,31 @@ body {
     width:100%;
 }
 
-
-
 .center {
-
-  margin:0;
-  padding:0;
+  margin-top:0;
+  padding-top:0;
   background: url("../../images/paris.jpg") no-repeat center;  /* Source: Pixabay */
   background-attachment: fixed;
   -webkit-background-size: cover; 
   background-size: 100% 100%; 
   min-height: calc(100vh - 40px);
+}
+
+.research{
+  margin-top: 5%;
+}
+
+.research .panel-heading .text-center {
+   font-size: 1.7em;
+}
+
+.research .panel-body {
+  color: #292929;
+  font-weight: bold;
+}
+
+.deconnected {
+  margin-top: 7%;
 }
 
 
@@ -54,25 +52,26 @@ body {
   padding-right: 30px;
 }
 #zone_opacity .input-group-addon{
+  margin: auto;
   background-color: orange;
   color: white;
 }
+
 #zone_opacity p{
   border : 3px white solid;
 }
 
 
 
+/* MENU BAR */
 .dropdown-menu .glyphicon {
   padding: 20px;
 }
 
-.description {
-  width: auto;
-}
 
+/* FOOTER */
 
-.footer
+footer
 {
   height: 14%;
   width : 100%;
@@ -83,7 +82,7 @@ body {
   margin : 0;
 }
 
-.footer a{
+footer a{
   color: white;
 }
 
@@ -92,7 +91,7 @@ body {
   color:white;
 }
 
-.footer a:hover
+footer a:hover
 {
   color:orange;
   text-decoration: underline;
@@ -107,6 +106,13 @@ body {
   margin: 2%;
 }
 
+.sign_up {
+  display: block;
+  width: 100px;
+  margin: auto;
+  margin-bottom: 2px;
+}
+
 .fail {
   color : red;
 }
@@ -114,8 +120,41 @@ body {
 .success {
   color: green;
 }
-
+/*
 #zone_opacity .row .col-md-4 .form-group .form-control{
     text-align: center;
+}*/
+
+/* Profil */
+
+legend {
+  margin-top: 3%;
 }
 
+
+.description {
+  width: auto;
+}
+
+/* USER LIST */
+.userlist .panel {
+  text-align: center;
+}
+
+.userlist .desc {
+  height: 5em;
+  margin-bottom: 5%;
+}
+
+.users {
+  display: inline-block;
+}
+
+.bloc-page {
+  display: block;
+  text-align: center;
+}
+
+.glyphicon-exclamation-sign{
+  margin-right: 2%;
+}

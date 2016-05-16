@@ -3,7 +3,9 @@
 /*******************************************
 * Controleur relatif à la page de connexion
 ********************************************/
-
+if (isset($current_user)){
+	header('Location: index.php');
+}
 
 /**
 * Si l'utilisateur a cliqué sur "connexion"

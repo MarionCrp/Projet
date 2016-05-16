@@ -1,6 +1,7 @@
 <?php 
 include_once('autoload.php');
 
+try {
 
 ?>
 
@@ -12,7 +13,7 @@ include_once('autoload.php');
 
 
 		<meta charset="utf-8"/>
-		<meta http-equiv="Content-type" content="text/html; charset=iso-8859-1" />
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
 		<link rel="stylesheet" href="assets/css/css/bootstrap.css"/>
 		<link rel="stylesheet" href="assets/css/css/bootstrap.js"/>
 		<script src="//code.jquery.com/jquery-1.12.0.min.js"></script> <!-- Pour le menu déroulant notamment -->
@@ -28,15 +29,10 @@ include_once('autoload.php');
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 
-
-
-
 	</HEAD>
 
 	
 	<body>
-
-
 	<?php if(isset($_POST['lang'])) echo $_POST['lang']; ?>
 	 <!-- ***** BARRE DE NAVIGATION ***** -->
     <nav class="navbar navbar-fixed-top navbar-inverse">
@@ -94,45 +90,6 @@ include_once('autoload.php');
     <div class ="center">
 	    <div class="container">
 
-	   		<!-- ***** BANDEAU DE RECHERCHE D'UTILISATEURS ***** -->
-
-	    	<div id ="zone_opacity"> 
-
-					<div class="row">
-
-							<div class="col-md-4"> 
-								 <div class="form-group">
-								    <label class="sr-only" for="exampleInputEmail2"></label>
-								    <input type="email" class="form-control" id="exampleInputEmail2" placeholder="<?php echo _("Please enter your city") ;?> ">
-								 </div>
-							</div>
-							
-
-
-						<div class="col-md-4">
-							  <div class="form-group">
-							    <div class="input-group">
-							      	<div class="input-group-addon"><?php echo gettext(" I want to meet someone speaking "); ?></div>
-							    </div>
-							  </div>
-						</div>
-
-						<div class="col-md-4">
-							 <div class="form-group"> 
-								<select class="form-control">
-								  <option>English</option>
-								  <option>Français</option>
-								</select>
-							 </div>
-							
-						</div>
-					</div>
-				</div> 
-
-		<!-- / FIN bandeau de recherche utilisateur -->
-
-
-
 			<!-- ***** INCLUSION DE PAGE ***** -->
 			<!-- les différentes pages appelées par l'utilisateur sont intégrée ici -->
 			<!-- page par défaut : "home" (si l'utilisateur est connecé : menu + liste d'utilisateurs inscrits
@@ -158,14 +115,7 @@ include_once('autoload.php');
 		 	
 	    </div><!--/.container-->
 	</div> <!--/.center-->
-
-
-</body>
-		 
-
-<!-- BAS DE PAGE  -->
-
-<footer class="footer">
+<footer>
 
 	<div class="container">
 		<div class="row">
@@ -201,5 +151,19 @@ include_once('autoload.php');
 	</div>
 </footer> 
 <!-- / FIN BAS DE PAGE  -->
+
+</body>
+		 
+
+<!-- BAS DE PAGE  -->
+
+
 </html>
+
+
+<?php 
+
+} catch (Exception $e){
+	echo '<div class="alert alert-danger" role="alert"> <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> '.$e->getMessage().'</div>';
+}
 

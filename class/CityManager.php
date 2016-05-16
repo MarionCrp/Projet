@@ -13,17 +13,27 @@ class CityManager extends Manager {
 	/**
 	* Affiche la liste de tous les pays
 	*
-	* @param int $country_id
+	* @param int/strin $data
 	*
-	* @return string $countryName
+	* @return City $city
 	*/
-	public function getCity($city_id){
-		$req = $this->_db->prepare('SELECT * FROM cities where id = :id ');
-		$req->execute(array(
-			'id' => $city_id));
-		$donnees = $req->fetch(PDO::FETCH_ASSOC);
-		if ($donnees == false) throw new Exception('No country with the id ' .$city_id);
-		else return new City($donnees);
+	public function getCity($data){
+		if(is_int($data)){
+			$req = $this->_db->prepare('SELECT * FROM cities where id = :id ');
+			$req->execute(array(
+				'id' => $data));
+			$donnees = $req->fetch(PDO::FETCH_ASSOC);
+			if ($donnees == false) throw new Exception('No country with the id ' .$city_id);
+		} else {
+			$req = $this->_db->prepare('SELECT * FROM cities WHERE lower(name) = :city_name');
+			$req->execute(array(
+				'city_name' => strtolower($data)
+				));
+			$donnees = $req->fetch(PDO::FETCH_ASSOC);
+			if ($donnees == false) throw new Exception('No City found with this name');
+		}
+		return new City($donnees);
+		
 	}
 
 	/**
@@ -47,7 +57,7 @@ class CityManager extends Manager {
 	*
 	* @param int $city_id
 	*
-	* @return State $state
+	* @return Country $country
 	*/
 	public function getCountry($city_id){
 		$state = self::getState($city_id);
@@ -69,6 +79,16 @@ class CityManager extends Manager {
 	public function getCityName($city_id){
 		return self::getCity($city_id)->name();
 	}
+
+
+
+	/**
+	* Retourne une instance de City selon le nom d'une ville.
+	*
+	* @param string $city_name
+	*
+	* @return City $city
+	*/
 
 
 }

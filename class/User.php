@@ -74,11 +74,6 @@ class User
 		return $this->_gender;
 	}
 
-	public function birthdate()
-	{
-		return $this->_birthdate;
-	}
-
 	public function description()
 	{
 		return $this->_description;
@@ -126,25 +121,24 @@ class User
 		$this->_gender = $gender;
 	}
 
-	public function setBirthdate($birthdate)
-	{
-		$this->_birthdate = $birthdate;
-	}
-
 	public function setDescription($description)
-	{
-		$this->_description = $description;
+	{	
+		if ($description == ""){
+			$this->_description = _('No description');
+		} else {
+		$this->_description = $description;		
+		}
 	}
 
 	public function setNationalityId($nationalityId)
 	{
-		$this->_nationalityId = $nationalityId;
+		$this->_nationalityId = (int) $nationalityId;
 	}
 
 
 	public function setCityId($cityId)
 	{
-		$this->_cityId = $cityId;
+		$this->_cityId = (int) $cityId;
 	}
 
 }

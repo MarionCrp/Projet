@@ -118,7 +118,8 @@ if (isset($_SESSION['user']))
 						  <?php if(isset($_POST["envoie"]) and empty($_POST["content"])) echo _("Please, write a message"); ?>
 
 					      <textarea class="form-control" rows="3" placeholder= "<?php echo _('Your Message'); ?>" name="content"></textarea>
-					    <input type="submit" class="btn btn-default navbar-btn" value=<?php echo _("Send"); ?> name="envoie" />
+					    <input type="submit" class="btn btn-default navbar-btn" value=<?php echo _("Send"); ?> name="envoie" /><br/>
+					    <a href="<?= 'index.php?page=home&section=profile&id='.$user_id; ?>" class="btn btn-default navbar-btn"><?php echo _('Profile'); ?></a>
 					    </div>
 					</div>
 				</form>
@@ -128,10 +129,8 @@ if (isset($_SESSION['user']))
 
 		<!-- fin Formulaire d'envoie de messages  -->
 
-		<br/><a href="index.php?page=home&section=mymessages">
-				<button type="button" class="btn btn-default navbar-btn"> <?php echo _('Go back to the Mail Box'); ?>
-				</button>
-			</a><br/> 
+		<br/>
+				
 
 
 			<?php

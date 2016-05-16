@@ -108,5 +108,41 @@ class Form
               '.$level->name().'</div>
           </div>';
 	}
+
+	public static function getGenderIcon(User $user){
+		if($user->gender() == 'male'){
+			return 'male';
+		} else {
+			return 'female';
+		}
+	}
+
+	public static function getPagination($totalItems, $per_page, $url, $page){
+		$nb_of_pages = ceil($totalItems/$per_page);
+		$lot = ceil($page/3);
+		$pagedeb = $lot * 3 - (3-1);
+		if($nb_of_pages < $lot * 3){
+			$pagefin = $nb_of_pages;
+		} else {
+		$pagefin = $lot * 3;
+		}
+		$nb_of_lots = $nb_of_pages / 3;
+
+		if($lot > 1){
+			echo '<li><a href="'.$url.'1">1</a></li>';
+			if($nb_of_pages > 4)
+			echo '<li><a href="'.$url.''.($pagefin - 3).'">...</a></li>';
+		}
+		for ($cpt = $pagedeb; $cpt <= $pagefin; $cpt++){
+					echo '<li><a href="'.$url.''.$cpt.'">'.$cpt.'</a></li>';
+		} 
+		if($lot < $nb_of_lots) {
+			if($nb_of_pages > 4){
+				echo '<li><a href="'.$url.''.($pagefin + 1).'">...</a></li>';
+			}
+			echo '<li><a href="'.$url.''.$nb_of_pages.'">'.$nb_of_pages.'</a></li>';
+		}
+		
+	}
 }
 
