@@ -20,6 +20,7 @@ try {
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 		<script src="./assets/js/location.js"></script>
 		<script src="./assets/js/form.js"></script>
+		<script src="./assets/js/message.js"></script>
 		<link rel="stylesheet" href="assets/css/css/style_2.css"/>
 		<Title><?php echo _("  Meet An Alien - Index "); ?> </title>
 

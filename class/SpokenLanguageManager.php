@@ -74,8 +74,8 @@ class SpokenLanguageManager extends Manager
 					'levelid' => $level_id
 					));
 
-				if ($q) echo ('<p style="color:green;">' ._('The language level has been modified').  '</p>');
-				else throw new Exception('Error editing the language level');
+				if (!$q)  throw new Exception('Error editing the language level');
+				
 			} else {
 			// 	Sinon, on ajoute une nouvelle entrée à la base
 				$this->addLanguage($user_id, $language_id, $level_id);

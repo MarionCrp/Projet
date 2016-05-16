@@ -163,3 +163,14 @@ legend {
   display: flex;
   flex-direction: column;
 }
+
+/* MESSAGES */
+
+.message-title {
+  display: flex;
+  justify-content: space-between;
+}
+
+.new {
+  font-weight: bold;
+}

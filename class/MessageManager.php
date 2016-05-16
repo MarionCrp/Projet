@@ -36,11 +36,7 @@ class MessageManager extends Manager
 		// $message->hydrate([
 		// 	'id' => $this->_db->lastInsertId(),
 		// 	]);
-
-
 	}
-
-
 
 	/**
 	* Retourne tous les messages reçu par notre utilisateur
@@ -168,15 +164,43 @@ class MessageManager extends Manager
 	* Met un message non lu, a lu.
 	* @param $message Message - Message dont on va changé la valeur de read de 0 à 1)
 	**/
-	public function SetRead(Message $message) 
+	public function setRead(Message $message) 
 	{
-		//A FAIRE
-		// $message_id = $message->id();
-		// $q = $this->_db->query(
-		// 	'SELECT name FROM User, Message
-		// 	WHERE user.id = message.author_id 
-		// 	and message.id = '.$message_id) or die(print_r($q->errorInfo()));
-		// return ($q->fetchColumn());
+		$q = $this->_db->prepare(
+			'UPDATE Message
+			SET is_read = 1 where id = :message_id');
+
+		$q->execute(array(
+			'message_id' =>  $message->id()
+			));
 	}
+
+	public function stillMessagesToRead($current_user, $author_id = null){
+		if($author_id){
+			$q = $this->_db->prepare(
+			'SELECT count(*) from Message
+				WHERE recipient_id = :currentuser 
+				AND author_id = :author_id
+				AND is_read = 0');
+
+		$q->execute(array(
+			'currentuser' => $current_user->id(),
+			'author_id' => $author_id
+			));
+
+		} else {
+			$q = $this->_db->prepare(
+			'SELECT count(*) from Message
+				WHERE recipient_id = :currentuser
+				AND is_read = 0');
+
+			$q->execute(array(
+				'currentuser' => $current_user->id()
+				));
+		}
+		
+		return $q->fetchColumn();
+	}
+	
 
 }

@@ -111,7 +111,7 @@ class UserManager extends Manager
 	* Sinon la fonction recherche les utilisateurs parlant une langue donnée vivant dans une ville donnée
 	* @return array Liste des utilisateurs
 	**/
-	public function getList($per_page, $page = 1, $languageId = null, $cityId = null){
+	public function getList($current_user_id, $per_page, $page = 1, $languageId = null, $cityId = null){
 		$languageId = (int) $languageId;
 		$cityId = (int) $cityId;
 
@@ -119,31 +119,41 @@ class UserManager extends Manager
 		$first_profile = ($page-1) * $per_page ;
 		
 		if($cityId == null && $languageId == null){
-			$total_users = self::count();
-			$q = $this->_db->prepare('SELECT * FROM User ORDER BY id LIMIT :first, :per_page');
+			$total_users = self::count() - 1;
+			$q = $this->_db->prepare('SELECT * FROM User 
+										WHERE id != :current_user_id 
+											ORDER BY id LIMIT :first, :per_page');
+			$q->bindParam('current_user_id', $current_user_id, PDO::PARAM_INT);
 			$q->bindParam('first', $first_profile, PDO::PARAM_INT);
 			$q->bindParam('per_page', $per_page, PDO::PARAM_INT);
 			$q->execute();
 		}
 		else {
 
-			$count = $this->_db->prepare('SELECT count(*) FROM (SELECT * FROM USER 
-					WHERE id IN 
-						(SELECT userId FROM `spoken_languages` WHERE languageId = :languageId)
-					AND cityId = :cityId) speaker');
+			$count = $this->_db->prepare('SELECT count(*) FROM 
+											(SELECT * FROM USER 
+												WHERE id IN 
+													(SELECT userId FROM `spoken_languages` 
+														WHERE id != :current_user_id
+															AND	languageId = :languageId)
+												AND cityId = :cityId) speaker');
 
 			$count->execute(array(
 					'languageId' => $languageId,
-					'cityId' => $cityId
+					'cityId' => $cityId,
+					'current_user_id' => $current_user_id
 			));
 
 			$total_users = $count->fetchColumn();
 
 			$q = $this->_db->prepare('SELECT * FROM USER 
 					WHERE id IN 
-						(SELECT userId FROM `spoken_languages` WHERE languageId = :languageId)
+						(SELECT userId FROM `spoken_languages` 
+							WHERE id != :current_user_id
+							AND languageId = :languageId)
 					AND cityId = :cityId LIMIT :first, :per_page');
 
+			$q->bindParam('current_user_id', $current_user_id, PDO::PARAM_INT);
 			$q->bindParam('languageId', $languageId, PDO::PARAM_INT);
 			$q->bindParam('cityId', $cityId, PDO::PARAM_INT);
 			$q->bindParam('first', $first_profile, PDO::PARAM_INT);

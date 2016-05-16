@@ -3,51 +3,8 @@ include ('send_message_controller.php');
 
 if (isset($_SESSION['user']))
 	{
-		// Sur la page des messages reçus
-		if(!isset($_GET['user_id']))
-		{
-			$messages = $message_manager->getListOfMessages($current_user);
-			?>
-			
-			<?php
-			if (empty($messages)) { ?>
-				<div class="panel panel-default">
-					<div class="panel-heading">
-						<div class="panel-body"><?php echo _('No message received yet'); ?>
-						</div>
-					</div>
-			    </div>');
-			<?php
-			}
-			foreach ($messages as $message) 
-			{	
-			?> 
-					<div class="panel panel-default">
-					<div class="panel-heading">
-					    	<h3 class="panel-title"> <h3><?= $message_manager->getAuthor($message) ?></h3>
-					    							 </h3>
-					    							 <p><?= $message->datetime() ?></p>
-
-						</div>
-					  	<div class="panel-body">
-					  		<p> <?= $message->content() ?> </p>	
-						  	<form method="get" action="">
-								<input type="hidden" value="home" name="page">
-								<input type="hidden" value="mymessages" name="section">
-								<input type="hidden" value=<?= $message->author_id() ?> name="user_id">
-
-								<input type="submit" class="btn btn-default navbar-btn" value= "<?php echo _('Reply'); ?>" />
-
-							</form>		   	
-					  	</div>
-					</div>
-			<?php
-			}
-		}
-
-
-		// Sur la page de message d'un profil particulier
-		else { 
+		// Sur la page d'une discussion en particulier
+		if(isset($_GET['user_id'])){ 
 
 			/* On réupère les données relatives au profil visité, stoquée dans user_id*/
 			
@@ -67,7 +24,11 @@ if (isset($_SESSION['user']))
 							<h3 class="panel-title">
 								 <h3><?php 
 									if ($post->author_id() == $current_user->id()) echo _('You');
-									else echo $message_manager->getAuthor($post) ?>
+									else {
+										echo $message_manager->getAuthor($post);
+										$message_manager->setRead($post);
+										}
+										?>
 								</h3> 
 								<p> <?= $post->datetime(); ?>
 
@@ -115,7 +76,7 @@ if (isset($_SESSION['user']))
 						  <input type="hidden" name="recipient_id" value=<?= $user_id ?> />
 
 						  <!-- Si l'utilisateur envoie un message vide, on affiche une erreur sans envoyer ce message -->
-						  <?php if(isset($_POST["envoie"]) and empty($_POST["content"])) echo _("Please, write a message"); ?>
+						 <?php if(isset($_POST["envoie"]) and empty($_POST["content"])) echo '<p class="fail">'._("Please, write a message").'</p>'; ?>
 
 					      <textarea class="form-control" rows="3" placeholder= "<?php echo _('Your Message'); ?>" name="content"></textarea>
 					    <input type="submit" class="btn btn-default navbar-btn" value=<?php echo _("Send"); ?> name="envoie" /><br/>
@@ -134,6 +95,64 @@ if (isset($_SESSION['user']))
 
 
 			<?php
-		
+		//Sur la page des messages reçus
+		} else {
+			$messages = $message_manager->getListOfMessages($current_user);
+			?>
+			
+			<?php
+			if (empty($messages)) { ?>
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<div class="panel-body"><?php echo _('No message received yet'); ?>
+						</div>
+					</div>
+			    </div>');
+			<?php
+			}
+			foreach ($messages as $message) 
+			{	
+						if ($message_manager->stillMessagesToRead($current_user, $message->author_id())){
+							$new = array(
+								'title' => _('New'),
+								'class' => 'panel panel-success'
+								);
+
+						} else {
+							$new = array(
+								'title' => '',
+								'class' => 'panel panel-default'
+								);
+						}
+						
+			?> 
+					<div class="<?php echo $new['class']; ?>">
+					<div class="panel-heading">
+					    	<div class="panel-title message-title"> 
+					    		<h3><?= $message_manager->getAuthor($message) ?></h3>
+					    		<h3 class="new"><?= $new['title']; ?> </h3>
+							</div>
+					</div>
+					  	<div class="panel-body">
+					  		<p><?= $message->datetime() ?></p>
+					  		<p> <?php 
+					  		if (strlen($message->content()) > 50) {
+				  			echo substr($message->content(), 0, 50).'...';
+				  			} else {
+				  				echo $message->content();
+				  			}
+
+				  			 ?> 
+				  			 </p>	
+						  	<form method="get" action="">
+								<input type="hidden" value="home" name="page">
+								<input type="hidden" value="mymessages" name="section">
+								<input type="hidden" value=<?= $message->author_id() ?> name="user_id">
+								<input type="submit" class="btn btn-default navbar-btn clic-messages" value= "<?php echo _('Read the message'); ?>" />
+							</form>		   	
+					  	</div>
+					</div>
+			<?php
+			}
+		}
 	}
-}

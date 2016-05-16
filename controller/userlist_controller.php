@@ -17,11 +17,11 @@ if(isset($_POST['search_user'])){
 		$cityName = htmlspecialchars($_POST['cityName']);
 		$languageId = (int)htmlspecialchars($_POST['languageId']);
 		$cityId = $city_manager->getCity($cityName)->id();
-		$list_params = $user_manager->getList($user_per_page, $page, $languageId, $cityId);
+		$list_params = $user_manager->getList($current_user->id(), $user_per_page, $page, $languageId, $cityId);
 		$url = 'index.php?page=home&section=userslist&cityId='.$cityId.'&languageId='.$languageId.'&pagenb=';
 		$users = $list_params['list_per_page'];
 		//On retire le current user de la liste des profils (qui ne sera pas afficher de toute manière).
-		$nb_users = $list_params['total_found'] -1;
+		$nb_users = $list_params['total_found'];
 	}
 }
 
@@ -31,14 +31,14 @@ else if(isset($_GET['cityId']) AND isset($_GET['languageId'])){
 	else {
 		$languageId = htmlspecialchars($_GET['languageId']);
 		$cityId = htmlspecialchars($_GET['cityId']);
-		$list_params = $user_manager->getList($user_per_page, $page, $languageId, $cityId);
+		$list_params = $user_manager->getList($current_user->id(), $user_per_page, $page, $languageId, $cityId);
 		$url = 'index.php?page=home&section=userslist&cityId='.$cityId.'&languageId='.$languageId.'&pagenb=';
 		$users = $list_params['list_per_page'];
-		$nb_users = $list_params['total_found'] -1;
+		$nb_users = $list_params['total_found'];
 	}	
 } else {
-	$list_params = $user_manager->getList($user_per_page, $page);
+	$list_params = $user_manager->getList($current_user->id(), $user_per_page, $page);
 	$users = $list_params['list_per_page'];
-	$nb_users = $list_params['total_found'] - 1;
+	$nb_users = $list_params['total_found'];
 	$url = 'index.php?page=home&section=userslist&pagenb=';
 }

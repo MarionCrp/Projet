@@ -9,8 +9,9 @@
 
 		if (isset($_SESSION['user'])) 
 		{
-			?>
+			$new_messages_nb = $message_manager->stillMessagesToRead($current_user);
 
+			?>
 				   		<!-- ***** BANDEAU DE RECHERCHE D'UTILISATEURS ***** -->
 
 	    	<!-- <div id="zone_opacity"> 	 -->
@@ -51,12 +52,25 @@
 			<div class="row">
 				<div class="col-md-3"><!-- Large button group -->
 					<div class="btn-group">
-					  <button class="btn btn-default btn-lg dropdown-toggle" type="button" data-toggle="dropdown"><span class="glyphicon glyphicon-align-justify"></span>
+					<?php
+					if ($new_messages_nb > 0) {
+						echo '<button class="btn btn-info btn-lg dropdown-toggle" type="button" data-toggle="dropdown"><span class="glyphicon glyphicon-envelope"></span>';
+					} else {
+						echo '<button class="btn btn-default btn-lg dropdown-toggle" type="button" data-toggle="dropdown"><span class="glyphicon glyphicon-align-justify"></span>';
+					}
+					?>
 					    Menu 
 					  </button>
 					  <ul class="dropdown-menu" role="menu">
 					    <li role="presentation"><a role="menuitem" tabindex="-1" href="index.php?page=home&section=myprofile"><span class="glyphicon glyphicon-user"></span><?php echo _(' My Profile '); ?></a></li>
-					    <li role="presentation"><a role="menuitem" tabindex="-1" href="index.php?page=home&section=mymessages"><span class="glyphicon glyphicon-envelope"></span><?php echo _(' My Messages '); ?></a></li>
+					 <?php
+					   if ($new_messages_nb > 0) {
+					    echo '<li role="presentation" class="active success clic-messages"><a role="menuitem" tabindex="-1" href="index.php?page=home&section=mymessages" ><span class="badge">'.$new_messages_nb.'</span><span class="glyphicon glyphicon-envelope" ></span>'._(' My Messages ').'</a></li>';
+					   } else {
+					    echo '<li role="presentation" class="clic-messages"><a "role="menuitem" tabindex="-1" href="index.php?page=home&section=mymessages"><span class="glyphicon glyphicon-envelope"></span>'._(' My Messages ').'</a></li>';
+					   }
+
+					   ?>
 					    <li role="presentation"><a role="menuitem" tabindex="-1" href="index.php?page=home&section=userslist"><span class="glyphicon glyphicon-globe"></span><?php echo _(' People '); ?></a></li>
 					 	<li role="presentation"><a role="menuitem" tabindex="-1" href="view/chat.php"><span class="glyphicon glyphicon-comment"></span><?php echo _(' Chatting Room '); ?></a></li>					  
 					 	<!--<li role="presentation"><a role="menuitem" tabindex="-1" href="index.php?page=home&section=chat"><span class="glyphicon glyphicon-comment"></span><?php echo _(' Chatting Room '); ?></a></li>					  
