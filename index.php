@@ -29,15 +29,10 @@ try {
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 
-
-
-
 	</HEAD>
 
 	
 	<body>
-
-
 	<?php if(isset($_POST['lang'])) echo $_POST['lang']; ?>
 	 <!-- ***** BARRE DE NAVIGATION ***** -->
     <nav class="navbar navbar-fixed-top navbar-inverse">

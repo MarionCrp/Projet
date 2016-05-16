@@ -117,39 +117,32 @@ class Form
 		}
 	}
 
-	public static function getPagination($totalItems, $perPage, $url, $page){
-		$nb_of_pages = $totalItems / $perPage;
-		if($page > 1){
-			?>
-			<li>
-	      		<a href="#" aria-label="Previous">
-	       		 <span aria-hidden="true">&laquo;</span>
-	    	    </a>
-	    	</li>
-	<?php
-	}
-		if($nb_of_pages <= 5) {
-				for ($page = 1; $page <= $nb_of_pages; $page++){
-					echo '<li><a href="'.$url.''.$page.'">'.$page.'</a></li>';
-				}
+	public static function getPagination($totalItems, $per_page, $url, $page){
+		$nb_of_pages = ceil($totalItems/$per_page);
+		$lot = ceil($page/3);
+		$pagedeb = $lot * 3 - (3-1);
+		if($nb_of_pages < $lot * 3){
+			$pagefin = $nb_of_pages;
 		} else {
-			$cpt = $page;
-			while ($cpt <= $page + 2){
-					echo '<li><a href="'.$url.''.$cpt.'">'.$cpt.'</a></li>';
-					$cpt++;
-				} 
-				echo '<li><a href="'.$url.''.$page.'">...</a></li>';
-				echo '<li><a href="'.$url.''.$nb_of_pages.'" aria-label="Next">
-				        <span aria-hidden="true">&raquo;</span>
-				      </a></li>';
+		$pagefin = $lot * 3;
 		}
-		/*elseif ($page < $nb_of_pages){*/
-		?>
-		  <!-- <a href="#" aria-label="Next">
-	        <span aria-hidden="true">&raquo;</span>
-	      </a> -->
-		<?php
-	
+		$nb_of_lots = $nb_of_pages / 3;
+
+		if($lot > 1){
+			echo '<li><a href="'.$url.'1">1</a></li>';
+			if($nb_of_pages > 4)
+			echo '<li><a href="'.$url.''.($pagefin - 3).'">...</a></li>';
+		}
+		for ($cpt = $pagedeb; $cpt <= $pagefin; $cpt++){
+					echo '<li><a href="'.$url.''.$cpt.'">'.$cpt.'</a></li>';
+		} 
+		if($lot < $nb_of_lots) {
+			if($nb_of_pages > 4){
+				echo '<li><a href="'.$url.''.($pagefin + 1).'">...</a></li>';
+			}
+			echo '<li><a href="'.$url.''.$nb_of_pages.'">'.$nb_of_pages.'</a></li>';
+		}
+		
 	}
 }
 

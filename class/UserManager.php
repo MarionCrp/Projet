@@ -111,12 +111,11 @@ class UserManager extends Manager
 	* Sinon la fonction recherche les utilisateurs parlant une langue donnée vivant dans une ville donnée
 	* @return array Liste des utilisateurs
 	**/
-	public function getList($page = 1, $languageId = null, $cityId = null){
+	public function getList($per_page, $page = 1, $languageId = null, $cityId = null){
 		$languageId = (int) $languageId;
 		$cityId = (int) $cityId;
 
 		$users = [];
-		$per_page = 1;
 		$first_profile = ($page-1) * $per_page ;
 		
 		if($cityId == null && $languageId == null){

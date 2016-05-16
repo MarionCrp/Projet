@@ -1,6 +1,6 @@
 <!-- AFFICHE DE LA LISTE D'UTILISATEURS INCRITS SUR LE SITE -->
 <?php
-	
+	include ('/controller/post_to_get.php');
 	include('/controller/userlist_controller.php') ;
 
 ?>
@@ -21,7 +21,7 @@
 			<div class="panel panel-default">
 			    <div class="panel-heading">
 			    	<div class="panel-title"> 
-			    		<h3><?= $user->name(); ?> <img src="<?= '../assets/images/'.Form::getGenderIcon($user).'.png'; ?>" alt="gender_male" width=30 class="text-right" /> </h3> 
+			    		<h3><?= $user->name(); ?> <img src="<?= 'assets/images/'.Form::getGenderIcon($user).'.png'; ?>" alt="gender_male" width=30 class="text-right" /> </h3> 
 			    		<b><?php echo $user_city_name. '</b> (' .$user_living_country_name.')'; ?>
 			    	</div>
 			    	<hr>
@@ -59,9 +59,7 @@
 	  <ul class="pagination pagination-lg">
 	  
 	    <?php
-	    var_dump($nb_users);
-	     var_dump($page);
-	    Form::getPagination($nb_users, 1, 'index.php?page=home&section=userslist&pagenb=', $page); ?>
+	    Form::getPagination($nb_users, $user_per_page, 'index.php?page=home&section=userslist&pagenb=', $page); ?>
 	    </li>
 	  </ul>
 	</nav>
