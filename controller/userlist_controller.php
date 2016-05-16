@@ -15,8 +15,8 @@ if(isset($_POST['search_user'])){
 	}
 	else {
 		$cityName = htmlspecialchars($_POST['cityName']);
-		var_dump($languageId = (int)htmlspecialchars($_POST['languageId']));
-		var_dump($cityId = $city_manager->getCity($cityName)->id());
+		$languageId = (int)htmlspecialchars($_POST['languageId']);
+		$cityId = $city_manager->getCity($cityName)->id();
 		$list_params = $user_manager->getList($user_per_page, $page, $languageId, $cityId);
 		$url = 'index.php?page=home&section=userslist&cityId='.$cityId.'&languageId='.$languageId.'&pagenb=';
 		$users = $list_params['list_per_page'];

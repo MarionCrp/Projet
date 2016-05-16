@@ -4,6 +4,7 @@
 	include('/controller/userlist_controller.php') ;
 
 ?>
+<div id="userslist">
 	<div class="users">
 	<?php
 		foreach ($users as $user) // On fait une boucle dans notre array, et on prend un par un chaque utilisateur
@@ -56,14 +57,16 @@
 		?>
 	</div>
 
-	<nav class="bloc-page">
-	  <ul class="pagination pagination-lg">
-	  <?php
-	    Form::getPagination($nb_users, $user_per_page, $url, $page); 
-	   ?>
-	  </ul>
-	</nav>
+	<div  class="bloc-page">
+		<nav>
+		  <ul class="pagination pagination-lg">
+		  <?php
+		    Form::getPagination($nb_users, $user_per_page, $url, $page); 
+		   ?>
+		  </ul>
+		</nav>
 	</div>
+</div>
 
 
  <!-- FIN affichage de la liste des utilisateurs -->
