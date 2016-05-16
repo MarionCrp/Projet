@@ -147,7 +147,7 @@ legend {
 }
 
 .users {
-  display: inline-block;
+  
 }
 
 .bloc-page {
@@ -157,4 +157,9 @@ legend {
 
 .glyphicon-exclamation-sign{
   margin-right: 2%;
+}
+
+#userslist{
+  display: flex;
+  flex-direction: column;
 }

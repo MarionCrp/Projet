@@ -13,7 +13,7 @@ if (isset($_SESSION['user']))
 			if (empty($messages)) { ?>
 				<div class="panel panel-default">
 					<div class="panel-heading">
-						<div class="panel-body"><?php echo _('You have not yet received message'); ?>
+						<div class="panel-body"><?php echo _('No message received yet'); ?>
 						</div>
 					</div>
 			    </div>');
@@ -101,7 +101,7 @@ if (isset($_SESSION['user']))
 		 	<div class="panel-body">
 
 		 	<?php if(!$message_manager->getDiscussion($user_id, $current_user_id)) { 
-		 			 echo _('You have not yet talk to '); 
+		 			 echo _('You have not talk yet to '); 
 		 			 echo $user_manager->getDatas($user_id)->name().'. ';
 		 			 echo _(' Make the first step!');
 		 		}
