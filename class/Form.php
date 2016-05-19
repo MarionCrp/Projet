@@ -149,5 +149,15 @@ class Form
 		}
 		
 	}
+
+	function format_date($date_to_format, $lang){
+		$date = new DateTime($date_to_format);
+		if ($lang ==  'fr_FR'){
+			$new_date = $date->format(' H\hi, \l\e j\/m\/Y');
+		}
+		else $new_date = $date->format('g:ia\, \o\n jS F Y');
+
+		return $new_date;
+	}
 }
 

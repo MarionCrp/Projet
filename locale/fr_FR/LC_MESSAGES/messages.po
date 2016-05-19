@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2016-05-16 19:06+0200\n"
-"PO-Revision-Date: 2016-05-16 19:11+0200\n"
+"POT-Creation-Date: 2016-05-19 13:55+0200\n"
+"PO-Revision-Date: 2016-05-19 13:56+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fr_FR\n"
@@ -20,6 +20,35 @@ msgstr ""
 msgid " Passwords are different "
 msgstr "Les mots de passe ne sont pas identiques"
 
+#: class/Form.php:67
+msgid "Choose a Language"
+msgstr "Choisissez une langue"
+
+#: class/Form.php:91 controller/edit_profile_language_controller.php:17
+#: view/edit_profile_language.php:18 view/signup.php:127
+msgid "Beginner"
+msgstr "Débutant"
+
+#: class/Form.php:95 controller/edit_profile_language_controller.php:18
+#: view/edit_profile_language.php:19 view/signup.php:128
+msgid "Intermediate"
+msgstr "Intermédiaire"
+
+#: class/Form.php:99 controller/edit_profile_language_controller.php:19
+#: view/edit_profile_language.php:20 view/signup.php:129
+msgid "Advanced"
+msgstr "Avancé"
+
+#: class/Form.php:103 controller/edit_profile_language_controller.php:20
+#: view/edit_profile_language.php:21 view/signup.php:130
+msgid "Fluent"
+msgstr "Courant"
+
+#: class/Form.php:107 controller/edit_profile_language_controller.php:21
+#: view/edit_profile_language.php:22 view/signup.php:131
+msgid "Mother Tong"
+msgstr "Langue Maternelle"
+
 #: class/MessageManager.php:34
 msgid "Message Sent"
 msgstr "Message envoyé"
@@ -35,10 +64,6 @@ msgstr "Un langage a été ajouté"
 #: class/SpokenLanguageManager.php:129
 msgid "A language has been deleted"
 msgstr "Un langage a été supprimé"
-
-#: class/User.php:127
-msgid "No description"
-msgstr "L'utilisateur n'a pas rempli sa description"
 
 #: class/UserManager.php:41
 msgid "Your account has been created"
@@ -61,37 +86,12 @@ msgid "this field can't be empty"
 msgstr "Ce champ ne peut être vide"
 
 #: controller/edit_profile_general_controller.php:31
-msgid "The "
-msgstr "Le "
+msgid "Profile has been modified"
+msgstr "Le profil à été modifié"
 
 #: controller/edit_profile_language_controller.php:6
 msgid "You have not yet added language"
 msgstr "Vous n'avez pas encore indiqué de langage"
-
-#: controller/edit_profile_language_controller.php:17
-#: view/edit_profile_language.php:18 view/signup.php:127
-msgid "Beginner"
-msgstr "Débutant"
-
-#: controller/edit_profile_language_controller.php:18
-#: view/edit_profile_language.php:19 view/signup.php:128
-msgid "Intermediate"
-msgstr "Intermédiaire"
-
-#: controller/edit_profile_language_controller.php:19
-#: view/edit_profile_language.php:20 view/signup.php:129
-msgid "Advanced"
-msgstr "Avancé"
-
-#: controller/edit_profile_language_controller.php:20
-#: view/edit_profile_language.php:21 view/signup.php:130
-msgid "Fluent"
-msgstr "Courant"
-
-#: controller/edit_profile_language_controller.php:21
-#: view/edit_profile_language.php:22 view/signup.php:131
-msgid "Mother Tong"
-msgstr "Langue Maternelle"
 
 #: controller/edit_profile_language_controller.php:23
 #: view/edit_profile_language.php:24 view/signup.php:133
@@ -133,56 +133,56 @@ msgstr "Les deux mots de passe sont différents"
 msgid "The password has been modified"
 msgstr "Le mot de passe a bien été modifié"
 
-#: controller/messages_controller.php:27
+#: controller/messages_controller.php:31
 msgid "You"
 msgstr "Vous"
 
-#: controller/messages_controller.php:32
+#: controller/messages_controller.php:42
+msgid "Sent at "
+msgstr "Envoyé le"
+
+#: controller/messages_controller.php:43
 msgid "Read"
 msgstr "Lu"
 
-#: controller/messages_controller.php:33
-msgid "Sent"
-msgstr "Envoyé"
-
-#: controller/messages_controller.php:63 view/profile.php:34
+#: controller/messages_controller.php:66 view/profile.php:34
 #: view/userslist.php:44
 msgid "Send a message"
 msgstr "Envoyer un message"
 
-#: controller/messages_controller.php:69
+#: controller/messages_controller.php:72
 msgid "You have not talk yet to "
 msgstr "Vous n'avez pas encore parlé à "
 
-#: controller/messages_controller.php:71
+#: controller/messages_controller.php:74
 msgid " Make the first step!"
 msgstr "Faites le premier pas!"
 
-#: controller/messages_controller.php:83
+#: controller/messages_controller.php:86
 msgid "Please, write a message"
 msgstr "Ecrivez un message"
 
-#: controller/messages_controller.php:85
+#: controller/messages_controller.php:88
 msgid "Your Message"
 msgstr "Votre Message"
 
-#: controller/messages_controller.php:86
+#: controller/messages_controller.php:89
 msgid "Send"
 msgstr "Envoyer"
 
-#: controller/messages_controller.php:87 view/userslist.php:45
+#: controller/messages_controller.php:90 view/userslist.php:45
 msgid "Profile"
 msgstr "Profile"
 
-#: controller/messages_controller.php:111
+#: controller/messages_controller.php:114
 msgid "No message received yet"
 msgstr "Vous n'avez pas encore reçu de message"
 
-#: controller/messages_controller.php:121
+#: controller/messages_controller.php:125
 msgid "New"
 msgstr "Nouveau"
 
-#: controller/messages_controller.php:155
+#: controller/messages_controller.php:159
 msgid "Read the message"
 msgstr "Lire le message"
 
@@ -406,12 +406,20 @@ msgid "Meet someone "
 msgstr "Recherchez des personnes : "
 
 #: view/home.php:27
+msgid "Living in"
+msgstr "Vivant à "
+
+#: view/home.php:27
 msgid "Enter your City"
 msgstr "Ville"
 
 #: view/home.php:32
 msgid "I want to meet someone speaking "
 msgstr "Je veux rencontrer des gens parlant"
+
+#: view/home.php:37
+msgid "Speaking"
+msgstr "Parlant "
 
 #: view/home.php:43
 msgid "Search"
@@ -524,11 +532,15 @@ msgstr "Ville actuelle"
 msgid "Description"
 msgstr "Description"
 
-#: view/myprofile.php:22
+#: view/myprofile.php:21
+msgid "No Description"
+msgstr "Pas de description"
+
+#: view/myprofile.php:30
 msgid "My Languages"
 msgstr "Mes Langues"
 
-#: view/myprofile.php:33
+#: view/myprofile.php:41
 msgid "Edit my Profile"
 msgstr "Modifier mon Profil"
 
@@ -599,6 +611,15 @@ msgstr "Retourner à la page d'accueil"
 #: view/userslist.php:35
 msgid "read more"
 msgstr "Lire plus"
+
+#~ msgid "No description"
+#~ msgstr "L'utilisateur n'a pas rempli sa description"
+
+#~ msgid "The "
+#~ msgstr "Le "
+
+#~ msgid "Sent"
+#~ msgstr "Envoyé"
 
 #~ msgid "The language level has been modified"
 #~ msgstr "Le niveau de langage a été modifié"
