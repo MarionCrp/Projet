@@ -19,7 +19,7 @@ if (isset($_POST['edit_general'])) {
 			if($field == "name" AND $value != $current_user->name() AND $user_manager->exists($value, $field))	echo ('<p class="fail">' ._('This name is already used'). '</p><br/>');
 			elseif($field == "email" AND $value != $current_user->email() AND $user_manager->exists($value, $field))	echo ('<p class="fail">' ._('This email is already used'). '</p><br/>');
 			elseif($field == "email" AND !$form->validEmail($value))	echo ('<p class="fail">' ._('the format of the e-mail is not valid'). '</p><br/>');
-			elseif(empty($value)) echo ('<p class="fail">' ._('this field can\'t be empty'). '</p><br/>');
+			elseif(empty($value) AND $field != "description") echo ('<p class="fail">' ._('this field can\'t be empty'). '</p><br/>');
 			
 			// Sinon on modifie les attributs utilisateurs
 			else {
@@ -28,7 +28,7 @@ if (isset($_POST['edit_general'])) {
 					$user_manager->edit($user_id, $field, $value);
 					$current_user = $user_manager->getDatas($user_id);
 					$_SESSION['user'] = $current_user;
-					echo ('<p class="success">' ._('The '.$field.' has been modified').  '</p>');
+					echo ('<p class="success">'._('Profile has been modified').'</p>');
 				}
 			}
 		}

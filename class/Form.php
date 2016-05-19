@@ -64,7 +64,7 @@ class Form
 	*/
 	public static function languages(LanguageManager $lang_manager, $spoken_language_id = null){
 		$languages = $lang_manager->getLanguages();
-		echo '<option value=""> Choose a Language </option>';
+		echo '<option value="">' ._('Choose a Language'). '</option>';
 		foreach ($languages as $language){
 			if ($language->id() == $spoken_language_id) $selected = 'selected';
 			else $selected = '';
@@ -88,25 +88,30 @@ class Form
 		switch($level->id()){
 			case 1:
 				$level_field = 'info' ;
+				$level_name = _('Beginner');
 				break;
 			case 2:
 				$level_field = 'success';
+				$level_name = _('Intermediate');
 				break;
 			case 3:
 				$level_field = 'warning';
+				$level_name = _('Advanced');
 				break;
 			case 4:
 				$level_field = 'danger';
+				$level_name = _('Fluent');
 				break;
 			case 5:
 				$level_field = 'primary';
+				$level_name = _('Mother Tong');
 				break;
 		}
 
+
 		echo '<div class="progress">
 			   <div class="progress-bar progress-bar-'.$level_field.'" role="progressbar" aria-valuenow="'.$level->id().'" aria-valuemin="0" aria-valuemax="5" style="width: '.($level->id()*20).'%;">
-              '.$level->name().'</div>
-          </div>';
+              '.$level_name.'</div></div>';
 	}
 
 	public static function getGenderIcon(User $user){

@@ -18,23 +18,29 @@ if (isset($_SESSION['user']))
 				/* AFFICHAGE DES MESSAGES */
 				foreach ($posts as $post)
 				{
+					var_dump($is_read = $post->is_read());
 					?>
 					<div class="panel panel-default">
 						<div class="panel-heading">
 							<h3 class="panel-title">
 								 <h3><?php 
-									if ($post->author_id() == $current_user->id()) echo _('You');
-									else {
-										echo $message_manager->getAuthor($post);
-										$message_manager->setRead($post);
+										if ($post->author_id() == $current_user->id()) echo _('You');
+										else {
+											echo $message_manager->getAuthor($post);
+											$message_manager->setRead($post);
 										}
-										?>
+										
+																	
+									?>
 								</h3> 
-								<p> <?= $post->datetime(); ?>
-
 							</h3>
 						</div>
 					  	<div class="panel-body">
+					  	<div class="message-title">
+
+					  		<p> <?php echo _('Sent on ').$post->datetime(); 
+					  		  if ($post->is_read()) echo '<p>'._('Read').'</p>'; ?>
+					  	</div>
 					  		<p> <?= $post->content(); ?> </p>	
 					  	</div>
 					 </div>

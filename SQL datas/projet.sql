@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Lun 16 Mai 2016 à 09:08
+-- Généré le :  Lun 16 Mai 2016 à 16:31
 -- Version du serveur :  5.7.9
 -- Version de PHP :  5.6.16
 
@@ -48136,7 +48136,18 @@ CREATE TABLE IF NOT EXISTS `message` (
   KEY `recipient` (`recipient_id`),
   KEY `author_id` (`author_id`),
   KEY `recipient_id` (`recipient_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Contenu de la table `message`
+--
+
+INSERT INTO `message` (`id`, `author_id`, `recipient_id`, `datetime`, `content`, `is_sent`, `is_read`) VALUES
+(1, 12, 1, '2016-05-16 14:13:22', 'Salut Marion ! ', 1, 1),
+(2, 1, 12, '2016-05-16 14:53:58', 'Salut Kazuma, comment vas-tu? ', 1, 1),
+(3, 12, 1, '2016-05-16 15:42:24', 'Je vais bien et toi? Je vois que tu parles Japonais, tu as appris où ? ', 1, 1),
+(4, 13, 1, '2016-05-16 16:09:09', 'マリオンさん、こんにちは、\r\n日本語が話せて、すごいですね！\r\nフランス語を教えてください！\r\n\r\nよろしくお願いします！', 1, 1),
+(8, 1, 12, '2016-05-16 16:07:24', 'A la fac. Ca fait longtemps que tu es sur Lyon ?', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -48159,7 +48170,44 @@ CREATE TABLE IF NOT EXISTS `spoken_languages` (
 --
 
 INSERT INTO `spoken_languages` (`userId`, `languageId`, `levelId`) VALUES
-(1, 34, 5);
+(6, 34, 1),
+(13, 34, 1),
+(5, 34, 2),
+(1, 53, 3),
+(2, 89, 3),
+(3, 1, 3),
+(4, 51, 3),
+(6, 53, 3),
+(7, 51, 3),
+(8, 34, 3),
+(10, 27, 3),
+(12, 1, 3),
+(12, 34, 3),
+(1, 1, 4),
+(2, 1, 4),
+(2, 27, 4),
+(4, 1, 4),
+(7, 1, 4),
+(7, 53, 4),
+(8, 1, 4),
+(8, 53, 4),
+(9, 1, 4),
+(10, 1, 4),
+(11, 1, 4),
+(13, 1, 4),
+(1, 34, 5),
+(2, 34, 5),
+(3, 34, 5),
+(4, 34, 5),
+(5, 1, 5),
+(6, 1, 5),
+(7, 102, 5),
+(8, 116, 5),
+(9, 34, 5),
+(10, 34, 5),
+(11, 34, 5),
+(12, 53, 5),
+(13, 53, 5);
 
 -- --------------------------------------------------------
 
@@ -52321,14 +52369,26 @@ CREATE TABLE IF NOT EXISTS `user` (
   PRIMARY KEY (`id`),
   KEY `cityId` (`cityId`),
   KEY `nationalityId` (`nationalityId`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Contenu de la table `user`
 --
 
 INSERT INTO `user` (`id`, `name`, `email`, `password`, `gender`, `description`, `nationalityId`, `cityId`) VALUES
-(1, 'Marion', 'marion@gmail.com', 'a94a8fe5ccb19ba61c4c0873d391e987982fbbd3', 'female', 'No description', 75, 17801);
+(1, 'Marion', 'marion@gmail.com', 'a94a8fe5ccb19ba61c4c0873d391e987982fbbd3', 'female', 'No description', 75, 17801),
+(2, 'Kévin', 'kevin@gmail.com', 'a94a8fe5ccb19ba61c4c0873d391e987982fbbd3', 'male', 'No description', 75, 17801),
+(3, 'Loic', 'loic@gmail.com', 'a94a8fe5ccb19ba61c4c0873d391e987982fbbd3', 'male', 'No description', 75, 17801),
+(4, 'Elsa', 'elsa@gmail.com', 'a94a8fe5ccb19ba61c4c0873d391e987982fbbd3', 'female', 'No description', 75, 17801),
+(5, 'Matt', 'matt@gmail.com', 'a94a8fe5ccb19ba61c4c0873d391e987982fbbd3', 'male', 'No description', 230, 17801),
+(6, 'Louise', 'louise@gmail.com', 'a94a8fe5ccb19ba61c4c0873d391e987982fbbd3', 'female', 'No description', 230, 41814),
+(7, 'Ales', 'ales@gmail.com', 'a94a8fe5ccb19ba61c4c0873d391e987982fbbd3', 'male', 'No description', 198, 24656),
+(8, 'Waarut', 'warrut@gmail.com', 'a94a8fe5ccb19ba61c4c0873d391e987982fbbd3', 'male', 'No description', 217, 24656),
+(9, 'Jean', 'jean@gmail.com', 'a94a8fe5ccb19ba61c4c0873d391e987982fbbd3', 'male', 'No description', 75, 17801),
+(10, 'Jérémie', 'jeremie@gmail.com', 'a94a8fe5ccb19ba61c4c0873d391e987982fbbd3', 'male', 'No description', 75, 17801),
+(11, 'Fanny', 'fanny@gmail.com', 'a94a8fe5ccb19ba61c4c0873d391e987982fbbd3', 'female', 'No description', 75, 17801),
+(12, 'Kazuma', 'kazuma@gmail.com', 'a94a8fe5ccb19ba61c4c0873d391e987982fbbd3', 'male', 'Hello, my Name is Kazuma ! \r\n\r\nBonjour, je m''appelle Kazuma, et j''habite à Lyon cette année. Je suis étudiant Japonais et je veux apprendre le Français ! Aidez-moi! \r\n\r\n日本語も教えます！\r\n\r\nよろしくお願いします！\r\n\r\n一馬', 109, 17801),
+(13, 'Sayaka', 'sayaka@gmail.com', 'a94a8fe5ccb19ba61c4c0873d391e987982fbbd3', 'female', 'No description', 109, 17801);
 
 --
 -- Contraintes pour les tables exportées

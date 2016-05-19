@@ -12,7 +12,7 @@ if(isset($_POST['envoie'])){
 			'author_id' => $current_user_id,
 			'recipient_id' => $recipient_id,
 			'sent' => 1,
-			'read' => 0,
+			'is_read' => 0,
 			'content' => $content
 			));
 

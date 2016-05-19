@@ -8,7 +8,7 @@ class Message
 	private $_content;
 	private $_datetime;
 	private $_sent; // vaut 0 quand l'email est dans les brouillons, sinon 1
-	private $_read; // vaut 0 si le message n'a pas encore été lu, sinon 1
+	private $_is_read; // vaut 0 si le message n'a pas encore été lu, sinon 1
 
 	/**
 	* Constructeur
@@ -70,9 +70,9 @@ class Message
 		return $this->_sent;
 	}
 
-	public function read()
+	public function is_read()
 	{
-		return $this->_read;
+		return $this->_is_read;
 	}
 
 
@@ -116,10 +116,10 @@ class Message
 		$this->_sent = $sent;
 	}
 
-	public function setRead($read)
+	public function setIs_read($read)
 	{
 		$read = (int) $read;
-		$this->_read = $read;
+		$this->_is_read = $read;
 	}
 
 
