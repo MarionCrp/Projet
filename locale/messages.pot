@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2016-05-16 19:06+0200\n"
+"POT-Creation-Date: 2016-05-19 13:54+0200\n"
 "PO-Revision-Date: 2016-04-02 11:52+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -21,6 +21,35 @@ msgstr ""
 msgid " Passwords are different "
 msgstr ""
 
+#: class/Form.php:67
+msgid "Choose a Language"
+msgstr ""
+
+#: class/Form.php:91 controller/edit_profile_language_controller.php:17
+#: view/edit_profile_language.php:18 view/signup.php:127
+msgid "Beginner"
+msgstr ""
+
+#: class/Form.php:95 controller/edit_profile_language_controller.php:18
+#: view/edit_profile_language.php:19 view/signup.php:128
+msgid "Intermediate"
+msgstr ""
+
+#: class/Form.php:99 controller/edit_profile_language_controller.php:19
+#: view/edit_profile_language.php:20 view/signup.php:129
+msgid "Advanced"
+msgstr ""
+
+#: class/Form.php:103 controller/edit_profile_language_controller.php:20
+#: view/edit_profile_language.php:21 view/signup.php:130
+msgid "Fluent"
+msgstr ""
+
+#: class/Form.php:107 controller/edit_profile_language_controller.php:21
+#: view/edit_profile_language.php:22 view/signup.php:131
+msgid "Mother Tong"
+msgstr ""
+
 #: class/MessageManager.php:34
 msgid "Message Sent"
 msgstr ""
@@ -35,10 +64,6 @@ msgstr ""
 
 #: class/SpokenLanguageManager.php:129
 msgid "A language has been deleted"
-msgstr ""
-
-#: class/User.php:127
-msgid "No description"
 msgstr ""
 
 #: class/UserManager.php:41
@@ -62,36 +87,11 @@ msgid "this field can't be empty"
 msgstr ""
 
 #: controller/edit_profile_general_controller.php:31
-msgid "The "
+msgid "Profile has been modified"
 msgstr ""
 
 #: controller/edit_profile_language_controller.php:6
 msgid "You have not yet added language"
-msgstr ""
-
-#: controller/edit_profile_language_controller.php:17
-#: view/edit_profile_language.php:18 view/signup.php:127
-msgid "Beginner"
-msgstr ""
-
-#: controller/edit_profile_language_controller.php:18
-#: view/edit_profile_language.php:19 view/signup.php:128
-msgid "Intermediate"
-msgstr ""
-
-#: controller/edit_profile_language_controller.php:19
-#: view/edit_profile_language.php:20 view/signup.php:129
-msgid "Advanced"
-msgstr ""
-
-#: controller/edit_profile_language_controller.php:20
-#: view/edit_profile_language.php:21 view/signup.php:130
-msgid "Fluent"
-msgstr ""
-
-#: controller/edit_profile_language_controller.php:21
-#: view/edit_profile_language.php:22 view/signup.php:131
-msgid "Mother Tong"
 msgstr ""
 
 #: controller/edit_profile_language_controller.php:23
@@ -131,56 +131,56 @@ msgstr ""
 msgid "The password has been modified"
 msgstr ""
 
-#: controller/messages_controller.php:27
+#: controller/messages_controller.php:31
 msgid "You"
 msgstr ""
 
-#: controller/messages_controller.php:32
+#: controller/messages_controller.php:42
+msgid "Sent at "
+msgstr ""
+
+#: controller/messages_controller.php:43
 msgid "Read"
 msgstr ""
 
-#: controller/messages_controller.php:33
-msgid "Sent"
-msgstr ""
-
-#: controller/messages_controller.php:63 view/profile.php:34
+#: controller/messages_controller.php:66 view/profile.php:34
 #: view/userslist.php:44
 msgid "Send a message"
 msgstr ""
 
-#: controller/messages_controller.php:69
+#: controller/messages_controller.php:72
 msgid "You have not talk yet to "
 msgstr ""
 
-#: controller/messages_controller.php:71
+#: controller/messages_controller.php:74
 msgid " Make the first step!"
 msgstr ""
 
-#: controller/messages_controller.php:83
+#: controller/messages_controller.php:86
 msgid "Please, write a message"
 msgstr ""
 
-#: controller/messages_controller.php:85
+#: controller/messages_controller.php:88
 msgid "Your Message"
 msgstr ""
 
-#: controller/messages_controller.php:86
+#: controller/messages_controller.php:89
 msgid "Send"
 msgstr ""
 
-#: controller/messages_controller.php:87 view/userslist.php:45
+#: controller/messages_controller.php:90 view/userslist.php:45
 msgid "Profile"
 msgstr ""
 
-#: controller/messages_controller.php:111
+#: controller/messages_controller.php:114
 msgid "No message received yet"
 msgstr ""
 
-#: controller/messages_controller.php:121
+#: controller/messages_controller.php:125
 msgid "New"
 msgstr ""
 
-#: controller/messages_controller.php:155
+#: controller/messages_controller.php:159
 msgid "Read the message"
 msgstr ""
 
@@ -403,11 +403,19 @@ msgid "Meet someone "
 msgstr ""
 
 #: view/home.php:27
+msgid "Living in"
+msgstr ""
+
+#: view/home.php:27
 msgid "Enter your City"
 msgstr ""
 
 #: view/home.php:32
 msgid "I want to meet someone speaking "
+msgstr ""
+
+#: view/home.php:37
+msgid "Speaking"
 msgstr ""
 
 #: view/home.php:43
@@ -498,11 +506,15 @@ msgstr ""
 msgid "Description"
 msgstr ""
 
-#: view/myprofile.php:22
+#: view/myprofile.php:21
+msgid "No Description"
+msgstr ""
+
+#: view/myprofile.php:30
 msgid "My Languages"
 msgstr ""
 
-#: view/myprofile.php:33
+#: view/myprofile.php:41
 msgid "Edit my Profile"
 msgstr ""
 
