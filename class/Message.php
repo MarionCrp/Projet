@@ -108,6 +108,7 @@ class Message
 	public function setDatetime($datetime)
 	{
 		$this->_datetime = $datetime;
+		
 	}
 
 	public function setSent($sent)

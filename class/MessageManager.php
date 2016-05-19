@@ -48,7 +48,7 @@ class MessageManager extends Manager
 		$messages = [];
 
 		$q = $this->_db->prepare(
-			'SELECT id, author_id, recipient_id, DATE_FORMAT(datetime, \'Le %d/%m/%Y à %Hh%i\') as datetime, content 
+			'SELECT id, author_id, recipient_id, datetime, content 
 			FROM message 
 			WHERE recipient_id = :recipient_id
 				GROUP BY (author_id)
@@ -90,7 +90,7 @@ class MessageManager extends Manager
 	{
 		$discussion = [];
 		$q = $this->_db->prepare(
-			'SELECT id, author_id, recipient_id, DATE_FORMAT(datetime, \'Le %d/%m/%Y à %Hh%i\') as datetime, content, is_read FROM Message 
+			'SELECT id, author_id, recipient_id, datetime, content, is_read FROM Message 
 			WHERE (author_id = :author_id OR author_id = :recipient_id)
 			AND (recipient_id = :author_id OR recipient_id = :recipient_id)
 				ORDER BY datetime');
@@ -120,30 +120,6 @@ class MessageManager extends Manager
 			where message.recipient_id = user.id 
 			and recipient_id = '.$current_user_id)->fetchColumn();
 	}
-
-	/**
-	* Retourne les messages non lus. 
-	* @param $current_user Notre utilisateur
-	* @return array les messages non lus par l'utilisateur
-	**/
-	// public function getUnreadMessages($current_user) 
-	// {
-	// 	$unread_messages = [];
-	// 	$current_user_id = $current_user->id();
-	// 	$q = $this->_db->query(
-	// 		'SELECT * 
-	// 		from Message, User
-	// 		where is_read = false
-	// 		and message.recipient_id = user.id
-	// 		and recipient_id ='.$current_user_id);
-
-	// 	while ($datas = $q->fetch(PDO::FETCH_ASSOC))
-	// 	{
-	// 		$unread_messages[] = new Message($datas);
-	// 	}
-
-	// 	return $unread_messages;
-	// }
 
 	/**
 	* Récupère le nom de l'auteur d'un message suivant son id utilisateur
