@@ -15,7 +15,15 @@
       	<legend><?php echo _('Localization'); ?> </legend>
         <b> <?php echo _('Current City'); ?></b> : <?= $city_manager->getCityName($current_user->cityId()); ?> <br/>
       	<b> <?php echo _('Nationality'); ?></b> : <?= $country_manager->getCountryName($current_user->nationalityId()); ?> <br/>
-      	<legend> <?php echo _('Description'); ?> : </legend></b> <p><?= $current_user-> description() ?>
+      	<legend> <?php echo _('Description'); ?> : </legend></b> <p>
+        <?php
+        if(ctype_space($current_user->description()) OR empty($current_user->description())){
+          echo _('No Description');
+        } else {
+          echo $current_user->description();
+        }
+
+          ?>
       </div>
 
         <div class="col-md-5">

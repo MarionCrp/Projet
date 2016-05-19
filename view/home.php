@@ -24,7 +24,7 @@
 				<form class="form-inline text-center" method="POST" action="index.php?page=home&section=userslist">
 				  <div class="form-group">
 				    <label class="sr-only" for="cityName"></label>
-				   Living in <input type="text" class="form-control" name="cityName" id="cityName" placeholder="<?php echo _("Enter your City") ;?> ">
+				   <?php echo _('Living in'); ?> <input type="text" class="form-control" name="cityName" id="cityName" placeholder="<?php echo _("Enter your City") ;?> ">
 				  </div>
 
 				  <!-- <div class="form-group">
@@ -34,7 +34,7 @@
 				  </div> -->
 
 				  <div class="form-group"> 
-				  Speaking
+				  <?php echo _('Speaking'); ?>
 						<select class="form-control" name="languageId">
 						  <?php Form::languages($language_manager); ?>
 						</select>

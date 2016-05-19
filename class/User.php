@@ -123,11 +123,7 @@ class User
 
 	public function setDescription($description)
 	{	
-		if ($description == ""){
-			$this->_description = _('No description');
-		} else {
-		$this->_description = $description;		
-		}
+			$this->_description = $description;
 	}
 
 	public function setNationalityId($nationalityId)

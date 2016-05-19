@@ -24,7 +24,7 @@ class MessageManager extends Manager
 			'recipient' => $message->recipient_id(),
 			'content' => $message->content(),
 			'sent' => $message->sent(),
-			'read' => $message->read()
+			'read' => $message->is_read()
 			));
 
 		if(!$q) {
@@ -90,7 +90,7 @@ class MessageManager extends Manager
 	{
 		$discussion = [];
 		$q = $this->_db->prepare(
-			'SELECT id, author_id, recipient_id, DATE_FORMAT(datetime, \'Le %d/%m/%Y à %Hh%i\') as datetime, content FROM Message 
+			'SELECT id, author_id, recipient_id, DATE_FORMAT(datetime, \'Le %d/%m/%Y à %Hh%i\') as datetime, content, is_read FROM Message 
 			WHERE (author_id = :author_id OR author_id = :recipient_id)
 			AND (recipient_id = :author_id OR recipient_id = :recipient_id)
 				ORDER BY datetime');
