@@ -17,7 +17,7 @@
 				<h1>Chat en ligne !</h1>
 				
 
-
+<a href="../index.php"><BUTTON id="retourMenu">Revenir au site principal</BUTTON></a>
 				
 				<table class="status"><tr>
 					<td>
@@ -71,6 +71,17 @@
 
 
    
+window.addEventListener("load",	function() {
+	
+	document.getElementById('retourMenu')
+		.addEventListener("click", function(){
+			deleteOnline();
+		});
+	
+	var statutEnLigne = HTMLSelectElement;
+	statutEnLigne.value = 2;
+	setStatus(statutEnLigne);
+});	
 /**function insertLogin(login)**/
 
 function insertLogin(login) {
@@ -82,9 +93,26 @@ function insertLogin(login) {
 var reloadTime = 1000;
 var scrollBar = false;
 
+function deleteOnline()
+{
+		
+	$.ajax({
+		type: "GET",
+		url: "chatScripts/delete-online.php",
+		success: function(msg){
+			
+			//$("#users").html(msg);
+				
+		},
+		error: function(msg){
+			// On alerte d'une erreur
+			alert('Erreur');
+		}
+	});
+}
+
+
 /**function getMessages()**/
-
-
 function getMessages() {	
 	// On lance la requête ajax
 	
