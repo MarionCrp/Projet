@@ -77,11 +77,13 @@ window.addEventListener("load",	function() {
 		.addEventListener("click", function(){
 			deleteOnline();
 		});
+		
 	
 	var statutEnLigne = HTMLSelectElement;
 	statutEnLigne.value = 2;
 	setStatus(statutEnLigne);
 });	
+
 /**function insertLogin(login)**/
 
 function insertLogin(login) {

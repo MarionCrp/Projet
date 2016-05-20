@@ -8,6 +8,7 @@ session_start();
 include('functions.php');
 
 
+
 // On vérifie que l'utilisateur est inscrit dans la base de données
 $query = $db->prepare("
 	SELECT *
