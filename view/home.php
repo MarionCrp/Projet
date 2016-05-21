@@ -67,7 +67,7 @@
 					   if ($new_messages_nb > 0) {
 					    echo '<li role="presentation" class="active success clic-messages"><a role="menuitem" tabindex="-1" href="index.php?page=home&section=mymessages" ><span class="badge">'.$new_messages_nb.'</span><span class="glyphicon glyphicon-envelope" ></span>'._(' My Messages ').'</a></li>';
 					   } else {
-					    echo '<li role="presentation" class="clic-messages"><a "role="menuitem" tabindex="-1" href="index.php?page=home&section=mymessages"><span class="glyphicon glyphicon-envelope"></span>'._(' My Messages ').'</a></li>';
+					    echo '<li role="presentation" class="clic-messages"><a role="menuitem" tabindex="-1" href="index.php?page=home&section=mymessages"><span class="glyphicon glyphicon-envelope"></span>'._(' My Messages ').'</a></li>';
 					   }
 
 					   ?>
@@ -89,7 +89,8 @@
 				  <?php if(isset($_GET['section'])) 
 						{
 							$section = htmlspecialchars($_GET['section']);
-							if(!file_exists($section)){
+							
+							if(!file_exists('view/'.$section.'.php')){
 								$section = '404';
 							}
 						}
