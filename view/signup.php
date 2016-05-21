@@ -2,15 +2,6 @@
 <!-- Inclusion du controleur relatif à l'inscription' -->
 <?php include('controller/signup_controller.php') ?>
 
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8"/>
-	<title>Meet an Alien - <?php echo _('Sign Up'); ?> </title>
-</head>
-
-<body>	
-
 	<!-- FORMULAIRE D'INSCRIPTION -->
 
 	<div class="row">
@@ -164,34 +155,3 @@
 	  </div> <!-- col-md-8 -->
 	  <div class="col-md-2"></div>
 	</div> <!-- row -->
-
-
-
-
-			<!-- Date de Naissance :   A FAIRE !
-				<select name="day" id="day">
-				<?php $form->day() ?>
-				</select>
-
-				<select name="month" id="month">
-					<option value="january"> Janvier </option>
-					<option value="february"> Février </option>
-					<option value="march"> Mars </option>
-					<option value="april"> Avril </option>
-					<option value="may"> Mai </option>
-					<option value="june"> Juin </option>
-					<option value="july"> Juillet </option>
-					<option value="august"> Août </option>
-					<option value="september"> Septembre </option>
-					<option value="october"> Octobre </option>
-					<option value="november"> Novembre </option>
-					<option value="december"> Décembre </option>
-				</select>
-
-				<select name="year" id="year">
-				<?php $form->year() ?>
-				</select><br/> -->
-
-
-
-<!-- FIN formulaire d'inscription -->

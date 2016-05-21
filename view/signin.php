@@ -3,15 +3,6 @@
 
 <!-- PAGE DE CONNEXION -->
 
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8"/>
-	<title> Meet an Alien - <?php echo _('Sign In'); ?> </title>
-</head>
-
-<body>	
-
 	<!-- FORMULAIRE DE CONNEXION -->
 
 	<div class="row">

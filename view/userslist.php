@@ -1,7 +1,8 @@
 <!-- AFFICHE DE LA LISTE D'UTILISATEURS INCRITS SUR LE SITE -->
 <?php
 	//include ('/controller/post_to_get.php');
-	include('/controller/userlist_controller.php') ;
+	try {
+		include('/controller/userlist_controller.php') ;
 
 ?>
 <div id="userslist">
@@ -70,3 +71,7 @@
 
 
  <!-- FIN affichage de la liste des utilisateurs -->
+
+<?php } catch (Exception $e) {
+		echo '<div class="alert alert-danger" role="alert"> <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> '.$e->getMessage().'</div>';
+	}
