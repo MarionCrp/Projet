@@ -2,9 +2,10 @@
 
 $user_id = (int)htmlspecialchars($_GET['id']);
 
-$user_manager->exists($user_id, 'id');
-
-if($user_manager->exists($user_id, 'id')){
+if(!$user_manager->exists($user_id, 'id')){
+	$user_found = false;
+	echo "<script type='text/javascript'> document.location.replace('index.php?page=home&section=user_not_found'); </script>";
+} else {
 	$user_found = true;
 	$user = $user_manager->getDatas($user_id);
 	$title = _($user->name().'\'s Profile');
@@ -18,7 +19,4 @@ if($user_manager->exists($user_id, 'id')){
 				'level' => $level
 				);
 		}
-} else {
-	$user_found = false;
-	$title = 'No profil found';
 }

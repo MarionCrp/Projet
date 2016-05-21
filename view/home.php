@@ -27,12 +27,6 @@
 				   <?php echo _('Living in'); ?> <input type="text" class="form-control" name="cityName" id="cityName" placeholder="<?php echo _("Enter your City") ;?> ">
 				  </div>
 
-				  <!-- <div class="form-group">
-				    <div class="input-group">
-				      <div class="input-group-addon"><?php echo _("I want to meet someone speaking "); ?></div>
-				    </div>
-				  </div> -->
-
 				  <div class="form-group"> 
 				  <?php echo _('Speaking'); ?>
 						<select class="form-control" name="languageId">

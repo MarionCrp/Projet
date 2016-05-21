@@ -179,3 +179,13 @@ legend {
 .new {
   font-weight: bold;
 }
+
+/* Pages d'erreur */
+
+.error {
+  text-align: center;
+}
+
+.error p {
+  color:red;
+}

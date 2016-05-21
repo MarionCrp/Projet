@@ -10,8 +10,13 @@ if(isset($_SESSION['user'])) {
 	} else {
 		$user_id = (int) htmlspecialchars($_GET['user_id']); /* si le paramètre GET n'est pas un int, $user_id sera de 0 */
 		$user_exists = $user_manager->exists($user_id, 'id');
-		$posts = $message_manager->getDiscussion($user_id, $current_user_id);
-		$alien = $user_manager->getDatas($user_id);
+		if($user_exists){
+			$posts = $message_manager->getDiscussion($user_id, $current_user_id);
+			$alien = $user_manager->getDatas($user_id);
+		} else {
+			echo "<script type='text/javascript'> document.location.replace('index.php?page=home&section=user_not_found'); </script>";
+		}
+		
 	}
 
 
