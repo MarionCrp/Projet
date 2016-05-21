@@ -105,7 +105,24 @@ class UserManager extends Manager
 		return new User($donnees);
 	}
 
-	
+
+
+	public function getPassword($email){
+			$q = $this->_db->prepare('SELECT password FROM user WHERE email=?');
+			$password=$q->execute(array($email));
+			//var_dump($password=$q->execute(array($email)));
+			return $password;
+	}	
+
+//$query = $db->prepare('SELECT password FROM `user` WHERE email=?'); // requête SQL
+			//$query->execute(array($_POST['email'])); // paramètres et exécution
+
+
+
+
+
+
+
 	/**
 	* Retourne tous les utilisateur de la table User si pas de paramètre envoyé à la fonction
 	* Sinon la fonction recherche les utilisateurs parlant une langue donnée vivant dans une ville donnée
@@ -200,7 +217,4 @@ class UserManager extends Manager
 			SET '.$field.' = "'. $value .'" where id = '.$id);
 		$q->execute();
 	}
-
-	
-
 }

@@ -123,7 +123,7 @@
 							<br/>
 							<?php echo _('We are three students in informatics (Bachelor), and we are beginners in Web programming.'); ?>
 							<br/>
-							<?php echo _('This project is an opportunity for us to **learn**  and  **apply** directly languages we are working on during courses. '); ?>
+							<?php echo _('This project is an opportunity for us to learn  and  apply directly languages we are working on during courses. '); ?>
 							<br/>
 							<H2><?php echo _('Technologies used previously :'); ?></H2>
 							<br/>

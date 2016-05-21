@@ -1,5 +1,7 @@
 <?php
 
+require('PasswordHash.php'); //  cadre de hachage de mdp portable
+
 /*******************************************
 * Controleur relatif à la page de connexion
 ********************************************/
@@ -38,13 +40,10 @@ if (isset($_POST['connexion']))
 		{
 			$data = htmlspecialchars($data);
 		}
-		
-		$connexion_email = $_POST['email'];
 
-		/**
-		* Hachage du mot de passe
-		**/
-		$connexion_password = sha1($_POST['password']);	
+
+		$password = htmlspecialchars($_POST['password']);
+		$connexion_email = htmlspecialchars($_POST['email']);
 
 		/**
 		* Si l'email appartient à un utilisateur enregistré
@@ -56,10 +55,28 @@ if (isset($_POST['connexion']))
 			**/
 			$current_user = $user_manager->getDatas($connexion_email);
 
+
+
+			$hasher = new PasswordHash(8, true); //1er argument : base-2 logarithm of the iteration count used for password stretching
+			// 2eme argument : specifies the use of portable hashes // mieux vaut TRUE pour les password
+
+
+			// Just in case the hash isn't found
+			$stored_hash = "*";
+
+			// Retrieve the hash that you stored earlier
+			$stored_hash = $user_manager->getPassword($connexion_email);
+
+
+
+			// Check that the password is correct, returns a boolean
+			$check = $hasher->CheckPassword($password, $stored_hash);
+
+
 			/**
 			* Si le mot de passe entré par l'utilisateur et le mot de passe de $user sont identiques
 			**/
-			if ($current_user->password() == $connexion_password)
+			if ($check)
 			{
 
 				/**
