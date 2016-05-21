@@ -81,9 +81,9 @@ include_once('autoload.php');
 
 				
 			?>
-				<li <?php if (isset($_GET['lang']) AND $_GET['lang'] == "fr_FR") echo 'class="active"'; ?> 
+				<li <?php if (isset($_COOKIE['lang']) AND $_COOKIE['lang'] == "fr_FR") echo 'class="active"'; ?> 
 				><a href="index.php?page=change_locale&lang=fr_FR"><img src="assets/images/flags/french.png" alt="French" class="flags"  ></a></li>
-				<li <?php if (isset($_GET['lang']) AND $_GET['lang'] == "en_US") echo 'class="active"'; ?> 
+				<li <?php if (isset($_COOKIE['lang']) AND $_COOKIE['lang'] == "en_US") echo 'class="active"'; ?> 
 				><a href="index.php?page=change_locale&lang=en_US"><img src="assets/images/flags/english.png" alt="English" class="flags"></a></li>  
 		   </ul>
 
@@ -96,6 +96,7 @@ include_once('autoload.php');
 
     <div class ="center">
 	    <div class="container">
+	    <?php var_dump($_COOKIE['lang']); ?>
 
 			<!-- ***** INCLUSION DE PAGE ***** -->
 			<!-- les différentes pages appelées par l'utilisateur sont intégrée ici -->

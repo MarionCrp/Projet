@@ -82,7 +82,7 @@
 							</div>
 
 							<div class="form-group">
-								<label for="city" class="col-sm-2 control-label"> <?php echo _('City'); ?> </label>
+								<label for="city" class="col-sm-2 control-label"> <?php echo _('City'); ?>* </label>
 									<div class="col-sm-10">
 										<select name="city" class="cities form-control" id="cityId">
 											<option value="">Select City</option>
