@@ -33,9 +33,17 @@ function locationInfo() {
         var url = rootUrl+'?type=getCities&stateId=' + id;
         var method = "post";
         var data = {};
-        $('.cities').find("option:eq(0)").html("Please wait..");
+        if(document.getElementById('fr').className == "langue active"){
+            $('.cities').find("option:eq(0)").html("Veuillez patienter..");
+        } else {
+            $('.cities').find("option:eq(0)").html("Please wait..");
+        }
         call.send(data, url, method, function(data) {
-            $('.cities').find("option:eq(0)").html("Select City");
+            if(document.getElementById('fr').className == "langue active"){
+                $('.cities').find("option:eq(0)").html("Selectionner une ville");
+             } else {
+                $('.cities').find("option:eq(0)").html("Select City");
+             }
             if(data.tp == 1){
                 $.each(data['result'], function(key, val) {
                     var option = $('<option />');
@@ -57,9 +65,17 @@ function locationInfo() {
         var url = rootUrl+'?type=getStates&countryId=' + id;
         var method = "post";
         var data = {};
-        $('.states').find("option:eq(0)").html("Please wait..");
+        if(document.getElementById('fr').className == "langue active"){
+            $('.states').find("option:eq(0)").html("Veuillez patienter..");
+        } else {
+            $('.states').find("option:eq(0)").html("Please wait..");
+        }
         call.send(data, url, method, function(data) {
-            $('.states').find("option:eq(0)").html("Select State");
+            if(document.getElementById('fr').className == "langue active"){
+                $('.states').find("option:eq(0)").html("Selectionner une région");
+           } else {
+                $('.states').find("option:eq(0)").html("Select State");
+           }
             if(data.tp == 1){
                 $.each(data['result'], function(key, val) {
                     var option = $('<option />');
@@ -79,9 +95,19 @@ function locationInfo() {
         var url = rootUrl+'?type=getCountries';
         var method = "post";
         var data = {};
-        $('.countries').find("option:eq(0)").html("Please wait..");
+        
+        if(document.getElementById('fr').className == "langue active"){
+            $('.countries').find("option:eq(0)").html("Veuillez patienter..");
+        } else {
+            $('.countries').find("option:eq(0)").html("Please wait..");
+        }
         call.send(data, url, method, function(data) {
-            $('.countries').find("option:eq(0)").html("Select Country");
+            if(document.getElementById('fr').className == "langue active"){
+                $('.countries').find("option:eq(0)").html("Choisissez un pays");
+            }  
+            else {
+                 $('.countries').find("option:eq(0)").html("Select Country");
+            }
             console.log(data);
             if(data.tp == 1){
                 $.each(data['result'], function(key, val) {

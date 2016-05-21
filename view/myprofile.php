@@ -28,9 +28,15 @@
 
         <div class="col-md-5">
         <legend><?php echo _('My Languages'); ?> </legend>
-          <?php foreach($spokenLanguages as $spokenLanguage){
-            echo '<p>'.$spokenLanguage['language'].'</p>';
-            Form::level_form($spokenLanguage['level']);
+
+          <?php 
+          if($spoken_languages){
+            foreach($spokenLanguages as $spokenLanguage){
+              echo '<p>'.$spokenLanguage['language'].'</p>';
+              Form::level_form($spokenLanguage['level']);
+            }
+          } else {
+            echo '<p>'._('No language has been added').'</p>';
           }
           ?>
         </div>

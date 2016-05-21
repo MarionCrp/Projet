@@ -1,7 +1,7 @@
 ﻿
 
 body{
-	background: url("../../images/salon.jpg") no-repeat center;  /* Source: Pixabay */
+ background: url("../../images/salon.jpg") no-repeat center;  /* Source: Pixabay */
   background-attachment: fixed;
   -webkit-background-size: cover; 
   background-size: 100% 100%; 

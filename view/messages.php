@@ -49,7 +49,7 @@ include('controller/send_message_controller.php');
 	<div class="panel panel-default">
 	 	<div class="panel-heading">
 	  			<h3 class="panel-title">
-					 <p> <?= _('Send a Message'); ?> </p>
+					 <p> <?php echo _('Send a Message'); ?> </p>
 				</h3>
 		</div>
 	  	<div class="panel-body">

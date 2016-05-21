@@ -28,7 +28,7 @@ class MessageManager extends Manager
 			));
 
 		if(!$q) {
-			throw new Exception('Cannot send the message');
+			throw new Exception(_('Cannot send the message'));
 			
 		} else {
 			echo ('<p style="color:green;">' ._('Message Sent').  '</p>');

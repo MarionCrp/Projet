@@ -23,14 +23,14 @@ class CityManager extends Manager {
 			$req->execute(array(
 				'id' => $data));
 			$donnees = $req->fetch(PDO::FETCH_ASSOC);
-			if ($donnees == false) throw new Exception('No country with the id ' .$city_id);
+			if ($donnees == false) throw new Exception(_('No country with the id ') .$city_id);
 		} else {
 			$req = $this->_db->prepare('SELECT * FROM cities WHERE lower(name) = :city_name');
 			$req->execute(array(
 				'city_name' => strtolower($data)
 				));
 			$donnees = $req->fetch(PDO::FETCH_ASSOC);
-			if ($donnees == false) throw new Exception('No City found with this name');
+			if ($donnees == false) throw new Exception(_('No City found with this name'));
 		}
 		return new City($donnees);
 		
@@ -48,7 +48,7 @@ class CityManager extends Manager {
 		$req->execute(array(
 			'id' => $city_id));
 		$donnees = $req->fetch(PDO::FETCH_ASSOC);
-		if ($donnees == false) throw new Exception('No city with the id ' .$city_id);
+		if ($donnees == false) throw new Exception(_('No city with the id ') .$city_id);
 		else return new State($donnees);
 	}
 
@@ -65,7 +65,7 @@ class CityManager extends Manager {
 		$req->execute(array(
 			'id' => $state->id()));
 		$donnees = $req->fetch(PDO::FETCH_ASSOC);
-		if ($donnees == false) throw new Exception('No Country Found');
+		if ($donnees == false) throw new Exception(_('No Country Found'));
 		else return new Country($donnees);
 	}
 	

@@ -20,14 +20,15 @@ include_once('autoload.php');
 
 		<meta charset="utf-8"/>
 		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
-		<link rel="stylesheet" href="assets/css/css/bootstrap.css"/>
-		<link rel="stylesheet" href="assets/css/css/bootstrap.js"/>
+		<link rel="stylesheet" href="./assets/css/css/bootstrap.css"/>
+		<link rel="stylesheet" href="./assets/css/js/bootstrap.js"/>
 		<script src="//code.jquery.com/jquery-1.12.0.min.js"></script> <!-- Pour le menu déroulant notamment -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 		<script src="./assets/js/location.js"></script>
 		<script src="./assets/js/form.js"></script>
-		<script src="./assets/js/message.js"></script>
+		<!--<script src="./assets/js/message.js"></script>-->
 		<link rel="stylesheet" href="assets/css/css/style_2.css"/>
+	<!-- <link rel="stylesheet" href="assets/css/css/style_2.css"/> -->
 		<Title><?php echo _("  Meet An Alien - Index "); ?> </title>
 
 		<!-- Latest compiled and minified CSS -->
@@ -81,9 +82,9 @@ include_once('autoload.php');
 
 				
 			?>
-				<li <?php if (isset($_GET['lang']) AND $_GET['lang'] == "fr_FR") echo 'class="active"'; ?> 
+				<li id="fr" <?php if (isset($_COOKIE['lang']) AND $_COOKIE['lang'] == "fr_FR") echo 'class="langue active"'; ?> 
 				><a href="index.php?page=change_locale&lang=fr_FR"><img src="assets/images/flags/french.png" alt="French" class="flags"  ></a></li>
-				<li <?php if (isset($_GET['lang']) AND $_GET['lang'] == "en_US") echo 'class="active"'; ?> 
+				<li id="en" <?php if (isset($_COOKIE['lang']) AND $_COOKIE['lang'] == "en_US") echo 'class="langue active"'; ?>  
 				><a href="index.php?page=change_locale&lang=en_US"><img src="assets/images/flags/english.png" alt="English" class="flags"></a></li>  
 		   </ul>
 
