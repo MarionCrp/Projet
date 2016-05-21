@@ -2,69 +2,73 @@
 <html>
 <?php session_start(); ?> 
 
-		<head>
+	<head>
+	
+	    <meta charset="utf-8" />		
+		<link rel="stylesheet" type="text/css" href="../assets/css/css/stylechat.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 		
-		    <meta charset="utf-8" />		
-			<link rel="stylesheet" type="text/css" href="../assets/css/css/stylechat.css">
+
+		<title>Chat en ligne !</title>
+	</head>
+
+	<body>
+	<div class="bloc_chat">
+		<div class="thumbnail"> 
+            <div class="panel-default">
+                <div class="panel-heading"> Chat en ligne </div>
+                    <div class="panel-body">
+                        
+						<table class="status"><tr>
+							<td>
+								<span id="statusResponse"></span>
+								<select name="status" id="status" style="width:200px;" onchange="setStatus(this)">
+									<option value="0">Absent</option>
+									<option value="1">Occup&eacute;</option>
+									<option value="2" selected>En ligne</option>
+								</select>
+							</td>
+						</tr></table>
+						
 			
+						<table class="chat"><tr>		
+							<!-- zone des messages -->
+												
+							<td valign="top" id="text-td">
+								<div id="text">
+									<div id="loading">
+										<center>
+										<span class="info" id="info">Chargement du chat en cours...</span><br />
+										<img src="ajax-loader.gif" alt="patientez...">
+										</center>
+									</div>
+								</div>
+							</td>
+									
+							<!-- colonne avec les membres connectés au chat -->
+							<td valign="top" id="users-td"><div id="users">Chargement</div></td> 					
+						</tr></table>
 
-			<title>Chat en ligne !</title>
-		</head>
-
-		<body>
-		
-<div id="container">  
-				<h1>Chat en ligne !</h1>
-				
-
-
-				
-				<table class="status"><tr>
-					<td>
-						<span id="statusResponse"></span>
-						<select name="status" id="status" style="width:200px;" onchange="setStatus(this)">
-							<option value="0">Absent</option>
-							<option value="1">Occup&eacute;</option>
-							<option value="2" selected>En ligne</option>
-						</select>
-					</td>
-				</tr></table>
-				
-	
-				<table class="chat"><tr>		
-					<!-- zone des messages -->
-										
-					<td valign="top" id="text-td">
-						<div id="text">
-							<div id="loading">
-								<center>
-								<span class="info" id="info">Chargement du chat en cours...</span><br />
-								<img src="ajax-loader.gif" alt="patientez...">
-								</center>
-							</div>
-						</div>
-					</td>
+						<!-- Zone de texte //////////////////////////////////////////////////////// -->
+								<a name="post"></a>
+							<table class="post_message"><tr>
 							
-					<!-- colonne avec les membres connectés au chat -->
-					<td valign="top" id="users-td"><div id="users">Chargement</div></td> 					
-				</tr></table>
+								<td>
+								<form action="" method="" onsubmit="postMessage(); return false;">
+									<input type="text" id="message" maxlength="255" />
+									<input type="button" onclick="postMessage()" value="Envoyer" id="post" />
+								</form>
+										<div id="responsePost" style="display:none"></div>
+								</td>
+							</tr></table>
 
-				<!-- Zone de texte //////////////////////////////////////////////////////// -->
-						<a name="post"></a>
-					<table class="post_message"><tr>
-					
-						<td>
-						<form action="" method="" onsubmit="postMessage(); return false;">
-							<input type="text" id="message" maxlength="255" />
-							<input type="button" onclick="postMessage()" value="Envoyer" id="post" />
-						</form>
-								<div id="responsePost" style="display:none"></div>
-						</td>
-					</tr></table>
-					
-	</div>
-	
-		
+					</div>
+                    <!-- fin panel-body -->
+                </div>
+                <!-- fin panel-default -->
+            </div>
+            <!-- fin thumbnail -->
+		</div>
 		
 			<script src="jquery-2.2.3.min.js"></script>
 			<script type="text/javascript">

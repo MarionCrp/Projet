@@ -1,5 +1,37 @@
-﻿body {
-	background: #d2d2d2;
+﻿
+
+body{
+	background: url("../../images/salon.jpg") no-repeat center;  /* Source: Pixabay */
+  background-attachment: fixed;
+  -webkit-background-size: cover; 
+  background-size: 100% 100%; 
+  min-height: calc(100vh - 40px);
+}
+
+.bloc_chat .panel-default > .panel-heading{
+	background-color: rgba(0, 0, 0, 0.5);
+	color:white;
+}
+
+
+
+.bloc_chat .thumbnail {
+	background-color: rgba(0, 0, 0, 0.5);
+	width: 80%;
+	margin: 50px auto;
+	padding: 2px 20px 20px 20px;
+
+}
+
+.bloc_chat .panel-heading{
+	font-size: large;
+	font-weight: bold;
+	text-align: center;
+}
+
+.chat #text{
+	background-color: rgba(0, 0, 0, 0.1);
+	color:white;
 }
 /* Pour que les liens ne soient pas soulignés */
 a {
@@ -8,29 +40,25 @@ a {
 img {
 	vertical-align: middle;
 }
-/* Conteneur principal des blocs de la page */
-#container {
-	width: 80%;
-	margin: 50px auto;
-	padding: 2px 20px 20px 20px;
-	background: #fff;
-}
+
 
 /* Bloc contenant la zone de texte et bouton */
 .post_message  {
+	background-color: rgba(0, 0, 0, 0.1);
 	width: 95%;
 	margin: auto;
 	border: 1px solid #d2d2d2;
-	background: #f8fafd;
 	padding: 3px;
 }
 /* Zone de texte */
 .post_message #message {
+	background-color: rgba(0, 0, 0, 0.1);
+	color:white;
 	width: 80%;
 }
 /* Bouton d'envoi */
 .post_message #post {
-	width: 18%;
+	width: 19%;
 }
 
 /* La zone où sont affichés les messages
@@ -60,13 +88,17 @@ et utilisateurs connectés */
 	padding: 5px; 
 	width: 80%; 
 	background: #fff; 
+	background-color: rgba(0, 0, 0, 0.1);
 }
 /* Zone des utilisateurs connectés */
 .chat #users-td, .chat #users-chat-td {
+	text-align: center;
 	margin: 0px; 
 	padding: 5px; 
 	width: 20%; 
 	background: #ddd;
+	background-color: rgba(0, 0, 0, 0.4);
+	color:wheat;
 }
 .chat #text, .chat #users, .chat #users-chat {
 	height:400px; 
@@ -80,6 +112,7 @@ et utilisateurs connectés */
 	background: #fff;
 	margin: auto;
 	text-align: right;
+	background-color: rgba(0, 0, 0, 0.1);
 }
 
 .info {
