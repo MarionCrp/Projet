@@ -86,22 +86,19 @@
 				  <!-- INCLUSION DES SECTIONS (SOUS-PAGES) -->
 
 				  <div class="col-md-9">
-
-
-
 				  <?php if(isset($_GET['section'])) 
 						{
-							$section = $_GET['section'];
+							$section = htmlspecialchars($_GET['section']);
+							if(!file_exists($section)){
+								$section = '404';
+							}
 						}
-
 						else 
 						{
 							$section = 'userslist';
 						}
-
 						include ($section.'.php');
-
-			       ?>
+					     ?>
 				  </div>
 			</div>
 			<!-- FIN inclusion de section en mode CONNECTE -->
