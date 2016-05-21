@@ -1,7 +1,13 @@
 <?php 
+try {
+
 include_once('autoload.php');
 
-try {
+} catch (Exception $e) {
+
+	echo '<div class="alert alert-danger" role="alert"> <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> '.$e->getMessage().'</div>';
+}
+
 
 ?>
 
@@ -97,18 +103,34 @@ try {
 										   sinon, la présentation du site) -->
 
 	   		<?php
-
-				if(isset($_GET['page'])) 
-				{
-					$page = $_GET['page'];
-				}
-
-				else 
-				{
+	   		// Les différentes Routes.
+				if(isset($_GET['page'])) {
+					$page = htmlspecialchars($_GET['page']);
+					switch ($page) {
+						case 'home': 
+							$page = 'home';
+							break;
+						case 'signup': 
+							$page = 'signup';
+							break;
+						case 'signin' : 
+							$page = 'signin';
+							break;
+						case 'deconnexion':
+							$page = 'deconnexion';
+							break;
+						case 'change_locale';
+							$page = 'change_locale';
+							break;
+						default :
+							$page = '404';
+							break;
+					}
+				} else {
 					$page = 'home';
 				}
-
 				include ('view/'.$page.'.php');
+				
 			?>
 
 			<!-- FIN inclusion de page  -->
@@ -124,28 +146,28 @@ try {
 			<div class="col-md-4">
 			<div class="footer-part text-center">
 				<h1><?php echo _(" Need some help ? "); ?></h1>
-				<div class ="element_footer"><a href =Moovincity-accueil.html><?php echo _(" Contact us "); ?></a> </div>
-				<div class ="element_footer"><a href =Moovincity-accueil.html><?php echo _(" FAQ "); ?>  </a> </div>
-				<div class ="element_footer"><a href =Moovincity-accueil.html><?php echo _(" Terms and Conditions "); ?>  </a> </div>
-				<div class ="element_footer"><a href =Moovincity-accueil.html><?php echo _("  Legal informations "); ?> </a> </div>
-				<div class ="element_footer"><a href =Moovincity-accueil.html><?php echo _(" Site map "); ?>  </a> </div>
+				<div class ="element_footer"><a href =#><?php echo _(" Contact us "); ?></a> </div>
+				<div class ="element_footer"><a href =#><?php echo _(" FAQ "); ?>  </a> </div>
+				<div class ="element_footer"><a href =#><?php echo _(" Terms and Conditions "); ?>  </a> </div>
+				<div class ="element_footer"><a href =#><?php echo _("  Legal informations "); ?> </a> </div>
+				<div class ="element_footer"><a href =#><?php echo _(" Site map "); ?>  </a> </div>
 				</div>
 			</div>
 				
 			<div class="col-md-4">
 				<div class="footer-part text-center">
 					<h1><?php echo _(" Mobile Version "); ?></h1>
-					<div class ="element_footer"><a href =Moovincity-accueil.html><?php echo _(" App for Iphone "); ?>   </a> </div>
-					<div class ="element_footer"><a href =Moovincity-accueil.html><?php echo _(" App for Android "); ?>   </a> </div>
+					<div class ="element_footer"><a href =#><?php echo _(" App for Iphone "); ?>   </a> </div>
+					<div class ="element_footer"><a href =#><?php echo _(" App for Android "); ?>   </a> </div>
 				</div>
 			</div>
 				
 			<div class="col-md-4">
 			<div class="footer-part text-center">
 				<h1> <?php echo _(" Working with us "); ?></h1>
-				<div class ="element_footer"><a href =Moovincity-accueil.html><?php echo _(" Business propositions "); ?>  </a> </div>
-				<div class ="element_footer"><a href =Moovincity-accueil.html><?php echo _(" Partnerships "); ?>  </a> </div>
-				<div class ="element_footer"><a href =Moovincity-accueil.html><?php echo _(" Employment opportunities "); ?> </a> </div>
+				<div class ="element_footer"><a href =#><?php echo _(" Business propositions "); ?>  </a> </div>
+				<div class ="element_footer"><a href =#><?php echo _(" Partnerships "); ?>  </a> </div>
+				<div class ="element_footer"><a href =#><?php echo _(" Employment opportunities "); ?> </a> </div>
 				</div>
 			</div>
 		</div>
@@ -165,7 +187,4 @@ try {
 
 <?php 
 
-} catch (Exception $e){
-	echo '<div class="alert alert-danger" role="alert"> <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> '.$e->getMessage().'</div>';
-}
 

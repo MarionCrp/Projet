@@ -14,7 +14,8 @@ if (isset($_SESSION['user']))
 
 			/* On récupère les messages échangés entre l'utilisateur connecté et l'utilisateur dont il visite le profil*/
 			$current_user_id = $current_user->id();
-
+			
+			
 			if($posts = $message_manager->getDiscussion($user_id, $current_user_id)) {
 				/* AFFICHAGE DES MESSAGES */
 				foreach ($posts as $post)
