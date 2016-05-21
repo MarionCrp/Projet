@@ -11,7 +11,6 @@ function add_language(){
 			var clone = document.getElementById("to_clone").cloneNode(true);
 		 	document.getElementById("tab").appendChild(clone);
 		 	delete_button = clone.querySelector('span');
-		 	//delete_button.className = 'delete_button_' + language_nb;
 			delete_button.addEventListener("click",function(){	
 				delete_language(this);
 			});

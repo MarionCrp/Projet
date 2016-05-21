@@ -3,6 +3,7 @@ include ('send_message_controller.php');
 
 if (isset($_SESSION['user']))
 	{
+
 		// Sur la page d'une discussion en particulier
 		if(isset($_GET['user_id'])){ 
 
@@ -18,8 +19,11 @@ if (isset($_SESSION['user']))
 				/* AFFICHAGE DES MESSAGES */
 				foreach ($posts as $post)
 				{
-					var_dump($is_read = $post->is_read());
-					?>
+					$date = $form->format_date($post->datetime(), $_COOKIE['lang']);
+					$is_read = $post->is_read();
+
+				?>
+					
 					<div class="panel panel-default">
 						<div class="panel-heading">
 							<h3 class="panel-title">
@@ -28,17 +32,14 @@ if (isset($_SESSION['user']))
 										else {
 											echo $message_manager->getAuthor($post);
 											$message_manager->setRead($post);
-										}
-										
-																	
+										}				
 									?>
 								</h3> 
 							</h3>
 						</div>
 					  	<div class="panel-body">
 					  	<div class="message-title">
-
-					  		<p> <?php echo _('Sent on ').$post->datetime(); 
+					  		<p> <?php echo _('Sent at ').$date; 
 					  		  if ($post->is_read()) echo '<p>'._('Read').'</p>'; ?>
 					  	</div>
 					  		<p> <?= $post->content(); ?> </p>	
@@ -118,18 +119,19 @@ if (isset($_SESSION['user']))
 			}
 			foreach ($messages as $message) 
 			{	
-						if ($message_manager->stillMessagesToRead($current_user, $message->author_id())){
-							$new = array(
-								'title' => _('New'),
-								'class' => 'panel panel-success'
-								);
+				$date = $form->format_date($message->datetime(), $_COOKIE['lang']);
+				if ($message_manager->stillMessagesToRead($current_user, $message->author_id())){
+					$new = array(
+						'title' => _('New'),
+						'class' => 'panel panel-success'
+						);
 
-						} else {
-							$new = array(
-								'title' => '',
-								'class' => 'panel panel-default'
-								);
-						}
+				} else {
+					$new = array(
+						'title' => '',
+						'class' => 'panel panel-default'
+						);
+				}
 						
 			?> 
 					<div class="<?php echo $new['class']; ?>">
@@ -140,7 +142,7 @@ if (isset($_SESSION['user']))
 							</div>
 					</div>
 					  	<div class="panel-body">
-					  		<p><?= $message->datetime() ?></p>
+					  		<p><?php echo('Sent at ').$date ?></p>
 					  		<p> <?php 
 					  		if (strlen($message->content()) > 50) {
 				  			echo substr($message->content(), 0, 50).'...';
