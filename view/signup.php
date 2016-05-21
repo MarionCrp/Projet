@@ -65,7 +65,7 @@
 					  <fieldset>
    					 <legend><?php echo _('Where do you live ?'); ?></legend>
 						  <div class="form-group">
-							  <label for="country" class="col-sm-2 control-label"> <?php echo _('Country'); ?> </label>
+							  <label for="country" class="col-sm-2 control-label"> <?php echo _('Country'); ?>*</label>
 								  <div class="col-sm-10">
 									  <select name="country" class="countries form-control" id="countryId">
 											<option value="">Select Country</option>
@@ -73,7 +73,7 @@
 								  </div>
 						  </div>
 						  <div class="form-group">
-							  <label for="state" class="col-sm-2 control-label"> <?php echo _('State'); ?> </label>
+							  <label for="state" class="col-sm-2 control-label"> <?php echo _('State'); ?>* </label>
 							  	<div class="col-sm-10">
 										<select name="state" class="states form-control" id="stateId">
 											<option value="">Select State</option>
@@ -94,7 +94,7 @@
 					<fieldset>
    					 <legend><?php echo _('Where are you from ?'); ?></legend>
 	   					 <div class="form-group">
-								  <label for="nationality" class="col-sm-2 control-label"> <?php echo _('Nationality'); ?> </label>
+								  <label for="nationality" class="col-sm-2 control-label"> <?php echo _('Nationality'); ?> *</label>
 									  <div class="col-sm-10">
 										  <select name="nationality" class="form-control" id="nationality">
 												<option value="">Select Country</option>
@@ -107,7 +107,7 @@
 					<fieldset>
 	   					 <legend> <?php echo _('Spoken Language'); ?> </legend>
 	   					 <div class="form-group">
-	   					 	<label class="col-sm-2 control-label">  </label>
+	   					 	<label class="col-sm-2 control-label"> </label>
 		   					 <div class="form-inline col-sm-10">
 								 <div id="tab" >
 									  <div id="to_clone" >

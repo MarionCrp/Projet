@@ -27,10 +27,17 @@ if($user_found) {
 
           <div class="col-md-5">
           <p class="legend"><?php echo _('Languages'); ?> </p>
-            <?php foreach($spokenLanguages as $spokenLanguage){
-              echo '<p>'.$spokenLanguage['language'].'</p>';
-              Form::level_form($spokenLanguage['level']);
+
+            <?php 
+            if($spoken_languages){
+              foreach($spokenLanguages as $spokenLanguage){
+                echo '<p>'.$spokenLanguage['language'].'</p>';
+                Form::level_form($spokenLanguage['level']);
             }
+          } else {
+            echo '<p>'._('No language has been added').'</p>';
+          }
+            
             ?>
           </div>
           </div><!-- en row -->
