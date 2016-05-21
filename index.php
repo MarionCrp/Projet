@@ -28,6 +28,7 @@ include_once('autoload.php');
 		<script src="./assets/js/form.js"></script>
 		<script src="./assets/js/message.js"></script>
 		<link rel="stylesheet" href="assets/css/css/style_2.css"/>
+	<!-- <link rel="stylesheet" href="assets/css/css/style_2.css"/> -->
 		<Title><?php echo _("  Meet An Alien - Index "); ?> </title>
 
 		<!-- Latest compiled and minified CSS -->
