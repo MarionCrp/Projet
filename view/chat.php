@@ -13,6 +13,7 @@
 	</head>
 
 	<body>
+
 	<div class="bloc_chat">
 		<div class="thumbnail"> 
             <div class="panel-default">
@@ -20,6 +21,7 @@
                     <div class="panel-body">
                         
 						<table class="status"><tr>
+						<a href="../index.php"><BUTTON id="retourMenu">Revenir au site principal</BUTTON></a>
 							<td>
 								<span id="statusResponse"></span>
 								<select name="status" id="status" style="width:200px;" onchange="setStatus(this)">
