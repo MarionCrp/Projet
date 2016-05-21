@@ -67,9 +67,9 @@ if($count != 0) {
 	
 	while ($data = $query->fetch())
 	{
-		if($data['online_status'] == 0)	echo '<a href="#post" onclick="insertLogin(\''.$data['name'].'\')" >'.$data['name'].'</a>'.' : absent</br>';
-		else if($data['online_status'] == 1) echo '<a href="#post" onclick="insertLogin(\''.$data['name'].'\')" >'.$data['name'].'</a>'.' : Occup&eacute;</br>';
-		else if($data['online_status'] == 2) echo '<a href="#post" onclick="insertLogin(\''.$data['name'].'\')" >'.$data['name'].'</a>'.' : En ligne</br>';
+		if($data['online_status'] == 0)	echo '<a href="#post" onclick="insertLogin(\''.$data['name'].'\')" >'.$data['name'].'</a>'.' absent</br>';
+		else if($data['online_status'] == 1) echo '<a href="#post" onclick="insertLogin(\''.$data['name'].'\')" >'.$data['name'].'</a>'.' Occup&eacute;</br>';
+		else if($data['online_status'] == 2) echo '<a href="#post" onclick="insertLogin(\''.$data['name'].'\')" >'.$data['name'].'</a>'.' En ligne</br>';
 	}
 	
 }
