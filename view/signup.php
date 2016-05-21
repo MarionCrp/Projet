@@ -68,7 +68,7 @@
 							  <label for="country" class="col-sm-2 control-label"> <?php echo _('Country'); ?>*</label>
 								  <div class="col-sm-10">
 									  <select name="country" class="countries form-control" id="countryId">
-											<option value="">Select Country</option>
+											<option value=""><?php echo _('Select Country'); ?></option>
 									  </select>
 								  </div>
 						  </div>
@@ -76,7 +76,7 @@
 							  <label for="state" class="col-sm-2 control-label"> <?php echo _('State'); ?>* </label>
 							  	<div class="col-sm-10">
 										<select name="state" class="states form-control" id="stateId">
-											<option value="">Select State</option>
+											<option value=""><?php echo _('Select State'); ?></option>
 										</select>
 									</div>
 							</div>
@@ -85,7 +85,7 @@
 								<label for="city" class="col-sm-2 control-label"> <?php echo _('City'); ?>* </label>
 									<div class="col-sm-10">
 										<select name="city" class="cities form-control" id="cityId">
-											<option value="">Select City</option>
+											<option value=""><?php echo _('Select City'); ?> </option>
 										</select>
 									</div>
 							</div>
@@ -97,7 +97,7 @@
 								  <label for="nationality" class="col-sm-2 control-label"> <?php echo _('Nationality'); ?> *</label>
 									  <div class="col-sm-10">
 										  <select name="nationality" class="form-control" id="nationality">
-												<option value="">Select Country</option>
+												<option value=""><?php echo _('Select Country'); ?></option>
 												<?php Form::nationality_form($db) ?>
 										  </select>
 									  </div>

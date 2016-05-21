@@ -103,7 +103,7 @@ class User
 		{
 			$this->_name = $name;
 		}
-		else throw new Exception('the name is too long');
+		else throw new Exception(_('the name is too long'));
 	}
 
 	public function setEmail($email)

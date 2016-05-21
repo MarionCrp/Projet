@@ -27,7 +27,7 @@
 			    		<b><?php echo $user_city_name. '</b> (' .$user_living_country_name.')'; ?>
 			    	</div>
 			    	<hr>
-			    	<p> Nationality : <?= $country_manager->getCountryName($user->nationalityId()); ?> </p>
+			    	<p> <?php echo _('Nationality');  ?> : <?= $country_manager->getCountryName($user->nationalityId()); ?> </p>
 				</div>
 			  	<div class="panel-body">
 			  		<div class="desc">

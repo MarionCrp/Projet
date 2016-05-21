@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2016-05-21 22:12+0200\n"
+"POT-Creation-Date: 2016-05-21 23:13+0200\n"
 "PO-Revision-Date: 2016-04-02 11:52+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -16,6 +16,22 @@ msgstr ""
 "X-Poedit-KeywordsList: _\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-SearchPath-0: .\n"
+
+#: class/CityManager.php:26
+msgid "No country with the id "
+msgstr ""
+
+#: class/CityManager.php:33
+msgid "No City found with this name"
+msgstr ""
+
+#: class/CityManager.php:51
+msgid "No city with the id "
+msgstr ""
+
+#: class/CityManager.php:68
+msgid "No Country Found"
+msgstr ""
 
 #: class/Form.php:29
 msgid " Passwords are different "
@@ -50,8 +66,16 @@ msgstr ""
 msgid "Mother Tong"
 msgstr ""
 
+#: class/MessageManager.php:31
+msgid "Cannot send the message"
+msgstr ""
+
 #: class/MessageManager.php:34
 msgid "Message Sent"
+msgstr ""
+
+#: class/SpokenLanguageManager.php:23
+msgid "This language has already been added"
 msgstr ""
 
 #: class/SpokenLanguageManager.php:32
@@ -62,8 +86,20 @@ msgstr ""
 msgid "A language has been added"
 msgstr ""
 
+#: class/SpokenLanguageManager.php:77
+msgid "Error editing the language level"
+msgstr ""
+
 #: class/SpokenLanguageManager.php:129
 msgid "A language has been deleted"
+msgstr ""
+
+#: class/SpokenLanguageManager.php:130
+msgid "Error deleting a language"
+msgstr ""
+
+#: class/User.php:106
+msgid "the name is too long"
 msgstr ""
 
 #: class/UserManager.php:41
@@ -129,6 +165,10 @@ msgstr ""
 
 #: controller/edit_profile_password_controller.php:65
 msgid "The password has been modified"
+msgstr ""
+
+#: controller/post_to_get.php:4 controller/userlist_controller.php:14
+msgid "Please fill in all the fields"
 msgstr ""
 
 #: controller/profile_controller.php:11
@@ -317,7 +357,7 @@ msgstr ""
 msgid "Country"
 msgstr ""
 
-#: view/edit_profile_localization.php:15
+#: view/edit_profile_localization.php:15 view/signup.php:71 view/signup.php:100
 msgid "Select Country"
 msgstr ""
 
@@ -325,7 +365,7 @@ msgstr ""
 msgid "State"
 msgstr ""
 
-#: view/edit_profile_localization.php:24
+#: view/edit_profile_localization.php:24 view/signup.php:79
 msgid "Select State"
 msgstr ""
 
@@ -333,12 +373,12 @@ msgstr ""
 msgid "City"
 msgstr ""
 
-#: view/edit_profile_localization.php:33
+#: view/edit_profile_localization.php:33 view/signup.php:88
 msgid "Select City"
 msgstr ""
 
 #: view/edit_profile_localization.php:45 view/myprofile.php:17
-#: view/profile.php:17 view/signup.php:97
+#: view/profile.php:17 view/signup.php:97 view/userslist.php:30
 msgid "Nationality"
 msgstr ""
 
@@ -450,7 +490,7 @@ msgstr ""
 msgid "You"
 msgstr ""
 
-#: view/messages.php:31
+#: view/messages.php:31 view/mymessages.php:35
 msgid "Sent at "
 msgstr ""
 

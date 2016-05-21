@@ -26,7 +26,7 @@ include_once('autoload.php');
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 		<script src="./assets/js/location.js"></script>
 		<script src="./assets/js/form.js"></script>
-		<script src="./assets/js/message.js"></script>
+		<!--<script src="./assets/js/message.js"></script>-->
 		<link rel="stylesheet" href="assets/css/css/style_2.css"/>
 		<Title><?php echo _("  Meet An Alien - Index "); ?> </title>
 
@@ -81,9 +81,9 @@ include_once('autoload.php');
 
 				
 			?>
-				<li <?php if (isset($_COOKIE['lang']) AND $_COOKIE['lang'] == "fr_FR") echo 'class="active"'; ?> 
+				<li id="fr" <?php if (isset($_COOKIE['lang']) AND $_COOKIE['lang'] == "fr_FR") echo 'class="langue active"'; ?> 
 				><a href="index.php?page=change_locale&lang=fr_FR"><img src="assets/images/flags/french.png" alt="French" class="flags"  ></a></li>
-				<li <?php if (isset($_COOKIE['lang']) AND $_COOKIE['lang'] == "en_US") echo 'class="active"'; ?> 
+				<li id="en" <?php if (isset($_COOKIE['lang']) AND $_COOKIE['lang'] == "en_US") echo 'class="langue active"'; ?>  
 				><a href="index.php?page=change_locale&lang=en_US"><img src="assets/images/flags/english.png" alt="English" class="flags"></a></li>  
 		   </ul>
 
@@ -96,7 +96,6 @@ include_once('autoload.php');
 
     <div class ="center">
 	    <div class="container">
-	    <?php var_dump($_COOKIE['lang']); ?>
 
 			<!-- ***** INCLUSION DE PAGE ***** -->
 			<!-- les différentes pages appelées par l'utilisateur sont intégrée ici -->
