@@ -222,7 +222,7 @@
 			data: "status="+status.value,
 			success: function(msg){
 				// On affiche la réponse
-				$("#statusResponse").html('<span style="color:green">Le statut a &eacute;t&eacute; mis &agrave; jour</span>');
+				$("#statusResponse").html('<span style="color:white">Le statut a &eacute;t&eacute; mis &agrave; jour</span>');
 				setTimeout(rmResponse, 3000);
 			},
 			error: function(msg){

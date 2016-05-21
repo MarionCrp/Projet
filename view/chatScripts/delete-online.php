@@ -12,7 +12,7 @@ $query = $db->prepare("
 	FROM chat_online
 	WHERE online_user = :user 
 ");
-$query->execute(array(
+$query->execute(array(//on supprimes l'utilisateur de la bdd qd il quitte le chat
 	'user' => $_SESSION['user']->id()
 ));
 
