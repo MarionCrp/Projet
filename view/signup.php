@@ -65,27 +65,27 @@
 					  <fieldset>
    					 <legend><?php echo _('Where do you live ?'); ?></legend>
 						  <div class="form-group">
-							  <label for="country" class="col-sm-2 control-label"> <?php echo _('Country'); ?> </label>
+							  <label for="country" class="col-sm-2 control-label"> <?php echo _('Country'); ?>*</label>
 								  <div class="col-sm-10">
 									  <select name="country" class="countries form-control" id="countryId">
-											<option value="">Select Country</option>
+											<option value=""><?php echo _('Select Country'); ?></option>
 									  </select>
 								  </div>
 						  </div>
 						  <div class="form-group">
-							  <label for="state" class="col-sm-2 control-label"> <?php echo _('State'); ?> </label>
+							  <label for="state" class="col-sm-2 control-label"> <?php echo _('State'); ?>* </label>
 							  	<div class="col-sm-10">
 										<select name="state" class="states form-control" id="stateId">
-											<option value="">Select State</option>
+											<option value=""><?php echo _('Select State'); ?></option>
 										</select>
 									</div>
 							</div>
 
 							<div class="form-group">
-								<label for="city" class="col-sm-2 control-label"> <?php echo _('City'); ?> </label>
+								<label for="city" class="col-sm-2 control-label"> <?php echo _('City'); ?>* </label>
 									<div class="col-sm-10">
 										<select name="city" class="cities form-control" id="cityId">
-											<option value="">Select City</option>
+											<option value=""><?php echo _('Select City'); ?> </option>
 										</select>
 									</div>
 							</div>
@@ -94,10 +94,10 @@
 					<fieldset>
    					 <legend><?php echo _('Where are you from ?'); ?></legend>
 	   					 <div class="form-group">
-								  <label for="nationality" class="col-sm-2 control-label"> <?php echo _('Nationality'); ?> </label>
+								  <label for="nationality" class="col-sm-2 control-label"> <?php echo _('Nationality'); ?> *</label>
 									  <div class="col-sm-10">
 										  <select name="nationality" class="form-control" id="nationality">
-												<option value="">Select Country</option>
+												<option value=""><?php echo _('Select Country'); ?></option>
 												<?php Form::nationality_form($db) ?>
 										  </select>
 									  </div>
@@ -107,7 +107,7 @@
 					<fieldset>
 	   					 <legend> <?php echo _('Spoken Language'); ?> </legend>
 	   					 <div class="form-group">
-	   					 	<label class="col-sm-2 control-label">  </label>
+	   					 	<label class="col-sm-2 control-label"> </label>
 		   					 <div class="form-inline col-sm-10">
 								 <div id="tab" >
 									  <div id="to_clone" >

@@ -20,7 +20,7 @@ class SpokenLanguageManager extends Manager
 			'languageid' => $language_id
 			));
 
-		if (!$q) throw new Exception('Cette langue a déjà été ajoutée dans vos contacts');
+		if (!$q) throw new Exception(_('This language has already been added'));
 
 		$q = $this->_db->prepare('INSERT INTO spoken_languages VALUES (:userid, :languageid, :levelid);');
 		$q->execute(array(
@@ -74,7 +74,7 @@ class SpokenLanguageManager extends Manager
 					'levelid' => $level_id
 					));
 
-				if (!$q)  throw new Exception('Error editing the language level');
+				if (!$q)  throw new Exception(_('Error editing the language level'));
 				
 			} else {
 			// 	Sinon, on ajoute une nouvelle entrée à la base
@@ -127,7 +127,7 @@ class SpokenLanguageManager extends Manager
 			));
 
 		if ($q) echo ('<p style="color:green;">' ._('A language has been deleted').  '</p>');
-				else throw new Exception('Error deleting a language');
+				else throw new Exception(_('Error deleting a language'));
 
 	}
 

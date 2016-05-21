@@ -11,6 +11,7 @@ if(!$user_manager->exists($user_id, 'id')){
 	$title = _($user->name().'\'s Profile');
 	
 	$spoken_languages = $spoken_language_manager->getUsersLanguages($user->id());
+	if($spoken_languages){
 		foreach($spoken_languages as $spoken_language) {
 			$level = $level_manager->getLevel($spoken_language->levelId());
 			$language = $language_manager->getLanguage($spoken_language->Languageid())->name();
@@ -19,4 +20,8 @@ if(!$user_manager->exists($user_id, 'id')){
 				'level' => $level
 				);
 		}
+	} else {
+		echo '<p>'._('No language has been added').'</p>';
+	}
+		
 }

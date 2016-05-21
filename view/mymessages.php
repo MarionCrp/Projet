@@ -32,7 +32,7 @@
 						</div>
 				</div>
 			  	<div class="panel-body">
-			  		<p><?php echo('Sent at ').$date ?></p>
+			  		<p><?php echo _('Sent at ').$date ?></p>
 			  		<p> <?php 
 			  		if (strlen($message->content()) > 50) {
 		  			echo substr($message->content(), 0, 50).'...';
