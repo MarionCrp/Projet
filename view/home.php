@@ -27,12 +27,6 @@
 				   <?php echo _('Living in'); ?> <input type="text" class="form-control" name="cityName" id="cityName" placeholder="<?php echo _("Enter your City") ;?> ">
 				  </div>
 
-				  <!-- <div class="form-group">
-				    <div class="input-group">
-				      <div class="input-group-addon"><?php echo _("I want to meet someone speaking "); ?></div>
-				    </div>
-				  </div> -->
-
 				  <div class="form-group"> 
 				  <?php echo _('Speaking'); ?>
 						<select class="form-control" name="languageId">
@@ -67,7 +61,7 @@
 					   if ($new_messages_nb > 0) {
 					    echo '<li role="presentation" class="active success clic-messages"><a role="menuitem" tabindex="-1" href="index.php?page=home&section=mymessages" ><span class="badge">'.$new_messages_nb.'</span><span class="glyphicon glyphicon-envelope" ></span>'._(' My Messages ').'</a></li>';
 					   } else {
-					    echo '<li role="presentation" class="clic-messages"><a "role="menuitem" tabindex="-1" href="index.php?page=home&section=mymessages"><span class="glyphicon glyphicon-envelope"></span>'._(' My Messages ').'</a></li>';
+					    echo '<li role="presentation" class="clic-messages"><a role="menuitem" tabindex="-1" href="index.php?page=home&section=mymessages"><span class="glyphicon glyphicon-envelope"></span>'._(' My Messages ').'</a></li>';
 					   }
 
 					   ?>
@@ -86,22 +80,20 @@
 				  <!-- INCLUSION DES SECTIONS (SOUS-PAGES) -->
 
 				  <div class="col-md-9">
-
-
-
 				  <?php if(isset($_GET['section'])) 
 						{
-							$section = $_GET['section'];
+							$section = htmlspecialchars($_GET['section']);
+							
+							if(!file_exists('view/'.$section.'.php')){
+								$section = '404';
+							}
 						}
-
 						else 
 						{
 							$section = 'userslist';
 						}
-
 						include ($section.'.php');
-
-			       ?>
+					     ?>
 				  </div>
 			</div>
 			<!-- FIN inclusion de section en mode CONNECTE -->

@@ -81,24 +81,37 @@ class UserManager extends Manager
 
 		if ($valid->validEmail($data))
 		{
-			$q = $this->_db->query(
+			$q = $this->_db->prepare(
 			'SELECT * FROM User
-			WHERE email = "'.$data.'"') or die(print_r($q->errorInfo()));
+			WHERE email = :email') or die(print_r($q->errorInfo()));
+
+		$q->execute(array(
+			'email' => $data
+			));
 		}
 
 		elseif (is_string($data))
 		{
-			$q = $this->_db->query(
+			$q = $this->_db->prepare(
 			'SELECT * FROM User
-			WHERE name = "'.$data.'"') or die(print_r($q->errorInfo()));
+			WHERE name = :name') or die(print_r($q->errorInfo()));
+
+		$q->execute(array(
+			'name' => $data
+			));
 		}
 
 		else
 		{
 			$data = (int) $data;
-			$q = $this->_db->query(
-				'SELECT * from User
-				WHERE id = '.$data);
+
+			$q = $this->_db->prepare(
+			'SELECT * FROM User
+			WHERE id = :id') or die(print_r($q->errorInfo()));
+
+			$q->execute(array(
+				'id' => $data
+				));
 		}
 
 		$donnees = $q->fetch(PDO::FETCH_ASSOC);
@@ -113,15 +126,6 @@ class UserManager extends Manager
 			//var_dump($password=$q->execute(array($email)));
 			return $password;
 	}	
-
-//$query = $db->prepare('SELECT password FROM `user` WHERE email=?'); // requête SQL
-			//$query->execute(array($_POST['email'])); // paramètres et exécution
-
-
-
-
-
-
 
 	/**
 	* Retourne tous les utilisateur de la table User si pas de paramètre envoyé à la fonction
@@ -183,9 +187,6 @@ class UserManager extends Manager
 		{
 			$users[] = new User($donnees);
 		}
-
-		$users;
-		$total_users;
 
 		return array(
 			'list_per_page' => $users,

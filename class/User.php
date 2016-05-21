@@ -24,7 +24,7 @@ class User
 	* @param $data array différents attributs de l'objet
 	**/
 	public function __construct($datas = array())
-	{
+	{ 
 		$this->hydrate($datas);
 	}
 
