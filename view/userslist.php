@@ -1,7 +1,8 @@
 <!-- AFFICHE DE LA LISTE D'UTILISATEURS INCRITS SUR LE SITE -->
 <?php
 	//include ('/controller/post_to_get.php');
-	include('/controller/userlist_controller.php') ;
+	try {
+		include('/controller/userlist_controller.php') ;
 
 ?>
 <div id="userslist">
@@ -31,19 +32,19 @@
 			  	<div class="panel-body">
 			  		<div class="desc">
 				  		<p> <?php 
-				  			if (strlen($user->description()) > 150) {
-				  			echo substr($user->description(), 0, 150).'... <a href="index.php?page=home&section=profile&id='.$user->id().'">'. _('read more'). '</a>';;
+				  			$user_desc = $user->description();
+				  			if (strlen($user_desc) > 150) {
+				  			echo substr($user_desc, 0, 150).'... <a href="index.php?page=home&section=profile&id='.$user->id().'">'. _('read more'). '</a>';;
+				  			} else if (ctype_space($current_user->description()) OR empty($current_user->description())){
+				  				echo _('No Description');
 				  			} else {
-				  				echo $user->description();
+				  				echo $user_desc;
 				  			}  ?>
 				  		</p>	
 				  	</div>
-				  	<form method="get" action="#">
-				   		<input type="hidden" value="mymessages" name="section">
-				  		<input type="hidden" value=<?= $user->id() ?> name="user_id">
-						<input type="submit" class="btn btn-default navbar-btn" value="<?php echo _('Send a message'); ?>" /><br/>
-						<a href="<?= 'index.php?page=home&section=profile&id='.$user->id(); ?>" class="btn btn-default navbar-btn"><?php echo _('Profile'); ?></a>
-					</form>		   	
+						
+						<a href="<?= 'index.php?page=home&section=profile&id='.$user->id(); ?>" class="btn btn-default navbar-btn"><?php echo _('Profile'); ?></a> <br>
+						<a href="<?= 'index.php?page=home&section=messages&user_id='.$user->id(); ?>" class="btn btn-default"> <?php echo _('Send a message'); ?></a>  	
 			  	</div>
 			</div>
 		  </div>
@@ -70,3 +71,7 @@
 
 
  <!-- FIN affichage de la liste des utilisateurs -->
+
+<?php } catch (Exception $e) {
+		echo '<div class="alert alert-danger" role="alert"> <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> '.$e->getMessage().'</div>';
+	}

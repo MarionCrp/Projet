@@ -1,5 +1,4 @@
 <?php
-
 require('PasswordHash.php'); //  cadre de hachage de mdp portable
 
 /**
@@ -7,6 +6,7 @@ require('PasswordHash.php'); //  cadre de hachage de mdp portable
 **/
 if (isset($_POST['edit_password']))
 {
+
 	// On vérifie que les trois champs relatifs au mot de passe ont bien été saisi
 	if(empty($_POST['current_password'])
 	OR empty($_POST['new_password'])
@@ -17,31 +17,18 @@ if (isset($_POST['edit_password']))
 	else
 	{
 
-		$datas = array (
-			$_POST['current_password'],
-			$_POST['new_password'],
-			$_POST['confirmed_pw']
-			);
-
-		// On sécurise les données mdp entrée par l'utilisateur, et on les hache. 
-		foreach ($datas as $data)
-		{
-			$data = htmlspecialchars($data);
-		}
-
-
-		$current_user = $user_manager->getDatas($datas);
 		$user_email = $current_user->email();
 
 		$hasher = new PasswordHash(8, true); //1er argument : base-2 logarithm of the iteration count used for password stretching
 											// 2eme argument : specifies the use of portable hashes // mieux vaut TRUE pour les password
-
+		
+		// On sécurise les données mdp entrée par l'utilisateur, et on les hache. 
 		$current_password = htmlspecialchars($_POST['current_password']);
 		$new_password = htmlspecialchars($_POST['new_password']);
 		$confirmed_pw = htmlspecialchars($_POST['confirmed_pw']);
 
 		// Just in case the hash isn't found
-			$stored_hash = "*";
+		$stored_hash = "*";
 
 		// Retrieve the hash that you stored earlier
 		$stored_hash = $user_manager->getPassword($user_email);

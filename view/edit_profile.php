@@ -24,7 +24,7 @@
 					include('view/'.$edit);
 				?>
 
-				<a href="index.php?page=home&section=myprofile" type="submit" class="btn btn-default" name="connexion"> <?php echo _('Back to my Profile'); ?></a>
+				<a href="index.php?page=home&section=myprofile" class="btn btn-default"> <?php echo _('Back to my Profile'); ?></a>
 
 		<!-- <form action="" method="post"><input type="submit" value="Supprimer mon compte" name="delete_account"></form> -->
 		 	</div><!-- Form-Panel-Body -->

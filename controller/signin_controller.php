@@ -90,7 +90,7 @@ if (isset($_POST['connexion']))
 				{
 				    //There is no active session
 				    session_start();
-				    var_dump($current_user);
+				    $current_user;
 				    $_SESSION['user'] = $current_user;
 				    
 

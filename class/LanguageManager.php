@@ -18,8 +18,12 @@ class LanguageManager extends Manager
 	**/
 	public function getLanguage($language_id)
 	{
-		$q = $this->_db->query(
-			'SELECT * FROM Languages where id = '.$language_id);
+		$q = $this->_db->prepare(
+			'SELECT * FROM Languages where id = :language');
+		$q->execute(array(
+			'language' => $language_id
+			));
+
 		$datas = $q->fetch(PDO::FETCH_ASSOC);
 		return new Language($datas);
 	}
