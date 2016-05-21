@@ -74,9 +74,15 @@ class MessageManager extends Manager
 	**/
 	public function getMessage($message_id)
 	{
-		$q = $this->_db->query(
-			'SELECT * FROM Message where id = '.$message_id);
+		$q = $this->_db->prepare(
+			'SELECT * FROM Message where id = :message_id');
+
+		$q->execute(array(
+			'message_id' => $message_id
+			));
+
 		$datas = $q->fetch(PDO::FETCH_ASSOC);
+
 		return new Message($datas);
 	}
 
@@ -108,19 +114,7 @@ class MessageManager extends Manager
 		return $discussion;
 	}
 
-	/**
-	* Compte le nombre de messages non lus de notre utilisateur
-	* @param $current_user Notre utilisateur
-	* @return int le nombre de messages non lus
-	**/
-	public function countUnreadMessages($current_user) 
-	{
-		$current_user_id = $current_user->id();
-		return $this->_db->query('SELECT COUNT(*) from Message, User 
-			where message.recipient_id = user.id 
-			and recipient_id = '.$current_user_id)->fetchColumn();
-	}
-
+	
 	/**
 	* Récupère le nom de l'auteur d'un message suivant son id utilisateur
 	* @param $message Message - Message dont on récupère l'auteur (attribut "author_id")
@@ -129,10 +123,15 @@ class MessageManager extends Manager
 	public function getAuthor(Message $message) 
 	{
 		$message_id = $message->id();
-		$q = $this->_db->query(
+
+		$q = $this->_db->prepare(
 			'SELECT name FROM User, Message
 			WHERE user.id = message.author_id 
-			and message.id = '.$message_id) or die(print_r($q->errorInfo()));
+			and message.id = :message_id') or die(print_r($q->errorInfo()));
+		$q->execute(array(
+			'message_id' => $message_id
+ 			));
+
 		return ($q->fetchColumn());
 	}
 

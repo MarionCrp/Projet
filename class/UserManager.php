@@ -184,9 +184,6 @@ class UserManager extends Manager
 			$users[] = new User($donnees);
 		}
 
-		$users;
-		$total_users;
-
 		return array(
 			'list_per_page' => $users,
 			'total_found' => $total_users

@@ -12,6 +12,7 @@ class Form
 		{
 			return 0;
 		}
+		
 		else 
 			return 1;
 	}
