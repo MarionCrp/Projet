@@ -36,11 +36,12 @@ include('./controller/profile_controller.php'); ?>
         </div>
         </div><!-- en row -->
        <?php  ?>
-       <form method="get" action="#">
+       <!-- <form method="get" action="#">
           <input type="hidden" value="mymessages" name="section">
           <input type="hidden" value=<?= $user->id() ?> name="user_id">
           <input type="submit" class="btn btn-default navbar-btn" value="<?php echo _('Send a message'); ?>" /><br/>
-       </form>   
+       </form>   --> 
+       <a href="<?= 'index.php?page=home&section=messages&user_id='.$user->id(); ?>" class="btn btn-default"> <?php echo _('Send a message'); ?></a>
       
       <?php } else {
         echo _('User not found');

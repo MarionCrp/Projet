@@ -41,12 +41,9 @@
 				  			}  ?>
 				  		</p>	
 				  	</div>
-				  	<form method="get" action="#">
-				   		<input type="hidden" value="mymessages" name="section">
-				  		<input type="hidden" value=<?= $user->id() ?> name="user_id">
-						<input type="submit" class="btn btn-default navbar-btn" value="<?php echo _('Send a message'); ?>" /><br/>
-						<a href="<?= 'index.php?page=home&section=profile&id='.$user->id(); ?>" class="btn btn-default navbar-btn"><?php echo _('Profile'); ?></a>
-					</form>		   	
+						
+						<a href="<?= 'index.php?page=home&section=profile&id='.$user->id(); ?>" class="btn btn-default navbar-btn"><?php echo _('Profile'); ?></a> <br>
+						<a href="<?= 'index.php?page=home&section=messages&user_id='.$user->id(); ?>" class="btn btn-default"> <?php echo _('Send a message'); ?></a>  	
 			  	</div>
 			</div>
 		  </div>

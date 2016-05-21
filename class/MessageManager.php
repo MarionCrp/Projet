@@ -52,7 +52,7 @@ class MessageManager extends Manager
 			FROM message 
 			WHERE recipient_id = :recipient_id
 				GROUP BY (author_id)
-				ORDER BY datetime');
+				ORDER BY is_read, datetime desc');
 
 		$q->execute(array(
 			'recipient_id' => $current_user->id()
