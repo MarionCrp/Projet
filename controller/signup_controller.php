@@ -1,5 +1,7 @@
 <?php  
 
+require("PasswordHash.php"); //  cadre de hachage de mot de passe portable
+
 /*******************************************
 * Controleur relatif à la page d'inscription
 ********************************************/
@@ -53,21 +55,30 @@ if (isset($_POST['create_account']))
 		}
 
 		/**
-		* Hachage des mots de passe
+		* reçus depuis le formulaire 
 		**/
-		$password = sha1($_POST['password']);
-		$confirmed_pw = sha1($_POST['confirmed_pw']);
+		$password = $_POST['password'];
+		$confirmed_pw = $_POST['confirmed_pw'];
+
 
 		/**
 		* Si les mots de passe sont identiques
 		**/
 		if ($form->validPassword($password, $confirmed_pw))
 		{
+
+			//FONCTION DE HACHAGE
+			$hasher = new PasswordHash(8, true); //1er argument : base-2 logarithm of the iteration count used for password stretching
+												// 2eme argument : specifies the use of portable hashes // mieux vaut TRUE pour les password
+				
+			//C'EST ICI QU'ON HASH LE MOT DE PASSE
+			$hash = $hasher->HashPassword($password); //fonction HashPassword incluse dans PasswordHash.php
+
 			/*Instanciation d'un utilisateur*/
 			$current_user = new User(array(
 				'name' => $_POST['name'],
 				'email' => $_POST['email'],
-				'password' => $password,
+				'password' => $hash,
 				'gender' => $_POST['gender'],
 				'description' => $_POST['description'],
 				'nationalityId' => $_POST['nationality'],
