@@ -164,6 +164,11 @@ legend {
   flex-direction: column;
 }
 
+.legend {
+  font-size: 1.5em;
+  border-bottom: solid #C0C0C0 1px;
+}
+
 /* MESSAGES */
 
 .message-title {
@@ -173,4 +178,14 @@ legend {
 
 .new {
   font-weight: bold;
+}
+
+/* Pages d'erreur */
+
+.error {
+  text-align: center;
+}
+
+.error p {
+  color:red;
 }
