@@ -28,20 +28,6 @@ if (isset($_POST['connexion']))
 	**/
 	else 
 	{
-		$datas = array (
-			$_POST['email'],
-			$_POST['password']
-		);
-
-		/**
-		* Sécurisation des données entrées via le formulaire
-		**/
-		foreach ($datas as $data)
-		{
-			$data = htmlspecialchars($data);
-		}
-
-
 		$password = htmlspecialchars($_POST['password']);
 		$connexion_email = htmlspecialchars($_POST['email']);
 
@@ -65,7 +51,7 @@ if (isset($_POST['connexion']))
 			$stored_hash = "*";
 
 			// Retrieve the hash that you stored earlier
-			$stored_hash = $user_manager->getPassword($connexion_email);
+			$stored_hash = $current_user->password();
 
 
 

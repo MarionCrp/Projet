@@ -17,7 +17,7 @@ if (isset($_POST['edit_password']))
 	else
 	{
 
-		$user_email = $current_user->email();
+		
 
 		$hasher = new PasswordHash(8, true); //1er argument : base-2 logarithm of the iteration count used for password stretching
 											// 2eme argument : specifies the use of portable hashes // mieux vaut TRUE pour les password
@@ -31,8 +31,7 @@ if (isset($_POST['edit_password']))
 		$stored_hash = "*";
 
 		// Retrieve the hash that you stored earlier
-		$stored_hash = $user_manager->getPassword($user_email);
-
+		$stored_hash = $current_user->password();
 
 
 		// Check that the password is correct, returns a boolean
