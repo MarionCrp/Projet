@@ -4,9 +4,11 @@ include('./controller/profile_controller.php');
 
 if($user_found) {
 ?>   
+
+
   <div class="panel panel-default">
     <div class="panel-heading">
-      <h3 class="panel-title"><?php echo _($title) ?></h3>
+      <h3 class="panel-title"><?php echo $title ?></h3>
     </div>
     <div class="panel-body">
           <div class="row">
@@ -17,10 +19,10 @@ if($user_found) {
   	      	<p><b> <?php echo _('Nationality'); ?></b> : <?= $country_manager->getCountryName($user->nationalityId()); ?> </p>
   	      	<p class="legend"> <?php echo _('Description'); ?> : </p>
               <p><?php
-                if(ctype_space($current_user->description()) OR empty($current_user->description())){
+                if(ctype_space($user->description()) OR empty($user->description())){
                     echo _('No Description');
                 } else {
-                    echo $current_user->description();
+                    echo $user->description();
                 } ?>
                </p>
             </div>

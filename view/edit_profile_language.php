@@ -1,6 +1,8 @@
 <?php
 include('./controller/edit_profile_language_controller.php');
+
 ?>
+<script src="./assets/js/form.js"></script>
 
 <form action="#" method="post" class="form-horizontal">
 	<fieldset>

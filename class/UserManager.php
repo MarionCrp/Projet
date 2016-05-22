@@ -143,7 +143,7 @@ class UserManager extends Manager
 			$total_users = self::count() - 1;
 			$q = $this->_db->prepare('SELECT * FROM User 
 										WHERE id != :current_user_id 
-											ORDER BY id LIMIT :first, :per_page');
+											ORDER BY id desc LIMIT :first, :per_page');
 			$q->bindParam('current_user_id', $current_user_id, PDO::PARAM_INT);
 			$q->bindParam('first', $first_profile, PDO::PARAM_INT);
 			$q->bindParam('per_page', $per_page, PDO::PARAM_INT);

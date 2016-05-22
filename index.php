@@ -25,7 +25,7 @@ include_once('autoload.php');
 		<script src="//code.jquery.com/jquery-1.12.0.min.js"></script> <!-- Pour le menu déroulant notamment -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 		<script src="./assets/js/location.js"></script>
-		<script src="./assets/js/form.js"></script>
+		
 		<!--<script src="./assets/js/message.js"></script>-->
 		<link rel="stylesheet" href="assets/css/css/style_2.css"/>
 	<!-- <link rel="stylesheet" href="assets/css/css/style_2.css"/> -->

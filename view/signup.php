@@ -1,7 +1,7 @@
 
 <!-- Inclusion du controleur relatif à l'inscription' -->
 <?php include('controller/signup_controller.php') ?>
-
+<script src="./assets/js/form.js"></script>
 	<!-- FORMULAIRE D'INSCRIPTION -->
 
 	<div class="row">
@@ -15,7 +15,7 @@
 		  
 		 	<div class="panel-body">
 		 		<p style="color:red;"> * <?php echo _('Required fields'); ?> </p>
-		 		<?php if(isset($error)) echo $error; ?>
+		 		<?php if(isset($error)) echo '<div class="alert alert-danger" role="alert">'.$error.'</div>'; ?>
 			 	<form  action="#" method="post" class="form-horizontal" role="form">
 					  <div class="form-group">
 						<label for="name" class="col-sm-2 control-label"><?php echo _('Name'); ?> *</label>
