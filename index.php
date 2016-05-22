@@ -22,7 +22,7 @@ include_once('autoload.php');
 		<meta charset="utf-8"/>
 		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
 		<link rel="stylesheet" href="./assets/css/css/bootstrap.css"/>
-		<link rel="stylesheet" href="./assets/css/js/bootstrap.js"/>
+		<link  rel="stylesheet" href="./assets/css/js/bootstrap.js"/>
 		<script src="//code.jquery.com/jquery-1.12.0.min.js"></script> <!-- Pour le menu déroulant notamment -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 		<script src="./assets/js/location.js"></script>
