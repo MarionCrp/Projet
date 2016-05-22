@@ -63,7 +63,7 @@
 			<?php   if ($new_messages_nb > 0) { ?>
 					    <li role="presentation" class="active success clic-messages"><a role="menuitem" tabindex="-1" href="index.php?page=home&section=mymessages" ><span class="badge"><?= $new_messages_nb ?></span><span class="glyphicon glyphicon-envelope" ></span> <?= _(' My Messages '); ?></a></li>
 			<?php  } else { ?>
-					   <li role="presentation" class="clic-messages"><a role="menuitem" tabindex="-1" href="index.php?page=home&section=mymessages"><span class="glyphicon glyphicon-envelope"></span>'<?= _(' My Messages '); ?></a></li>
+					   <li role="presentation" class="clic-messages"><a role="menuitem" tabindex="-1" href="index.php?page=home&section=mymessages"><span class="glyphicon glyphicon-envelope"></span><?= _(' My Messages '); ?></a></li>
 			<?php  }  ?>
 					    <li role="presentation"><a role="menuitem" tabindex="-1" href="index.php?page=home&section=userslist"><span class="glyphicon glyphicon-globe"></span><?php echo _(' People '); ?></a></li>
 					 	<li role="presentation"><a role="menuitem" tabindex="-1" href="view/chat.php" onclick="setStatus('En ligne')"><span class="glyphicon glyphicon-comment"></span><?php echo _(' Chatting Room '); ?></a></li>
