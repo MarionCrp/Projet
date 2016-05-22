@@ -8,7 +8,7 @@ if(!$user_manager->exists($user_id, 'id')){
 } else {
 	$user_found = true;
 	$user = $user_manager->getDatas($user_id);
-	$title = _($user->name().'\'s Profile');
+	$title = $user->name();
 	
 	$spoken_languages = $spoken_language_manager->getUsersLanguages($user->id());
 	if($spoken_languages){
