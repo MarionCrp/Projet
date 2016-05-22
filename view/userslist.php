@@ -35,7 +35,7 @@
 				  			$user_desc = $user->description();
 				  			if (strlen($user_desc) > 150) {
 				  			echo substr($user_desc, 0, 150).'... <a href="index.php?page=home&section=profile&id='.$user->id().'">'. _('read more'). '</a>';;
-				  			} else if (ctype_space($current_user->description()) OR empty($current_user->description())){
+				  			} else if (ctype_space($user_desc) OR empty($user_desc)){
 				  				echo _('No Description');
 				  			} else {
 				  				echo $user_desc;
