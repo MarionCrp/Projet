@@ -33,7 +33,7 @@ CREATE TABLE IF NOT EXISTS `chat_messages` (
   `message_time` bigint(20) NOT NULL,
   `message_text` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   PRIMARY KEY (`message_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=8 ;
 
 -- --------------------------------------------------------
 
@@ -49,7 +49,7 @@ CREATE TABLE IF NOT EXISTS `chat_online` (
   `online_status` enum('0','1','2') CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   `online_time` bigint(21) NOT NULL,
   PRIMARY KEY (`online_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=7 ;
 
 -- --------------------------------------------------------
 
