@@ -36,4 +36,8 @@ if(isset($_SESSION['user']))
 	$current_user = $user_manager->getDatas($id);
 }
 
+if(!isset($_COOKIE['lang'])){
+	$_COOKIE['lang'] == 'en_US';
+}
+
 ?>
