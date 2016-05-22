@@ -29,6 +29,4 @@
 		<!-- <form action="" method="post"><input type="submit" value="Supprimer mon compte" name="delete_account"></form> -->
 		 	</div><!-- Form-Panel-Body -->
 		</div><!-- panel panel-default -->
-	</div> <!-- col-md-6 -->
 	<div class="col-md-3"></div>
-</div> <!-- row

@@ -1,4 +1,10 @@
 	<?php
+	
+	
+		
+	/* L'UTILISATEUR EST CONNECTE :
+	 on affiche les fonctionnalités utilisateurs (menu déroulant
+	 											 + section (sous-page) appellée (section par défaut = la liste des utilisateurs inscrits) */
 												  
 
 		if (isset($_SESSION['user'])) 
@@ -6,7 +12,9 @@
 			$new_messages_nb = $message_manager->stillMessagesToRead($current_user);
 
 			?>
+				   		<!-- ***** BANDEAU DE RECHERCHE D'UTILISATEURS ***** -->
 
+	    	<!-- <div id="zone_opacity"> 	 -->
 
 	    	<div class="panel panel-default research">
 			  <div class="panel-heading">
@@ -33,11 +41,13 @@
 			</div>
 
 
+		<!-- / FIN bandeau de recherche utilisateur -->
+
 
 			<div class="row">
 
-
-				<div class="col-md-3">
+			<!-- MENU -->
+				<div class="col-md-3"><!-- Large button group -->
 					<div class="btn-group">
 					
 			<?php	if ($new_messages_nb > 0) { ?>
@@ -53,14 +63,17 @@
 			<?php   if ($new_messages_nb > 0) { ?>
 					    <li role="presentation" class="active success clic-messages"><a role="menuitem" tabindex="-1" href="index.php?page=home&section=mymessages" ><span class="badge"><?= $new_messages_nb ?></span><span class="glyphicon glyphicon-envelope" ></span> <?= _(' My Messages '); ?></a></li>
 			<?php  } else { ?>
-					   <li role="presentation" class="clic-messages"><a role="menuitem" tabindex="-1" href="index.php?page=home&section=mymessages"><span class="glyphicon glyphicon-envelope"></span>'<?= _(' My Messages '); ?></a></li>
+					   <li role="presentation" class="clic-messages"><a role="menuitem" tabindex="-1" href="index.php?page=home&section=mymessages"><span class="glyphicon glyphicon-envelope"></span><?= _(' My Messages '); ?></a></li>
 			<?php  }  ?>
 					    <li role="presentation"><a role="menuitem" tabindex="-1" href="index.php?page=home&section=userslist"><span class="glyphicon glyphicon-globe"></span><?php echo _(' People '); ?></a></li>
 					 	<li role="presentation"><a role="menuitem" tabindex="-1" href="view/chat.php" onclick="setStatus('En ligne')"><span class="glyphicon glyphicon-comment"></span><?php echo _(' Chatting Room '); ?></a></li>
 					  </ul>
 					</div>
 				</div>
+			<!-- / FIN MENU -->
 
+
+			<!-- INCLUSION DES SECTIONS (SOUS-PAGES) -->
 
 				  <div class="col-md-9">
 				  <?php if(isset($_GET['section'])) 
@@ -80,12 +93,14 @@
 				  </div>
 			</div>
 			
+			<!-- FIN inclusion de section en mode CONNECTE -->
 
 
 			
 			<?php } else { ?>
 
-			
+			<!-- AFFICHAGE DE LA PRESENTTION DU SITE LORSQU'UN VISITEUR N'EST PAS CONNECTE -->
+
 
 				<div class="jumbotron deconnected">
 						<p> 
@@ -115,4 +130,6 @@
 
 				</div>
 			
-			<?php } 
+			<?php } ?>
+
+			<!-- FIN inclusion préentation du site en mode DECCONECTE -->
