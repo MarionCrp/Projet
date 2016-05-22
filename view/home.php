@@ -43,41 +43,37 @@
 
 		<!-- / FIN bandeau de recherche utilisateur -->
 
+
 			<div class="row">
+
+			<!-- MENU -->
 				<div class="col-md-3"><!-- Large button group -->
 					<div class="btn-group">
-					<?php
-					if ($new_messages_nb > 0) {
-						echo '<button class="btn btn-info btn-lg dropdown-toggle" type="button" data-toggle="dropdown"><span class="glyphicon glyphicon-envelope"></span>';
-					} else {
-						echo '<button class="btn btn-default btn-lg dropdown-toggle" type="button" data-toggle="dropdown"><span class="glyphicon glyphicon-align-justify"></span>';
-					}
-					?>
+					
+			<?php	if ($new_messages_nb > 0) { ?>
+						<button class="btn btn-info btn-lg dropdown-toggle" type="button" data-toggle="dropdown"><span class="glyphicon glyphicon-envelope"></span>	
+			<?php  } else {  ?>
+						<button class="btn btn-default btn-lg dropdown-toggle" type="button" data-toggle="dropdown"><span class="glyphicon glyphicon-align-justify"></span>
+			<?php  } ?>
 					    Menu 
 					  </button>
 					  <ul class="dropdown-menu" role="menu">
 					    <li role="presentation"><a role="menuitem" tabindex="-1" href="index.php?page=home&section=myprofile"><span class="glyphicon glyphicon-user"></span><?php echo _(' My Profile '); ?></a></li>
-					 <?php
-					   if ($new_messages_nb > 0) {
-					    echo '<li role="presentation" class="active success clic-messages"><a role="menuitem" tabindex="-1" href="index.php?page=home&section=mymessages" ><span class="badge">'.$new_messages_nb.'</span><span class="glyphicon glyphicon-envelope" ></span>'._(' My Messages ').'</a></li>';
-					   } else {
-					    echo '<li role="presentation" class="clic-messages"><a role="menuitem" tabindex="-1" href="index.php?page=home&section=mymessages"><span class="glyphicon glyphicon-envelope"></span>'._(' My Messages ').'</a></li>';
-					   }
-
-					   ?>
+			
+			<?php   if ($new_messages_nb > 0) { ?>
+					    <li role="presentation" class="active success clic-messages"><a role="menuitem" tabindex="-1" href="index.php?page=home&section=mymessages" ><span class="badge"><?= $new_messages_nb ?></span><span class="glyphicon glyphicon-envelope" ></span> <?= _(' My Messages '); ?></a></li>
+			<?php  } else { ?>
+					   <li role="presentation" class="clic-messages"><a role="menuitem" tabindex="-1" href="index.php?page=home&section=mymessages"><span class="glyphicon glyphicon-envelope"></span>'<?= _(' My Messages '); ?></a></li>
+			<?php  }  ?>
 					    <li role="presentation"><a role="menuitem" tabindex="-1" href="index.php?page=home&section=userslist"><span class="glyphicon glyphicon-globe"></span><?php echo _(' People '); ?></a></li>
-					 	<li role="presentation"><a role="menuitem" tabindex="-1" href="view/chat.php" onclick="setStatus('En ligne')"><span class="glyphicon glyphicon-comment"></span><?php echo _(' Chatting Room '); ?></a></li>					  
-					 	<!--<li role="presentation"><a role="menuitem" tabindex="-1" href="index.php?page=home&section=chat"><span class="glyphicon glyphicon-comment"></span><?php echo _(' Chatting Room '); ?></a></li>					  
-						-->
+					 	<li role="presentation"><a role="menuitem" tabindex="-1" href="view/chat.php" onclick="setStatus('En ligne')"><span class="glyphicon glyphicon-comment"></span><?php echo _(' Chatting Room '); ?></a></li>
 					  </ul>
 					</div>
 				</div>
+			<!-- / FIN MENU -->
 
 
-
-
-
-				  <!-- INCLUSION DES SECTIONS (SOUS-PAGES) -->
+			<!-- INCLUSION DES SECTIONS (SOUS-PAGES) -->
 
 				  <div class="col-md-9">
 				  <?php if(isset($_GET['section'])) 
@@ -96,6 +92,7 @@
 					     ?>
 				  </div>
 			</div>
+			
 			<!-- FIN inclusion de section en mode CONNECTE -->
 
 

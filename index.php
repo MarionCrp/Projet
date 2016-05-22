@@ -1,7 +1,7 @@
 <?php 
 try {
 
-include_once('main_load/autoload.php');
+include_once('autoload.php');
 
 } catch (Exception $e) {
 
