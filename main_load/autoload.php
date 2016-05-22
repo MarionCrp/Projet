@@ -7,18 +7,18 @@
 /**
 * Chargement des classes
 **/ 
-require 'class/Autoloader.php';
+require './class/Autoloader.php';
 Autoloader::register();
 
 /**
 * Connexion base de données
 **/ 
-require 'controller/db_connexion.php';
+require 'db_connexion.php';
 
 /**
 * Création de différentes instances de travail
 **/
-require 'controller/object_manager.php';
+require 'object_manager.php';
 
 /**
 * Chargement du multilingue
