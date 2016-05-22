@@ -49,20 +49,20 @@ include('controller/send_message_controller.php');
 	<div class="panel panel-default">
 	 	<div class="panel-heading">
 	  			<h3 class="panel-title">
-					 <p> <?php echo _('Send a Message'); ?> </p>
+					 <?php echo _('Send a Message'); ?>
 				</h3>
 		</div>
 	  	<div class="panel-body">
 	  	<?php if($posts == null){
 				 echo _('You have not talk yet to '); 
 	 			 echo $alien->name().'. ';
-	 			 echo _(' Make the first step!');
+	 			 echo _(' Make the first step !');
 	  	}
 
 	  	?>
-		 	<form  action="" method="post" class="form-horizontal" role="form">
+		 	<form  action="#" method="post" class="form-horizontal">
 				<div class="form-group">
-			 	   <label for="message" class="col-sm-1 control-label"></label>
+			 	   <label class="col-sm-1 control-label"></label>
 
 				    <div class="col-sm-10">
 				        <input type="hidden" name="current_user_id" value=<?= $current_user_id ?> />
