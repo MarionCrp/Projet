@@ -1,4 +1,5 @@
-<?php 
+<?php
+Header("Content-Type: application/x-javascript; charset=UTF-8"); 
 try {
 
 include_once('autoload.php');
