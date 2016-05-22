@@ -1,10 +1,4 @@
 	<?php
-	
-	
-		
-	/* L'UTILISATEUR EST CONNECTE :
-	 on affiche les fonctionnalités utilisateurs (menu déroulant
-	 											 + section (sous-page) appellée (section par défaut = la liste des utilisateurs inscrits) */
 												  
 
 		if (isset($_SESSION['user'])) 
@@ -12,9 +6,7 @@
 			$new_messages_nb = $message_manager->stillMessagesToRead($current_user);
 
 			?>
-				   		<!-- ***** BANDEAU DE RECHERCHE D'UTILISATEURS ***** -->
 
-	    	<!-- <div id="zone_opacity"> 	 -->
 
 	    	<div class="panel panel-default research">
 			  <div class="panel-heading">
@@ -41,13 +33,11 @@
 			</div>
 
 
-		<!-- / FIN bandeau de recherche utilisateur -->
-
 
 			<div class="row">
 
-			<!-- MENU -->
-				<div class="col-md-3"><!-- Large button group -->
+
+				<div class="col-md-3">
 					<div class="btn-group">
 					
 			<?php	if ($new_messages_nb > 0) { ?>
@@ -70,10 +60,7 @@
 					  </ul>
 					</div>
 				</div>
-			<!-- / FIN MENU -->
 
-
-			<!-- INCLUSION DES SECTIONS (SOUS-PAGES) -->
 
 				  <div class="col-md-9">
 				  <?php if(isset($_GET['section'])) 
@@ -93,14 +80,12 @@
 				  </div>
 			</div>
 			
-			<!-- FIN inclusion de section en mode CONNECTE -->
 
 
 			
 			<?php } else { ?>
 
-			<!-- AFFICHAGE DE LA PRESENTTION DU SITE LORSQU'UN VISITEUR N'EST PAS CONNECTE -->
-
+			
 
 				<div class="jumbotron deconnected">
 						<p> 
@@ -130,6 +115,4 @@
 
 				</div>
 			
-			<?php } ?>
-
-			<!-- FIN inclusion préentation du site en mode DECCONECTE -->
+			<?php } 
