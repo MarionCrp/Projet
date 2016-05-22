@@ -7,7 +7,11 @@
 	<form action="#" method="post" class="form-horizontal">
 		<legend><?php echo _("Where do you live ?"); ?></legend>
 		<?php if(isset($error)) echo $error; ?>
-		<p><?php echo _('Are you still living in <b>'.$city_manager->getCityName($current_user->cityId()).'</b> ? If not, edit your current place below filling the form.'); ?></p>
+		<p><?php echo _("Are you still living in ");
+		echo '<b>'.$city_manager->getCityName($current_user->cityId()).' </b> ?';
+		echo _(" If not, edit your current place below filling the form."); ?>
+			
+		</p>
 		  <div class="form-group">
 			  <label for="country" class="col-sm-2 control-label"> <?php echo _('Country'); ?> </label>
 				  <div class="col-sm-10">
@@ -40,7 +44,7 @@
 		<script src="./assets/js/location.js"></script>
 
 	<fieldset>
-		 <legend>Where are you from ?</legend>
+		 <legend><?php echo _('Where are you from ?'); ?></legend>
 			 <div class="form-group">
 				  <label for="nationality" class="col-sm-2 control-label"> <?php echo _('Nationality'); ?> </label>
 					  <div class="col-sm-10">
