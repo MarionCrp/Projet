@@ -237,7 +237,6 @@
 		$("#statusResponse").html('');
 	}
 
-
 	</script>
 </body> 
 </html>

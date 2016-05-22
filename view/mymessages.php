@@ -9,17 +9,19 @@ if (empty($messages)) { ?>
 <?php
 } else {
 		foreach ($messages as $message) {
-		$date = $form->format_date($message->datetime(), $_COOKIE['lang']);
-		if ($message_manager->stillMessagesToRead($current_user, $message->author_id())){
-			$new = array(
-				'title' => _('New'),
-				'class' => 'panel panel-success'
-				);
-		} else {
-			$new = array(
-				'title' => '',
-				'class' => 'panel panel-default'
-				);
+			if(isset($_COOKIE['lang'])) $lang = $_COOKIE['lang'];
+			else $lang = 'en_US';
+			$date = $form->format_date($message->datetime(), $lang);
+			if ($message_manager->stillMessagesToRead($current_user, $message->author_id())){
+				$new = array(
+					'title' => _('New'),
+					'class' => 'panel panel-success'
+					);
+			} else {
+				$new = array(
+					'title' => '',
+					'class' => 'panel panel-default'
+					);
 		}
 ?>
 <div class="<?php echo $new['class']; ?>">

@@ -7,7 +7,9 @@ include('controller/send_message_controller.php');
 			/* AFFICHAGE DES MESSAGES */
 			foreach ($posts as $post) {
 				// Formatage de la date
-				$date = $form->format_date($post->datetime(), $_COOKIE['lang']);
+				if(isset($_COOKIE['lang'])) $lang = $_COOKIE['lang'];
+				else $lang = 'en_US';
+				$date = $form->format_date($post->datetime(), $lang);
 
 				// On vérifie pour chaque poste s'il a déjà été lu par l'utilisateur. 
 				$is_read = $post->is_read();
