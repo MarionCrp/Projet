@@ -43,5 +43,5 @@ if (isset($_POST['delete_account']))
 {
 	$user_manager->delete($current_user);
 	session_destroy();
-	header ('Location: ./index.php');
+	header ('Location: index.php');
 }

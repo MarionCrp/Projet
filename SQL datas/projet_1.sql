@@ -14,7 +14,7 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
+/*!40101 SET NAMES utf8 */;
 
 --
 -- Base de données :  `projet`
@@ -48125,18 +48125,17 @@ INSERT INTO `language_level` (`id`, `name`) VALUES
 DROP TABLE IF EXISTS `message`;
 CREATE TABLE IF NOT EXISTS `message` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `author_id` int(11) NOT NULL,
-  `recipient_id` int(11) NOT NULL,
+  `author_id` int(11) DEFAULT NULL,
+  `recipient_id` int(11) DEFAULT NULL,
   `datetime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `content` text COLLATE utf8_unicode_ci NOT NULL,
   `is_sent` tinyint(1) NOT NULL,
   `is_read` tinyint(1) NOT NULL,
   PRIMARY KEY (`id`),
-  KEY `author` (`author_id`),
-  KEY `recipient` (`recipient_id`),
   KEY `author_id` (`author_id`),
   KEY `recipient_id` (`recipient_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
 
 -- --------------------------------------------------------
 
@@ -50356,6 +50355,7 @@ INSERT INTO `states` (`id`, `name`, `countryId`) VALUES
 (2180, 'Sinoe', 123),
 (2181, 'Ajdabiya', 124);
 INSERT INTO `states` (`id`, `name`, `countryId`) VALUES
+(2182, 'Wadi al Hayaat', 124), 
 (2183, 'Banghazi', 124),
 (2184, 'Darnah', 124),
 (2185, 'Ghadamis', 124),
