@@ -8,11 +8,11 @@
     <div class="row">
       <div class="col-md-7">
         <p class="legend"><?php echo _('My Information'); ?> </p>
-        <b> <?php echo _('Name'); ?> </b>: <?= $current_user->name() ?><img src="assets/images/<?= Form::getGenderIcon($current_user); ?>.png" width=30 alt=<?php echo '"'.$current_user->gender().'"'; ?> /> <br/>
-        <b> <?php echo _('Email Address'); ?></b>: <?= $current_user->email() ?>
+        <p><b> <?php echo _('Name'); ?> </b>: <?= $current_user->name() ?><img src="assets/images/<?= Form::getGenderIcon($current_user); ?>.png" width=30 alt=<?php echo '"'.$current_user->gender().'"'; ?> /></p>
+        <p><b> <?php echo _('Email Address'); ?></b>: <?= $current_user->email() ?></p>
         <p class="legend"><?php echo _('Localization'); ?> </p>
-        <b> <?php echo _('Current City'); ?></b> : <?= $city_manager->getCityName($current_user->cityId()); ?> <br/>
-        <b> <?php echo _('Nationality'); ?></b> : <?= $country_manager->getCountryName($current_user->nationalityId()); ?> <br/>
+        <p><b> <?php echo _('Current City'); ?></b> : <?= $city_manager->getCityName($current_user->cityId()); ?></p>
+        <p><b> <?php echo _('Nationality'); ?></b> : <?= $country_manager->getCountryName($current_user->nationalityId()); ?> </p>
         <p class="legend"> <?php echo _('Description'); ?> : </p> <p>
         <?php
         if(ctype_space($current_user->description()) OR empty($current_user->description())){
