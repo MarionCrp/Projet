@@ -58,12 +58,16 @@ include_once('autoload.php');
 
        
         <div id="navbar" class="collapse navbar-collapse"> 
+          <ul class="nav navbar-nav navbar-left">
+          	<img id="logo" src="assets/images/logo.PNG" alt="logo-meet-an-alien" width="50" />
+          </ul>
           <ul class="nav navbar-nav navbar-right">
 
           <?php
           /* La barre de navigation réagit différemment selon si une session est ouverte ou non */
 
           /* Si l'utilisateur n'est pas connecté, elle affiche les boutons "Connexion" et "Inscription" */
+
          	 if (!isset($_SESSION['user']))
 			{ ?>
 				<li <?php if (isset($_GET['page']) AND $_GET['page'] == "signin") echo 'class="active"'; ?> 
