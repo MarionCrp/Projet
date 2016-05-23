@@ -169,6 +169,10 @@ legend {
   border-bottom: solid #C0C0C0 1px;
 }
 
+.legend p {
+  margin: 5px;
+}
+
 /* MESSAGES */
 
 .message-title {

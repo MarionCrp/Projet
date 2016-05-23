@@ -19,10 +19,16 @@ include('controller/send_message_controller.php');
 			 	<div class="panel-heading">
 			  			<h3 class="panel-title">
 							 <h3><?php 
-									if ($post->author_id() == $current_user->id()) echo _('You');
+									if ($post->author_id() == $current_user->id()){
+										$current_user_message = true;
+										echo _('You');
+										$position_class = "text-right";
+									}
 									else {
+										$current_user_message = false;
 										echo $message_manager->getAuthor($post);
 										$message_manager->setRead($post);
+										$position_class= "";
 									}				
 								?>
 							</h3> 
@@ -30,10 +36,12 @@ include('controller/send_message_controller.php');
 				</div>
 			  	<div class="panel-body">
 				  	<div class="message-title">
-				  		  <?php echo _('Sent at ').$date; 
-				  		  if ($post->is_read()) echo '<p>'._('Read').'</p>'; ?>
+				  		<p class="<?= $position_class ?>"> 
+				  		<?= _('Sent at ').$date; ?> </p>
+				  		<?php  if ($current_user_message && $post->is_read()) echo '<p>'._('Read').'</p>'; ?>
 				  	</div>
-			  		<p> <?= $post->content(); ?> </p>	
+				  	<p class="<?= $position_class; ?>">
+			  		 <?= $post->content(); ?> </p>	
 			  	</div>
 			 </div>
 
