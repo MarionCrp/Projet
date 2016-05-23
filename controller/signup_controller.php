@@ -122,7 +122,10 @@ if (isset($_POST['create_account']))
 				$user_manager->add($current_user);
 
 				foreach (array_combine($_POST['languages_id'], $_POST['levels_id']) as $languageid => $levelid) {
-			    	$spoken_language_manager->addLanguage($current_user->id(), $languageid, $levelid);
+					if ($languageid != ''){
+						$spoken_language_manager->addLanguage($current_user->id(), $languageid, $levelid);	
+					}
+			    	
 				}
 				
 				$_SESSION['user'] = $current_user;
