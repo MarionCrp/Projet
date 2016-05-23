@@ -17,15 +17,16 @@
 			<div class="panel panel-default">
 			 	<div class="panel-heading">
 			  			<h3 class="panel-title">
-							 <h3><?php 
+							 <?php 
 									if ($post->author_id() == $current_user->id()){
 										$current_user_message = true;
-										echo _('You');
 										$position_class = "text-right";
+										echo '<h3 class="text-right">'._('You').'</h3>';
+										
 									}
 									else {
 										$current_user_message = false;
-										echo $message_manager->getAuthor($post);
+										echo '<h3>'.$message_manager->getAuthor($post).'</h3>';
 										$message_manager->setRead($post);
 										$position_class= "";
 									}				
