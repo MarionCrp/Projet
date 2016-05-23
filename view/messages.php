@@ -1,5 +1,4 @@
 <?php include('controller/messages_controller.php');
-include('controller/send_message_controller.php');
 
 	// Si l'utilisateur entré en paramètre existe dans la base de données : 
 	if($user_exists){
@@ -39,6 +38,7 @@ include('controller/send_message_controller.php');
 				  		<p class="<?= $position_class ?>"> 
 				  		<?= _('Sent at ').$date; ?> </p>
 				  		<?php  if ($current_user_message && $post->is_read()) echo '<p>'._('Read').'</p>'; ?>
+				  		
 				  	</div>
 				  	<p class="<?= $position_class; ?>">
 			  		 <?= $post->content(); ?> </p>	
